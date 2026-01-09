@@ -9,6 +9,9 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \pagestyle{fancy}
+\setlength{\headheight}{14.5pt} % Fix fancyhdr warning
+% Custom citep command for biblatex
+\newcommand{\citep}{\parencite}
 \fancyhead[R]{\textbf{Dosage compensation in squid}}
 % for figures
 \usepackage{graphicx}
@@ -16,6 +19,7 @@
 \usepackage{breakcites}
 \usepackage{nameref}
 \usepackage{amsmath}
+\usepackage{xspace}
 
 
 %\usepackage[figuresonly,nolists,nomarkers]{endfloat}
@@ -24,7 +28,7 @@
 \graphicspath{ {./figures/} }
 
 \newcommand{\comment}[1]{{\color{blue} #1}}
-\newcommand{\illex}{\textit{Illex illecebrosus}}
+\newcommand{\illex}{\textit{Illex illecebrosus}\xspace}
 
 % for hyperlinks
 \hypersetup{  
@@ -40,8 +44,8 @@
 \usepackage{soul}
 
 % bibliography
-\usepackage[comma,authoryear,round]{natbib}   % omit 'round' option if you prefer square brackets
-\bibliographystyle{plainnat}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{refs.bib}
 
 %\linenumbers
 \renewcommand*{\bibfont}{\fontsize{10}{12}\selectfont}
@@ -57,7 +61,7 @@
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist 
 
-\title{Z chromosome dosage compensation in the northern shortfin squid, \textit{Illex illecebrosus}}
+\title{Z chromosome dosage compensation in the northern shortfin squid, \illex}
 \author[1, 2]{Scott T. Small}
 \author[1, 2]{Silas Tittes}
 \author[3,4]{Thomas Desvignes}
@@ -103,10 +107,10 @@ compelling group for studying the evolution of sex chromosomes.
 Classical karyotype analyses failed to reveal heteromorphic sex chromosomes in octopuses, squids, or cuttlefish (CITE), 
 leading to hypotheses of environmental or polygenic sex determination. 
 However, recent genomic work has overturned this view. 
-\cite{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides}, females are hemizygous for a large chromosome (chr17), 
+\citep{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides}, females are hemizygous for a large chromosome (chr17), 
 establishing a ZZ/ZO system shared across multiple coleoid lineages. 
 This Z chromosome appears to be conserved across squids, cuttlefish, and octopuses, originating over 480 million years ago in a common ancestor. 
-Complementary findings by \cite{torrado2025nautilus} in \textit{Nautilus pompilius}—which 
+Complementary findings by \citep{torrado2025nautilus} in \textit{Nautilus pompilius}—which 
 possesses an XX/XY system—highlight the evolutionary diversity of sex determination 
 across cephalopods. 
 These discoveries position coleoid cephalopods as one of the few known invertebrate 
@@ -116,7 +120,7 @@ The presence of a ZO/ZZ system in coleoids raises the question of how these anim
 achieve dosage compensation between sexes, 
 particularly in females that carry only one Z chromosome. 
 Until recently, no studies had examined this issue in any cephalopod. 
-\cite{papanicolaou2024z} recently addressed this gap 
+\citep{papanicolaou2024z} recently addressed this gap 
 by analyzing transcriptomes from \textit{Octopus vulgaris} and \textit{O. sinensis}, and found that Z-linked gene expression was partially compensated in females,
 with male-to-female expression ratios averaging ~1.5:1. 
 Moreover, they identified a male-specific long non-coding RNA (\textit{Zmast}) 
@@ -138,6 +142,23 @@ species and provides critical insight into how ancient sex chromosome systems ar
 marine invertebrate lineage.
 
 \section*{Results}
+\subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
+We generated a high-quality chromosome-scale genome assembly for a female \illex individual 
+using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data. 
+The final assembly spanned XX Gb with a contig N50 of XX Mb and scaffold N50 of XX Mb (Table S1). 
+BUSCO analysis indicated XX\% completeness against the metazoan gene set, 
+demonstrating high assembly quality.
+Hi-C scaffolding resolved XX chromosomes, consistent with the known karyotype of \illex (CITE). 
+
+To create a comprehensive gene annotation, we generated RNA-seq data from multiple tissues
+using both Illumina short-read and PacBio Iso-Seq long-read technologies.
+
+Annotation using RNA-seq data from multiple tissues identified XX protein-coding genes, 
+with functional annotation assigned to
+
+
+\subsection*{Identification of the Z chromosome in \illex}
+
 
 
 \begin{figure}[h]
@@ -153,5 +174,5 @@ marine invertebrate lineage.
 
 \section*{Acknowledgements}
 
-\bibliography{refs}
+\printbibliography
 \end{document}
