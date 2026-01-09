@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper,margin=1.0in]{geometry}
+%% Some formatting stuff
+\usepackage{authblk}
+\usepackage{fancyhdr}
+%\usepackage{lineno}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\pagestyle{fancy}
+\fancyhead[R]{\textbf{Dosage compensation in squid}}
+% for figures
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{breakcites}
+\usepackage{nameref}
+\usepackage{amsmath}
+
+
+%\usepackage[figuresonly,nolists,nomarkers]{endfloat}
+%\renewcommand{\processdelayedfloats}{}
+
+\graphicspath{ {./figures/} }
+
+\newcommand{\comment}[1]{{\color{blue} #1}}
+\newcommand{\illex}{\textit{Illex illecebrosus}}
+
+% for hyperlinks
+\hypersetup{  
+    colorlinks=true,
+    citecolor=black,
+    urlcolor=cyan,
+    linkcolor=blue
+    }
+\urlstyle{same}
+
+% for highlighting text
+\usepackage{xcolor}
+\usepackage{soul}
+
+% bibliography
+\usepackage[comma,authoryear,round]{natbib}   % omit 'round' option if you prefer square brackets
+\bibliographystyle{plainnat}
+
+%\linenumbers
+\renewcommand*{\bibfont}{\fontsize{10}{12}\selectfont}
+
+
+\newcommand{\beginsupplement}{%
+    \setcounter{table}{0}
+    \renewcommand{\thetable}{S\arabic{table}}%
+    \setcounter{figure}{0}
+    \renewcommand{\thefigure}{S\arabic{figure}}%
+}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\title{Z chromosome dosage compensation in the northern shortfin squid, \textit{Illex illecebrosus}}
+\author[1, 2]{Scott T. Small}
+\author[1, 2]{Silas Tittes}
+\author[3,4]{Thomas Desvignes}
+\author[1,4]{John H. Postlethwait}
+\author[1, 2]{Andrew D. Kern}
+\affil[1]{\small{University of Oregon, Institute of Ecology and Evolution}}
+\affil[2]{\small{University of Oregon, Department of Biology}}
+\affil[3]{\small{Department of Biology, University of Alabama at Birmingham}}
+\affil[4]{\small{University of Oregon, Institute of Neuroscience}}
+
+\date{\small{\today{}}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+Dosage compensation is the regulatory mechanism by which gene expression between
+individuals with differing numbers of sex chromosomes is equalized. 
+In organisms with heteromorphic sex chromosomes, such as XX/XY or ZZ/ZW systems,
+gene content asymmetries can disrupt dosage-sensitive processes unless expression
+levels are balanced. 
+Multiple lineages have independently evolved mechanisms to address this imbalance. 
+For example, in mammals, one X chromosome is transcriptionally silenced in females via the XIST long non-coding RNA \citep{lyon1961gene, brockdorff2015dosage}; 
+in Drosophila, males upregulate their single X chromosome via the Male-Specific Lethal (MSL) complex \citep{lucchesi2015dosage}; 
+and in Caenorhabditis elegans, hermaphrodites downregulate both X chromosomes by half \citep{meyer2005x}. 
+These strategies ensure dosage parity with the heterogametic sex and preserve essential gene balance during development.
+
+Despite its evolutionary utility, dosage compensation is not ubiquitous or mechanistically uniform. 
+In birds (ZZ/ZW), females often exhibit lower expression of Z-linked genes 
+compared to males, indicating incomplete compensation \citep{mank2009w, itoh2007dosage}.
+Similar patterns are seen in Lepidoptera and some reptiles, 
+where partial or gene-specific compensation suggests that selection for dosage balance 
+is variable across lineages \citep{julien2012mechanisms, gu2017evolution}. 
+The degree of compensation often correlates with the age and extent of degeneration
+of the sex-limited chromosome. 
+These observations imply that dosage compensation may evolve progressively 
+and that partial regulation may suffice in lineages with relatively homomorphic or 
+recently evolved sex chromosomes.
+
+Cephalopods, long thought to lack genetic sex chromosomes, have recently emerged as a 
+compelling group for studying the evolution of sex chromosomes. 
+Classical karyotype analyses failed to reveal heteromorphic sex chromosomes in octopuses, squids, or cuttlefish (CITE), 
+leading to hypotheses of environmental or polygenic sex determination. 
+However, recent genomic work has overturned this view. 
+\cite{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides}, females are hemizygous for a large chromosome (chr17), 
+establishing a ZZ/ZO system shared across multiple coleoid lineages. 
+This Z chromosome appears to be conserved across squids, cuttlefish, and octopuses, originating over 480 million years ago in a common ancestor. 
+Complementary findings by \cite{torrado2025nautilus} in \textit{Nautilus pompilius}—which 
+possesses an XX/XY system—highlight the evolutionary diversity of sex determination 
+across cephalopods. 
+These discoveries position coleoid cephalopods as one of the few known invertebrate 
+groups with deeply conserved sex chromosomes.
+
+The presence of a ZO/ZZ system in coleoids raises the question of how these animals
+achieve dosage compensation between sexes, 
+particularly in females that carry only one Z chromosome. 
+Until recently, no studies had examined this issue in any cephalopod. 
+\cite{papanicolaou2024z} recently addressed this gap 
+by analyzing transcriptomes from \textit{Octopus vulgaris} and \textit{O. sinensis}, and found that Z-linked gene expression was partially compensated in females,
+with male-to-female expression ratios averaging ~1.5:1. 
+Moreover, they identified a male-specific long non-coding RNA (\textit{Zmast}) 
+expressed from the Z chromosome, 
+suggesting a potential regulatory mechanism for dosage modulation. 
+While these results reveal the first evidence of dosage compensation in cephalopods, 
+no comparable studies have been conducted in squids, 
+leaving open fundamental questions about the prevalence, extent, 
+and molecular underpinnings of compensation across the group. 
+Notably, ommastrephid squids such as \illex lack prior genomic or transcriptomic characterization of their sex chromosomes.
+
+In this study, we present a chromosome-scale genome assembly of the northern shortfin squid, 
+\illex, and identify its Z chromosome via comparative genomic coverage and synteny analyses. 
+We integrate sex-stratified transcriptomic data to assess expression differences between males and 
+females for Z-linked genes, and test for evidence of dosage compensation. Finally, we ask if DNA 
+methylation contributes to sex-specific regulation on the Z chromosome. T
+his work represents the first comprehensive analysis of sex chromosome dosage compensation in any squid 
+species and provides critical insight into how ancient sex chromosome systems are regulated in a major 
+marine invertebrate lineage.
+
+\section*{Results}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/cephalopod_tree_phylopics.pdf}
+    \caption{Uncalibrated ultrametic phylogeny of Cephalopods with PhyloPic Silhouettes for each tip, shaded by clade.}
+    \label{fig:phylo}
+\end{figure}
+
+\section*{Discussion}
+
+\section*{Materials and Methods}
+
+\section*{Acknowledgements}
+
+\bibliography{refs}
+\end{document}
