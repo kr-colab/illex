@@ -179,6 +179,60 @@ the Z chromosome has maintained its integrity as a distinct chromosomal unit for
 These syntenic relationships, combined with coverage analysis (Figure 1A) showing reduced female-to-male mapping ratios on chromosome 42,
 confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
+\subsection*{Partial dosage compensation of the Z chromosome}
+
+To assess whether \illex exhibits dosage compensation for Z-linked genes, we analyzed sex-stratified RNA-seq data from multiple tissues.
+We quantified gene expression levels across all chromosomes in both males (ZZ) and females (ZO) (Figure 2).
+Expression levels on autosomes were comparable between sexes, with median log2(TPM+1) values centered around 2.0-2.5 across all autosomal chromosomes.
+In contrast, the Z chromosome showed a distinct pattern: females exhibited systematically lower expression compared to males,
+but the female-to-male ratio was substantially greater than the expected 0.5 ratio for complete absence of compensation (Figure 2A,B).
+
+To quantify the degree of compensation, we calculated male-to-female expression ratios (M:F) for Z-linked genes.
+The median M:F ratio was approximately 1.5:1, indicating partial dosage compensation where female expression reaches ~67\% of male levels rather than the expected 50\% without any compensation.
+Analysis of log2 fold-change distributions confirmed that most Z-linked genes show modest male-biased expression,
+with the bulk of genes clustering around a 0.5 log2 fold-change (Figure 2C).
+These results demonstrate that \illex exhibits incomplete dosage compensation of the Z chromosome,
+similar to patterns observed in octopus species but contrasting with the more complete compensation mechanisms in \textit{Drosophila} and mammals.
+
+\subsection*{DNA methylation patterns on the Z chromosome}
+
+Given the role of epigenetic modifications in gene regulation and dosage compensation in other systems,
+we investigated DNA methylation patterns across the \illex genome.
+We leveraged PacBio HiFi kinetic signatures from male and female individuals to assess CpG methylation levels.
+Genome-wide, we observed a positive correlation between gene expression and methylation levels in both sexes,
+with more highly expressed genes showing elevated methylation (Figure 4A; females: r=0.396, p=2.16e-09; males: r=0.318, p=5.10e-06).
+This pattern is consistent with gene-body methylation associated with active transcription,
+as has been observed in other invertebrates including cephalopods.
+
+When examining sex differences in the relationship between expression and methylation,
+we found no significant correlation between male-female expression differences and corresponding methylation differences across Z-linked genes (Figure 4B; r=-0.010, p=0.046).
+Methylation levels did not differ substantially between expression quartiles (Figure 4B, right panel),
+suggesting that differential DNA methylation is not the primary mechanism driving dosage compensation or sex-biased expression patterns on the Z chromosome.
+These findings indicate that while DNA methylation correlates with transcriptional activity genome-wide,
+it does not appear to play a major regulatory role in modulating Z chromosome dosage between sexes in \illex.
+
+\subsection*{Sex-biased gene expression on the Z chromosome}
+
+To identify genes with significant sex-biased expression on the Z chromosome,
+we performed differential expression analysis of Z-linked genes between males and females.
+We identified 23 genes with significant sex-biased expression (Figure 5, Table 1):
+10 female-biased genes and 13 male-biased genes.
+The majority of sex-biased genes showed modest fold-changes (2-8 fold),
+but several genes exhibited extreme sex bias, including XLOC\_014991U (1,364-fold female-biased) and LOC\_00003730 (1,460-fold male-biased).
+
+Functional annotation of sex-biased genes revealed enrichment for several categories relevant to dosage-sensitive processes.
+Female-biased genes included two Z-linked long non-coding RNAs (lncRNAs),
+including the highly expressed XLOC\_014991U and lncrna-gene-8,
+as well as genes involved in neuronal metabolism (SLC5A1), cytoskeletal regulation (FHDC1, Shroom2),
+and RNA processing (THOC6, MORN3).
+Male-biased genes were enriched for functions in neurotransmission (GABARAP, SLC6A9),
+protein turnover (HECTD1, HERC2), cytoskeletal organization (MTUS2, CEP170B),
+and RNA splicing (Pasilla).
+The presence of highly female-biased lncRNAs on the Z chromosome is particularly intriguing,
+as similar Z-linked lncRNAs (e.g., \textit{Zmast} in octopus) have been proposed as candidate regulators of dosage compensation in cephalopods.
+The functional enrichment of sex-biased genes for dosage-sensitive processes such as metabolism,
+cytoskeletal dynamics, and neurotransmission suggests that incomplete compensation may have phenotypic consequences
+or that individual genes have evolved sex-specific regulatory mechanisms.
 
 \begin{figure}[h]
     \centering
