@@ -8,6 +8,7 @@
 \usepackage{siunitx}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\usepackage{multirow}
 \pagestyle{fancy}
 \setlength{\headheight}{14.5pt} % Fix fancyhdr warning
 % Custom citep command for biblatex
@@ -143,19 +144,29 @@ marine invertebrate lineage.
 
 \section*{Results}
 \subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
-We generated a high-quality chromosome-scale genome assembly for a female \illex individual 
-using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data. 
-The final assembly spanned XX Gb with a contig N50 of XX Mb and scaffold N50 of XX Mb (Table S1). 
-BUSCO analysis indicated XX\% completeness against the metazoan gene set, 
+We generated a high-quality chromosome-scale genome assembly for a female \illex individual
+using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data.
+The final assembly spanned 4.14 Gb with a contig N50 of 34.71 Mb and scaffold N50 of 75.92 Mb (Table S1).
+BUSCO analysis indicated 95.6\% completeness against the metazoan gene set,
 demonstrating high assembly quality.
-Hi-C scaffolding resolved XX chromosomes, consistent with the known karyotype of \illex (CITE). 
+Hi-C scaffolding resolved 46 chromosomes, consistent with the known karyotype of \illex (CITE). 
 
 To create a comprehensive gene annotation, we generated RNA-seq data from multiple tissues
 using both Illumina short-read and PacBio Iso-Seq long-read technologies.
+Annotation using RNA-seq data from multiple tissues identified 23,192 protein-coding genes,
+with a mean intron length of 38 kb.
+BUSCO analysis of the protein set indicated 93.1\% completeness (83.2\% single-copy, 6.7\% duplicated),
+confirming the high quality of the gene annotation.
 
-Annotation using RNA-seq data from multiple tissues identified XX protein-coding genes, 
-with functional annotation assigned to
-
+Repeat annotation revealed that 58.2\% of the \illex genome consists of repetitive elements (Table S2).
+The repeat landscape is dominated by unclassified repeats (28.3\% of the genome),
+followed by LINE elements (12.6\%), DNA transposons (6.3\%), and low-complexity regions (5.1\%).
+Penelope elements, a clade of retrotransposons common in invertebrates, comprised 3.3\% of the genome.
+LTR retrotransposons (2.5\%), SINE elements (1.7\%), and rolling-circle transposons (0.6\%)
+were also identified.
+In total, we annotated 1,889 distinct classifications of unclassified repeats and
+over 7.8 million individual repeat instances across all categories,
+reflecting the complex repetitive architecture typical of cephalopod genomes.
 
 \subsection*{Identification of the Z chromosome in \illex}
 
@@ -173,6 +184,73 @@ with functional annotation assigned to
 \section*{Materials and Methods}
 
 \section*{Acknowledgements}
+
+\clearpage
+\beginsupplement
+
+\begin{table}[h]
+\centering
+\caption{Genome assembly and annotation statistics for \textit{Illex illecebrosus}}
+\label{tab:assembly_stats}
+\begin{tabular}{llr}
+\toprule
+\textbf{Category} & \textbf{Metric} & \textbf{Value} \\
+\midrule
+\multirow{5}{*}{Genome size} & Total assembly length (bp) & 4,143,127,294 \\
+ & Chromosome & 46 \\
+ & Chromosome assembly & 3,468,808,377 \\
+ & Unplaced scaffolds & 3,755 \\
+ & Unplaced scaffolds (Mb) & 674,318,917 \\
+\midrule
+\multirow{4}{*}{Contiguity} & Contig number & 179 \\
+ & Contig N50 (Mb) & 34.71 \\
+ & Scaffold N50 (Mb) & 75.921 \\
+ & Largest scaffold (Mb) & 119.467 \\
+\midrule
+\multirow{4}{*}{Completeness mollusca} & BUSCO complete (\%) & 95.57 \\
+ & BUSCO single-copy (\%) & 93.01 \\
+ & BUSCO duplicated (\%) & 0.48 \\
+ & BUSCO missing (\%) & 2.08 \\
+\midrule
+\multirow{4}{*}{Accuracy} & QV (Merqury) & 36.5 \\
+ & Mapping rate (\%) & 99.7 \\
+ & Split-read rate (\%) & 12.54 \\
+ & Depth & 37.442 \\
+\midrule
+Repetitive content & Repeats (\%) & 58 \\
+\midrule
+\multirow{2}{*}{Annotation} & Protein-coding genes & 23,192 \\
+ & Mean intron length (kb) & 38 \\
+\midrule
+\multirow{4}{*}{Completeness (protein)} & BUSCO complete (\%) & 93.12 \\
+ & BUSCO single-copy (\%) & 83.19 \\
+ & BUSCO duplicated (\%) & 6.65 \\
+ & BUSCO fragmented (\%) & 3.28 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Repeat annotation statistics for the \textit{Illex illecebrosus} genome}
+\label{tab:repeat_stats}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Classification} & \textbf{Coverage (bp)} & \textbf{Count} & \textbf{Proportion} & \textbf{Distinct Classifications} \\
+\midrule
+DNA & 247,981,481 & 779,103 & 0.063 & 242 \\
+LINE & 437,157,312 & 1,188,842 & 0.126 & 230 \\
+LTR & 84,997,764 & 171,363 & 0.025 & 81 \\
+Low-complexity & 176,258,651 & 1,527,910 & 0.051 & 1,726 \\
+Penelope & 113,970,328 & 311,297 & 0.033 & 121 \\
+Rolling-circle & 20,935,150 & 86,259 & 0.006 & 9 \\
+SINE & 59,793,525 & 164,976 & 0.017 & 29 \\
+Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
+\midrule
+\textbf{Total} & & & \textbf{0.582} & \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \printbibliography
 \end{document}
