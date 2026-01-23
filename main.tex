@@ -145,7 +145,7 @@ marine invertebrate lineage.
 \section*{Results}
 \subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
 We generated a high-quality chromosome-scale genome assembly for a female \illex individual
-using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data.
+using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data (Fig. \ref{fig:phylo}A).
 The final assembly spanned 4.14 Gb with a contig N50 of 34.71 Mb and scaffold N50 of 75.92 Mb (Table S1).
 BUSCO analysis indicated 95.6\% completeness against the metazoan gene set,
 demonstrating high assembly quality.
@@ -178,6 +178,18 @@ Despite considerable chromosomal rearrangements, fusions, and fissions across th
 the Z chromosome has maintained its integrity as a distinct chromosomal unit for over 480 million years.
 These syntenic relationships, combined with coverage analysis (Figure 1A) showing reduced female-to-male mapping ratios on chromosome 42,
 confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth, angle=90, origin=c]{figures/fig1.pdf}
+    \caption{A chromosomal-scale genome assembly of \textit{Illex illecebrosus} and identification of the Z chromosome
+    Panel A: ideogram of the \illex genome assembly showing each chromosome along with the Z chromosome. 
+    Shading indicates gene density in 1 Mb windows (darker = higher density).
+    Panel B: uncalibrated ultrametic phylogeny of cephalopods used in this study, with phylopic silhouettes for each tip.
+    Panel C: Riverine plot showing syntenic relationships between \illex and six other cephalopod species.
+    Colors represent chromosomes in each species, with ribbons indicating syntenic blocks.}
+    \label{fig:phylo}
+\end{figure}
 
 \subsection*{Partial dosage compensation of the Z chromosome}
 
@@ -234,16 +246,217 @@ The functional enrichment of sex-biased genes for dosage-sensitive processes suc
 cytoskeletal dynamics, and neurotransmission suggests that incomplete compensation may have phenotypic consequences
 or that individual genes have evolved sex-specific regulatory mechanisms.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/cephalopod_tree_phylopics.pdf}
-    \caption{Uncalibrated ultrametic phylogeny of Cephalopods with PhyloPic Silhouettes for each tip, shaded by clade.}
-    \label{fig:phylo}
-\end{figure}
+\subsection*{Identification of a male-biased lncRNA on the Z chromosome}
+Among the Z-linked transcripts identified in our RNA-seq analysis,
+we noted a long non-coding RNA exhibiting extreme male-biased expression
+far exceeding the 2-fold difference expected from gene dosage alone (log2FC = X.XX, p = X.XX).
+This dramatic sex bias suggested active regulatory mechanisms
+beyond simple copy number effects,
+prompting further investigation.
+Comparative sequence analysis across squid species revealed a ~400 bp region of striking conservation within the lncRNA.
+Secondary structure prediction and covariance analysis demonstrated that this conserved region 
+forms a complex stem-loop architecture with strong covariation support, 
+indicating evolutionary constraint on RNA structure rather than merely primary sequence (Figure Xa). 
+Such conserved structured domains are hallmarks of functional lncRNAs, 
+including those involved in dosage compensation such as Xist in mammals and roX in Drosophila.
+
+\paragraph*{The conserved lncRNA domain contains ELAV/SXL family binding sites}
+To identify potential regulatory proteins interacting with this lncRNA,
+we analyzed the conserved structured region using RBPmap with \textit{Drosophila melanogaster} motifs
+(the closest available reference to cephalopods).
+This analysis revealed a striking enrichment of binding sites
+for the ELAV/SXL family of RNA-binding proteins (Table X).
+The most significant predictions included binding motifs for:
+
+\begin{itemize}
+\item \textbf{ELAV} (Embryonic Lethal Abnormal Vision):
+35 predicted binding sites, with Z-scores up to 3.87 (p $<$ 10$^{-5}$),
+concentrated in two U-rich regions (positions $\sim$115-160 and $\sim$420-437)
+\item \textbf{SXL} (Sex-lethal):
+$\sim$50 predicted binding sites, Z-scores up to 3.98 (p $<$ 10$^{-5}$),
+overlapping extensively with ELAV sites
+\item \textbf{U2AF50}:
+$\sim$60 predicted binding sites, Z-scores up to 3.90 (p $<$ 10$^{-5}$)
+\item \textbf{ARET/Bruno}:
+15 predicted binding sites in a distinct GU-repeat region (positions $\sim$306-325)
+\end{itemize}
+
+The clustering of ELAV and SXL binding predictions is consistent with the known sequence preferences
+of these related RBPs,
+which share RNA Recognition Motif (RRM) domains that recognize U-rich sequences.
+In \textit{Drosophila}, SXL is the master regulator of sex determination and dosage compensation,
+while ELAV family proteins regulate mRNA stability in neurons.
+The concentration of these binding sites within the conserved structured domain
+suggested that protein-RNA interactions may be central to this lncRNA's function.
+
+\paragraph*{Identification of an SXL ortholog with sex-specific isoforms}
+Given the enrichment of SXL/ELAV binding sites in the lncRNA,
+we searched for orthologs of these RNA-binding proteins in \illex.
+DIAMOND BLASTX searches against the \textit{Drosophila} proteome identified two significant hits:
+LOC\_00012231 matching ELAV (E-value = 2.54$\times$10$^{-114}$) on chromosome 12,
+and LOC\_00008146 matching SXL (E-value = 1.81$\times$10$^{-56}$) on chromosome 29.
+Both loci mapped to autosomes rather than the Z chromosome.
+Reciprocal BLAST searches against \textit{Octopus bimaculoides}
+(a cephalopod with superior genome annotation)
+confirmed that both \textit{Drosophila} ELAV and SXL return strongest hits to the same chromosomal regions,
+consistent with these genes belonging to a single ancestral RRM-containing protein family
+that duplicated and specialized in insects.
+
+Strikingly, examination of our sex-specific RNA-seq data revealed
+that the SXL ortholog (LOC\_00008146) produces distinct isoforms in males versus females (Table \ref{tab:sxl_isoforms}):
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Transcript} & \textbf{Female (raw)} & \textbf{Male (raw)} & \textbf{Pattern} \\
+\midrule
+mRNA-2 & 0 & 227 & Male-specific \\
+mRNA-4 & 367 & 0 & Female-specific \\
+mRNA-1 & 1,135 & 132 & Female-biased \\
+mRNA-3 & 921 & 454 & Shared \\
+mRNA-5 & 1,132 & 369 & Shared \\
+\bottomrule
+\end{tabular}
+\caption{Sex-specific isoform expression of the SXL ortholog (LOC\_00008146) in \illex}
+\label{tab:sxl_isoforms}
+\end{table}
+
+The mutually exclusive expression of mRNA-2 (male-only) and mRNA-4 (female-only)
+is reminiscent of the sex-specific alternative splicing that regulates \textit{Drosophila} SXL,
+where inclusion or exclusion of a ``poison exon'' determines whether functional protein is produced.
+
+\paragraph*{Sex-specific isoforms differ in RNA-binding domain content}
+To determine the functional consequences of sex-specific splicing,
+we analyzed the predicted protein products of mRNA-2 (male) and mRNA-4 (female) using InterProScan.
+This revealed a dramatic difference in domain architecture (Table \ref{tab:sxl_domains}):
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Feature} & \textbf{Female (mRNA-4)} & \textbf{Male (mRNA-2)} \\
+\midrule
+Protein length & 309 aa & 194 aa \\
+RRM domains & 3 & 2 \\
+\midrule
+RRM1 (SXL-type) & aa 7--87 & aa 7--87 \\
+RRM2 & aa 93--173 & aa 93--173 \\
+RRM3 & aa 230--309 & Absent \\
+\bottomrule
+\end{tabular}
+\caption{Domain architecture of sex-specific SXL ortholog isoforms in \illex}
+\label{tab:sxl_domains}
+\end{table}
+
+Both isoforms were annotated as containing the RRM1\_SXL domain (cd12649),
+confirming their identity as SXL family members.
+Critically, the female-specific isoform contains three complete RNA Recognition Motifs,
+while the male isoform lacks the third C-terminal RRM entirely.
+Multiple RRM domains function cooperatively in RNA binding,
+with additional RRMs substantially increasing both affinity and specificity for target sequences.
+The absence of RRM3 in the male isoform would be predicted to significantly reduce binding capacity
+for U-rich RNA targets---including the binding sites we identified in the Z-linked lncRNA.
+
+\paragraph*{Alternative terminal exon usage generates sex-specific isoforms}
+Gene structure analysis revealed that sex-specific isoforms arise
+through alternative terminal exon usage rather than simple exon skipping:
+
+\begin{itemize}
+\item \textbf{Female (mRNA-4):} Two exons.
+Exon 2 extends through the entire RRM3-encoding region
+(genomic coordinates 15,692,979--15,695,065; 2,087 bp),
+producing the full-length three-RRM protein.
+\item \textbf{Male (mRNA-2):} Three exons.
+Exon 2 terminates earlier (15,694,476--15,695,065; 590 bp),
+and splicing proceeds to an alternative terminal exon 3 (15,689,783--15,690,522),
+bypassing the RRM3-encoding sequence entirely.
+\end{itemize}
+
+This mechanism is functionally analogous to the alternative splicing of \textit{Drosophila} SXL,
+though the specific splice architecture differs.
+In both systems, sex-specific splicing of an RRM-containing protein
+generates isoforms with different RNA-binding capacities.
 
 \section*{Discussion}
 
+\paragraph*{A model for lncRNA-mediated dosage compensation regulation}
+Together, these findings suggest a model for sex-specific regulation of the Z-linked lncRNA (Figure X).
+We propose that this lncRNA functions as a repressor of dosage compensation,
+and that its activity is modulated through sex-specific alternative splicing of an SXL ortholog.
+In females, which possess a single Z chromosome (ZO) and require dosage compensation,
+the SXL ortholog is spliced to produce a full-length three-RRM isoform (mRNA-4).
+This high-affinity RNA-binding protein efficiently recognizes and binds the U-rich elements
+within the male-biased lncRNA,
+leading to lncRNA degradation or sequestration.
+The resulting low lncRNA levels relieve repression,
+permitting dosage compensation of the single Z chromosome to proceed.
+
+In contrast, males possess two Z chromosomes (ZZ) and do not require dosage compensation.
+Here, the SXL ortholog is alternatively spliced to produce a truncated two-RRM isoform (mRNA-2)
+that lacks the C-terminal RNA recognition motif.
+This reduced binding capacity prevents efficient recognition of the lncRNA target,
+allowing the lncRNA to accumulate to high levels.
+The abundant lncRNA maintains repression of dosage compensation mechanisms,
+which is appropriate for individuals carrying two copies of the Z chromosome.
+
+This regulatory architecture represents an inverted parallel to \textit{Drosophila} dosage compensation.
+In flies, male-specific \textit{roX} lncRNAs activate dosage compensation of the single male X chromosome \citep{franke1999rox,park2003rox},
+while female SXL protein prevents this activation by blocking MSL-2 translation \citep{kelley1997sxl,penalva2003sxl}.
+In \illex, we propose that the male-biased lncRNA instead represses dosage compensation,
+while the female-specific SXL isoform removes this repressor,
+thereby enabling compensation of the single female Z chromosome.
+Despite this inversion in logic,
+both systems achieve the same regulatory outcome:
+sex-specific control of dosage compensation through lncRNA-protein interactions
+involving an SXL family member.
+
 \section*{Materials and Methods}
+
+\subsection*{RNA-binding protein motif analysis}
+To identify potential protein binding sites within the conserved lncRNA domain,
+we used RBPmap \citep{paz2014rbpmap} (\url{http://rbpmap.technion.ac.il/}) with the following parameters:
+genome set to ``Other,'' motif database set to ``All \textit{Drosophila melanogaster} motifs''
+(as the closest available reference organism),
+and stringency level set to ``Default.''
+Conservation filtering was disabled.
+The $\sim$440 bp conserved structured region was submitted as the query sequence.
+Significant binding site predictions (Z-score $>$ 2.0, $p <$ 0.05)
+were extracted and analyzed for enrichment of specific RBP families.
+
+\subsection*{Identification of ELAV/SXL family orthologs}
+Candidate ELAV and SXL orthologs were identified by DIAMOND BLASTX searches \citep{buchfink2015diamond}
+of the \illex transcriptome against the \textit{Drosophila melanogaster} proteome
+(UniProt reference proteome, E-value threshold $<$ 1$\times$10$^{-10}$).
+Ortholog identity was confirmed by reciprocal BLAST \citep{altschul1990blast}
+against the \textit{Octopus bimaculoides} genome assembly (ASM119413v2),
+which provides superior gene annotation for cephalopods.
+Chromosomal locations were determined by mapping transcripts to the \illex genome assembly.
+
+\subsection*{Analysis of sex-specific transcript isoforms}
+Sex-specific expression of SXL ortholog isoforms was quantified from RNA-seq data
+(n = 2 biological replicates per sex) from mantle tissue.
+Read counts were extracted at the transcript level using Salmon \citep{patro2017salmon}.
+Isoforms with expression exclusively in one sex (raw counts = 0 in the other sex)
+were classified as sex-specific.
+
+\subsection*{Protein domain annotation}
+Predicted protein sequences for sex-specific isoforms were analyzed
+using InterProScan 5.76-107.0 (\url{https://www.ebi.ac.uk/interpro/})
+with all available member databases enabled,
+including Pfam, SMART, CDD, and PANTHER.
+RNA Recognition Motif (RRM) domains were identified based on matches to
+Pfam family PF00076 (RRM\_1), SMART domain SM00360 (RRM),
+and CDD domain cd12649 (RRM1\_SXL).
+Domain boundaries and E-values were extracted from JSON output files.
+
+\subsection*{Gene structure analysis}
+Exon-intron structure of SXL ortholog isoforms was determined
+from the \illex genome annotation (GFF3 format).
+Splice junctions were compared between mRNA-2 (male-specific) and mRNA-4 (female-specific)
+to identify the mechanism of alternative splicing.
+Genomic coordinates are reported relative to chromosome 29 of the \illex genome assembly.
+
 
 \section*{Acknowledgements}
 

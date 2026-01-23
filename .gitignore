@@ -8,6 +8,7 @@
 *.fdb_latexmk
 *.synctex.gz
 *.bbl
+*.md
 *.blg
 *.xml
 *.bcf
