@@ -127,10 +127,26 @@ with male-to-female expression ratios averaging ~1.5:1.
 Moreover, they identified a male-specific long non-coding RNA (\textit{Zmast}) 
 expressed from the Z chromosome, 
 suggesting a potential regulatory mechanism for dosage modulation. 
-While these results reveal the first evidence of dosage compensation in cephalopods, 
-no comparable studies have been conducted in squids, 
-leaving open fundamental questions about the prevalence, extent, 
-and molecular underpinnings of compensation across the group. 
+Notably, Papanicolaou et al. identified not one but two Z-linked long non-coding RNAs
+with strikingly sex-specific expression patterns:
+\textit{Zmast} (Z-male-specific transcript), which shows 256-fold higher expression in males,
+and \textit{Zfest} (Z-female-specific transcript),
+an antisense lncRNA at the \textit{Amnionless} locus with 18-fold female-biased expression.
+Both lncRNAs are evolutionarily conserved between \textit{O. vulgaris} and \textit{O. sinensis},
+species that diverged approximately 2.5 million years ago.
+The authors speculate that these lncRNAs may play regulatory roles
+analogous to \textit{Xist} in mammals or \textit{roX} genes in \textit{Drosophila},
+though their molecular functions remain uncharacterized.
+The presence of paired male- and female-specific lncRNAs raises the possibility
+of a dual regulatory system governing Z chromosome expression in cephalopods.
+The degree of compensation observed in octopus (M:F ratios of approximately 1.04–1.15 across somatic tissues)
+is notably more complete than that reported in birds,
+where Z-linked genes typically show M:F ratios of 1.4–1.6 \citep{mank2009w}.
+
+While these results reveal the first evidence of dosage compensation in cephalopods,
+no comparable studies have been conducted in squids,
+leaving open fundamental questions about the prevalence, extent,
+and molecular underpinnings of compensation across the group.
 Notably, ommastrephid squids such as \illex lack prior genomic or transcriptomic characterization of their sex chromosomes.
 
 In this study, we present a chromosome-scale genome assembly of the northern shortfin squid, 
@@ -289,6 +305,53 @@ while ELAV family proteins regulate mRNA stability in neurons.
 The concentration of these binding sites within the conserved structured domain
 suggested that protein-RNA interactions may be central to this lncRNA's function.
 
+\paragraph*{ELAV/SXL binding sites are conserved in octopus \textit{Zmast}}
+To determine whether the enrichment of ELAV/SXL binding sites is a conserved feature of this lncRNA,
+we performed RBPmap analysis on the orthologous \textit{Zmast} sequence from \textit{Octopus vulgaris}.
+Strikingly, the octopus \textit{Zmast} showed a nearly identical pattern of RBP binding site enrichment.
+We identified $\sim$47 SXL binding sites (Z-scores up to 3.10),
+$\sim$30 ELAV binding sites (Z-scores up to 3.29),
+and $\sim$37 U2AF50 binding sites (Z-scores up to 3.09),
+comparable to the $\sim$60 SXL, $\sim$33 ELAV, and $\sim$61 U2AF50 sites predicted in \illex.
+Additional ELAV-family proteins showed consistent enrichment in both species,
+including FNE ($\sim$20 sites in octopus, Z-score up to 3.42) and RBP9 ($\sim$23 sites, Z-score up to 3.42).
+
+Notably, comparison of binding site positions between species revealed
+that the spatial organization of predicted binding sites is conserved (Table~\ref{tab:rbp_clusters}).
+Both sequences exhibit a three-cluster architecture,
+with a major U-rich binding site hotspot in the 5$'$ region,
+a secondary cluster in the central region,
+and a third cluster near the 3$'$ terminus.
+When positions are normalized to account for sequence length differences
+(~440 nt in \illex versus 411 nt in \textit{O. vulgaris}),
+the clusters occur at similar relative locations:
+25--36\% of sequence length for cluster 1,
+73--78\% for cluster 2,
+and 85--100\% for cluster 3.
+This positional conservation suggests that the spatial arrangement of SXL/ELAV binding sites
+is functionally important,
+potentially reflecting structural constraints on protein-RNA complex formation.
+
+\begin{table}[h]
+\centering
+\caption{Conserved clusters of ELAV/SXL family binding sites in \illex and \textit{O. vulgaris} \textit{Zmast}}
+\label{tab:rbp_clusters}
+\begin{tabular}{llll}
+\toprule
+\textbf{Region} & \textbf{\textit{Illex} Position} & \textbf{\textit{O. vulgaris} Position} & \textbf{Notes} \\
+\midrule
+Cluster 1 & 115--160 & 101--129 & Major U-rich region, highest Z-scores \\
+Cluster 2 & 345--361 & 301--320 & Secondary cluster \\
+Cluster 3 & 378--437 & 364--400 & 3$'$ terminal region \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The conservation of both the lncRNA sequence and its predicted protein binding site architecture
+between squid and octopus---lineages that diverged over 270 million years ago---strongly
+suggests that the regulatory interaction between SXL-family proteins and this lncRNA
+is an ancient and functionally constrained feature of coleoid cephalopod dosage compensation.
+
 \paragraph*{Identification of an SXL ortholog with sex-specific isoforms}
 Given the enrichment of SXL/ELAV binding sites in the lncRNA,
 we searched for orthologs of these RNA-binding proteins in \illex.
@@ -411,18 +474,72 @@ both systems achieve the same regulatory outcome:
 sex-specific control of dosage compensation through lncRNA-protein interactions
 involving an SXL family member.
 
+\paragraph*{Comparison with octopus dosage compensation}
+Our findings in \illex reveal both parallels and distinctions
+with the recently characterized dosage compensation system in octopus \citep{papanicolaou2024z}.
+Both lineages exhibit incomplete compensation of the Z chromosome,
+consistent with the partial compensation observed in avian ZW systems
+rather than the near-complete compensation in \textit{Drosophila} and mammals.
+However, the degree of compensation differs notably between the two cephalopod groups.
+In \textit{Octopus vulgaris} somatic tissues,
+male-to-female expression ratios for Z-linked genes range from 1.04 to 1.15,
+indicating that females achieve 87–96\% of male expression levels.
+In contrast, \illex shows a median M:F ratio of approximately 1.5,
+with females reaching only ~67\% of male expression.
+This disparity could reflect differences in the evolutionary age
+or genomic architecture of dosage compensation mechanisms between octopus and squid lineages,
+or may relate to tissue-specific variation—our data derive primarily from mantle tissue,
+whereas the octopus analyses included neural tissues where compensation may be more stringent.
+
+\paragraph*{Orthology of the male-biased lncRNA to octopus \textit{Zmast}}
+To determine whether the \illex male-biased lncRNA is orthologous to \textit{Zmast} in octopus,
+we performed sequence similarity searches using Rfam.
+The top hit was to \textit{Octopus vulgaris} \textit{Zmast} (E-value = 1.1$\times$10$^{-7}$, 58.8\% identity, 94.2\% query coverage),
+and the second hit was to \textit{Octopus sinensis} LOC115222586 (E-value = 4.7$\times$10$^{-4}$, 58.4\% identity),
+one of the three loci identified by \citet{papanicolaou2024z} as \textit{Zmast} orthologs.
+This sequence conservation demonstrates that the male-biased lncRNA we identified in \illex
+is orthologous to \textit{Zmast} across coleoid cephalopods.
+
+\paragraph*{Implications for the antiquity of lncRNA-based dosage compensation}
+The cephalopod Z chromosome represents one of the oldest known animal sex chromosomes,
+with an estimated origin approximately 480 million years ago \citep{coffing2025cephalopod}.
+The conservation of \textit{Zmast} orthology between squid and octopus,
+lineages that diverged over 270 million years ago,
+indicates that lncRNA-mediated regulation of sex chromosome dosage
+has been maintained over extraordinarily long evolutionary timescales.
+This represents one of the most ancient known examples of sex-specific lncRNA conservation,
+comparable in age to the cephalopod Z chromosome itself.
+Future comparative genomic and functional analyses across the cephalopod phylogeny,
+including cuttlefish and the phylogenetically distant \textit{Nautilus}
+which possesses an independently derived XX/XY system \citep{torrado2025nautilus},
+will further illuminate the evolutionary dynamics of lncRNA-based dosage compensation.
+
 \section*{Materials and Methods}
 
 \subsection*{RNA-binding protein motif analysis}
-To identify potential protein binding sites within the conserved lncRNA domain,
+To identify potential protein binding sites within conserved lncRNA domains,
 we used RBPmap \citep{paz2014rbpmap} (\url{http://rbpmap.technion.ac.il/}) with the following parameters:
 genome set to ``Other,'' motif database set to ``All \textit{Drosophila melanogaster} motifs''
 (as the closest available reference organism),
 and stringency level set to ``Default.''
 Conservation filtering was disabled.
-The $\sim$440 bp conserved structured region was submitted as the query sequence.
+For \illex, the $\sim$440 bp conserved structured region of the male-biased lncRNA was submitted as the query sequence.
+To assess conservation of RBP binding sites across cephalopods,
+we performed identical RBPmap analysis on the orthologous \textit{Zmast} sequence
+from \textit{Octopus vulgaris} (411 nt; RNAcentral accession URS0002786B1A).
 Significant binding site predictions (Z-score $>$ 2.0, $p <$ 0.05)
 were extracted and analyzed for enrichment of specific RBP families.
+Binding site counts and positional clustering were compared between species
+to assess conservation of the predicted regulatory architecture.
+
+\subsection*{lncRNA orthology search}
+To identify orthologs of the \illex male-biased lncRNA,
+we performed sequence similarity searches using RNAcentral's sequence search tool
+(\url{https://rnacentral.org/sequence-search}),
+which queries the Rfam database and other non-coding RNA resources.
+The conserved structured region ($\sim$440 bp) of the lncRNA was submitted as the query sequence.
+Hits were ranked by E-value, and orthology was assessed based on
+E-value significance, percent identity, and query coverage.
 
 \subsection*{Identification of ELAV/SXL family orthologs}
 Candidate ELAV and SXL orthologs were identified by DIAMOND BLASTX searches \citep{buchfink2015diamond}
