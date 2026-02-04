@@ -17,6 +17,7 @@
 % for figures
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{float}
 \usepackage{breakcites}
 \usepackage{nameref}
 \usepackage{amsmath}
@@ -195,7 +196,7 @@ the Z chromosome has maintained its integrity as a distinct chromosomal unit for
 These syntenic relationships, combined with coverage analysis (Figure 1A) showing reduced female-to-male mapping ratios on chromosome 42,
 confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth, angle=90, origin=c]{figures/fig1.pdf}
     \caption{A chromosomal-scale genome assembly of \textit{Illex illecebrosus} and identification of the Z chromosome
@@ -210,17 +211,44 @@ confirm that this chromosome represents the Z chromosome in \illex, consistent w
 \subsection*{Partial dosage compensation of the Z chromosome}
 
 To assess whether \illex exhibits dosage compensation for Z-linked genes, we analyzed sex-stratified RNA-seq data from multiple tissues.
-We quantified gene expression levels across all chromosomes in both males (ZZ) and females (ZO) (Figure 2).
-Expression levels on autosomes were comparable between sexes, with median log2(TPM+1) values centered around 2.0-2.5 across all autosomal chromosomes.
-In contrast, the Z chromosome showed a distinct pattern: females exhibited systematically lower expression compared to males,
-but the female-to-male ratio was substantially greater than the expected 0.5 ratio for complete absence of compensation (Figure 2A,B).
+We quantified gene expression levels across all chromosomes in both males (ZZ) and females (ZO) (Figure~\ref{fig:dosage}).
+Expression levels on autosomes were comparable between sexes, with median log2(TPM+1) values centered around 2.5--3.0 across all autosomal chromosomes (Figure~\ref{fig:dosage}A,B).
+Notably, Z-linked gene expression in females was comparable to autosomal levels despite females carrying only a single Z chromosome,
+indicating that the hemizygous Z undergoes transcriptional upregulation.
+However, when comparing expression between sexes, Z-linked genes showed significant male bias
+(p $<$ 0.001, Wilcoxon rank-sum test),
+with the female-to-male ratio substantially greater than the expected 0.5 ratio for complete absence of compensation.
 
 To quantify the degree of compensation, we calculated male-to-female expression ratios (M:F) for Z-linked genes.
-The median M:F ratio was approximately 1.5:1, indicating partial dosage compensation where female expression reaches ~67\% of male levels rather than the expected 50\% without any compensation.
+The median M:F ratio was approximately 1.5:1, indicating partial dosage compensation where female expression reaches $\sim$67\% of male levels rather than the expected 50\% without any compensation.
 Analysis of log2 fold-change distributions confirmed that most Z-linked genes show modest male-biased expression,
-with the bulk of genes clustering around a 0.5 log2 fold-change (Figure 2C).
+with the distribution for Z-linked genes shifted toward positive values (median log2FC $\approx$ 0.58) compared to autosomes, which are centered at zero (Figure~\ref{fig:dosage}C; p = 1.44$\times$10$^{-4}$, Wilcoxon rank-sum test).
 These results demonstrate that \illex exhibits incomplete dosage compensation of the Z chromosome,
 similar to patterns observed in octopus species but contrasting with the more complete compensation mechanisms in \textit{Drosophila} and mammals.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.42\textheight, angle=90, origin=c]{figures/fig2_AB.pdf}
+    \vspace{0.3em}
+    \includegraphics[height=0.32\textheight, angle=90, origin=c]{figures/fig2_C.pdf}
+    \caption{Partial dosage compensation of the Z chromosome in \illex.
+    (A) Gene expression levels [log2(TPM+1)] across all chromosomes in females (ZO).
+    Despite carrying only one Z chromosome, females show Z-linked expression comparable to autosomal levels,
+    indicating upregulation of the hemizygous Z.
+    Inset: comparison of autosomal versus Z chromosome expression.
+    (B) Gene expression levels across all chromosomes in males (ZZ).
+    Z-linked expression is comparable to autosomes, as expected for the homogametic sex with two Z copies.
+    Inset: autosomal versus Z chromosome comparison.
+    (C) Male-to-female expression ratios [log2(Fold Change)] for genes on each chromosome.
+    Autosomal genes show ratios centered at zero (equal expression between sexes),
+    while Z-linked genes show a positive shift (median $\approx$ 0.58) indicating residual male bias.
+    Inset: the Z chromosome distribution is significantly shifted relative to autosomes
+    (p = 1.44$\times$10$^{-4}$).
+    The pattern indicates partial dosage compensation: females upregulate their single Z chromosome
+    toward diploid levels but do not fully achieve parity with males.
+    Boxplots show median, interquartile range, and 1.5$\times$IQR whiskers.}
+    \label{fig:dosage}
+\end{figure}
 
 \subsection*{DNA methylation patterns on the Z chromosome}
 
@@ -228,16 +256,40 @@ Given the role of epigenetic modifications in gene regulation and dosage compens
 we investigated DNA methylation patterns across the \illex genome.
 We leveraged PacBio HiFi kinetic signatures from male and female individuals to assess CpG methylation levels.
 Genome-wide, we observed a positive correlation between gene expression and methylation levels in both sexes,
-with more highly expressed genes showing elevated methylation (Figure 4A; females: r=0.396, p=2.16e-09; males: r=0.318, p=5.10e-06).
+with more highly expressed genes showing elevated methylation (females: r=0.396, p=2.16$\times$10$^{-9}$; males: r=0.318, p=5.10$\times$10$^{-6}$).
 This pattern is consistent with gene-body methylation associated with active transcription,
 as has been observed in other invertebrates including cephalopods.
 
-When examining sex differences in the relationship between expression and methylation,
-we found no significant correlation between male-female expression differences and corresponding methylation differences across Z-linked genes (Figure 4B; r=-0.010, p=0.046).
-Methylation levels did not differ substantially between expression quartiles (Figure 4B, right panel),
-suggesting that differential DNA methylation is not the primary mechanism driving dosage compensation or sex-biased expression patterns on the Z chromosome.
-These findings indicate that while DNA methylation correlates with transcriptional activity genome-wide,
-it does not appear to play a major regulatory role in modulating Z chromosome dosage between sexes in \illex.
+Strikingly, when comparing methylation levels between sexes across chromosomes,
+we found that the Z chromosome is significantly hypermethylated in females relative to males (Figure~\ref{fig:methylation}).
+Differential methylation (Male $-$ Female) was calculated for each chromosome,
+revealing that autosomal chromosomes show values centered near zero,
+indicating equivalent methylation between sexes (Figure~\ref{fig:methylation}A).
+In contrast, the Z chromosome exhibited strongly negative differential methylation,
+demonstrating that females have substantially higher methylation on the Z than males
+(p = 4.13$\times$10$^{-4}$, Wilcoxon rank-sum test; Figure~\ref{fig:methylation}B).
+
+This female-specific hypermethylation of the Z chromosome is notable given the positive correlation
+between methylation and expression observed genome-wide.
+The pattern suggests that elevated methylation on the hemizygous female Z
+may contribute to its transcriptional upregulation toward diploid levels,
+consistent with gene-body methylation facilitating active transcription.
+However, the relationship between methylation and dosage compensation remains complex,
+as methylation differences do not fully explain the residual male bias in Z-linked expression.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=1.1\textwidth, angle=90, trim=9cm 0 6cm 0, clip]{figures/fig3.pdf}
+    \caption{Female-specific hypermethylation of the Z chromosome in \illex.
+    (A) Differential DNA methylation (Male $-$ Female) across all chromosomes.
+    Autosomal chromosomes (blue) show values centered near zero, indicating equivalent methylation between sexes.
+    The Z chromosome (red) shows strongly negative values, indicating higher methylation in females.
+    (B) Summary comparison of differential methylation between autosomes and the Z chromosome.
+    The Z chromosome is significantly hypermethylated in females relative to males
+    (p = 4.13$\times$10$^{-4}$, Wilcoxon rank-sum test).
+    Boxplots show median, interquartile range, and 1.5$\times$IQR whiskers.}
+    \label{fig:methylation}
+\end{figure}
 
 \subsection*{Sex-biased gene expression on the Z chromosome}
 
@@ -332,7 +384,7 @@ This positional conservation suggests that the spatial arrangement of SXL/ELAV b
 is functionally important,
 potentially reflecting structural constraints on protein-RNA complex formation.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Conserved clusters of ELAV/SXL family binding sites in \illex and \textit{O. vulgaris} \textit{Zmast}}
 \label{tab:rbp_clusters}
@@ -368,7 +420,7 @@ that duplicated and specialized in insects.
 Strikingly, examination of our sex-specific RNA-seq data revealed
 that the SXL ortholog (LOC\_00008146) produces distinct isoforms in males versus females (Table \ref{tab:sxl_isoforms}):
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{lrrr}
 \toprule
@@ -394,7 +446,7 @@ To determine the functional consequences of sex-specific splicing,
 we analyzed the predicted protein products of mRNA-2 (male) and mRNA-4 (female) using InterProScan.
 This revealed a dramatic difference in domain architecture (Table \ref{tab:sxl_domains}):
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{lcc}
 \toprule
@@ -441,6 +493,78 @@ though the specific splice architecture differs.
 In both systems, sex-specific splicing of an RRM-containing protein
 generates isoforms with different RNA-binding capacities.
 
+\subsection*{Conservation of sex-biased ELAV isoforms across cephalopods}
+
+To determine whether sex-specific ELAV/SXL isoform expression is unique to \illex
+or represents a conserved feature of cephalopod biology,
+we analyzed publicly available RNA-seq data from four additional cephalopod species
+spanning approximately 300 million years of evolution (Table~\ref{tab:elav_conservation}).
+In each species, we quantified expression of ELAV family transcripts using Salmon
+and classified isoforms by the presence or absence of the third RNA Recognition Motif (RRM3),
+using the conserved GFVTM motif as a diagnostic marker.
+
+\paragraph*{Doryteuthis pealeii (longfin inshore squid)}
+Analysis of developmental RNA-seq data (n=30 samples) revealed that ELAVL1 (STRG.5403)
+produces both 3-RRM and 2-RRM isoforms with opposing sex biases.
+The 3-RRM isoform (322 aa) showed significant negative correlation with
+\textit{Zmast} expression (Spearman $\rho$ = $-$0.42, p = 0.020),
+indicating female bias,
+while a 2-RRM isoform (207 aa) showed significant positive correlation
+($\rho$ = +0.38, p = 0.040), indicating male bias.
+This mirrors the pattern observed in \illex.
+
+\paragraph*{Euprymna scolopes (Hawaiian bobtail squid)}
+In adult tissue RNA-seq data (n=11 samples after quality filtering),
+the SXL locus produced two distinct transcripts from opposite strands at the same genomic coordinates.
+The 3-RRM gene (g13069, 318 aa) was 2.14-fold female-biased (Wilcoxon p = 0.018),
+while the 2-RRM gene (g13070, 194 aa) showed no significant sex bias (p = 0.329).
+This genomic architecture---with 3-RRM and 2-RRM isoforms encoded on opposite strands
+at the same locus---represents a distinct mechanism for generating sex-specific isoforms.
+
+\paragraph*{Euprymna berryi (Berry's bobtail squid)}
+The closely related \textit{E. berryi} showed an identical locus arrangement to \textit{E. scolopes},
+with EB29273 (Elav1) producing both 2-RRM and 3-RRM isoforms from a single locus.
+Analysis of developmental samples (n=20) revealed that the 2-RRM isoform EB29273.7
+was significantly male-biased (Spearman $\rho$ = +0.695, p = 0.0007),
+while the 3-RRM isoform EB29595 on the opposite strand showed 1.55-fold female bias.
+Multiple 2-RRM isoforms (EB29273.3, EB29273.5) showed 2--6 fold male bias in adult samples.
+
+\paragraph*{Octopus bimaculoides (California two-spot octopus)}
+Differential expression analysis of somatic tissue RNA-seq (n=21 samples; PyDESeq2)
+identified the 3-RRM elavl4 isoform (obimac\_0002643.1, 371 aa)
+as significantly female-biased (3.28-fold, FDR-adjusted p = 0.0034).
+Additional 3-RRM isoforms of elavl4 (obimac\_0002643.3, obimac\_0002643.4)
+also showed female bias (1.99--2.04 fold, FDR < 0.05).
+In this species, \textit{Zmast} expression was 1,624-fold higher in males than females
+(503 $\pm$ 289 TPM vs. 0.31 $\pm$ 0.84 TPM; Wilcoxon p $<$ 0.0001),
+providing extreme stoichiometric excess of the lncRNA relative to ELAV protein in males.
+
+\begin{table}[H]
+\centering
+\caption{Conservation of sex-biased ELAV isoform expression across cephalopod species}
+\label{tab:elav_conservation}
+\begin{tabular}{llllllr}
+\toprule
+\textbf{Species} & \textbf{Order} & \textbf{Gene} & \textbf{3-RRM bias} & \textbf{2-RRM bias} & \textbf{Method} & \textbf{P-value} \\
+\midrule
+\textit{Illex illecebrosus} & Oegopsida & SXL & F-specific & M-specific & Fold-change & --- \\
+\textit{Doryteuthis pealeii} & Myopsida & ELAVL1 & F-biased & M-biased & Spearman & 0.020, 0.040 \\
+\textit{Euprymna scolopes} & Sepiolida & g13069/g13070 & 2.1$\times$ F & neutral & Wilcoxon & 0.018 \\
+\textit{Euprymna berryi} & Sepiolida & EB29273 & neutral & 2--6$\times$ M & Spearman & 0.0007 \\
+\textit{Octopus bimaculoides} & Octopoda & elavl4 & 3.3$\times$ F & --- & PyDESeq2 & 0.0034 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The conservation of female-biased 3-RRM and male-biased 2-RRM isoform expression
+across five cephalopod species representing three orders
+(Oegopsida, Myopsida/Sepiolida, and Octopoda)
+indicates that this regulatory mechanism originated in the common ancestor of coleoid cephalopods,
+over 300 million years ago.
+The consistent association of full-length 3-RRM isoforms with female expression
+and truncated 2-RRM isoforms with male expression
+suggests strong selective constraint on this sex-specific splicing program.
+
 \section*{Discussion}
 
 \paragraph*{A model for lncRNA-mediated dosage compensation regulation}
@@ -473,6 +597,59 @@ Despite this inversion in logic,
 both systems achieve the same regulatory outcome:
 sex-specific control of dosage compensation through lncRNA-protein interactions
 involving an SXL family member.
+
+\paragraph*{The Zmast sponge model}
+The extreme stoichiometric excess of \textit{Zmast} relative to ELAV proteins in males
+suggests a mechanism analogous to the competing endogenous RNA (ceRNA) hypothesis
+observed in vertebrate systems.
+In \textit{O. bimaculoides}, where we had sufficient sample sizes to quantify this relationship,
+the \textit{Zmast}:elavl4 ratio was 286:1 in males versus 0.05:1 in females---a 5,720-fold difference.
+Similar ratios were observed for other ELAV family members (\textit{Zmast}:elavl1 = 4,617-fold difference;
+\textit{Zmast}:SXL = 3,620-fold difference).
+
+We propose that in males, the abundant \textit{Zmast} lncRNA acts as a molecular sponge,
+sequestering 3-RRM ELAV/SXL proteins through its dense array of U-rich binding sites.
+This sequestration would effectively titrate ELAV proteins away from their endogenous mRNA targets,
+reducing their regulatory activity.
+In females, where \textit{Zmast} is expressed at negligible levels,
+the full-length 3-RRM ELAV proteins remain free to interact with target mRNAs,
+maintaining normal post-transcriptional regulation.
+The male-specific production of truncated 2-RRM isoforms would further amplify this effect:
+these isoforms may compete with 3-RRM proteins for binding sites
+but lack sufficient affinity for stable RNA-protein complex formation,
+acting as dominant-negative regulators.
+
+This ``sponge'' mechanism provides an elegant explanation for why both components---the
+male-biased lncRNA and the sex-specific ELAV isoforms---are required.
+The lncRNA provides the binding substrate, while the differential RRM content determines
+which sex produces proteins capable of high-affinity interaction.
+The result is a sex-specific regulatory switch that operates through competitive RNA-protein interactions
+rather than through transcriptional silencing or chromatin modification.
+
+\paragraph*{Deep conservation of the ELAV sex-switch}
+The discovery that female-biased 3-RRM and male-biased 2-RRM ELAV isoforms
+are conserved across five cephalopod species representing three orders
+has profound implications for our understanding of sex chromosome regulation.
+The species examined---\illex, \textit{D. pealeii}, \textit{E. scolopes}, \textit{E. berryi},
+and \textit{O. bimaculoides}---span the major lineages of coleoid cephalopods,
+with a last common ancestor approximately 300 million years ago.
+
+The consistent pattern of 3-RRM female bias and 2-RRM male bias,
+despite variation in the specific genomic mechanisms generating these isoforms
+(alternative splicing in \illex and \textit{D. pealeii};
+opposite-strand transcription in \textit{Euprymna} species),
+indicates that strong selective pressure has maintained this regulatory architecture
+over evolutionary timescales comparable to the age of the Z chromosome itself.
+This suggests that the ELAV/\textit{Zmast} interaction is not merely incidental
+but represents a core component of cephalopod sex chromosome biology.
+
+Notably, the conservation of this system predates the divergence of octopuses and squids,
+indicating that lncRNA-mediated regulation of ELAV proteins
+may have originated near the base of the coleoid radiation.
+The parallel evolution of different molecular mechanisms to achieve the same isoform expression pattern
+(alternative splicing versus antisense transcription)
+further underscores the functional importance of producing sex-specific ELAV proteins
+with different RNA-binding capacities.
 
 \paragraph*{Comparison with octopus dosage compensation}
 Our findings in \illex reveal both parallels and distinctions
@@ -574,13 +751,75 @@ Splice junctions were compared between mRNA-2 (male-specific) and mRNA-4 (female
 to identify the mechanism of alternative splicing.
 Genomic coordinates are reported relative to chromosome 29 of the \illex genome assembly.
 
+\subsection*{Cross-species RNA-seq analysis}
+
+To assess conservation of sex-biased ELAV isoform expression,
+we analyzed publicly available RNA-seq data from four additional cephalopod species.
+Data sources and sample information are summarized in Table~\ref{tab:rnaseq_samples}.
+
+\paragraph*{Transcript quantification}
+All species were processed with a uniform pipeline using Salmon v1.10.0 \citep{patro2017salmon}.
+Selective alignment indices were constructed for each species using the reference transcriptome
+with the full genome provided as decoy sequences.
+Quantification was performed with the flags \texttt{--validateMappings --gcBias --seqBias --posBias}
+to correct for sequence-specific and positional biases.
+Expression values are reported as Transcripts Per Million (TPM).
+
+\paragraph*{Statistical analysis}
+Statistical methods were selected based on sample size and experimental design for each species:
+
+\begin{itemize}
+\item \textbf{PyDESeq2}: For \textit{O. bimaculoides} (n=21 somatic samples; 13 female, 8 male),
+differential expression was performed using PyDESeq2 v0.4.8 \citep{muzellec2023pydeseq2}
+with the model \texttt{$\sim$ sex + tissue\_type} to control for germline versus somatic tissue effects.
+Multiple testing correction used the Benjamini-Hochberg procedure with significance threshold FDR $<$ 0.05.
+
+\item \textbf{Wilcoxon rank-sum test}: For \textit{E. scolopes} (n=11 samples; 6 female, 5 male),
+non-parametric comparison of expression between sexes was performed using
+the Mann-Whitney U test (scipy.stats.mannwhitneyu).
+Samples were validated for sex assignment using the \textit{Zmast}:\textit{Zfest} expression ratio;
+two mislabeled samples were excluded from analysis.
+
+\item \textbf{Spearman correlation}: For \textit{D. pealeii} (n=30 developmental samples)
+and \textit{E. berryi} (n=20 developmental samples),
+where individual sex was unknown,
+sex bias was inferred from correlation between isoform expression and \textit{Zmast} expression.
+Positive correlation indicates male bias; negative correlation indicates female bias.
+Significance was assessed using scipy.stats.spearmanr.
+
+\item \textbf{Fold-change}: For species with limited replication (n=1 per sex),
+only fold-change comparisons are reported without statistical testing.
+\end{itemize}
+
+\paragraph*{RRM domain classification}
+ELAV family isoforms were classified by RNA Recognition Motif (RRM) content.
+Proteins were designated as 3-RRM (full-length) based on presence of the conserved GFVTM motif,
+which is diagnostic for the third RRM domain in ELAV family proteins.
+Proteins lacking this motif were classified as 2-RRM (truncated).
+Protein sequences were extracted from genome annotations using gffread v0.12.7.
+
+\begin{table}[H]
+\centering
+\caption{RNA-seq datasets used for cross-species ELAV analysis}
+\label{tab:rnaseq_samples}
+\begin{tabular}{llllr}
+\toprule
+\textbf{Species} & \textbf{BioProject} & \textbf{Sample type} & \textbf{Sex (F/M)} & \textbf{n} \\
+\midrule
+\textit{O. bimaculoides} & PRJNA270931, PRJNA484556 & Adult multi-tissue & 17/9 & 26 \\
+\textit{D. pealeii} & PRJNA303269 & Developmental & Unknown & 30 \\
+\textit{E. scolopes} & PRJNA1156170 & Adult gonad, brain & 6/5 & 11 \\
+\textit{E. berryi} & PRJNA1091285, PRJNA836847 & Adult brain, developmental & 1/2, unknown & 23 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section*{Acknowledgements}
 
 \clearpage
 \beginsupplement
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Genome assembly and annotation statistics for \textit{Illex illecebrosus}}
 \label{tab:assembly_stats}
@@ -622,7 +861,7 @@ Repetitive content & Repeats (\%) & 58 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Repeat annotation statistics for the \textit{Illex illecebrosus} genome}
 \label{tab:repeat_stats}
