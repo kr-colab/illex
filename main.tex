@@ -208,47 +208,21 @@ confirm that this chromosome represents the Z chromosome in \illex, consistent w
     \label{fig:phylo}
 \end{figure}
 
-\subsection*{Partial dosage compensation of the Z chromosome}
+\subsection*{Partial dosage compensation of the Z chromosome in \illex}
 
-To assess whether \illex exhibits dosage compensation for Z-linked genes, we analyzed sex-stratified RNA-seq data from multiple tissues.
-We quantified gene expression levels across all chromosomes in both males (ZZ) and females (ZO) (Figure~\ref{fig:dosage}).
-Expression levels on autosomes were comparable between sexes, with median log2(TPM+1) values centered around 2.5--3.0 across all autosomal chromosomes (Figure~\ref{fig:dosage}A,B).
-Notably, Z-linked gene expression in females was comparable to autosomal levels despite females carrying only a single Z chromosome,
+To assess whether \illex exhibits dosage compensation for Z-linked genes,
+we analyzed sex-stratified RNA-seq data from somatic tissue.
+We quantified gene expression levels across all chromosomes in both males (ZZ) and females (ZO)
+using DESeq2 normalization (Figure~\ref{fig:cross_species_dc}).
+Expression levels on autosomes were comparable between sexes,
+and Z-linked gene expression in females was comparable to autosomal levels
+despite females carrying only a single Z chromosome (Z:A = 1.59),
 indicating that the hemizygous Z undergoes transcriptional upregulation.
-However, when comparing expression between sexes, Z-linked genes showed significant male bias
-(p $<$ 0.001, Wilcoxon rank-sum test),
-with the female-to-male ratio substantially greater than the expected 0.5 ratio for complete absence of compensation.
-
-To quantify the degree of compensation, we calculated male-to-female expression ratios (M:F) for Z-linked genes.
-The median M:F ratio was approximately 1.5:1, indicating partial dosage compensation where female expression reaches $\sim$67\% of male levels rather than the expected 50\% without any compensation.
-Analysis of log2 fold-change distributions confirmed that most Z-linked genes show modest male-biased expression,
-with the distribution for Z-linked genes shifted toward positive values (median log2FC $\approx$ 0.58) compared to autosomes, which are centered at zero (Figure~\ref{fig:dosage}C; p = 1.44$\times$10$^{-4}$, Wilcoxon rank-sum test).
-These results demonstrate that \illex exhibits incomplete dosage compensation of the Z chromosome,
-similar to patterns observed in octopus species but contrasting with the more complete compensation mechanisms in \textit{Drosophila} and mammals.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=0.42\textheight, angle=90, origin=c]{figures/fig2_AB.pdf}
-    \vspace{0.3em}
-    \includegraphics[height=0.32\textheight, angle=90, origin=c]{figures/fig2_C.pdf}
-    \caption{Partial dosage compensation of the Z chromosome in \illex.
-    (A) Gene expression levels [log2(TPM+1)] across all chromosomes in females (ZO).
-    Despite carrying only one Z chromosome, females show Z-linked expression comparable to autosomal levels,
-    indicating upregulation of the hemizygous Z.
-    Inset: comparison of autosomal versus Z chromosome expression.
-    (B) Gene expression levels across all chromosomes in males (ZZ).
-    Z-linked expression is comparable to autosomes, as expected for the homogametic sex with two Z copies.
-    Inset: autosomal versus Z chromosome comparison.
-    (C) Male-to-female expression ratios [log2(Fold Change)] for genes on each chromosome.
-    Autosomal genes show ratios centered at zero (equal expression between sexes),
-    while Z-linked genes show a positive shift (median $\approx$ 0.58) indicating residual male bias.
-    Inset: the Z chromosome distribution is significantly shifted relative to autosomes
-    (p = 1.44$\times$10$^{-4}$).
-    The pattern indicates partial dosage compensation: females upregulate their single Z chromosome
-    toward diploid levels but do not fully achieve parity with males.
-    Boxplots show median, interquartile range, and 1.5$\times$IQR whiskers.}
-    \label{fig:dosage}
-\end{figure}
+However, Z-linked genes showed modest but significant male bias,
+with a median M:F ratio of 1.15 compared to 0.99 for autosomes
+(p = 0.037, Wilcoxon rank-sum test; Figure~\ref{fig:cross_species_dc}).
+These results demonstrate that \illex exhibits partial dosage compensation of the Z chromosome,
+with females achieving $\sim$87\% of male expression levels for Z-linked genes.
 
 \subsection*{Dosage compensation is ancestral and conserved across coleoid cephalopods}
 
@@ -263,53 +237,72 @@ and \textit{Octopus bimaculoides} (Octopoda).
 For each species, we identified Z-linked genes via synteny with the \illex Z chromosome
 and compared expression levels between males (ZZ) and females (ZO).
 
-In every species examined, the pattern was consistent:
-Z-linked gene expression in females was upregulated toward the level observed in males,
-indicating active dosage compensation of the hemizygous Z chromosome (Figure~\ref{fig:cross_species_dc}).
-Median male-to-female expression ratios for Z-linked genes ranged from XX to XX across species
+In every species examined, Z-linked gene expression in females was upregulated
+to match or approach the level observed in males,
+indicating active dosage compensation of the hemizygous Z chromosome
+(Figure~\ref{fig:cross_species_dc}; Figures S1--S6).
+Median male-to-female expression ratios for Z-linked genes ranged from 0.97 to 1.15 across species
 (Table~\ref{tab:cross_species_dc}),
-all significantly greater than the 0.5 ratio expected in the absence of compensation
-but less than the 1.0 ratio expected under complete compensation.
-In contrast, autosomal genes showed M:F ratios centered at 1.0 in all species,
+all well below the 2.0 ratio expected in the absence of compensation.
+Autosomal genes showed M:F ratios centered at 1.0 in all species,
 confirming that the observed Z chromosome patterns reflect sex-linked regulation
 rather than systematic biases in library preparation or normalization.
 
-The universality of this pattern across species separated by over 300 million years of evolution
-demonstrates that dosage compensation of the Z chromosome is ancestral to coleoid cephalopods.
-The consistency of incomplete---rather than complete---compensation across all species examined
-suggests that partial upregulation of the female Z may represent a stable evolutionary equilibrium
-rather than an intermediate stage toward full compensation.
+In four of the seven species---\textit{D. pealeii}, \textit{E. scolopes},
+\textit{E. berryi}, and \textit{O. bimaculoides}---Z chromosome
+M:F ratios were indistinguishable from autosomal ratios
+(p = 0.20--0.68; Table~\ref{tab:cross_species_dc}),
+indicating complete dosage compensation.
+In \illex, \textit{S. oualaniensis}, and \textit{S. officinalis},
+Z-linked genes showed modest but significant residual male bias
+(M:F = 1.13--1.15; p $<$ 0.05),
+indicating partial compensation.
+Even in these species, however, the degree of male bias is far less
+than that observed in birds, where Z-linked M:F ratios typically range from 1.4 to 1.6
+\citep{mank2009w}.
+
+The presence of dosage compensation across all seven species,
+spanning four orders and over 300 million years of divergence,
+demonstrates that compensation of the Z chromosome is ancestral to coleoid cephalopods.
+The observation that several lineages achieve complete compensation
+places coleoid cephalopods alongside \textit{Drosophila} and mammals
+as one of the few animal groups known to fully equalize sex chromosome expression.
 
 \begin{table}[H]
 \centering
 \caption{Dosage compensation of the Z chromosome across coleoid cephalopod species.
 M:F ratio indicates median male-to-female expression ratio for Z-linked genes.
-A ratio of 1.0 indicates complete compensation; 0.5 indicates no compensation.}
+A ratio of 1.0 indicates complete compensation; 2.0 indicates no compensation.}
 \label{tab:cross_species_dc}
-\begin{tabular}{lllrr}
+\begin{tabular}{llrrrr}
 \toprule
-\textbf{Species} & \textbf{Order} & \textbf{Tissue} & \textbf{Z M:F ratio} & \textbf{n (F/M)} \\
+\textbf{Species} & \textbf{Order} & \textbf{Z M:F} & \textbf{Auto M:F} & \textbf{p-value} & \textbf{n (F/M)} \\
 \midrule
-\textit{Illex illecebrosus} & Oegopsida & Mantle & 1.50 & XX \\
-\textit{Sthenoteuthis oualaniensis} & Oegopsida & XX & XX & XX \\
-\textit{Doryteuthis pealeii} & Myopsida & XX & XX & XX \\
-\textit{Euprymna scolopes} & Sepiolida & XX & XX & XX \\
-\textit{Euprymna berryi} & Sepiolida & XX & XX & XX \\
-\textit{Sepia officinalis} & Sepiida & XX & XX & XX \\
-\textit{Octopus bimaculoides} & Octopoda & XX & XX & XX \\
+\textit{Illex illecebrosus} & Oegopsida & 1.15 & 0.99 & 0.037 & 1/1 \\
+\textit{Sthenoteuthis oualaniensis} & Oegopsida & 1.13 & 1.04 & 0.010 & XX \\
+\textit{Doryteuthis pealeii} & Myopsida & 0.97 & 1.01 & 0.62 & 2/2 \\
+\textit{Euprymna scolopes} & Sepiolida & 1.01 & 1.00 & 0.68 & 3/3 \\
+\textit{Euprymna berryi} & Sepiolida & 0.97 & 0.97 & 0.48 & 2/2 \\
+\textit{Sepia officinalis} & Sepiida & 1.13 & 0.99 & 0.021 & 4/4 \\
+\textit{Octopus bimaculoides} & Octopoda & 1.08 & 1.03 & 0.20 & XX \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
-    %\includegraphics[width=\linewidth]{figures/figXX.pdf}
-    \caption{Dosage compensation of the Z chromosome is conserved across coleoid cephalopods.
-    Male-to-female expression ratios [log2(Fold Change)] for Z-linked genes (red)
-    compared to autosomal genes (blue) in seven cephalopod species.
-    In every species, Z-linked genes show partial upregulation in females,
-    with M:F ratios intermediate between 0.5 (no compensation) and 1.0 (complete compensation).
-    Species are ordered by phylogenetic position.}
+    \includegraphics[width=\linewidth]{figures/illex_dosage_compensation_3panel.pdf}
+    \caption{Dosage compensation of the Z chromosome in \illex.
+    Left panels: gene expression levels [log2(normalized count + 1)] across all chromosomes
+    in females (ZO, top) and males (ZZ, bottom).
+    The Z chromosome (orange) shows expression comparable to autosomes (blue) in both sexes,
+    with Z:A ratios of 1.59 in females and 1.44 in males.
+    Right panel: male-to-female expression ratios for autosomal genes (n = 11,459)
+    and Z-linked genes (n = 188).
+    The Z chromosome shows a modest but significant male bias
+    (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
+    indicating partial dosage compensation.
+    Dosage compensation results for six additional cephalopod species are shown in Figures S1--S6.}
     \label{fig:cross_species_dc}
 \end{figure}
 
@@ -945,6 +938,81 @@ Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/soual_dosage_compensation_3panel.png}
+    \caption{Dosage compensation of the Z chromosome in \textit{Sthenoteuthis oualaniensis}.
+    Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
+    Z:A ratios are 0.95 in females and 0.99 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 26,351) and Z-linked genes (n = 2,880).
+    The Z chromosome shows significant male bias (median M:F = 1.13 vs.\ 1.04 for autosomes; p = 0.010).}
+    \label{fig:soual_dosage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/dpe_dosage_compensation_3panel.pdf}
+    \caption{Dosage compensation of the Z chromosome in \textit{Doryteuthis pealeii}.
+    Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
+    Z:A ratios are 0.62 in females and 0.65 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 6,863) and Z-linked genes (n = 128).
+    The Z chromosome shows a median M:F ratio of 0.97 vs.\ 1.01 for autosomes (p = 0.62),
+    consistent with effective dosage compensation.
+    2F + 2M somatic samples; DESeq2 normalization.}
+    \label{fig:dpe_dosage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/esco_dosage_compensation_3panel.pdf}
+    \caption{Dosage compensation of the Z chromosome in \textit{Euprymna scolopes}.
+    Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
+    Z:A ratios are 0.97 in females and 0.95 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 15,308) and Z-linked genes (n = 628).
+    The Z chromosome shows a median M:F ratio of 1.01 vs.\ 1.00 for autosomes (p = 0.68),
+    consistent with complete dosage compensation.
+    3F + 3M somatic samples; DESeq2 normalization.}
+    \label{fig:esco_dosage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/eber_dosage_compensation_3panel_PRJNA1336213.png}
+    \caption{Dosage compensation of the Z chromosome in \textit{Euprymna berryi}.
+    Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
+    Z:A ratios are 0.98 in females and 0.91 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 17,006) and Z-linked genes (n = 250).
+    The Z chromosome shows a median M:F ratio of 0.97 vs.\ 0.97 for autosomes (p = 0.48),
+    consistent with complete dosage compensation.
+    2F + 2M somatic samples; DESeq2 normalization.}
+    \label{fig:eber_dosage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/soff_dosage_compensation_3panel.png}
+    \caption{Dosage compensation of the Z chromosome in \textit{Sepia officinalis}.
+    Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
+    Z:A ratios are 1.36 in females and 1.29 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 12,396) and Z-linked genes (n = 531).
+    The Z chromosome shows significant male bias (median M:F = 1.13 vs.\ 0.99 for autosomes; p = 0.021),
+    indicating partial dosage compensation.
+    4F + 4M somatic samples; DESeq2 normalization.}
+    \label{fig:soff_dosage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/obimac_dosage_compensation_3panel.png}
+    \caption{Dosage compensation of the Z chromosome in \textit{Octopus bimaculoides}.
+    Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
+    Z:A ratios are 1.09 in females and 0.88 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 15,620) and Z-linked genes (n = 294).
+    The Z chromosome shows a median M:F ratio of 1.08 vs.\ 1.03 for autosomes (p = 0.20),
+    consistent with near-complete dosage compensation.}
+    \label{fig:obimac_dosage}
+\end{figure}
 
 \printbibliography
 \end{document}
