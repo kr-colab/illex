@@ -13,7 +13,7 @@
 \setlength{\headheight}{14.5pt} % Fix fancyhdr warning
 % Custom citep command for biblatex
 \newcommand{\citep}{\parencite}
-\fancyhead[R]{\textbf{Dosage compensation in squid}}
+\fancyhead[R]{\textbf{Cephalopod Dosage Compensation}}
 % for figures
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -69,7 +69,7 @@
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist 
 
-\title{Z chromosome dosage compensation in the northern shortfin squid, \illex}
+\title{Dosage compensation of the Z chromosome is ancestral and conserved across coleoid cephalopods}
 \author[1, 2]{Scott T. Small}
 \author[1, 2]{Silas Tittes}
 \author[3,4]{Thomas Desvignes}
@@ -129,22 +129,27 @@ compelling group for studying the evolution of sex chromosomes.
 Classical karyotype analyses failed to reveal heteromorphic sex chromosomes in octopuses, squids, or cuttlefish (CITE), 
 leading to hypotheses of environmental or polygenic sex determination. 
 However, recent genomic work has overturned this view. 
-\citep{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides}, females are hemizygous for a large chromosome (chr17), 
-establishing a ZZ/ZO system shared across multiple coleoid lineages. 
-This Z chromosome appears to be conserved across squids, cuttlefish, and octopuses, originating over 480 million years ago in a common ancestor. 
-Complementary findings by \citep{torrado2025nautilus} in \textit{Nautilus pompilius}—which 
-possesses an XX/XY system—highlight the evolutionary diversity of sex determination 
-across cephalopods. 
+\citep{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides}, 
+females are hemizygous for a large chromosome (the chromosome formerly known as chr17), 
+establishing a ZZ/ZO system shared across all coleoid lineages surveyed. 
+This Z chromosome appears to be conserved across squids, cuttlefish, and octopuses, 
+originating over 300 million years ago in a common ancestor. 
+Complementary findings by \citep{torrado2025nautilus} in \textit{Nautilus pompilius}
+demonstrated that the syntenic region corresponding to the coleoid Z chromosome 
+is currently used as an X chromosome in nautiloids, suggesting an 
+interesting evolutionary trajectory where the ancestral sex chromosome was repurposed 
+across lineages. 
 These discoveries position coleoid cephalopods as one of the few known invertebrate 
-groups with deeply conserved sex chromosomes.
+groups with deeply conserved sex chromosomes, comparable in age to the insect X chromosome \citep{toups2023x}.
 
-The presence of a ZO/ZZ system in coleoids raises the question of how these animals
-achieve dosage compensation between sexes, 
-particularly in females that carry only one Z chromosome. 
-Until recently, no studies had examined this issue in any cephalopod. 
-\citep{papanicolaou2024z} recently addressed this gap 
-by analyzing transcriptomes from \textit{Octopus vulgaris} and \textit{O. sinensis}, and found that Z-linked gene expression was partially compensated in females,
-with male-to-female expression ratios averaging ~1.5:1. 
+The presence of a ZO/ZZ system in coleoids raises the important
+question of if and how these animals achieve dosage compensation between sexes.
+If a dosage compensation mechanism is present, 
+it would represent an independent evolutionary origin of this regulatory strategy in a major animal lineage.
+\citep{papanicolaou2024z} recently reported evidence of dosage compensation in octopuses
+by analyzing transcriptomes from \textit{Octopus vulgaris} and \textit{O. sinensis},
+finding extensive but incomplete compensation of Z-linked gene expression in females,
+with male-to-female expression ratios of 1.04--1.15 across somatic tissues.
 Moreover, they identified a male-specific long non-coding RNA (\textit{Zmast}) 
 expressed from the Z chromosome, 
 suggesting a potential regulatory mechanism for dosage modulation. 
@@ -165,19 +170,28 @@ is notably more complete than that reported in birds,
 where Z-linked genes typically show M:F ratios of 1.4–1.6 \citep{mank2009w}.
 
 While these results reveal the first evidence of dosage compensation in cephalopods,
-no comparable studies have been conducted in squids,
+no comparable studies have been conducted outside of octopus,
 leaving open fundamental questions about the prevalence, extent,
-and molecular underpinnings of compensation across the group.
-Notably, ommastrephid squids such as \illex lack prior genomic or transcriptomic characterization of their sex chromosomes.
+and molecular basis of compensation across the group.
 
-In this study, we present a chromosome-scale genome assembly of the northern shortfin squid, 
-\illex, and identify its Z chromosome via comparative genomic coverage and synteny analyses. 
-We integrate sex-stratified transcriptomic data to assess expression differences between males and 
-females for Z-linked genes, and test for evidence of dosage compensation. Finally, we ask if DNA 
-methylation contributes to sex-specific regulation on the Z chromosome. T
-his work represents the first comprehensive analysis of sex chromosome dosage compensation in any squid 
-species and provides critical insight into how ancient sex chromosome systems are regulated in a major 
-marine invertebrate lineage.
+Here we present a chromosome-scale genome assembly of the northern shortfin squid,
+\illex, and identify its Z chromosome via synteny and coverage analyses.
+We then test for dosage compensation across seven cephalopod species
+spanning four orders and over 300 million years of divergence,
+establishing that compensation of the Z chromosome is ancestral to coleoid cephalopods.
+To investigate the molecular underpinnings of this compensation,
+we characterize DNA methylation patterns,
+identify an enrichment of chromatin-modifying genes on the conserved Z chromosome,
+and show that sex-biased isoform switching of chromatin remodelers
+predicts chromosome-wide compensation levels.
+We find that LINE elements and CTCF insulators define structural domains on the Z,
+paralleling Lyon's repeat hypothesis for the mammalian X,
+and discover gene-body cis-elements that distinguish compensated Z genes from escapees,
+analogous to the MSL Recognition Elements in \textit{Drosophila}.
+Finally, we show that the sex-specific lncRNAs \textit{Zmast} and \textit{Zfest}
+are conserved across all species examined.
+Together, these results reveal a multi-layered dosage compensation system
+in one of the oldest known sex chromosome systems in animals.
 
 \section*{Results}
 \subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
@@ -788,7 +802,7 @@ and sex-specific long non-coding RNAs (Figure~\ref{fig:model}).
 
 \subsection*{Dosage compensation is ancestral in coleoid cephalopods}
 
-\citet{papanicolaou2024z} provided the first evidence of dosage compensation
+\textcite{papanicolaou2024z} provided the first evidence of dosage compensation
 in any cephalopod,
 demonstrating partial compensation (M:F $\approx$ 1.04--1.15)
 and identifying \textit{Zmast} and \textit{Zfest}
@@ -861,7 +875,7 @@ are present in every species examined.
 
 \subsection*{Lyon's repeat hypothesis extends to cephalopod Z chromosomes}
 
-\citet{lyon1998x} proposed that LINE elements serve as ``way stations''
+\textcite{lyon1998x} proposed that LINE elements serve as ``way stations''
 for the spreading of X-inactivation in mammals,
 an idea supported by the 2-fold LINE enrichment on the human X
 and the tendency of LINE-poor regions to escape inactivation.
@@ -913,7 +927,7 @@ remain to be identified experimentally.
 \subsection*{Zmast and Zfest: deeply conserved lncRNAs of unknown function}
 
 \textit{Zmast} and \textit{Zfest} were first described
-by \citet{papanicolaou2024z} in two closely related octopus species
+by \textcite{papanicolaou2024z} in two closely related octopus species
 separated by $\sim$2.5~MY,
 who noted their resemblance to \textit{Xist} and \textit{roX}
 but offered no mechanistic evidence for their function.
