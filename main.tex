@@ -200,7 +200,7 @@ using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C ch
 The final assembly spanned 4.14 Gb with a contig N50 of 34.71 Mb and scaffold N50 of 75.92 Mb (Table S1).
 BUSCO analysis indicated 95.6\% completeness against the metazoan gene set,
 demonstrating high assembly quality.
-Hi-C scaffolding resolved 46 chromosomes, consistent with the known karyotype of \illex (CITE). 
+Hi-C scaffolding resolved 46 chromosomes, consistent with the decapodiform karyotype of 2n = 92 \citep{gao1990karyological}. 
 
 To create a comprehensive gene annotation, we generated RNA-seq data from multiple tissues
 using both Illumina short-read and PacBio Iso-Seq long-read technologies.
@@ -219,16 +219,23 @@ In total, we annotated 1,889 distinct classifications of unclassified repeats an
 over 7.8 million individual repeat instances across all categories,
 reflecting the complex repetitive architecture typical of cephalopod genomes.
 
-\subsection*{Identification of the Z chromosome in \illex}
+\subsection*{Identification and Synteny of the Z chromosome in \illex}
+In additional to a high quality female assembly, 
+we also generated deep PacBio HiFi sequencing data (19,667,460 reads) from a male individual.
+This allowed for direct comparison of read depth across assembled chromosomes,
+which indicate decisively that a single chromosome is at hemizygous coverage
+in the female in comparison to the male---the Z chromosome (Figure~\ref{fig:seq_depth}).
 
-To identify the Z chromosome in \illex, we performed comparative genomic analyses with other cephalopod species for which sex chromosomes have been characterized.
-Whole-genome synteny analysis revealed extensive chromosomal conservation across coleoid cephalopods (Figure 1C).
-We compared the \illex assembly to published genomes of \textit{Octopus bimaculoides}, \textit{O. sinensis}, \textit{Euprymna scolopes}, \textit{Sepia esculenta}, \textit{Doryteuthis pealeii}, and \textit{Sthenoteuthis oualaniensis}.
-Chromosome-scale alignments showed that \illex chromosome 42 exhibits strong synteny with the previously identified Z chromosomes in octopus species and corresponds to conserved linkage groups across squids and cuttlefish.
-Despite considerable chromosomal rearrangements, fusions, and fissions across the coleoid phylogeny,
-the Z chromosome has maintained its integrity as a distinct chromosomal unit for over 480 million years.
-These syntenic relationships, combined with coverage analysis (Figure 1A) showing reduced female-to-male mapping ratios on chromosome 42,
-confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
+We next performed comparative genomic analyses with other cephalopod species for which sex chromosomes have been characterized.
+Whole-genome synteny analysis revealed a striking pattern of chromosomal conservation across coleoid cephalopods (\ref{fig:phylo}).
+We compared the \illex assembly to published genomes of 
+\textit{Octopus bimaculoides}, \textit{O. sinensis}, \textit{Euprymna scolopes}, \textit{Sepia esculenta}, \textit{Doryteuthis pealeii}, and \textit{Sthenoteuthis oualaniensis}.
+Chromosome-scale alignments showed that within decapods, sytenty across all chromosome arms 
+is largely maintained, although with the expected degree of rearrangements, fusions, and fissions.
+However when comparing out to octopus, synteny breaks down on every chromosome, except for the Z chromosome.
+the Z chromosome has maintained its integrity as a distinct chromosomal unit for over 300 million years of evolution.
+%These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on chromosome 42,
+%confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
 \begin{figure}[H]
     \centering
@@ -245,8 +252,9 @@ confirm that this chromosome represents the Z chromosome in \illex, consistent w
 \subsection*{Partial dosage compensation of the Z chromosome in \illex}
 
 To assess whether \illex exhibits dosage compensation for Z-linked genes,
-we analyzed sex-stratified RNA-seq data from somatic tissue.
-We quantified gene expression levels across all chromosomes in both males (ZZ) and females (ZO)
+we analyzed sex-stratified RNA-seq data from somatic mantle tissue of adults.
+We quantified gene expression levels across all chromosomes in a single male (ZZ) and female (ZO),
+the same individuals used for genome assembly and coverage analysis,
 using DESeq2 normalization (Figure~\ref{fig:cross_species_dc}).
 Expression levels on autosomes were comparable between sexes,
 and Z-linked gene expression in females was comparable to autosomal levels
@@ -262,7 +270,9 @@ with females achieving $\sim$87\% of male expression levels for Z-linked genes.
 
 To determine whether dosage compensation of the Z chromosome is a shared feature of coleoid cephalopods
 or a lineage-specific adaptation in \illex,
-we analyzed sex-stratified RNA-seq data from six additional species spanning the major coleoid orders:
+we analyzed sex-stratified, publicly available RNA-seq data from 
+six additional species representing five coleoid orders 
+across both major coleoid lineages (Decapodiformes and Octopodiformes): 
 \textit{Sthenoteuthis oualaniensis} (Oegopsida),
 \textit{Doryteuthis pealeii} (Myopsida),
 \textit{Euprymna scolopes} and \textit{Euprymna berryi} (Sepiolida),
@@ -299,10 +309,12 @@ than that observed in birds, where Z-linked M:F ratios typically range from 1.4 
 
 The presence of dosage compensation across all seven species,
 spanning four orders and over 300 million years of divergence,
-demonstrates that compensation of the Z chromosome is ancestral to coleoid cephalopods.
-The observation that several lineages achieve complete compensation
-places coleoid cephalopods alongside \textit{Drosophila} and mammals
-as one of the few animal groups known to fully equalize sex chromosome expression.
+demonstrates that compensation of the Z chromosome is ancestral to coleoid cephalopods
+and has been conserved throughout their evolutionary history.
+Importantly, cephalopod dosage compensation is an independent evolutionary origin of dosage compensation 
+among major animal lineages, distinct from the mechanisms observed in mammals, insects, and birds,
+and thus offers the opportunity to discover novel mechanisms of sex chromosome regulation.
+
 
 \begin{table}[H]
 \centering
@@ -386,9 +398,10 @@ as methylation differences do not fully explain the residual male bias in Z-link
 \end{figure}
 
 \subsection*{The Z chromosome is enriched for chromatin-modifying genes}
-
-To investigate potential mechanisms of dosage compensation,
-we used reciprocal best-hit (RBH) orthology mapping across four species
+Strong conservation of the Z chromosome across coleoid cephalopods implies
+that its gene content has been subject to long-term selective pressures that
+likely include the maintenance of dosage compensation.
+To investigate this, we used reciprocal best-hit (RBH) orthology mapping across four species
 (\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris})
 to identify genes with conserved Z-linkage.
 A total of 188 genes were Z-linked in all four species,
@@ -1172,6 +1185,17 @@ using the Wilcoxon rank-sum test.
 
 \clearpage
 \beginsupplement
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/illex_chrom_seq_depth.png}
+    \caption{PacBio HiFi read depth across \illex chromosomes in female and male individuals.
+    Normalized read depth is shown for each chromosome.
+    Autosomes show comparable depth between sexes,
+    while the Z chromosome (chr42) shows reduced coverage in the female
+    relative to the male, consistent with hemizygosity in the ZO female.}
+    \label{fig:seq_depth}
+\end{figure}
 
 \begin{table}[H]
 \centering
