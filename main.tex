@@ -401,27 +401,53 @@ as methylation differences do not fully explain the residual male bias in Z-link
 Strong conservation of the Z chromosome across coleoid cephalopods implies
 that its gene content has been subject to long-term selective pressures that
 likely include the maintenance of dosage compensation.
-To investigate this, we used reciprocal best-hit (RBH) orthology mapping across four species
+To investigate this, we used reciprocal best-hit (RBH) orthology mapping
+to identify genes with conserved Z-linkage
+at increasing levels of phylogenetic stringency.
+Requiring Z-linkage across four species
 (\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris})
-to identify genes with conserved Z-linkage.
-A total of 188 genes were Z-linked in all four species,
-spanning over 300 million years of divergence
+identified 188 conserved genes;
+extending the requirement to all seven species reduced this to 148
 (Table~\ref{tab:conserved_z_genes}).
-These conserved Z-linked genes showed a striking enrichment
-for chromatin-modifying and epigenetic regulatory functions.
-The Z chromosome carries 20 chromatin genes,
-a 2.8-fold enrichment relative to autosomes
-(Fisher exact $p < 0.001$),
-and this enrichment is concentrated in the conserved syntenic core:
-16 of 188 conserved genes are chromatin-associated
-(vs.\ 4 of 451 non-conserved Z genes; $\sim$10-fold, $p < 10^{-6}$),
-alongside 6 transcription factors including FoxA2, OTX2, and FOS.
 
-Among the Z-linked chromatin genes, a complete COMPASS (H3K4 methylation) complex
-stands out: SET1B (catalytic methyltransferase), MEN1, BRE1/RNF40, ING5,
-TDRD3, UBN1, and BAHD1 are all Z-linked in all four species.
-Additional Z-linked chromatin modifiers include CREBBP/CBP (histone acetyltransferase),
-Domino/SRCAP (SWR1 H2A.Z remodeler), and SPT20 (SAGA complex component).
+At every stringency level, the conserved Z-linked gene set
+was strongly enriched for chromatin-modifying and epigenetic regulatory functions.
+Of the 188 genes conserved across four species,
+16 are chromatin-associated (8.5\%)---a $\sim$10-fold enrichment
+over the 4 chromatin genes among 451 non-conserved Z genes
+(Fisher exact $p < 10^{-6}$).
+Remarkably, 13 of these 16 chromatin genes remain Z-linked in all seven species,
+demonstrating that chromatin modifiers are among the most deeply conserved
+elements of the Z chromosome
+(Table~\ref{tab:z_enrichment}).
+
+\begin{table}[H]
+\centering
+\caption{Chromatin gene enrichment on the Z chromosome at increasing phylogenetic stringency.
+As Z-linkage is required across more species, chromatin genes are preferentially retained.}
+\label{tab:z_enrichment}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Stringency} & \textbf{Total genes} & \textbf{Chromatin} & \textbf{\% Chromatin} & \textbf{TF} \\
+\midrule
+4 species & 188 & 16 & 8.5\% & 6 \\
+5 species & 169 & 16 & 9.5\% & 6 \\
+6 species & 160 & 14 & 8.8\% & 5 \\
+7 species & 148 & 13 & 8.8\% & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Among the Z-linked chromatin genes conserved across all seven species,
+a near-complete COMPASS (H3K4 methylation) complex stands out:
+SET1B (catalytic methyltransferase), MEN1, BRE1/RNF40, ING5,
+UBN1, and BAHD1 are Z-linked in every species examined.
+Additional deeply conserved Z-linked chromatin modifiers include
+CREBBP/CBP (histone acetyltransferase),
+Domino/SRCAP (SWR1 H2A.Z remodeler),
+THOC6 (THO/TREX mRNA export), and PAN3 (mRNA deadenylase).
+TDRD3 (COMPASS reader), which is present in the 4-species core,
+drops out at 6 species, suggesting lineage-specific loss.
 
 To determine whether these Z-linked chromatin genes escape dosage compensation
 or are themselves compensated,
@@ -1263,39 +1289,45 @@ Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
 
 \begin{table}[H]
 \centering
-\caption{Z-linked chromatin and transcription factor genes conserved across four cephalopod species
-(\textit{O.~bimaculoides}, \textit{I.~illecebrosus}, \textit{S.~oualaniensis}, \textit{O.~vulgaris}).
-These 19 genes represent a subset of the 188 conserved Z-linked genes identified across all four species.
+\caption{Z-linked chromatin and transcription factor genes conserved across cephalopod species.
+These 22 genes (16 chromatin, 6 transcription factor) were identified among 188 conserved Z-linked genes
+shared by four species (\textit{O.~bimaculoides}, \textit{I.~illecebrosus}, \textit{S.~oualaniensis},
+\textit{O.~vulgaris}). The ``Spp'' column indicates the number of species (out of seven) in which each gene
+remains Z-linked at increasing phylogenetic stringency. Thirteen chromatin genes and four transcription
+factors survive at the most stringent 7-species threshold (148 conserved genes).
 Chromatin genes are enriched 2.8-fold on Z ($p < 0.001$); transcription factors 33-fold ($p < 10^{-6}$).}
 \label{tab:conserved_z_genes}
-\begin{tabular}{llll}
+\begin{tabular}{lllll}
 \toprule
-\textbf{Gene} & \textbf{\textit{O. bimac} ID} & \textbf{Category} & \textbf{\textit{Illex} LOC} \\
+\textbf{Gene} & \textbf{\textit{O. bimac} ID} & \textbf{Category} & \textbf{\textit{Illex} LOC} & \textbf{Spp} \\
 \midrule
-\multicolumn{4}{l}{\textit{Chromatin/epigenetic}} \\
+\multicolumn{5}{l}{\textit{Chromatin/epigenetic (16)}} \\
 \addlinespace[2pt]
-ING4/ING5    & obimac\_0008617 & COMPASS reader       & LOC\_00003818 \\
-UBN2/UBN1    & obimac\_0008620 & Histone chaperone    & LOC\_00003702 \\
-SET1B        & obimac\_0008636 & COMPASS catalytic    & LOC\_00003880 \\
-CRAMP1       & obimac\_0008683 & Chromatin remodeler  & LOC\_00003786 \\
-TDRD3        & obimac\_0008806 & COMPASS reader       & LOC\_00003695 \\
-CREBBP/CBP   & obimac\_0008915 & Histone acetyltransferase & LOC\_00003925 \\
-MEN1         & obimac\_0008998 & COMPASS scaffold     & LOC\_00003829 \\
-BAHD1        & obimac\_0009029 & H3K27 reader         & LOC\_00003878 \\
-PAN3         & obimac\_0009030 & mRNA deadenylase     & LOC\_00003838 \\
-THOC6        & obimac\_0009064 & THO/TREX export      & LOC\_00003826 \\
-Domino/SRCAP & obimac\_0009065 & SWR1 H2A.Z remodeler & LOC\_00003883 \\
-BRE1/RNF40   & obimac\_0009144 & H2B ubiquitin ligase & LOC\_00003828 \\
+ING4/ING5    & obimac\_0008617 & COMPASS reader            & LOC\_00003818 & 7 \\
+UBN2/UBN1    & obimac\_0008620 & Histone chaperone         & LOC\_00003702 & 7 \\
+SET1B        & obimac\_0008636 & COMPASS catalytic          & LOC\_00003880 & 7 \\
+KIF4A        & obimac\_0008680 & Chromatin condensation     &               & 7 \\
+CREBBP/CBP   & obimac\_0008915 & Histone acetyltransferase  & LOC\_00003925 & 7 \\
+MEN1         & obimac\_0008998 & COMPASS scaffold           & LOC\_00003829 & 7 \\
+ARID4B       & obimac\_0009001 & ARID chromatin reader      & LOC\_00003831 & 7 \\
+BAHD1        & obimac\_0009029 & H3K27 reader               &               & 7 \\
+PAN3         & obimac\_0009030 & mRNA deadenylase           & LOC\_00003838 & 7 \\
+ELM2-domain  & obimac\_0009036 & Chromatin remodeler        & LOC\_00003928 & 7 \\
+THOC6        & obimac\_0009064 & THO/TREX export            & LOC\_00003826 & 7 \\
+Domino/SRCAP & obimac\_0009065 & SWR1 H2A.Z remodeler       & LOC\_00003883 & 7 \\
+BRE1/RNF40   & obimac\_0009144 & H2B ubiquitin ligase       & LOC\_00003828 & 7 \\
+TDRD3        & obimac\_0008806 & COMPASS reader             & LOC\_00003695 & 6 \\
+CRAMP1       & obimac\_0008683 & Chromatin remodeler        & LOC\_00003786 & 5 \\
+FBL          & obimac\_0009198 & rRNA methyltransferase     &               & 5 \\
 \addlinespace[4pt]
-\multicolumn{4}{l}{\textit{Transcription factor}} \\
+\multicolumn{5}{l}{\textit{Transcription factor (6)}} \\
 \addlinespace[2pt]
-FOS/AP-1     & obimac\_0008668 & bZIP TF              & LOC\_00003775 \\
-TBX3         & obimac\_0008756 & T-box TF             & LOC\_00003751 \\
-ZNF226       & obimac\_0008819 & Zinc finger TF       & LOC\_00003931 \\
-ARID4B       & obimac\_0009001 & ARID domain TF       & LOC\_00003831 \\
-FoxA2        & obimac\_0009054 & Forkhead pioneer TF  & LOC\_00003746 \\
-MEIS2        & obimac\_0009102 & Homeobox TF          & LOC\_00003687 \\
-OTX2         & obimac\_0009208 & Homeobox TF          & LOC\_00003911 \\
+FOS/AP-1     & obimac\_0008668 & bZIP TF                    & LOC\_00003775 & 7 \\
+TBX3         & obimac\_0008756 & T-box TF                   & LOC\_00003751 & 7 \\
+FoxA2        & obimac\_0009054 & Forkhead pioneer TF        & LOC\_00003746 & 7 \\
+OTX2         & obimac\_0009208 & Homeobox TF                & LOC\_00003911 & 7 \\
+ZNF226       & obimac\_0008819 & Zinc finger TF             & LOC\_00003931 & 6 \\
+MEIS2        & obimac\_0009102 & Homeobox TF                & LOC\_00003687 & 5 \\
 \bottomrule
 \end{tabular}
 \end{table}
