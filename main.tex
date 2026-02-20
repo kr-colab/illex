@@ -450,6 +450,8 @@ the HIRA-complex chaperone UBN1,
 and the heterochromatin regulator BAHD1---all Z-linked in every species examined.
 Additional deeply conserved Z-linked chromatin modifiers include
 ING5 (HBO1/MOZ-associated PHD reader),
+KIF4A (chromatin condensation),
+ELM2-domain (NuRD/HDAC remodeler),
 THOC6 (THO/TREX mRNA export), and PAN3 (mRNA deadenylase).
 TDRD3 (Tudor-domain methyl reader), present in the 4-species core,
 drops out at 6 species, suggesting lineage-specific loss.
@@ -460,90 +462,75 @@ do not constitute a single complex
 but rather represent convergent enrichment
 of multiple independent chromatin pathways on the sex chromosome.
 
-To determine whether these Z-linked chromatin genes escape dosage compensation
-or are themselves compensated,
-we examined their expression in the two best-powered species
-(Table~\ref{tab:compass}).
-In \textit{O. bimaculoides} (30 somatic samples, 15F:15M),
-all Z-linked chromatin genes showed balanced expression between sexes:
-SET1B (log$_2$FC = +0.18, $p_\text{adj}$ = 0.47),
-BRE1 (+0.05, $p_\text{adj}$ = 0.77),
-ING5 (+0.15, $p_\text{adj}$ = 0.57),
-TDRD3 ($-$0.32, $p_\text{adj}$ = 0.39),
-UBN1 (+0.13, $p_\text{adj}$ = 0.61),
-and BAHD1 (+0.23, $p_\text{adj}$ = 0.63).
-CREBBP (+0.61, $p_\text{adj}$ = 0.089) and Domino (+0.59, $p_\text{adj}$ = 0.027)
-were similarly compensated.
-MEN1 was the sole exception, trending male-biased in both
-\textit{O. bimaculoides} (+1.21, $p_\text{adj}$ = 0.175)
-and \textit{S. oualaniensis} (+0.97, $p_\text{adj}$ = $6.1 \times 10^{-3}$),
-though not reaching significance in the former.
-In \textit{S. oualaniensis} (32 somatic samples, 16F:16M),
-SET1B showed identical compensation (log$_2$FC = +0.10, NS),
-and all other Z-linked chromatin genes were non-significant.
-
-The compensation of Z-linked chromatin genes implies a self-reinforcing regulatory loop:
-these genes encode the epigenetic machinery that maintains permissive chromatin
-on the Z chromosome,
-which in turn sustains their own expression from a single copy in females.
-Any reduction in compensation would reduce chromatin modifier output,
-further diminishing compensation---a destabilizing feedback loop
-that the compensated state must actively resist.
-
 \begin{table}[H]
 \centering
-\caption{Expression of Z-linked chromatin modifier genes
-in \textit{O. bimaculoides} and \textit{S. oualaniensis}.
+\caption{Expression of conserved Z-linked chromatin modifier genes
+in \textit{O. bimaculoides} (30 somatic samples, 15F:15M).
 log$_2$FC indicates male-to-female fold change; positive values indicate male bias.}
 \label{tab:compass}
-\begin{tabular}{llrrrr}
+\begin{tabular}{llrr}
 \toprule
-\textbf{Gene} & \textbf{Pathway} & \multicolumn{2}{c}{\textbf{\textit{O. bimaculoides}}} & \multicolumn{2}{c}{\textbf{\textit{S. oualaniensis}}} \\
-\cmidrule(lr){3-4} \cmidrule(lr){5-6}
- & & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} \\
+\textbf{Gene} & \textbf{Pathway} & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} \\
 \midrule
-SET1B & H3K4me & +0.18 & 0.474 & +0.10 & NS \\
-MEN1 & MLL/H3K4me & +1.21 & 0.175 & +0.97 & $6.1 \times 10^{-3}$ \\
-BRE1/RNF40 & H2Bub1 & +0.05 & 0.774 & --- & NS \\
-ING5 & HBO1/MOZ & +0.15 & 0.571 & --- & NS \\
-TDRD3 & Tudor reader & $-$0.32 & 0.386 & --- & NS \\
-UBN1 & HIRA/H3.3 & +0.13 & 0.606 & --- & NS \\
-BAHD1 & Heterochromatin & +0.23 & 0.628 & --- & NS \\
+SET1B & H3K4me & +0.18 & 0.474 \\
+MEN1 & MLL/H3K4me & +1.21 & 0.175 \\
+BRE1/RNF40 & H2Bub1 & +0.05 & 0.774 \\
+ING5 & HBO1/MOZ & +0.15 & 0.571 \\
+TDRD3 & Tudor reader & $-$0.32 & 0.386 \\
+UBN1 & HIRA/H3.3 & +0.13 & 0.606 \\
+BAHD1 & Heterochromatin & +0.23 & 0.628 \\
 \midrule
-CREBBP/CBP & HAT & +0.61 & 0.089 & --- & NS \\
-Domino/SRCAP & SWR1/H2A.Z & +0.59 & 0.027 & --- & NS \\
-SPT20 & SAGA & --- & --- & --- & NS \\
+CREBBP/CBP & HAT & +0.61 & 0.089 \\
+Domino/SRCAP & SWR1/H2A.Z & +0.59 & 0.027 \\
+THOC6 & THO/TREX & +0.52 & $9.6 \times 10^{-4}$ \\
+PAN3 & Deadenylation & +0.94 & 0.076 \\
+KIF4A & Condensation & +0.19 & 0.928 \\
+ELM2-domain & NuRD/HDAC & +1.02 & 0.095 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection*{Sex-biased chromatin modifier expression in \textit{O. bimaculoides}}
 
-Having established that chromatin genes are enriched on the Z chromosome
-across species and that dosage compensation is universal and ancestral,
-we next examined the expression patterns of chromatin modifiers in detail
-in \textit{O. bimaculoides},
-where we have the greatest statistical power
-(30 somatic samples, 15F:15M, after excluding 18 temperature-stressed samples
-that introduced confounding variation).
-PyDESeq2 identified 2,470 genes with significant sex-biased expression
+To determine whether these Z-linked chromatin genes escape dosage compensation
+or are themselves compensated,
+we examined their expression in \textit{O. bimaculoides},
+which provides the greatest statistical power
+(30 somatic samples, 15F:15M, after excluding 18 temperature-stressed samples).
+Most conserved Z-linked chromatin genes show balanced expression
+between sexes (Table~\ref{tab:compass}):
+SET1B, BRE1, ING5, TDRD3, UBN1, BAHD1, CREBBP, and KIF4A
+are all non-significant ($p_\text{adj} > 0.05$).
+Three genes deviate from this pattern:
+MEN1 trends male-biased (log$_2$FC = +1.21, $p_\text{adj}$ = 0.175),
+THOC6 is significantly male-biased
+(+0.52, $p_\text{adj}$ = $9.6 \times 10^{-4}$),
+and ELM2-domain trends male (+1.02, $p_\text{adj}$ = 0.095).
+The compensation of most Z-linked chromatin genes implies
+a self-reinforcing regulatory loop:
+these genes encode the epigenetic machinery
+that maintains permissive chromatin on the Z chromosome,
+which in turn sustains their own expression from a single copy in females.
+
+Beyond the conserved Z-linked genes,
+PyDESeq2 identified 2,470 genes with significant sex-biased expression genome-wide
+in \textit{O. bimaculoides}
 ($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$):
 1,454 male-biased and 1,016 female-biased.
 On the Z chromosome, 63 genes were significantly sex-biased (35 male, 28 female),
 with a median log$_2$FC of +0.002,
 confirming effective compensation at the chromosome level.
-
-Among the 29 chromatin modifier isoforms
-with significant sex-biased expression in \textit{O. bimaculoides},
-16 were female-biased and 13 male-biased
+Among chromatin modifier genes specifically,
+27 isoforms showed significant sex-biased expression,
+15 female-biased and 12 male-biased
 (Tables~\ref{tab:chromatin-female} and \ref{tab:chromatin-male}).
 These encompass multiple chromatin-modifying families:
 SWI/SNF remodeling complex subunits (PBRM1, SMARCC2, SMARCD1, ARID2),
 lysine demethylases (KDM5A, KDM3A),
 chromodomain helicases (CHD5, CHD1L),
 histone acetyltransferases (KAT7, KAT6B),
-deacetylases (SIRT5, CDYL, CBX5),
-MLL complex members (RBBP5, KMT2E),
+heterochromatin readers (CBX5/HP1$\alpha$, CDYL, SMCHD1),
+WRAD scaffold members (RBBP5, KMT2E),
 and bromodomain readers (BAZ2B, BRD7).
 Three Z-linked genes show sex bias:
 the SWR1 remodeler Domino/SRCAP exhibits isoform switching
@@ -900,7 +887,7 @@ but here it operates at the scale of an entire chromosome.
 
 In \textit{O. bimaculoides},
 where statistical power is greatest (30 somatic samples, 15F:15M),
-29 chromatin modifier isoforms show significant sex-biased expression,
+27 chromatin modifier isoforms show significant sex-biased expression,
 with four genes---PBRM1, SMARCC2, KDM3A, and Domino---exhibiting
 bidirectional isoform switching between sexes.
 The female isoform proportion of KDM3A, an H3K9 demethylase
