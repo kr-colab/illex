@@ -439,22 +439,33 @@ As Z-linkage is required across more species, chromatin genes are preferentially
 \end{table}
 
 Among the Z-linked chromatin genes conserved across all seven species,
-a near-complete COMPASS (H3K4 methylation) complex stands out:
-SET1B (catalytic methyltransferase), MEN1, BRE1/RNF40, ING5,
-UBN1, and BAHD1 are Z-linked in every species examined.
+the most striking feature is the co-localization of regulators
+from multiple independent chromatin-modifying pathways.
+These include the H3K4 methyltransferase SET1B,
+the MLL-complex scaffold MEN1,
+the H2B ubiquitin ligase BRE1/RNF40,
+the histone acetyltransferase CREBBP/CBP,
+the SWR1 H2A.Z remodeler Domino/SRCAP,
+the HIRA-complex chaperone UBN1,
+and the heterochromatin regulator BAHD1---all Z-linked in every species examined.
 Additional deeply conserved Z-linked chromatin modifiers include
-CREBBP/CBP (histone acetyltransferase),
-Domino/SRCAP (SWR1 H2A.Z remodeler),
+ING5 (HBO1/MOZ-associated PHD reader),
 THOC6 (THO/TREX mRNA export), and PAN3 (mRNA deadenylase).
-TDRD3 (COMPASS reader), which is present in the 4-species core,
+TDRD3 (Tudor-domain methyl reader), present in the 4-species core,
 drops out at 6 species, suggesting lineage-specific loss.
+Notably, the WRAD scaffold subunits shared by all COMPASS-family complexes
+(WDR5, RBBP5, ASH2L) are autosomal,
+indicating that the Z-linked chromatin regulators
+do not constitute a single complex
+but rather represent convergent enrichment
+of multiple independent chromatin pathways on the sex chromosome.
 
 To determine whether these Z-linked chromatin genes escape dosage compensation
 or are themselves compensated,
 we examined their expression in the two best-powered species
 (Table~\ref{tab:compass}).
 In \textit{O. bimaculoides} (30 somatic samples, 15F:15M),
-all seven COMPASS genes showed balanced expression between sexes:
+all Z-linked chromatin genes showed balanced expression between sexes:
 SET1B (log$_2$FC = +0.18, $p_\text{adj}$ = 0.47),
 BRE1 (+0.05, $p_\text{adj}$ = 0.77),
 ING5 (+0.15, $p_\text{adj}$ = 0.57),
@@ -469,7 +480,7 @@ and \textit{S. oualaniensis} (+0.97, $p_\text{adj}$ = $6.1 \times 10^{-3}$),
 though not reaching significance in the former.
 In \textit{S. oualaniensis} (32 somatic samples, 16F:16M),
 SET1B showed identical compensation (log$_2$FC = +0.10, NS),
-and all other COMPASS genes were non-significant.
+and all other Z-linked chromatin genes were non-significant.
 
 The compensation of Z-linked chromatin genes implies a self-reinforcing regulatory loop:
 these genes encode the epigenetic machinery that maintains permissive chromatin
@@ -481,26 +492,26 @@ that the compensated state must actively resist.
 
 \begin{table}[H]
 \centering
-\caption{Expression of Z-linked COMPASS and chromatin modifier genes
+\caption{Expression of Z-linked chromatin modifier genes
 in \textit{O. bimaculoides} and \textit{S. oualaniensis}.
 log$_2$FC indicates male-to-female fold change; positive values indicate male bias.}
 \label{tab:compass}
 \begin{tabular}{llrrrr}
 \toprule
-\textbf{Gene} & \textbf{Complex} & \multicolumn{2}{c}{\textbf{\textit{O. bimaculoides}}} & \multicolumn{2}{c}{\textbf{\textit{S. oualaniensis}}} \\
+\textbf{Gene} & \textbf{Pathway} & \multicolumn{2}{c}{\textbf{\textit{O. bimaculoides}}} & \multicolumn{2}{c}{\textbf{\textit{S. oualaniensis}}} \\
 \cmidrule(lr){3-4} \cmidrule(lr){5-6}
  & & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} \\
 \midrule
-SET1B & COMPASS & +0.18 & 0.474 & +0.10 & NS \\
-MEN1 & COMPASS & +1.21 & 0.175 & +0.97 & $6.1 \times 10^{-3}$ \\
-BRE1/RNF40 & COMPASS & +0.05 & 0.774 & --- & NS \\
-ING5 & COMPASS & +0.15 & 0.571 & --- & NS \\
-TDRD3 & COMPASS & $-$0.32 & 0.386 & --- & NS \\
-UBN1 & COMPASS & +0.13 & 0.606 & --- & NS \\
-BAHD1 & COMPASS & +0.23 & 0.628 & --- & NS \\
+SET1B & H3K4me & +0.18 & 0.474 & +0.10 & NS \\
+MEN1 & MLL/H3K4me & +1.21 & 0.175 & +0.97 & $6.1 \times 10^{-3}$ \\
+BRE1/RNF40 & H2Bub1 & +0.05 & 0.774 & --- & NS \\
+ING5 & HBO1/MOZ & +0.15 & 0.571 & --- & NS \\
+TDRD3 & Tudor reader & $-$0.32 & 0.386 & --- & NS \\
+UBN1 & HIRA/H3.3 & +0.13 & 0.606 & --- & NS \\
+BAHD1 & Heterochromatin & +0.23 & 0.628 & --- & NS \\
 \midrule
 CREBBP/CBP & HAT & +0.61 & 0.089 & --- & NS \\
-Domino/SRCAP & SWR1 & +0.59 & 0.027 & --- & NS \\
+Domino/SRCAP & SWR1/H2A.Z & +0.59 & 0.027 & --- & NS \\
 SPT20 & SAGA & --- & --- & --- & NS \\
 \bottomrule
 \end{tabular}
@@ -630,7 +641,7 @@ Hi-C chromatin conformation data from female \illex
 confirmed this structural organization.
 The Z chromosome exhibited the strongest A/B compartmentalization
 of any chromosome in the genome ($z = 3.36$ for PC1 variance).
-All COMPASS complex genes reside in the A compartment (euchromatic),
+All Z-linked chromatin modifier genes reside in the A compartment (euchromatic),
 while the pioneer transcription factor FoxA2
 uniquely occupies the B compartment---consistent with its role
 in opening closed chromatin.
@@ -832,7 +843,7 @@ and sex-specific long non-coding RNAs (Figure~\ref{fig:model}).
     Z copy number sets \textit{Zmast} expression (males produce $\sim$5,000-fold more),
     which sequesters U-rich RNA-binding proteins in males,
     altering sex-specific splicing programs that control chromatin remodeling capacity.
-    Z-linked COMPASS genes maintain compensation via a self-reinforcing loop,
+    Z-linked chromatin modifier genes maintain compensation via a self-reinforcing loop,
     while gene-body cis-elements mark individual genes for compensation.
     LINE elements (RTE-BovB) and CTCF insulators provide the structural architecture
     for chromatin domain organization along the Z chromosome.}
@@ -868,10 +879,11 @@ is its enrichment for chromatin-modifying genes.
 The conserved syntenic core of 188 Z-linked genes
 contains 16 chromatin-associated genes---a $\sim$10-fold enrichment
 over non-conserved Z genes ($p < 10^{-6}$)---including
-a complete COMPASS complex (SET1B, MEN1, BRE1, ING5, TDRD3, UBN1, BAHD1),
-the histone acetyltransferase CREBBP/CBP,
-the SWR1 H2A.Z remodeler Domino/SRCAP,
-and the SAGA component SPT20.
+regulators from multiple independent chromatin pathways:
+the H3K4 methyltransferase SET1B, the MLL-complex scaffold MEN1,
+the H2B ubiquitin ligase BRE1, the histone acetyltransferase CREBBP/CBP,
+the SWR1 H2A.Z remodeler Domino/SRCAP, the HIRA-complex chaperone UBN1,
+and the heterochromatin regulator BAHD1.
 All are compensated in both \textit{O. bimaculoides} and \textit{S. oualaniensis},
 creating a self-reinforcing feedback loop:
 these genes encode the epigenetic machinery
@@ -909,7 +921,7 @@ and MSL2 is strongly female-biased in \textit{S. oualaniensis}
 but neutral in octopus.
 What is conserved is not the specific downstream circuitry
 but the upstream architecture:
-Z-linked COMPASS genes, chromatin enrichment, and \textit{Zmast}/\textit{Zfest} lncRNAs
+Z-linked chromatin modifier genes and \textit{Zmast}/\textit{Zfest} lncRNAs
 are present in every species examined.
 
 \subsection*{Lyon's repeat hypothesis extends to cephalopod Z chromosomes}
@@ -936,7 +948,7 @@ suggests that the structural principle is under selection
 even as the specific repeat elements turn over.
 Hi-C data from female \illex confirms that the Z chromosome
 has the strongest A/B compartmentalization of any chromosome ($z = 3.36$),
-with COMPASS genes uniformly in the A (euchromatic) compartment.
+with chromatin modifier genes uniformly in the A (euchromatic) compartment.
 
 \subsection*{Gene-body cis-elements as MRE analogs}
 
@@ -1049,7 +1061,7 @@ without establishing a mechanism for trans-factor recognition.
 Critical next steps include functional experiments:
 CRISPR disruption of \textit{Zmast} to test its role in dosage compensation,
 ATAC-seq to map chromatin accessibility across the Z chromosome in both sexes,
-ChIP-seq for H3K4me3 at COMPASS target genes on Z,
+ChIP-seq for H3K4me3 at Z-linked chromatin modifier genes,
 and CLIP-seq to identify the specific RBPs sequestered by \textit{Zmast}.
 Comparative genomics across the coleoid phylogeny---including
 the phylogenetically distant \textit{Nautilus},
@@ -1303,12 +1315,12 @@ Chromatin genes are enriched 2.8-fold on Z ($p < 0.001$); transcription factors 
 \midrule
 \multicolumn{5}{l}{\textit{Chromatin/epigenetic (16)}} \\
 \addlinespace[2pt]
-ING4/ING5    & obimac\_0008617 & COMPASS reader            & LOC\_00003818 & 7 \\
+ING4/ING5    & obimac\_0008617 & HBO1/MOZ PHD reader        & LOC\_00003818 & 7 \\
 UBN2/UBN1    & obimac\_0008620 & Histone chaperone         & LOC\_00003702 & 7 \\
-SET1B        & obimac\_0008636 & COMPASS catalytic          & LOC\_00003880 & 7 \\
+SET1B        & obimac\_0008636 & H3K4 methyltransferase     & LOC\_00003880 & 7 \\
 KIF4A        & obimac\_0008680 & Chromatin condensation     &               & 7 \\
 CREBBP/CBP   & obimac\_0008915 & Histone acetyltransferase  & LOC\_00003925 & 7 \\
-MEN1         & obimac\_0008998 & COMPASS scaffold           & LOC\_00003829 & 7 \\
+MEN1         & obimac\_0008998 & MLL-complex scaffold       & LOC\_00003829 & 7 \\
 ARID4B       & obimac\_0009001 & ARID chromatin reader      & LOC\_00003831 & 7 \\
 BAHD1        & obimac\_0009029 & H3K27 reader               &               & 7 \\
 PAN3         & obimac\_0009030 & mRNA deadenylase           & LOC\_00003838 & 7 \\
@@ -1316,7 +1328,7 @@ ELM2-domain  & obimac\_0009036 & Chromatin remodeler        & LOC\_00003928 & 7 
 THOC6        & obimac\_0009064 & THO/TREX export            & LOC\_00003826 & 7 \\
 Domino/SRCAP & obimac\_0009065 & SWR1 H2A.Z remodeler       & LOC\_00003883 & 7 \\
 BRE1/RNF40   & obimac\_0009144 & H2B ubiquitin ligase       & LOC\_00003828 & 7 \\
-TDRD3        & obimac\_0008806 & COMPASS reader             & LOC\_00003695 & 6 \\
+TDRD3        & obimac\_0008806 & Tudor methyl reader        & LOC\_00003695 & 6 \\
 CRAMP1       & obimac\_0008683 & Chromatin remodeler        & LOC\_00003786 & 5 \\
 FBL          & obimac\_0009198 & rRNA methyltransferase     &               & 5 \\
 \addlinespace[4pt]
