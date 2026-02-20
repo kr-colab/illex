@@ -1,0 +1,23 @@
+gene_name	category	pathway	n_species_conserved	obimaculoides	illex	soualaniensis	escolopes	eberryi	sofficinalis	ovulgaris	dpealeii
+ING4/ING5	Chromatin/epigenetic	HBO1/MOZ PHD reader	7	obimac_0008617	LOC_00003818	LOC_00003818	g22211	EB34626	g15869	CAI9734859	---
+UBN2/UBN1	Chromatin/epigenetic	HIRA histone chaperone complex	7	obimac_0008620	LOC_00003702	MSTRG.5830	g22175	EB34790	g16027	CAI9734854	UBN2_Dpe43_34731258_+_transcript0
+SET1B	Chromatin/epigenetic	H3K4 methyltransferase	7	obimac_0008636	LOC_00003880	LOC_00003880	g22163	EB34494	g15914	CAI9734842	SETD1A_Dpe43_16387967_+_transcript0
+KIF4A	Chromatin/epigenetic	Chromosome condensation	7	obimac_0008680	LOC_00003783	---	---	---	---	---	---
+CREBBP/CBP	Chromatin/epigenetic	H3K27ac (HAT)	7	obimac_0008915	LOC_00003925	LOC_00003925	g22260	EB34687	g15992	CAI9734653	CREBBP_Dpe43_37483886_-_transcript0
+MEN1	Chromatin/epigenetic	MLL-complex scaffold	7	obimac_0008998	LOC_00003829	LOC_00003829	g22307	EB34565	---	CAI9734583	MEN1_Dpe43_40423593_-_transcript0
+ARID4B	Chromatin/epigenetic	HDAC/NuRD complex	7	obimac_0009001	LOC_00003831	MSTRG.30163	g22312	EB34526	---	CAI9734578	ARID4B_Dpe43_40508998_+_transcript0
+BAHD1	Chromatin/epigenetic	Heterochromatin (H3K27me3 reader)	7	obimac_0009029	LOC_00003878	MSTRG.30061	g22169	EB34655	g15843	---	NA_1876_Dpe43_19103761_+_transcript0
+PAN3	Chromatin/epigenetic	mRNA deadenylation	7	obimac_0009030	LOC_00003838	LOC_00003838	---	EB34827	---	CAI9734545	PAN3_Dpe43_41399425_+_transcript0
+ELM2-domain	Chromatin/epigenetic	HDAC/chromatin remodeling	7	obimac_0009036	LOC_00003928	LOC_00003928	g22258	EB34488	g15997	CAI9734540	---
+THOC6	Chromatin/epigenetic	THO/TREX mRNA export	7	obimac_0009064	LOC_00003826	LOC_00003826	g22303	EB34475	g15874	CAI9734308	THOC6_Dpe43_40151483_+_transcript0
+Domino/SRCAP	Chromatin/epigenetic	H2A.Z deposition (SWR1 complex)	7	obimac_0009065	LOC_00003883	MSTRG.30212	g22273	EB34599	---	CAI9734303	SRCAP_EP400_Dpe43_11125288_+_transcript0
+BRE1/RNF40	Chromatin/epigenetic	H2Bub1 (E3 ligase)	7	obimac_0009144	LOC_00003828	MSTRG.30169	g22305	EB34473	g15876	CAI9734721	RNF40_Dpe43_40358403_+_transcript0
+TDRD3	Chromatin/epigenetic	Tudor-domain methyl reader	6	obimac_0008806	LOC_00003695	LOC_00003695	g27017	EB35666	g15961	CAI9734462	TDRD3_Dpe43_44659688_-_transcript0
+CRAMP1	Chromatin/epigenetic	Chromatin remodeling	5	obimac_0008683	LOC_00003786	LOC_00003786	g22034	EB34356	g15862	CAI9734785	CRAMP1_Dpe21_48306696_-_transcript0
+FBL	Chromatin/epigenetic	rRNA 2'-O-methylation (H/ACA snoRNP)	5	obimac_0009198	LOC_00015020	MSTRG.16255	g13325	EB46760	g7478	CAI9722513	FBL_2_Dpe22_47313675_+_transcript0
+FOS/AP-1	Transcription factor	AP-1 signaling	7	obimac_0008668	LOC_00003775	MSTRG.30257	g22187	EB34375	g15903	CAI9734803	FOS_Dpe43_17584067_-_transcript0
+TBX3	Transcription factor	T-box TF / limb-heart patterning	7	obimac_0008756	LOC_00003751	MSTRG.29834	---	---	---	---	---
+FoxA2	Transcription factor	Pioneer TF / chromatin opening	7	obimac_0009054	LOC_00003746	LOC_00003746	g22338	EB34485	g15921	CAI9734395	---
+OTX2	Transcription factor	Homeodomain TF	7	obimac_0009208	LOC_00003911	LOC_00003911	g22087	EB34813	g16043	CAI9734331	---
+ZNF226	Transcription factor	KRAB-ZNF TF	6	obimac_0008819	LOC_00003931	LOC_00003931	---	EB35383	g16004	CAI9734492	---
+MEIS2	Transcription factor	TALE-class homeodomain TF	5	obimac_0009102	LOC_00003687	LOC_00003687	g20110	EB23357	---	CAJ1099323.1	---
