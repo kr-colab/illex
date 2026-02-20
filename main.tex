@@ -757,15 +757,20 @@ will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
 
 \section*{Discussion}
 
-\subsection*{A distinct cephalopod dosage compensation mechanism}
-
-Cephalopod dosage compensation operates through a mechanism
-unlike any previously described in animals (Figure~\ref{fig:model}).
-Unlike the MSL-mediated hyperactivation in \textit{Drosophila}
-or the \textit{Xist}-mediated inactivation in mammals,
-cephalopods appear to rely on a combination of Z-linked chromatin modifier enrichment,
-repetitive element architecture, and gene-body cis-elements
-to achieve 87--103\% compensation of the hemizygous female Z chromosome.
+Dosage compensation of sex chromosomes has evolved independently
+in every animal lineage examined in detail,
+yet the known mechanisms are strikingly few:
+\textit{Xist}-mediated inactivation in mammals \citep{lyon1961gene},
+MSL-mediated hyperactivation in \textit{Drosophila} \citep{lucchesi2015dosage},
+and hermaphrodite-specific downregulation in \textit{C. elegans} \citep{meyer2005x}.
+Birds, the best-studied ZZ/ZW system, show incomplete and largely gene-by-gene compensation,
+with no chromosome-wide regulatory mechanism identified
+\citep{mank2009w}.
+Our results establish cephalopods as a new model for dosage compensation
+that achieves 87--103\% equalization of Z-linked expression
+through a combination of chromatin modifier enrichment,
+repetitive element architecture, gene-body cis-elements,
+and sex-specific long non-coding RNAs (Figure~\ref{fig:model}).
 
 \begin{figure}[H]
     \centering
@@ -781,66 +786,223 @@ to achieve 87--103\% compensation of the hemizygous female Z chromosome.
     \label{fig:model}
 \end{figure}
 
-\subsection*{A self-reinforcing Z-linked chromatin loop}
+\subsection*{Dosage compensation is ancestral in coleoid cephalopods}
 
-The enrichment of COMPASS and other chromatin-modifying genes on the Z chromosome
-creates a self-reinforcing system:
-the compensated expression of these genes maintains the permissive chromatin state
-required for their own compensation.
-This architecture would make the compensated state inherently stable,
-analogous to the maintenance of active chromatin domains in development.
+\citet{papanicolaou2024z} provided the first evidence of dosage compensation
+in any cephalopod,
+demonstrating partial compensation (M:F $\approx$ 1.04--1.15)
+and identifying \textit{Zmast} and \textit{Zfest}
+in two closely related octopus species separated by $\sim$2.5~MY.
+Our results generalize these findings across seven species
+spanning four orders and over 300~MY of divergence.
+In every species examined, Z-linked gene expression in hemizygous females
+is upregulated to match or approach male levels,
+with M:F ratios ranging from 0.97 to 1.15
+(Table~\ref{tab:cross_species_dc}).
+Four species achieve complete compensation indistinguishable from autosomal ratios,
+and even the most male-biased species (\illex, M:F = 1.15)
+far exceeds the compensation observed in birds (M:F $\approx$ 1.4--1.6).
+The phylogenetic breadth of this pattern---from oegopsid and myopsid squids
+through bobtail squids, cuttlefish, and octopus---demonstrates
+that dosage compensation is ancestral to the coleoid cephalopods
+and was likely present in the common ancestor
+of all extant squid and octopus lineages.
 
-\subsection*{Lyon's repeat hypothesis in cephalopods}
+\subsection*{A self-reinforcing chromatin loop on the Z chromosome}
 
-The LINE-high/SINE-low repeat signature of the cephalopod Z chromosome
-parallels the mammalian X.
-The observation that different TE families define the structural compartments
+The most unexpected feature of the cephalopod Z chromosome
+is its enrichment for chromatin-modifying genes.
+The conserved syntenic core of 188 Z-linked genes
+contains 16 chromatin-associated genes---a $\sim$10-fold enrichment
+over non-conserved Z genes ($p < 10^{-6}$)---including
+a complete COMPASS complex (SET1B, MEN1, BRE1, ING5, TDRD3, UBN1, BAHD1),
+the histone acetyltransferase CREBBP/CBP,
+the SWR1 H2A.Z remodeler Domino/SRCAP,
+and the SAGA component SPT20.
+All are compensated in both \textit{O. bimaculoides} and \textit{S. oualaniensis},
+creating a self-reinforcing feedback loop:
+these genes encode the epigenetic machinery
+that maintains permissive chromatin on the Z chromosome,
+which in turn sustains their own single-copy expression in females.
+Any reduction in compensation would diminish chromatin modifier output,
+further eroding compensation---a destabilizing dynamic
+that the compensated state must actively resist.
+This architecture is reminiscent of autoregulatory chromatin loops
+in developmental gene regulation,
+but here it operates at the scale of an entire chromosome.
+
+\subsection*{Chromatin remodelers as effectors of compensation}
+
+In \textit{O. bimaculoides},
+where statistical power is greatest (30 somatic samples, 15F:15M),
+29 chromatin modifier isoforms show significant sex-biased expression,
+with four genes---PBRM1, SMARCC2, KDM3A, and Domino---exhibiting
+bidirectional isoform switching between sexes.
+The female isoform proportion of KDM3A, an H3K9 demethylase
+that removes repressive marks to promote transcription,
+is the strongest individual predictor of Z:A compensation ratios
+(coefficient = +17.96, $p = 0.008$),
+and isoform proportions of these four genes collectively explain
+57\% of Z:A variance---four-fold more than sex alone.
+This result provides a direct quantitative link
+between chromatin modifier isoform usage
+and chromosome-wide dosage compensation output.
+
+The specific chromatin remodelers involved differ between species,
+as expected for a system that has been diversifying for over 300~MY.
+The SMARCC2/CHD5 sex-biased splicing circuit identified in \textit{O. bimaculoides}
+is absent in \textit{S. oualaniensis},
+and MSL2 is strongly female-biased in \textit{S. oualaniensis}
+but neutral in octopus.
+What is conserved is not the specific downstream circuitry
+but the upstream architecture:
+Z-linked COMPASS genes, chromatin enrichment, and \textit{Zmast}/\textit{Zfest} lncRNAs
+are present in every species examined.
+
+\subsection*{Lyon's repeat hypothesis extends to cephalopod Z chromosomes}
+
+\citet{lyon1998x} proposed that LINE elements serve as ``way stations''
+for the spreading of X-inactivation in mammals,
+an idea supported by the 2-fold LINE enrichment on the human X
+and the tendency of LINE-poor regions to escape inactivation.
+The cephalopod Z chromosome shows a strikingly parallel pattern:
+in \textit{O. bimaculoides}, the Z has the highest LINE density
+of any chromosome (1.56-fold, $z = 4.92$),
+with the dominant family RTE-BovB marking the euchromatic compartment
+where most compensated genes reside.
+Male-biased genes on Z occupy LINE-dense regions,
+while female-biased genes are concentrated in LINE-sparse regions,
+consistent with LINE elements facilitating the chromatin modifications
+that produce male-pattern expression.
+
+The observation that different TE families play this structural role
 in different species---RTE-BovB in \textit{O. bimaculoides}
-versus Penelope in \illex---while preserving the same two-compartment organization
+versus Penelope in \illex---while preserving
+the same two-compartment chromatin organization
 suggests that the structural principle is under selection
 even as the specific repeat elements turn over.
+Hi-C data from female \illex confirms that the Z chromosome
+has the strongest A/B compartmentalization of any chromosome ($z = 3.36$),
+with COMPASS genes uniformly in the A (euchromatic) compartment.
 
 \subsection*{Gene-body cis-elements as MRE analogs}
 
-The Z-exclusive gene-body motifs that predict compensation status
-represent a functional analog of \textit{Drosophila} MSL Recognition Elements.
-Like MREs, these motifs reside in gene bodies rather than promoters,
-show modest enrichment on the sex chromosome,
-and predict compensation as a binary presence/absence signal
-rather than a quantitative dose-response.
-The identity of the trans-acting factor(s) that recognize these motifs
-remains a key open question.
+In \textit{Drosophila}, the MSL complex identifies its X-chromosomal targets
+through $\sim$150 Chromatin Entry Sites containing
+a 21-bp GA-rich MSL Recognition Element (MRE),
+which resides in gene bodies rather than promoters.
+We identified a functionally analogous system on the cephalopod Z:
+10 discriminative motifs enriched in compensated Z genes,
+with a composite Motif A + Motif B element at $\sim$41~bp spacing
+that perfectly discriminates compensation status
+(all 18 female-biased Z genes carry motifs;
+all 9 motif-free sex-biased genes are male escapees;
+Fisher $p = 0.007$).
+Critically, these motifs are present genome-wide but
+produce sex-biased expression only on the Z chromosome,
+mirroring the \textit{Drosophila} system
+in which MREs are ubiquitous but MSL targeting is X-specific
+because \textit{roX} lncRNAs direct the complex in \textit{cis}.
+The identification of Rel-homology (Motif A) and Forkhead (Motif B) domain matches
+by TOMTOM is intriguing given that FoxA2,
+a Z-linked Forkhead pioneer transcription factor,
+is among the conserved Z-linked genes,
+but the trans-acting factor(s) that recognize these elements
+remain to be identified experimentally.
 
-\subsection*{Zmast as a dose sensor}
+\subsection*{Zmast and Zfest: deeply conserved lncRNAs of unknown function}
 
-The 5,000-fold sex difference in \textit{Zmast} expression
-makes this lncRNA the most extreme molecular marker of Z copy number.
-Its poly(U)-rich architecture and capacity to bind multiple RBP families
-suggest a sponge-like dose-sensing function,
-though the specific downstream targets require experimental validation.
+\textit{Zmast} and \textit{Zfest} were first described
+by \citet{papanicolaou2024z} in two closely related octopus species
+separated by $\sim$2.5~MY,
+who noted their resemblance to \textit{Xist} and \textit{roX}
+but offered no mechanistic evidence for their function.
+Our principal advance is to show that both lncRNAs are conserved
+across all seven cephalopod species examined,
+spanning over 300~MY of divergence.
+This degree of conservation is exceptional for non-coding RNA:
+the vast majority of lncRNAs turn over rapidly,
+with fewer than 5\% of mammalian lncRNAs conserved
+beyond $\sim$90~MY \citep{hezroni2015principles}.
+\textit{Xist} itself, perhaps the best-known regulatory lncRNA,
+is a eutherian innovation absent from marsupials and monotremes ($\sim$160~MY).
+The persistence of \textit{Zmast} across 300~MY thus implies
+strong purifying selection on its sequence or structure,
+a constraint that demands a function---though we cannot yet say what it is.
 
-\subsection*{Species-specific implementation of conserved principles}
+What we can say is limited to three observations.
+First, \textit{Zmast} shows a 5,000-fold male-to-female expression ratio
+for its core exon in \textit{O. bimaculoides},
+making it the most extreme sex-biased transcript on the Z chromosome
+in every species examined.
+Second, the conserved core region of \textit{Zmast}
+contains a structured element with 27 poly(U) tracts ($\geq$5~nt; 4.7 per kb),
+and RBP motif scanning across 258 position weight matrices
+reveals binding sites for U2AF, TIAR, CPEB, and ELAV/SXL
+at comparable densities---consistent with a multi-valent RNA-binding protein sponge,
+though stoichiometric analysis indicates that any protein sequestration would be modest
+(2--18\% of total RBP protein).
+Third, MSL2 mRNA contains zero poly(U) tracts,
+ruling out the \textit{Drosophila} SXL$\rightarrow$MSL2
+translational repression mechanism.
 
-While the Z chromosome, its gene content,
-and the fundamental mechanisms of compensation are conserved across coleoid cephalopods,
-the specific downstream circuitry varies between lineages.
-The sex-biased splicing of SMARCC2 and CHD5 is \textit{O. bimaculoides}-specific;
-MSL2 female bias is \textit{S. oualaniensis}-specific;
-and \textit{S. officinalis} achieves compensation without any female chromatin gene bias.
-This pattern mirrors the convergent but mechanistically diverse
-dosage compensation systems observed across animals.
+Beyond these observations, the molecular function of \textit{Zmast} and \textit{Zfest}
+remains open.
+One speculative possibility is suggested by the parallel with \textit{Drosophila}:
+in that system, the X-linked \textit{roX} lncRNAs
+do not themselves recognize target genes
+but instead recruit the MSL protein complex,
+which then spreads along the X chromosome
+and is targeted to specific genes by MRE cis-elements in gene bodies.
+By analogy, \textit{Zmast} or \textit{Zfest}
+could act as scaffolds for a protein complex
+that recognizes the gene-body cis-elements we identified
+(Motifs A and B, $\sim$41~bp composite spacing).
+In this model, the lncRNAs would provide chromosomal address
+(\textit{cis}-linkage to Z), the motifs would provide gene-level specificity,
+and the protein partners would provide catalytic activity---chromatin
+modification, histone acetylation, or demethylation.
+This framework would explain why the motifs are present genome-wide
+but produce sex-biased effects only on Z:
+the lncRNA-protein complex would be tethered to the Z chromosome
+by its site of transcription, restricting its activity to \textit{cis}.
+We emphasize that this model is entirely speculative
+and that identifying the protein partners of \textit{Zmast} and \textit{Zfest}---through
+CLIP-seq, RNA pulldown, or proximity labeling---is
+the single most important experiment for advancing
+understanding of cephalopod dosage compensation.
+
+\subsection*{Limitations}
+
+Several important caveats constrain interpretation of these results.
+First, all evidence is correlational:
+no causal links have been demonstrated between any component of the model
+and dosage compensation output.
+Second, statistical power varies substantially across species---\textit{O. bimaculoides}
+(30 samples) and \textit{S. oualaniensis} (32 samples) drive most mechanistic inferences,
+while \illex (2 samples) can only report trends.
+Third, the \textit{S. oualaniensis} dataset has only two biological individuals per sex,
+with tissues providing replication;
+sex and individual effects cannot be fully separated.
+Fourth, the isoform regression ($R^2 = 0.568$)
+conflates sex and tissue effects that cannot be disentangled
+in a mixed-tissue design.
+Fifth, the gene-body motif analysis, while statistically robust,
+identifies correlations between sequence features and expression patterns
+without establishing a mechanism for trans-factor recognition.
 
 \subsection*{Future directions}
 
 Critical next steps include functional experiments:
 CRISPR disruption of \textit{Zmast} to test its role in dosage compensation,
-ATAC-seq to validate the chromatin accessibility predictions
-of the RTE-BovB and CTCF enrichment model,
+ATAC-seq to map chromatin accessibility across the Z chromosome in both sexes,
 ChIP-seq for H3K4me3 at COMPASS target genes on Z,
 and CLIP-seq to identify the specific RBPs sequestered by \textit{Zmast}.
-Comparative genomics across the coleoid phylogeny---including the phylogenetically distant \textit{Nautilus},
-which possesses an independently derived XX/XY system---will further illuminate
-the evolutionary dynamics of sex chromosome regulation.
+Comparative genomics across the coleoid phylogeny---including
+the phylogenetically distant \textit{Nautilus},
+which possesses an independently derived XX/XY system
+\citep{torrado2025nautilus}---will further illuminate
+the evolutionary dynamics of sex chromosome regulation in cephalopods.
 
 \section*{Materials and Methods}
 
