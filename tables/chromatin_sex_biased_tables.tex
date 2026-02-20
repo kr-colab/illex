@@ -1,0 +1,136 @@
+% Requires: \usepackage{booktabs, array, xcolor}
+% Colors fcol, mcol, switchcol and \isoswitch defined in main.tex
+
+% ============================================================
+% Table 1: Female-biased chromatin modifiers
+% ============================================================
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Female-biased chromatin modifiers in \textit{O.~bimaculoides}.
+  Significant sex-biased isoforms ($p_\text{adj} < 0.05$) from DESeq2 $\sim$sex model,
+  30 somatic samples (15F\,:\,15M). Positive $\log_2\text{FC}$ = male-biased.
+}
+\label{tab:chromatin-female}
+\begin{tabular}{@{} l l l c r c p{5.5cm} @{}}
+\toprule
+Gene ID & Symbol & Family & Chr
+  & {$\log_2\text{FC}$} & {$p_\text{adj}$} & Function \\
+\midrule
+\texttt{obimac\_0019420.11} & \textbf{KDM5A}
+  & KDM & 29 & $-10.38$ & $2.8 \times 10^{-5}$
+  & H3K4 demethylase; removes active histone marks \\
+\texttt{obimac\_0021932.2} & \textbf{PBRM1}\isoswitch
+  & SWI/SNF & 30 & $-10.13$ & $2.2 \times 10^{-5}$
+  & Polybromo-1; PBAF chromatin remodeling complex subunit \\
+\texttt{obimac\_0016262.6} & \textbf{CHD5}
+  & CHD & 24 & $-4.49$ & $2.1 \times 10^{-2}$
+  & Chromodomain helicase-DNA binding protein~5; NuRD complex \\
+\texttt{obimac\_0029486.14} & \textbf{SMARCD1}
+  & SWI/SNF & 9 & $-3.79$ & $6.0 \times 10^{-3}$
+  & BAF60a; SWI/SNF chromatin remodeling subunit \\
+\texttt{obimac\_0006423.19} & \textbf{KDM3A}\isoswitch
+  & KDM & 14 & $-2.32$ & $3.7 \times 10^{-2}$
+  & H3K9 demethylase; removes repressive marks (activating) \\
+\texttt{obimac\_0026124.11} & \textbf{SMARCC2}\isoswitch
+  & SWI/SNF & 6 & $-1.80$ & $1.1 \times 10^{-2}$
+  & BAF170; SWI/SNF chromatin remodeling core subunit \\
+\texttt{obimac\_0024928.3} & \textbf{RBBP5}
+  & MLL & 5 & $-1.52$ & $4.4 \times 10^{-2}$
+  & COMPASS/MLL core subunit; H3K4 methylation \\
+\texttt{obimac\_0008508.1} & \textbf{BAZ2B}
+  & Reader & 16 & $-1.43$ & $9.5 \times 10^{-3}$
+  & NoRC complex; reads H3K14ac, nucleolar silencing \\
+\texttt{obimac\_0004003.5} & \textbf{GCHFR}
+  & EZH & 11 & $-1.41$ & $1.1 \times 10^{-2}$
+  & GTP cyclohydrolase~1 feedback regulatory protein \\
+\texttt{obimac\_0021932.4} & \textbf{PBRM1}\isoswitch
+  & SWI/SNF & 30 & $-1.33$ & $2.9 \times 10^{-3}$
+  & Polybromo-1; PBAF chromatin remodeling complex subunit \\
+\texttt{obimac\_0029486.28} & \textbf{SMARCD1}
+  & SWI/SNF & 9 & $-1.31$ & $4.8 \times 10^{-2}$
+  & BAF60a; SWI/SNF chromatin remodeling subunit \\
+\texttt{obimac\_0029486.13} & \textbf{SMARCD1}
+  & SWI/SNF & 9 & $-1.23$ & $2.9 \times 10^{-2}$
+  & BAF60a; SWI/SNF chromatin remodeling subunit \\
+\texttt{obimac\_0009065.3} & \textbf{Domino}\isoswitch
+  & SWR1 & \textbf{Z} & $-1.01$ & $3.4 \times 10^{-2}$
+  & SRCAP/Domino ATPase; SWR1 H2A.Z incorporation \\
+\texttt{obimac\_0012843.1} & \textbf{SIRT5}
+  & HDAC & 20 & $-0.87$ & $4.9 \times 10^{-2}$
+  & NAD-dependent protein deacylase sirtuin-5 (mitochondrial) \\
+\texttt{obimac\_0014393.1} & \textbf{KAT7}
+  & HAT & 22 & $-0.40$ & $1.1 \times 10^{-2}$
+  & HBO1 histone acetyltransferase; H4K5/K8/K12 acetylation \\
+\texttt{obimac\_0026768.5} & \textbf{BRD7}
+  & Reader & 6 & $-0.35$ & $4.3 \times 10^{-2}$
+  & Bromodomain protein~7; PBAF-associated \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+% Table 2: Male-biased chromatin modifiers
+% ============================================================
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Male-biased chromatin modifiers in \textit{O.~bimaculoides}.
+  Significant sex-biased isoforms ($p_\text{adj} < 0.05$) from DESeq2 $\sim$sex model,
+  30 somatic samples (15F\,:\,15M). Positive $\log_2\text{FC}$ = male-biased.
+}
+\label{tab:chromatin-male}
+\begin{tabular}{@{} l l l c r c p{5.5cm} @{}}
+\toprule
+Gene ID & Symbol & Family & Chr
+  & {$\log_2\text{FC}$} & {$p_\text{adj}$} & Function \\
+\midrule
+\texttt{obimac\_0021932.1} & \textbf{PBRM1}\isoswitch
+  & SWI/SNF & 30 & $+9.80$ & $3.3 \times 10^{-6}$
+  & Polybromo-1; PBAF chromatin remodeling complex subunit \\
+\texttt{obimac\_0026952.11} & \textbf{CBX5}
+  & EZH & 6 & $+8.93$ & $1.8 \times 10^{-4}$
+  & HP1$\alpha$; heterochromatin protein~1, H3K9me3 reader \\
+\texttt{obimac\_0021069.8} & \textbf{SMCHD1}
+  & CHD & 3 & $+2.08$ & $2.8 \times 10^{-3}$
+  & SMC hinge domain protein~1; X-inactivation, heterochromatin \\
+\texttt{obimac\_0017750.11} & \textbf{ARID2}
+  & SWI/SNF & 27 & $+1.40$ & $1.4 \times 10^{-2}$
+  & PBAF subunit; AT-rich interactive domain-containing protein~2 \\
+\texttt{obimac\_0026124.15} & \textbf{SMARCC2}\isoswitch
+  & SWI/SNF & 6 & $+1.34$ & $3.6 \times 10^{-2}$
+  & BAF170; SWI/SNF chromatin remodeling core subunit \\
+\texttt{obimac\_0006423.6} & \textbf{KDM3A}\isoswitch
+  & KDM & 14 & $+1.06$ & $2.6 \times 10^{-2}$
+  & H3K9 demethylase; removes repressive marks (activating) \\
+\texttt{obimac\_0000491.3} & \textbf{KMT2E}
+  & MLL & 1 & $+0.95$ & $1.6 \times 10^{-2}$
+  & MLL5; inactive H3K4 methyltransferase, transcriptional regulator \\
+\texttt{obimac\_0000733.3} & \textbf{CDYL}
+  & CHD & 1 & $+0.93$ & $4.7 \times 10^{-3}$
+  & Chromodomain Y-like protein; H3K27me3 reader, corepressor \\
+\texttt{obimac\_0007449.4} & \textbf{CHD1L}
+  & CHD & 15 & $+0.88$ & $1.5 \times 10^{-2}$
+  & ALC1; chromatin remodeler recruited to DNA damage sites \\
+\texttt{obimac\_0015381.1} & \textbf{KAT6B}
+  & HAT & 23 & $+0.87$ & $3.6 \times 10^{-2}$
+  & MYST4 histone acetyltransferase; H3K23 acetylation \\
+\texttt{obimac\_0009065.1} & \textbf{Domino}\isoswitch
+  & SWR1 & \textbf{Z} & $+0.59$ & $2.7 \times 10^{-2}$
+  & SRCAP/Domino ATPase; SWR1 H2A.Z incorporation \\
+\texttt{obimac\_0009064.1} & \textbf{THOC6}
+  & THO & \textbf{Z} & $+0.52$ & $9.6 \times 10^{-4}$
+  & THO complex subunit~6; transcription-coupled mRNA export \\
+\texttt{obimac\_0030241.1} & \textbf{ATG9A}
+  & H3K9MT & 9 & $+0.29$ & $2.6 \times 10^{-2}$
+  & Autophagy-related protein 9A \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\noindent{\footnotesize \textcolor{switchcol}{\textdagger}\,Gene has significant isoforms in both directions (sex-biased isoform switching).
+Genes with isoform switching: PBRM1 (3 isoforms), SMARCC2 (2), KDM3A (2), Domino (2, Z-linked).}
+\end{table}

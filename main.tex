@@ -7,7 +7,7 @@
 %\usepackage{lineno}
 \usepackage{siunitx}
 \usepackage{hyperref}
-\usepackage{booktabs}
+\usepackage{booktabs, array}
 \usepackage{multirow}
 \pagestyle{fancy}
 \setlength{\headheight}{14.5pt} % Fix fancyhdr warning
@@ -44,6 +44,12 @@
 % for highlighting text
 \usepackage{xcolor}
 \usepackage{soul}
+
+% Colors for chromatin modifier tables
+\definecolor{fcol}{HTML}{C0392B}
+\definecolor{mcol}{HTML}{2471A3}
+\definecolor{switchcol}{HTML}{8E44AD}
+\newcommand{\isoswitch}{\textsuperscript{\textcolor{switchcol}{\textdagger}}}
 
 % bibliography
 \usepackage[backend=biber,style=authoryear]{biblatex}
@@ -447,12 +453,15 @@ SPT20 & SAGA & --- & --- & --- & NS \\
 \end{tabular}
 \end{table}
 
-\subsection*{Cross-species chromatin gene expression comparison}
+\subsection*{Sex-biased chromatin modifier expression in \textit{O. bimaculoides}}
 
-To characterize differential expression genome-wide,
-we analyzed \textit{O. bimaculoides} RNA-seq data from 30 somatic samples (15F:15M)
-after excluding 18 temperature-stressed samples
-that introduced confounding variation.
+Having established that chromatin genes are enriched on the Z chromosome
+across species and that dosage compensation is universal and ancestral,
+we next examined the expression patterns of chromatin modifiers in detail
+in \textit{O. bimaculoides},
+where we have the greatest statistical power
+(30 somatic samples, 15F:15M, after excluding 18 temperature-stressed samples
+that introduced confounding variation).
 PyDESeq2 identified 2,470 genes with significant sex-biased expression
 ($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$):
 1,454 male-biased and 1,016 female-biased.
@@ -460,55 +469,43 @@ On the Z chromosome, 63 genes were significantly sex-biased (35 male, 28 female)
 with a median log$_2$FC of +0.002,
 confirming effective compensation at the chromosome level.
 
-To test whether female-biased chromatin modifier expression is a conserved feature
-of cephalopod dosage compensation,
-we compared chromatin gene sex bias across six species
-using a standardized gene family classifier encompassing
-COMPASS/MLL, HAT, HDAC, CHD, EZH, KDM, Reader, H2Bub, Chaperone, THO, and PAF families.
-The results revealed striking variation.
-In \illex, 94.2\% of chromatin genes with detectable expression trends
-were female-biased (97 of 103 trending genes),
-though significance could not be assessed with only two samples (n = 1 per sex).
-In \textit{S. oualaniensis}, 65 significant chromatin genes were female-biased
-and 33 male-biased (66\% of significant chromatin genes female-biased).
-In \textit{O. bimaculoides}, the pattern was mixed: 16 female-biased
-and 13 male-biased significant chromatin genes,
-with three Z-linked chromatin genes showing sex bias
-(Domino isoform .3 female-biased, Domino isoform .1 male-biased,
-and THOC6 male-biased).
-Strikingly, \textit{S. officinalis} showed zero female-biased chromatin genes
-and only one male-biased gene among its significant chromatin results.
-This absence of female chromatin bias in cuttlefish,
-combined with its compensated Z:A ratios (Table~\ref{tab:cross_species_dc}),
-indicates that the cuttlefish lineage ($\sim$300~MY divergence)
-achieves dosage compensation through a fundamentally different mechanism.
+Among the 29 chromatin modifier isoforms
+with significant sex-biased expression in \textit{O. bimaculoides},
+16 were female-biased and 13 male-biased
+(Tables~\ref{tab:chromatin-female} and \ref{tab:chromatin-male}).
+These encompass multiple chromatin-modifying families:
+SWI/SNF remodeling complex subunits (PBRM1, SMARCC2, SMARCD1, ARID2),
+lysine demethylases (KDM5A, KDM3A),
+chromodomain helicases (CHD5, CHD1L),
+histone acetyltransferases (KAT7, KAT6B),
+deacetylases (SIRT5, CDYL, CBX5),
+MLL complex members (RBBP5, KMT2E),
+and bromodomain readers (BAZ2B, BRD7).
+Three Z-linked genes show sex bias:
+the SWR1 remodeler Domino/SRCAP exhibits isoform switching
+(isoform .3 female-biased, isoform .1 male-biased),
+and THOC6 is male-biased.
 
-Thirty-eight chromatin genes showed concordant female bias across species,
-including SIRT7, SUZ12, SMARCA5, CHD1, EZH2, HDAC6, EPC1, BRD7, PBRM1, and BIN1.
-Three genes showed concordant male bias: SIRT1, KAT6B, and KANSL1
-(Table~\ref{tab:chromatin_comparison}; Figure~\ref{fig:cross_species_lfc}).
-Notable discordances included MSL2,
-which was strongly female-biased in \textit{S. oualaniensis}
-($p_\text{adj} = 3.1 \times 10^{-21}$)
-but neutral in all other species,
-suggesting a lineage-specific recruitment of this \textit{Drosophila}-associated
-dosage compensation factor.
+\input{tables/chromatin_sex_biased_tables}
 
-In \textit{O. bimaculoides}, SUPPA2 alternative splicing analysis
-identified sex-biased isoform usage in two chromatin remodelers:
-SMARCC2 (SWI/SNF complex; 9 significant events)
-and CHD5 (NuRD complex; 6 significant events).
-In both genes, females predominantly express full-length isoforms
+Notably, four genes---PBRM1, SMARCC2, KDM3A, and Domino---show
+significant isoforms in \emph{both} directions,
+producing sex-biased isoform switching rather than simple up- or down-regulation.
+In PBRM1 (Polybromo-1, PBAF complex),
+the dominant female isoforms (.2/.4) and male isoform (.1) differ by 10-fold
+in expression magnitude ($|\text{log}_2\text{FC}| > 9$),
+indicating near-exclusive sex-specific promoter usage.
+SMARCC2 (BAF170, SWI/SNF core subunit) and KDM3A (H3K9 demethylase)
+show more moderate switching ($|\text{log}_2\text{FC}|$ of 1--2),
+and SUPPA2 alternative splicing analysis confirms sex-biased isoform usage
+in both genes (SMARCC2: 9 significant events; CHD5: 6 significant events).
+In both cases, females predominantly express full-length isoforms
 while males produce truncated or NMD-targeted variants from alternative promoters.
-However, neither gene showed sex-biased splicing in \textit{S. oualaniensis}
-(SMARCC2: $p = 0.16$; CHD5: all NS),
-indicating that this chromatin remodeling circuit is \textit{O. bimaculoides}-specific
-rather than a conserved element of cephalopod dosage compensation.
 
 To test whether sex-biased isoform usage of chromatin modifiers
 directly predicts Z chromosome compensation levels,
 we regressed expression-matched Z:A ratios on female isoform proportions
-of four genes with significant sex-biased splicing:
+of the four genes with bidirectional isoform switching:
 PBRM1, SMARCC2, KDM3A, and Domino.
 A multiple regression model explained 56.8\% of Z:A variance
 across 30 \textit{O. bimaculoides} somatic samples
@@ -520,7 +517,7 @@ KDM3A, an H3K9 demethylase, was the sole individually significant predictor
 Figure~\ref{fig:kdm3a_za}):
 samples with higher proportions of the female KDM3A isoform
 showed greater Z:A compensation.
-This result links isoform-level regulation of a chromatin modifier
+This result links isoform-level regulation of a specific chromatin modifier
 to chromosome-wide dosage compensation output,
 consistent with a model in which sex-biased alternative splicing
 of chromatin remodelers tunes Z chromosome expression.
@@ -1103,56 +1100,7 @@ OTX2         & obimac\_0009208 & Homeobox TF          & LOC\_00003911 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[H]
-\centering
-\caption{Chromatin modifier genes with concordant sex bias across cephalopod species.
-Bias: F = significant female ($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$);
-Trend\_F = female-trending ($|\text{log}_2\text{FC}| > 0.5$, not significant);
-M = significant male; Trend\_M = male-trending;
-N = neutral ($|\text{log}_2\text{FC}| \leq 0.5$);
---- = not detected.
-\textit{I. illecebrosus} ($n = 2$) reports trends only.
-38 concordant-F and 3 concordant-M genes from 162 total chromatin genes classified.
-Representative concordant-F genes shown (21 of 38); full table available as Supplementary Data.}
-\label{tab:chromatin_comparison}
-{\footnotesize
-\begin{tabular}{lllcccccc}
-\toprule
-\textbf{Gene} & \textbf{Family} & \textbf{Dir.} & \textbf{\textit{S.off}} & \textbf{\textit{E.sco}} & \textbf{\textit{I.ill}} & \textbf{\textit{S.oua}} & \textbf{\textit{O.bim}} & \textbf{\textit{D.pea}} \\
-\midrule
-\multicolumn{9}{l}{\textit{Concordant female}} \\
-\addlinespace[2pt]
-Suz12    & EZH  & F & N  & N  & Tr\_F & F     & N     & N \\
-EZH2     & EZH  & F & ---& N  & Tr\_F & F     & N     & N \\
-CHD1     & CHD  & F & N  & N  & Tr\_F & F     & N     & --- \\
-Smarca5  & CHD  & F & ---& N  & Tr\_F & Tr\_F & N     & N \\
-PBRM1    & CHD  & F & N  & N  & Tr\_F & N     & Tr\_F & N \\
-Hdac6    & HDAC & F & N  & Tr\_F & Tr\_F & N  & N     & --- \\
-SIRT7    & HDAC & F & Tr\_F & N  & Tr\_F & N  & N     & N \\
-Bin1     & HDAC & F & N  & N  & Tr\_F & F     & N     & N \\
-EPC1     & EZH  & F & N  & N  & Tr\_F & F     & N     & --- \\
-Brd7     & Reader & F & N & N  & Tr\_F & F   & F     & --- \\
-Rbbp5    & MLL  & F & N  & N  & Tr\_F & F     & N     & N \\
-Ash2l    & MLL  & F & N  & N  & Tr\_F & Tr\_F & N     & --- \\
-chchd4   & CHD  & F & N  & Tr\_F & Tr\_F & Tr\_F & Tr\_F & --- \\
-ATRX     & Chap.& F & ---& N  & Tr\_F & N     & Tr\_F & --- \\
-Ssrp1    & Chap.& F & N  & N  & Tr\_F & F     & N     & N \\
-Hat1     & HAT  & F & N  & N  & Tr\_F & F     & N     & --- \\
-ING4     & Reader & F & N & N & Tr\_F & Tr\_F & N     & --- \\
-Ing1     & Reader & F & N & N & Tr\_F & F     & N     & --- \\
-BRD10    & Reader & F & N & N & Tr\_F & F     & N     & N \\
-thoc5-b  & THO  & F & N  & N  & Tr\_F & F     & N     & --- \\
-ctr9     & PAF  & F & N  & N  & Tr\_F & N     & Tr\_F & N \\
-\addlinespace[4pt]
-\multicolumn{9}{l}{\textit{Concordant male}} \\
-\addlinespace[2pt]
-Sirt1    & HDAC & M & N  & Tr\_M & N  & M     & N     & N \\
-KAT6B    & HAT  & M & Tr\_M & --- & N & N     & M     & --- \\
-KANSL1   & HAT  & M & ---& Tr\_M & N  & N     & Tr\_M & N \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
+% Cross-species chromatin comparison table moved to Supplementary Data
 
 \begin{figure}[H]
     \centering
@@ -1229,16 +1177,6 @@ KANSL1   & HAT  & M & ---& Tr\_M & N  & N     & Tr\_M & N \\
     \label{fig:obimac_dosage}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{figures/cross_species_lfc_correlation.pdf}
-    \caption{Cross-species correlation of sex-biased gene expression (log$_2$FC).
-    Pairwise Spearman correlation of sex-effect log$_2$FC values
-    for orthologous genes across cephalopod species.
-    Species with more similar dosage compensation mechanisms
-    show higher expression correlation.}
-    \label{fig:cross_species_lfc}
-\end{figure}
 
 \begin{figure}[H]
     \centering
