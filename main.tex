@@ -190,7 +190,7 @@ BUSCO analysis of the protein set indicated 93.1\% completeness (83.2\% single-c
 confirming the high quality of the gene annotation.
 
 Repeat annotation revealed that 58.2\% of the \illex genome consists of repetitive elements (Table S2).
-The repeat landscape is dominated by unclassified repeats (28.3\% of the genome),
+The repeat landscape is dominated by unclassified repeats (29.1\% of the genome),
 followed by LINE elements (12.6\%), DNA transposons (6.3\%), and low-complexity regions (5.1\%).
 Penelope elements, a clade of retrotransposons common in invertebrates, comprised 3.3\% of the genome.
 LTR retrotransposons (2.5\%), SINE elements (1.7\%), and rolling-circle transposons (0.6\%)
@@ -267,7 +267,9 @@ In four of the seven species---\textit{D. pealeii}, \textit{E. scolopes},
 M:F ratios were indistinguishable from autosomal ratios
 (p = 0.20--0.68; Table~\ref{tab:cross_species_dc}),
 indicating complete dosage compensation.
-In \illex, \textit{S. oualaniensis}, and \textit{S. officinalis},
+\textit{S. officinalis} showed a statistically significant but minimal male bias
+(M:F = 1.03; p = 0.021), indicating near-complete compensation.
+In \illex{} and \textit{S. oualaniensis},
 Z-linked genes showed modest but significant residual male bias
 (M:F = 1.13--1.15; p $<$ 0.05),
 indicating partial compensation.
@@ -293,12 +295,12 @@ A ratio of 1.0 indicates complete compensation; 2.0 indicates no compensation.}
 \textbf{Species} & \textbf{Order} & \textbf{Z M:F} & \textbf{Auto M:F} & \textbf{p-value} & \textbf{n (F/M)} \\
 \midrule
 \textit{Illex illecebrosus} & Oegopsida & 1.15 & 0.99 & 0.037 & 1/1 \\
-\textit{Sthenoteuthis oualaniensis} & Oegopsida & 1.13 & 1.04 & 0.010 & XX \\
-\textit{Doryteuthis pealeii} & Myopsida & 0.97 & 1.01 & 0.62 & 2/2 \\
+\textit{Sthenoteuthis oualaniensis} & Oegopsida & 1.13 & 1.04 & 0.010 & 16/16 \\
+\textit{Doryteuthis pealeii} & Myopsida & 1.10 & 1.12 & 0.29 & 10/9 \\
 \textit{Euprymna scolopes} & Sepiolida & 1.01 & 1.00 & 0.68 & 3/3 \\
 \textit{Euprymna berryi} & Sepiolida & 0.97 & 0.97 & 0.48 & 2/2 \\
-\textit{Sepia officinalis} & Sepiida & 1.13 & 0.99 & 0.021 & 4/4 \\
-\textit{Octopus bimaculoides} & Octopoda & 1.08 & 1.03 & 0.20 & XX \\
+\textit{Sepia officinalis} & Sepiida & 1.03 & 0.99 & 0.021 & 4/4 \\
+\textit{Octopus bimaculoides} & Octopoda & 1.08 & 1.03 & 0.20 & 15/15 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -320,31 +322,10 @@ A ratio of 1.0 indicates complete compensation; 2.0 indicates no compensation.}
     \label{fig:cross_species_dc}
 \end{figure}
 
-\subsection*{Sex-biased gene expression on the Z chromosome}
-
-To identify genes with significant sex-biased expression on the Z chromosome,
-we performed differential expression analysis of Z-linked genes between males and females.
-We identified 23 genes with significant sex-biased expression (Figure 5, Table 1):
-10 female-biased genes and 13 male-biased genes.
-The majority of sex-biased genes showed modest fold-changes (2-8 fold),
-but several genes exhibited extreme sex bias, including XLOC\_014991U (1,364-fold female-biased) and LOC\_00003730 (1,460-fold male-biased).
-
-Functional annotation of sex-biased genes revealed enrichment for several categories relevant to dosage-sensitive processes.
-Female-biased genes included two Z-linked long non-coding RNAs (lncRNAs),
-including the highly expressed XLOC\_014991U and lncrna-gene-8,
-as well as genes involved in neuronal metabolism (SLC5A1), cytoskeletal regulation (FHDC1, Shroom2),
-and RNA processing (THOC6, MORN3).
-Male-biased genes were enriched for functions in neurotransmission (GABARAP, SLC6A9),
-protein turnover (HECTD1, HERC2), cytoskeletal organization (MTUS2, CEP170B),
-and RNA splicing (Pasilla).
-The presence of highly female-biased lncRNAs on the Z chromosome is particularly intriguing,
-as similar Z-linked lncRNAs (e.g., \textit{Zmast} in octopus) have been proposed as candidate regulators of dosage compensation in cephalopods.
-The functional enrichment of sex-biased genes for dosage-sensitive processes such as metabolism,
-cytoskeletal dynamics, and neurotransmission suggests that incomplete compensation may have phenotypic consequences
-or that individual genes have evolved sex-specific regulatory mechanisms.
-
 \subsection*{DNA methylation patterns on the Z chromosome}
 
+The conservation of dosage compensation across coleoid cephalopods
+raises the question of what molecular mechanisms underlie this regulation.
 Given the role of epigenetic modifications in gene regulation and dosage compensation in other systems,
 we investigated DNA methylation patterns across the \illex genome.
 We leveraged PacBio HiFi kinetic signatures from male and female individuals to assess CpG methylation levels.
@@ -384,509 +365,635 @@ as methylation differences do not fully explain the residual male bias in Z-link
     \label{fig:methylation}
 \end{figure}
 
-\subsection*{Identification of a male-biased lncRNA on the Z chromosome}
-Among the Z-linked transcripts identified in our RNA-seq analysis,
-we noted a long non-coding RNA exhibiting extreme male-biased expression
-far exceeding the 2-fold difference expected from gene dosage alone (log2FC = X.XX, p = X.XX).
-This dramatic sex bias suggested active regulatory mechanisms
-beyond simple copy number effects,
-prompting further investigation.
-Comparative sequence analysis across squid species revealed a ~400 bp region of striking conservation within the lncRNA.
-Secondary structure prediction and covariance analysis demonstrated that this conserved region 
-forms a complex stem-loop architecture with strong covariation support, 
-indicating evolutionary constraint on RNA structure rather than merely primary sequence (Figure Xa). 
-Such conserved structured domains are hallmarks of functional lncRNAs, 
-including those involved in dosage compensation such as Xist in mammals and roX in Drosophila.
+\subsection*{The Z chromosome is enriched for chromatin-modifying genes}
 
-\paragraph*{The conserved lncRNA domain contains ELAV/SXL family binding sites}
-To identify potential regulatory proteins interacting with this lncRNA,
-we analyzed the conserved structured region using RBPmap with \textit{Drosophila melanogaster} motifs
-(the closest available reference to cephalopods).
-This analysis revealed a striking enrichment of binding sites
-for the ELAV/SXL family of RNA-binding proteins (Table X).
-The most significant predictions included binding motifs for:
+To investigate potential mechanisms of dosage compensation,
+we used reciprocal best-hit (RBH) orthology mapping across four species
+(\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris})
+to identify genes with conserved Z-linkage.
+A total of 188 genes were Z-linked in all four species,
+spanning over 300 million years of divergence
+(Table~\ref{tab:conserved_z_genes}).
+These conserved Z-linked genes showed a striking enrichment
+for chromatin-modifying and epigenetic regulatory functions.
+The Z chromosome carries 20 chromatin genes,
+a 2.8-fold enrichment relative to autosomes
+(Fisher exact $p < 0.001$),
+and this enrichment is concentrated in the conserved syntenic core:
+16 of 188 conserved genes are chromatin-associated
+(vs.\ 4 of 451 non-conserved Z genes; $\sim$10-fold, $p < 10^{-6}$),
+alongside 6 transcription factors including FoxA2, OTX2, and FOS.
 
-\begin{itemize}
-\item \textbf{ELAV} (Embryonic Lethal Abnormal Vision):
-35 predicted binding sites, with Z-scores up to 3.87 (p $<$ 10$^{-5}$),
-concentrated in two U-rich regions (positions $\sim$115-160 and $\sim$420-437)
-\item \textbf{SXL} (Sex-lethal):
-$\sim$50 predicted binding sites, Z-scores up to 3.98 (p $<$ 10$^{-5}$),
-overlapping extensively with ELAV sites
-\item \textbf{U2AF50}:
-$\sim$60 predicted binding sites, Z-scores up to 3.90 (p $<$ 10$^{-5}$)
-\item \textbf{ARET/Bruno}:
-15 predicted binding sites in a distinct GU-repeat region (positions $\sim$306-325)
-\end{itemize}
+Among the Z-linked chromatin genes, a complete COMPASS (H3K4 methylation) complex
+stands out: SET1B (catalytic methyltransferase), MEN1, BRE1/RNF40, ING5,
+TDRD3, UBN1, and BAHD1 are all Z-linked in all four species.
+Additional Z-linked chromatin modifiers include CREBBP/CBP (histone acetyltransferase),
+Domino/SRCAP (SWR1 H2A.Z remodeler), and SPT20 (SAGA complex component).
 
-The clustering of ELAV and SXL binding predictions is consistent with the known sequence preferences
-of these related RBPs,
-which share RNA Recognition Motif (RRM) domains that recognize U-rich sequences.
-In \textit{Drosophila}, SXL is the master regulator of sex determination and dosage compensation,
-while ELAV family proteins regulate mRNA stability in neurons.
-The concentration of these binding sites within the conserved structured domain
-suggested that protein-RNA interactions may be central to this lncRNA's function.
+To determine whether these Z-linked chromatin genes escape dosage compensation
+or are themselves compensated,
+we examined their expression in the two best-powered species
+(Table~\ref{tab:compass}).
+In \textit{O. bimaculoides} (30 somatic samples, 15F:15M),
+all seven COMPASS genes showed balanced expression between sexes:
+SET1B (log$_2$FC = +0.18, $p_\text{adj}$ = 0.47),
+BRE1 (+0.05, $p_\text{adj}$ = 0.77),
+ING5 (+0.15, $p_\text{adj}$ = 0.57),
+TDRD3 ($-$0.32, $p_\text{adj}$ = 0.39),
+UBN1 (+0.13, $p_\text{adj}$ = 0.61),
+and BAHD1 (+0.23, $p_\text{adj}$ = 0.63).
+CREBBP (+0.61, $p_\text{adj}$ = 0.089) and Domino (+0.59, $p_\text{adj}$ = 0.027)
+were similarly compensated.
+MEN1 was the sole exception, trending male-biased in both
+\textit{O. bimaculoides} (+1.21, $p_\text{adj}$ = 0.175)
+and \textit{S. oualaniensis} (+0.97, $p_\text{adj}$ = $6.1 \times 10^{-3}$),
+though not reaching significance in the former.
+In \textit{S. oualaniensis} (32 somatic samples, 16F:16M),
+SET1B showed identical compensation (log$_2$FC = +0.10, NS),
+and all other COMPASS genes were non-significant.
 
-\paragraph*{ELAV/SXL binding sites are conserved in octopus \textit{Zmast}}
-To determine whether the enrichment of ELAV/SXL binding sites is a conserved feature of this lncRNA,
-we performed RBPmap analysis on the orthologous \textit{Zmast} sequence from \textit{Octopus vulgaris}.
-Strikingly, the octopus \textit{Zmast} showed a nearly identical pattern of RBP binding site enrichment.
-We identified $\sim$47 SXL binding sites (Z-scores up to 3.10),
-$\sim$30 ELAV binding sites (Z-scores up to 3.29),
-and $\sim$37 U2AF50 binding sites (Z-scores up to 3.09),
-comparable to the $\sim$60 SXL, $\sim$33 ELAV, and $\sim$61 U2AF50 sites predicted in \illex.
-Additional ELAV-family proteins showed consistent enrichment in both species,
-including FNE ($\sim$20 sites in octopus, Z-score up to 3.42) and RBP9 ($\sim$23 sites, Z-score up to 3.42).
-
-Notably, comparison of binding site positions between species revealed
-that the spatial organization of predicted binding sites is conserved (Table~\ref{tab:rbp_clusters}).
-Both sequences exhibit a three-cluster architecture,
-with a major U-rich binding site hotspot in the 5$'$ region,
-a secondary cluster in the central region,
-and a third cluster near the 3$'$ terminus.
-When positions are normalized to account for sequence length differences
-(~440 nt in \illex versus 411 nt in \textit{O. vulgaris}),
-the clusters occur at similar relative locations:
-25--36\% of sequence length for cluster 1,
-73--78\% for cluster 2,
-and 85--100\% for cluster 3.
-This positional conservation suggests that the spatial arrangement of SXL/ELAV binding sites
-is functionally important,
-potentially reflecting structural constraints on protein-RNA complex formation.
+The compensation of Z-linked chromatin genes implies a self-reinforcing regulatory loop:
+these genes encode the epigenetic machinery that maintains permissive chromatin
+on the Z chromosome,
+which in turn sustains their own expression from a single copy in females.
+Any reduction in compensation would reduce chromatin modifier output,
+further diminishing compensation---a destabilizing feedback loop
+that the compensated state must actively resist.
 
 \begin{table}[H]
 \centering
-\caption{Conserved clusters of ELAV/SXL family binding sites in \illex and \textit{O. vulgaris} \textit{Zmast}}
-\label{tab:rbp_clusters}
-\begin{tabular}{llll}
+\caption{Expression of Z-linked COMPASS and chromatin modifier genes
+in \textit{O. bimaculoides} and \textit{S. oualaniensis}.
+log$_2$FC indicates male-to-female fold change; positive values indicate male bias.}
+\label{tab:compass}
+\begin{tabular}{llrrrr}
 \toprule
-\textbf{Region} & \textbf{\textit{Illex} Position} & \textbf{\textit{O. vulgaris} Position} & \textbf{Notes} \\
+\textbf{Gene} & \textbf{Complex} & \multicolumn{2}{c}{\textbf{\textit{O. bimaculoides}}} & \multicolumn{2}{c}{\textbf{\textit{S. oualaniensis}}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+ & & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} \\
 \midrule
-Cluster 1 & 115--160 & 101--129 & Major U-rich region, highest Z-scores \\
-Cluster 2 & 345--361 & 301--320 & Secondary cluster \\
-Cluster 3 & 378--437 & 364--400 & 3$'$ terminal region \\
+SET1B & COMPASS & +0.18 & 0.474 & +0.10 & NS \\
+MEN1 & COMPASS & +1.21 & 0.175 & +0.97 & $6.1 \times 10^{-3}$ \\
+BRE1/RNF40 & COMPASS & +0.05 & 0.774 & --- & NS \\
+ING5 & COMPASS & +0.15 & 0.571 & --- & NS \\
+TDRD3 & COMPASS & $-$0.32 & 0.386 & --- & NS \\
+UBN1 & COMPASS & +0.13 & 0.606 & --- & NS \\
+BAHD1 & COMPASS & +0.23 & 0.628 & --- & NS \\
+\midrule
+CREBBP/CBP & HAT & +0.61 & 0.089 & --- & NS \\
+Domino/SRCAP & SWR1 & +0.59 & 0.027 & --- & NS \\
+SPT20 & SAGA & --- & --- & --- & NS \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The conservation of both the lncRNA sequence and its predicted protein binding site architecture
-between squid and octopus---lineages that diverged over 270 million years ago---strongly
-suggests that the regulatory interaction between SXL-family proteins and this lncRNA
-is an ancient and functionally constrained feature of coleoid cephalopod dosage compensation.
+\subsection*{Cross-species chromatin gene expression comparison}
 
-\paragraph*{Identification of an SXL ortholog with sex-specific isoforms}
-Given the enrichment of SXL/ELAV binding sites in the lncRNA,
-we searched for orthologs of these RNA-binding proteins in \illex.
-DIAMOND BLASTX searches against the \textit{Drosophila} proteome identified two significant hits:
-LOC\_00012231 matching ELAV (E-value = 2.54$\times$10$^{-114}$) on chromosome 12,
-and LOC\_00008146 matching SXL (E-value = 1.81$\times$10$^{-56}$) on chromosome 29.
-Both loci mapped to autosomes rather than the Z chromosome.
-Reciprocal BLAST searches against \textit{Octopus bimaculoides}
-(a cephalopod with superior genome annotation)
-confirmed that both \textit{Drosophila} ELAV and SXL return strongest hits to the same chromosomal regions,
-consistent with these genes belonging to a single ancestral RRM-containing protein family
-that duplicated and specialized in insects.
+To characterize differential expression genome-wide,
+we analyzed \textit{O. bimaculoides} RNA-seq data from 30 somatic samples (15F:15M)
+after excluding 18 temperature-stressed samples
+that introduced confounding variation.
+PyDESeq2 identified 2,470 genes with significant sex-biased expression
+($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$):
+1,454 male-biased and 1,016 female-biased.
+On the Z chromosome, 63 genes were significantly sex-biased (35 male, 28 female),
+with a median log$_2$FC of +0.002,
+confirming effective compensation at the chromosome level.
 
-Strikingly, examination of our sex-specific RNA-seq data revealed
-that the SXL ortholog (LOC\_00008146) produces distinct isoforms in males versus females (Table \ref{tab:sxl_isoforms}):
+To test whether female-biased chromatin modifier expression is a conserved feature
+of cephalopod dosage compensation,
+we compared chromatin gene sex bias across six species
+using a standardized gene family classifier encompassing
+COMPASS/MLL, HAT, HDAC, CHD, EZH, KDM, Reader, H2Bub, Chaperone, THO, and PAF families.
+The results revealed striking variation.
+In \illex, 94.2\% of chromatin genes with detectable expression trends
+were female-biased (97 of 103 trending genes),
+though significance could not be assessed with only two samples (n = 1 per sex).
+In \textit{S. oualaniensis}, 65 significant chromatin genes were female-biased
+and 33 male-biased (66\% of significant chromatin genes female-biased).
+In \textit{O. bimaculoides}, the pattern was mixed: 16 female-biased
+and 13 male-biased significant chromatin genes,
+with three Z-linked chromatin genes showing sex bias
+(Domino isoform .3 female-biased, Domino isoform .1 male-biased,
+and THOC6 male-biased).
+Strikingly, \textit{S. officinalis} showed zero female-biased chromatin genes
+and only one male-biased gene among its significant chromatin results.
+This absence of female chromatin bias in cuttlefish,
+combined with its compensated Z:A ratios (Table~\ref{tab:cross_species_dc}),
+indicates that the cuttlefish lineage ($\sim$300~MY divergence)
+achieves dosage compensation through a fundamentally different mechanism.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{lrrr}
-\toprule
-\textbf{Transcript} & \textbf{Female (raw)} & \textbf{Male (raw)} & \textbf{Pattern} \\
-\midrule
-mRNA-2 & 0 & 227 & Male-specific \\
-mRNA-4 & 367 & 0 & Female-specific \\
-mRNA-1 & 1,135 & 132 & Female-biased \\
-mRNA-3 & 921 & 454 & Shared \\
-mRNA-5 & 1,132 & 369 & Shared \\
-\bottomrule
-\end{tabular}
-\caption{Sex-specific isoform expression of the SXL ortholog (LOC\_00008146) in \illex}
-\label{tab:sxl_isoforms}
-\end{table}
+Thirty-eight chromatin genes showed concordant female bias across species,
+including SIRT7, SUZ12, SMARCA5, CHD1, EZH2, HDAC6, EPC1, BRD7, PBRM1, and BIN1.
+Three genes showed concordant male bias: SIRT1, KAT6B, and KANSL1
+(Table~\ref{tab:chromatin_comparison}; Figure~\ref{fig:cross_species_lfc}).
+Notable discordances included MSL2,
+which was strongly female-biased in \textit{S. oualaniensis}
+($p_\text{adj} = 3.1 \times 10^{-21}$)
+but neutral in all other species,
+suggesting a lineage-specific recruitment of this \textit{Drosophila}-associated
+dosage compensation factor.
 
-The mutually exclusive expression of mRNA-2 (male-only) and mRNA-4 (female-only)
-is reminiscent of the sex-specific alternative splicing that regulates \textit{Drosophila} SXL,
-where inclusion or exclusion of a ``poison exon'' determines whether functional protein is produced.
+In \textit{O. bimaculoides}, SUPPA2 alternative splicing analysis
+identified sex-biased isoform usage in two chromatin remodelers:
+SMARCC2 (SWI/SNF complex; 9 significant events)
+and CHD5 (NuRD complex; 6 significant events).
+In both genes, females predominantly express full-length isoforms
+while males produce truncated or NMD-targeted variants from alternative promoters.
+However, neither gene showed sex-biased splicing in \textit{S. oualaniensis}
+(SMARCC2: $p = 0.16$; CHD5: all NS),
+indicating that this chromatin remodeling circuit is \textit{O. bimaculoides}-specific
+rather than a conserved element of cephalopod dosage compensation.
 
-\paragraph*{Sex-specific isoforms differ in RNA-binding domain content}
-To determine the functional consequences of sex-specific splicing,
-we analyzed the predicted protein products of mRNA-2 (male) and mRNA-4 (female) using InterProScan.
-This revealed a dramatic difference in domain architecture (Table \ref{tab:sxl_domains}):
+To test whether sex-biased isoform usage of chromatin modifiers
+directly predicts Z chromosome compensation levels,
+we regressed expression-matched Z:A ratios on female isoform proportions
+of four genes with significant sex-biased splicing:
+PBRM1, SMARCC2, KDM3A, and Domino.
+A multiple regression model explained 56.8\% of Z:A variance
+across 30 \textit{O. bimaculoides} somatic samples
+($R^2 = 0.568$, $F = 8.20$, $p = 2.27 \times 10^{-4}$;
+Figure~\ref{fig:za_regression}),
+four-fold more than sex alone ($R^2 = 0.144$).
+KDM3A, an H3K9 demethylase, was the sole individually significant predictor
+(coefficient = +17.96, $p = 0.008$, Bonferroni $p = 0.032$;
+Figure~\ref{fig:kdm3a_za}):
+samples with higher proportions of the female KDM3A isoform
+showed greater Z:A compensation.
+This result links isoform-level regulation of a chromatin modifier
+to chromosome-wide dosage compensation output,
+consistent with a model in which sex-biased alternative splicing
+of chromatin remodelers tunes Z chromosome expression.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{lcc}
-\toprule
-\textbf{Feature} & \textbf{Female (mRNA-4)} & \textbf{Male (mRNA-2)} \\
-\midrule
-Protein length & 309 aa & 194 aa \\
-RRM domains & 3 & 2 \\
-\midrule
-RRM1 (SXL-type) & aa 7--87 & aa 7--87 \\
-RRM2 & aa 93--173 & aa 93--173 \\
-RRM3 & aa 230--309 & Absent \\
-\bottomrule
-\end{tabular}
-\caption{Domain architecture of sex-specific SXL ortholog isoforms in \illex}
-\label{tab:sxl_domains}
-\end{table}
+\subsection*{LINE enrichment on the Z chromosome parallels the mammalian X}
 
-Both isoforms were annotated as containing the RRM1\_SXL domain (cd12649),
-confirming their identity as SXL family members.
-Critically, the female-specific isoform contains three complete RNA Recognition Motifs,
-while the male isoform lacks the third C-terminal RRM entirely.
-Multiple RRM domains function cooperatively in RNA binding,
-with additional RRMs substantially increasing both affinity and specificity for target sequences.
-The absence of RRM3 in the male isoform would be predicted to significantly reduce binding capacity
-for U-rich RNA targets---including the binding sites we identified in the Z-linked lncRNA.
+Lyon (1998) proposed that LINE-1 elements on the mammalian X chromosome
+serve as ``way stations'' for the spreading of X-inactivation from the \textit{Xist} locus,
+an idea supported by the observation that the human X has twice the LINE density of autosomes
+and that LINE-poor regions preferentially escape inactivation.
+The same logic extends to any sex chromosome requiring coordinated epigenetic regulation:
+repetitive elements could provide a substrate for chromatin-modifying machinery
+to recognize and spread along the chromosome.
 
-\paragraph*{Alternative terminal exon usage generates sex-specific isoforms}
-Gene structure analysis revealed that sex-specific isoforms arise
-through alternative terminal exon usage rather than simple exon skipping:
+RepeatMasker analysis of the \textit{O. bimaculoides} genome
+revealed that the Z chromosome has the highest LINE density of all 31 chromosomes
+(30 autosomes + Z):
+212,484 bp/Mb compared to an autosomal mean of 136,429 bp/Mb,
+a 1.56-fold enrichment ($z = 4.92$).
+SINEs are correspondingly depleted (0.82-fold),
+producing a LINE-high/SINE-low signature
+that parallels the mammalian X chromosome.
+The dominant LINE family on Z is RTE-BovB (5.66~Mb, 45\% of Z LINE content),
+followed by L1-Tx1 (2.06-fold enriched) and Dong-R4 (1.69-fold enriched).
 
-\begin{itemize}
-\item \textbf{Female (mRNA-4):} Two exons.
-Exon 2 extends through the entire RRM3-encoding region
-(genomic coordinates 15,692,979--15,695,065; 2,087 bp),
-producing the full-length three-RRM protein.
-\item \textbf{Male (mRNA-2):} Three exons.
-Exon 2 terminates earlier (15,694,476--15,695,065; 590 bp),
-and splicing proceeds to an alternative terminal exon 3 (15,689,783--15,690,522),
-bypassing the RRM3-encoding sequence entirely.
-\end{itemize}
+Among significantly sex-biased Z genes,
+male-biased genes reside in regions with higher LINE density
+(174.2 bp/kb in 10~kb flanking)
+than female-biased genes
+(122.0 bp/kb; Mann-Whitney $p = 0.029$; Figure~\ref{fig:line_density}).
+The strongest effect occurs in the highest RTE-BovB density quartile,
+where 89\% of sex-biased genes are male-biased (8M:1F),
+while lower quartiles show no consistent trend.
 
-This mechanism is functionally analogous to the alternative splicing of \textit{Drosophila} SXL,
-though the specific splice architecture differs.
-In both systems, sex-specific splicing of an RRM-containing protein
-generates isoforms with different RNA-binding capacities.
+RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z.
+RTE-BovB is strongly correlated with gene density
+(Spearman $\rho$ = +0.68, $p = 7.4 \times 10^{-17}$),
+marking the euchromatic compartment,
+while Dong-R4 anticorrelates with gene density
+($\rho$ = $-$0.60, $p = 1.3 \times 10^{-12}$)
+and with RTE-BovB ($\rho$ = $-$0.61, $p = 4.6 \times 10^{-13}$),
+defining the heterochromatic compartment.
 
-\subsection*{Conservation of sex-biased ELAV isoforms across cephalopods}
+FIMO scanning for CTCF binding motifs (JASPAR MA0139.2, $p < 10^{-4}$)
+revealed that the Z chromosome also carries the highest CTCF density
+of any chromosome after correcting for GC content and chromosome size
+(+6.49 motifs/Mb above expectation, $z = 3.85$, $p < 0.001$).
+The excess is predominantly intergenic (88\% of $\sim$460 excess sites),
+consistent with insulator function.
+CTCF and RTE-BovB are positively correlated along the Z
+($\rho$ = +0.534, $p = 2.6 \times 10^{-18}$),
+but at the local scale, CTCF motifs occupy gaps between LINE elements
+rather than their immediate flanks
+(observed inter-element distance 4,318 bp vs.\ expected 715~bp).
 
-To determine whether sex-specific ELAV/SXL isoform expression is unique to \illex
-or represents a conserved feature of cephalopod biology,
-we analyzed publicly available RNA-seq data from four additional cephalopod species
-spanning approximately 300 million years of evolution (Table~\ref{tab:elav_conservation}).
-In each species, we quantified expression of ELAV family transcripts using Salmon
-and classified isoforms by the presence or absence of the third RNA Recognition Motif (RRM3),
-using the conserved GFVTM motif as a diagnostic marker.
+Hi-C chromatin conformation data from female \illex
+confirmed this structural organization.
+The Z chromosome exhibited the strongest A/B compartmentalization
+of any chromosome in the genome ($z = 3.36$ for PC1 variance).
+All COMPASS complex genes reside in the A compartment (euchromatic),
+while the pioneer transcription factor FoxA2
+uniquely occupies the B compartment---consistent with its role
+in opening closed chromatin.
+TE families define compartment boundaries:
+in \illex, Penelope and RTE-RTE elements mark the B compartment
+(Spearman $\rho$ with PC1 = $-$0.377 and $-$0.284, respectively),
+while Satellite elements mark the A compartment ($\rho$ = +0.168).
+Different TE families define compartments in different species---RTE-BovB in
+\textit{O. bimaculoides} versus Penelope in \illex---but
+the structural principle of TE-defined chromatin domains on Z is conserved.
 
-\paragraph*{Doryteuthis pealeii (longfin inshore squid)}
-Analysis of developmental RNA-seq data (n=30 samples) revealed that ELAVL1 (STRG.5403)
-produces both 3-RRM and 2-RRM isoforms with opposing sex biases.
-The 3-RRM isoform (322 aa) showed significant negative correlation with
-\textit{Zmast} expression (Spearman $\rho$ = $-$0.42, p = 0.020),
-indicating female bias,
-while a 2-RRM isoform (207 aa) showed significant positive correlation
-($\rho$ = +0.38, p = 0.040), indicating male bias.
-This mirrors the pattern observed in \illex.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/line_density_sex_bias_boxplots.png}
+    \caption{LINE enrichment on the \textit{O. bimaculoides} Z chromosome predicts sex-biased expression.
+    LINE density in 10~kb flanking regions of Z-linked genes stratified by sex-bias category.
+    Male-biased genes reside in LINE-dense regions (174.2 bp/kb)
+    while female-biased genes occupy LINE-sparse regions (122.0 bp/kb; Mann-Whitney $p = 0.029$).
+    The Z chromosome has the highest LINE density of any chromosome (1.56-fold enrichment, $z = 4.92$).}
+    \label{fig:line_density}
+\end{figure}
 
-\paragraph*{Euprymna scolopes (Hawaiian bobtail squid)}
-In adult tissue RNA-seq data (n=11 samples after quality filtering),
-the SXL locus produced two distinct transcripts from opposite strands at the same genomic coordinates.
-The 3-RRM gene (g13069, 318 aa) was 2.14-fold female-biased (Wilcoxon p = 0.018),
-while the 2-RRM gene (g13070, 194 aa) showed no significant sex bias (p = 0.329).
-This genomic architecture---with 3-RRM and 2-RRM isoforms encoded on opposite strands
-at the same locus---represents a distinct mechanism for generating sex-specific isoforms.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/rte_bovb_quartile_sex_bias.png}
+    \caption{RTE-BovB density quartile analysis on the Z chromosome.
+    Among significantly sex-biased Z genes,
+    the highest RTE-BovB density quartile (Q4) shows 89\% male-biased genes (8M:1F),
+    while lower quartiles show no consistent pattern.
+    The effect is categorical rather than graded:
+    female-biased genes are excluded from the highest-density RTE-BovB chromatin.}
+    \label{fig:rte_quartile}
+\end{figure}
 
-\paragraph*{Euprymna berryi (Berry's bobtail squid)}
-The closely related \textit{E. berryi} showed an identical locus arrangement to \textit{E. scolopes},
-with EB29273 (Elav1) producing both 2-RRM and 3-RRM isoforms from a single locus.
-Analysis of developmental samples (n=20) revealed that the 2-RRM isoform EB29273.7
-was significantly male-biased (Spearman $\rho$ = +0.695, p = 0.0007),
-while the 3-RRM isoform EB29595 on the opposite strand showed 1.55-fold female bias.
-Multiple 2-RRM isoforms (EB29273.3, EB29273.5) showed 2--6 fold male bias in adult samples.
+\subsection*{Gene-body cis-elements distinguish compensated Z genes from escapees}
 
-\paragraph*{Octopus bimaculoides (California two-spot octopus)}
-Differential expression analysis of somatic tissue RNA-seq (n=21 samples; PyDESeq2)
-identified the 3-RRM elavl4 isoform (obimac\_0002643.1, 371 aa)
-as significantly female-biased (3.28-fold, FDR-adjusted p = 0.0034).
-Additional 3-RRM isoforms of elavl4 (obimac\_0002643.3, obimac\_0002643.4)
-also showed female bias (1.99--2.04 fold, FDR < 0.05).
-In this species, \textit{Zmast} expression was 1,624-fold higher in males than females
-(503 $\pm$ 289 TPM vs. 0.31 $\pm$ 0.84 TPM; Wilcoxon p $<$ 0.0001),
-providing extreme stoichiometric excess of the lncRNA relative to ELAV protein in males.
+In \textit{Drosophila}, the MSL complex achieves dosage compensation
+by recognizing $\sim$150 Chromatin Entry Sites (CES)
+that overlap gene bodies rather than promoters.
+CES contain a 21-bp GA-rich MSL Recognition Element (MRE),
+which is modestly enriched on the X ($\sim$2-fold)
+and whose presence rather than copy number determines MSL targeting
+\citep{alekseyenko2008high}.
+To search for analogous cis-elements in cephalopods,
+we performed discriminative motif discovery (STREME)
+comparing compensated and male-biased (``escapee'') Z genes in \textit{O. bimaculoides},
+identifying 10 Z-exclusive motifs enriched in compensated gene sequences.
 
-\begin{table}[H]
-\centering
-\caption{Conservation of sex-biased ELAV isoform expression across cephalopod species}
-\label{tab:elav_conservation}
-\begin{tabular}{llllllr}
-\toprule
-\textbf{Species} & \textbf{Order} & \textbf{Gene} & \textbf{3-RRM bias} & \textbf{2-RRM bias} & \textbf{Method} & \textbf{P-value} \\
-\midrule
-\textit{Illex illecebrosus} & Oegopsida & SXL & F-specific & M-specific & Fold-change & --- \\
-\textit{Doryteuthis pealeii} & Myopsida & ELAVL1 & F-biased & M-biased & Spearman & 0.020, 0.040 \\
-\textit{Euprymna scolopes} & Sepiolida & g13069/g13070 & 2.1$\times$ F & neutral & Wilcoxon & 0.018 \\
-\textit{Euprymna berryi} & Sepiolida & EB29273 & neutral & 2--6$\times$ M & Spearman & 0.0007 \\
-\textit{Octopus bimaculoides} & Octopoda & elavl4 & 3.3$\times$ F & --- & PyDESeq2 & 0.0034 \\
-\bottomrule
-\end{tabular}
-\end{table}
+When scanned across gene bodies (gene start to end + 2~kb downstream) using FIMO,
+these motifs showed a striking association with compensation status.
+Among the 47 significantly sex-biased Z genes,
+all 18 female-biased genes carried at least one motif in their gene body,
+while all 9 motif-free sex-biased genes were male-biased
+(Fisher exact $p = 0.007$; Figure~\ref{fig:motifs}).
+The signal survived gene-size matching:
+among genes below the Z median size (42~kb),
+7 female-biased genes carried motifs
+while all 9 motif-free genes were male-biased
+(Fisher exact $p = 0.014$).
 
-The conservation of female-biased 3-RRM and male-biased 2-RRM isoform expression
-across five cephalopod species representing three orders
-(Oegopsida, Myopsida/Sepiolida, and Octopoda)
-indicates that this regulatory mechanism originated in the common ancestor of coleoid cephalopods,
-over 300 million years ago.
-The consistent association of full-length 3-RRM isoforms with female expression
-and truncated 2-RRM isoforms with male expression
-suggests strong selective constraint on this sex-specific splicing program.
+Two motifs showed individually detectable effects.
+Motif A (\texttt{AGTTTTCCAAGSMGAM}; 16~nt) was present in 44 of 290 Z genes (15\%)
+and showed the only individually significant sex-bias shift
+(Mann-Whitney $p = 0.015$).
+Motif B (\texttt{AAACATACCAGCAAGAAATAA}; 21~nt) was present in 148 Z genes (51\%)
+and showed significant enrichment for female-biased genes (Fisher $p = 0.023$).
+These two motifs co-occurred in 36 Z genes---significantly more
+than expected by chance (Fisher OR = 5.50, $p < 0.0001$)---suggesting
+they form a composite element with $\sim$41~bp spacing.
+Genes carrying both motifs had the strongest female shift
+(median log$_2$FC = $-$0.304 vs.\ $+$0.327 for genes with neither;
+Kruskal-Wallis $p = 0.036$).
+
+Critically, the sex-bias association is Z-specific.
+The same motifs occur abundantly on autosomes,
+but autosomal genes carrying Motif A and B together
+show no sex-bias shift (median log$_2$FC = $+$0.355, Mann-Whitney $p = 0.72$
+vs.\ autosomal non-carriers).
+This mirrors the \textit{Drosophila} MRE system,
+where MREs are present genome-wide
+but the MSL complex acts exclusively on the X because
+\textit{roX} lncRNAs target the complex in \textit{cis}.
+
+TOMTOM comparison against JASPAR 2024 yielded suggestive matches:
+Motif A to the Rel-homology domain family (NFAT/NF-$\kappa$B; best $E = 0.245$)
+and Motif B to the Forkhead domain family (best $E = 0.218$).
+The Forkhead match for Motif B is notable given that FoxA2,
+a Z-linked Forkhead pioneer transcription factor capable of opening closed chromatin,
+is among the conserved Z-linked genes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/genebody_motif_contingency_panels.png}
+    \caption{Gene-body cis-elements predict compensation status on the Z chromosome.
+    Among 47 significantly sex-biased Z genes,
+    all 18 female-biased genes carry at least one Z-exclusive motif in their gene body,
+    while all 9 motif-free sex-biased genes are male-biased (Fisher exact $p = 0.007$).
+    The signal survives gene-size matching ($p = 0.014$ among genes $<$ 42~kb).
+    These motifs parallel \textit{Drosophila} MSL Recognition Elements
+    in their gene-body location, modest enrichment, and binary presence/absence effect.}
+    \label{fig:motifs}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/motif_cooccurrence_lfc.png}
+    \caption{Co-occurrence of Motifs A and B predicts female-shifted expression on Z.
+    Genes carrying both Motif A (\texttt{AGTTTTCCAAGSMGAM})
+    and Motif B (\texttt{AAACATACCAGCAAGAAATAA})
+    have median log$_2$FC = $-$0.304 (female-shifted),
+    compared to $+$0.327 for genes with neither motif (Kruskal-Wallis $p = 0.036$).
+    The two motifs co-occur more than expected by chance (Fisher OR = 5.50, $p < 0.0001$),
+    suggesting a composite cis-regulatory element.
+    The sex-bias association is Z-specific:
+    autosomal genes carrying both motifs show no expression shift.}
+    \label{fig:motif_cooccurrence}
+\end{figure}
+
+\subsection*{Z-linked long non-coding RNAs: Zmast and Zfest}
+
+Among the most extreme sex-biased Z-linked transcripts in every species examined
+are two long non-coding RNAs with opposing sex specificities.
+The male-biased \textit{Zmast} (Z-male-specific transcript)
+shows extraordinary expression asymmetry in \textit{O. bimaculoides}:
+the core exon (4,685~bp) has a male-to-female ratio of 5,063:1
+(Figure~\ref{fig:zmast_zfest}),
+far exceeding the 2-fold difference expected from gene dosage alone.
+This extreme male bias is conserved across all cephalopod species examined,
+with BLASTN searches confirming orthology between the \illex conserved core region
+and \textit{O. vulgaris} \textit{Zmast}
+(E-value = $2.9 \times 10^{-18}$, 65--70\% identity, 93\% query coverage).
+
+In \textit{O. bimaculoides}, \textit{Zmast} comprises six exons
+spanning 169~kb of the Z chromosome,
+with the core exon containing a conserved structured region
+and 27 poly(U) tracts of $\geq$5~nt (4.7 per kb).
+RBP motif analysis across 258 position weight matrices revealed that \textit{Zmast} binds
+U2AF (24 sites/kb), TIAR (22/kb), CPEB (19/kb),
+and ELAV/SXL (17/kb) at comparable densities,
+indicating a multi-valent RNA-binding protein sponge rather than
+a specific interaction with any single RBP family.
+Stoichiometric analysis indicates that \textit{Zmast} binding sites
+are in 73--1,563-fold molar excess over RBP mRNAs in males at the RNA level,
+though this excess captures only 2--18\% of total RBP protein---sufficient
+to shift sensitive splice-site decisions past their inclusion thresholds
+but not to globally deplete any single factor.
+Importantly, MSL2 mRNA contains zero poly(U) tracts,
+ruling out the \textit{Drosophila} SXL$\rightarrow$MSL2 translational regulation mechanism.
+
+The female-biased counterpart, \textit{Zfest} (Z-female-specific transcript),
+is transcribed antisense to the \textit{Amnionless} gene on the Z chromosome.
+\textit{Amnionless} itself is consistently male-biased across all species examined,
+a pattern conserved over $\sim$300~MY.
+\textit{Zfest} expression is $\sim$18-fold higher in females than males in octopus.
+
+The specific molecular targets of \textit{Zmast} and \textit{Zfest}
+remain uncertain.
+The poly(U) tracts and multi-valent RBP binding architecture of \textit{Zmast}
+are consistent with a sponge model
+in which male-produced \textit{Zmast} sequesters RNA-binding proteins
+that would otherwise promote female-pattern gene regulation.
+However, definitive identification of the sequestered target(s)
+will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/zmast_vs_zfest_scatter.png}
+    \caption{\textit{Zmast} and \textit{Zfest} expression in \textit{O. bimaculoides}.
+    Scatter plot of \textit{Zmast} (male-biased) versus \textit{Zfest} (female-biased) TPM
+    across somatic samples.
+    \textit{Zmast} shows a male-to-female ratio of 5,063:1 for the core exon,
+    while \textit{Zfest} is $\sim$18-fold female-biased.
+    The mutually exclusive expression pattern is consistent with
+    opposing regulatory roles in Z chromosome dosage compensation.}
+    \label{fig:zmast_zfest}
+\end{figure}
 
 \section*{Discussion}
 
-\paragraph*{A model for lncRNA-mediated dosage compensation regulation}
-Together, these findings suggest a model for sex-specific regulation of the Z-linked lncRNA (Figure X).
-We propose that this lncRNA functions as a repressor of dosage compensation,
-and that its activity is modulated through sex-specific alternative splicing of an SXL ortholog.
-In females, which possess a single Z chromosome (ZO) and require dosage compensation,
-the SXL ortholog is spliced to produce a full-length three-RRM isoform (mRNA-4).
-This high-affinity RNA-binding protein efficiently recognizes and binds the U-rich elements
-within the male-biased lncRNA,
-leading to lncRNA degradation or sequestration.
-The resulting low lncRNA levels relieve repression,
-permitting dosage compensation of the single Z chromosome to proceed.
+\subsection*{A distinct cephalopod dosage compensation mechanism}
 
-In contrast, males possess two Z chromosomes (ZZ) and do not require dosage compensation.
-Here, the SXL ortholog is alternatively spliced to produce a truncated two-RRM isoform (mRNA-2)
-that lacks the C-terminal RNA recognition motif.
-This reduced binding capacity prevents efficient recognition of the lncRNA target,
-allowing the lncRNA to accumulate to high levels.
-The abundant lncRNA maintains repression of dosage compensation mechanisms,
-which is appropriate for individuals carrying two copies of the Z chromosome.
+Cephalopod dosage compensation operates through a mechanism
+unlike any previously described in animals (Figure~\ref{fig:model}).
+Unlike the MSL-mediated hyperactivation in \textit{Drosophila}
+or the \textit{Xist}-mediated inactivation in mammals,
+cephalopods appear to rely on a combination of Z-linked chromatin modifier enrichment,
+repetitive element architecture, and gene-body cis-elements
+to achieve 87--103\% compensation of the hemizygous female Z chromosome.
 
-This regulatory architecture represents an inverted parallel to \textit{Drosophila} dosage compensation.
-In flies, male-specific \textit{roX} lncRNAs activate dosage compensation of the single male X chromosome \citep{franke1999rox,park2003rox},
-while female SXL protein prevents this activation by blocking MSL-2 translation \citep{kelley1997sxl,penalva2003sxl}.
-In \illex, we propose that the male-biased lncRNA instead represses dosage compensation,
-while the female-specific SXL isoform removes this repressor,
-thereby enabling compensation of the single female Z chromosome.
-Despite this inversion in logic,
-both systems achieve the same regulatory outcome:
-sex-specific control of dosage compensation through lncRNA-protein interactions
-involving an SXL family member.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/dosage_compensation_model_figure.pdf}
+    \caption{Proposed model for cephalopod Z chromosome dosage compensation.
+    Z copy number sets \textit{Zmast} expression (males produce $\sim$5,000-fold more),
+    which sequesters U-rich RNA-binding proteins in males,
+    altering sex-specific splicing programs that control chromatin remodeling capacity.
+    Z-linked COMPASS genes maintain compensation via a self-reinforcing loop,
+    while gene-body cis-elements mark individual genes for compensation.
+    LINE elements (RTE-BovB) and CTCF insulators provide the structural architecture
+    for chromatin domain organization along the Z chromosome.}
+    \label{fig:model}
+\end{figure}
 
-\paragraph*{The Zmast sponge model}
-The extreme stoichiometric excess of \textit{Zmast} relative to ELAV proteins in males
-suggests a mechanism analogous to the competing endogenous RNA (ceRNA) hypothesis
-observed in vertebrate systems.
-In \textit{O. bimaculoides}, where we had sufficient sample sizes to quantify this relationship,
-the \textit{Zmast}:elavl4 ratio was 286:1 in males versus 0.05:1 in females---a 5,720-fold difference.
-Similar ratios were observed for other ELAV family members (\textit{Zmast}:elavl1 = 4,617-fold difference;
-\textit{Zmast}:SXL = 3,620-fold difference).
+\subsection*{A self-reinforcing Z-linked chromatin loop}
 
-We propose that in males, the abundant \textit{Zmast} lncRNA acts as a molecular sponge,
-sequestering 3-RRM ELAV/SXL proteins through its dense array of U-rich binding sites.
-This sequestration would effectively titrate ELAV proteins away from their endogenous mRNA targets,
-reducing their regulatory activity.
-In females, where \textit{Zmast} is expressed at negligible levels,
-the full-length 3-RRM ELAV proteins remain free to interact with target mRNAs,
-maintaining normal post-transcriptional regulation.
-The male-specific production of truncated 2-RRM isoforms would further amplify this effect:
-these isoforms may compete with 3-RRM proteins for binding sites
-but lack sufficient affinity for stable RNA-protein complex formation,
-acting as dominant-negative regulators.
+The enrichment of COMPASS and other chromatin-modifying genes on the Z chromosome
+creates a self-reinforcing system:
+the compensated expression of these genes maintains the permissive chromatin state
+required for their own compensation.
+This architecture would make the compensated state inherently stable,
+analogous to the maintenance of active chromatin domains in development.
 
-This ``sponge'' mechanism provides an elegant explanation for why both components---the
-male-biased lncRNA and the sex-specific ELAV isoforms---are required.
-The lncRNA provides the binding substrate, while the differential RRM content determines
-which sex produces proteins capable of high-affinity interaction.
-The result is a sex-specific regulatory switch that operates through competitive RNA-protein interactions
-rather than through transcriptional silencing or chromatin modification.
+\subsection*{Lyon's repeat hypothesis in cephalopods}
 
-\paragraph*{Deep conservation of the ELAV sex-switch}
-The discovery that female-biased 3-RRM and male-biased 2-RRM ELAV isoforms
-are conserved across five cephalopod species representing three orders
-has profound implications for our understanding of sex chromosome regulation.
-The species examined---\illex, \textit{D. pealeii}, \textit{E. scolopes}, \textit{E. berryi},
-and \textit{O. bimaculoides}---span the major lineages of coleoid cephalopods,
-with a last common ancestor approximately 300 million years ago.
+The LINE-high/SINE-low repeat signature of the cephalopod Z chromosome
+parallels the mammalian X.
+The observation that different TE families define the structural compartments
+in different species---RTE-BovB in \textit{O. bimaculoides}
+versus Penelope in \illex---while preserving the same two-compartment organization
+suggests that the structural principle is under selection
+even as the specific repeat elements turn over.
 
-The consistent pattern of 3-RRM female bias and 2-RRM male bias,
-despite variation in the specific genomic mechanisms generating these isoforms
-(alternative splicing in \illex and \textit{D. pealeii};
-opposite-strand transcription in \textit{Euprymna} species),
-indicates that strong selective pressure has maintained this regulatory architecture
-over evolutionary timescales comparable to the age of the Z chromosome itself.
-This suggests that the ELAV/\textit{Zmast} interaction is not merely incidental
-but represents a core component of cephalopod sex chromosome biology.
+\subsection*{Gene-body cis-elements as MRE analogs}
 
-Notably, the conservation of this system predates the divergence of octopuses and squids,
-indicating that lncRNA-mediated regulation of ELAV proteins
-may have originated near the base of the coleoid radiation.
-The parallel evolution of different molecular mechanisms to achieve the same isoform expression pattern
-(alternative splicing versus antisense transcription)
-further underscores the functional importance of producing sex-specific ELAV proteins
-with different RNA-binding capacities.
+The Z-exclusive gene-body motifs that predict compensation status
+represent a functional analog of \textit{Drosophila} MSL Recognition Elements.
+Like MREs, these motifs reside in gene bodies rather than promoters,
+show modest enrichment on the sex chromosome,
+and predict compensation as a binary presence/absence signal
+rather than a quantitative dose-response.
+The identity of the trans-acting factor(s) that recognize these motifs
+remains a key open question.
 
-\paragraph*{Dosage compensation across coleoid cephalopods}
-Our cross-species analysis reveals that dosage compensation of the Z chromosome
-is a universal feature of coleoid cephalopods,
-present in every species examined across four orders spanning over 300 million years of divergence.
-This substantially extends the initial observation of partial compensation
-in octopus by \textcite{papanicolaou2024z}.
-Strikingly, in four of seven species---\textit{D. pealeii}, \textit{E. scolopes},
-\textit{E. berryi}, and \textit{O. bimaculoides}---Z-linked
-M:F ratios were indistinguishable from autosomal ratios,
-indicating complete compensation.
-Even in the three species with significant residual male bias
-(\illex, \textit{S. oualaniensis}, and \textit{S. officinalis}),
-M:F ratios of 1.13--1.15 represent substantially more complete compensation
-than that observed in birds (M:F = 1.4--1.6; \cite{mank2009w}).
-The degree of compensation across coleoid cephalopods thus rivals that of
-\textit{Drosophila} and mammals,
-placing cephalopods among the few invertebrate groups known to achieve
-near-complete or complete equalization of sex chromosome expression.
-Whether the variation in compensation across species reflects genuine biological differences,
-tissue-specific effects, or differences in statistical power remains to be determined.
+\subsection*{Zmast as a dose sensor}
 
-\paragraph*{Orthology of the male-biased lncRNA to octopus \textit{Zmast}}
-To determine whether the \illex male-biased lncRNA is orthologous to \textit{Zmast} in octopus,
-we performed sequence similarity searches using Rfam.
-The top hit was to \textit{Octopus vulgaris} \textit{Zmast} (E-value = 1.1$\times$10$^{-7}$, 58.8\% identity, 94.2\% query coverage),
-and the second hit was to \textit{Octopus sinensis} LOC115222586 (E-value = 4.7$\times$10$^{-4}$, 58.4\% identity),
-one of the three loci identified by \textcite{papanicolaou2024z} as \textit{Zmast} orthologs.
-This sequence conservation demonstrates that the male-biased lncRNA we identified in \illex
-is orthologous to \textit{Zmast} across coleoid cephalopods.
+The 5,000-fold sex difference in \textit{Zmast} expression
+makes this lncRNA the most extreme molecular marker of Z copy number.
+Its poly(U)-rich architecture and capacity to bind multiple RBP families
+suggest a sponge-like dose-sensing function,
+though the specific downstream targets require experimental validation.
 
-\paragraph*{Implications for the antiquity of lncRNA-based dosage compensation}
-The cephalopod Z chromosome represents one of the oldest known animal sex chromosomes,
-with an estimated origin approximately 480 million years ago \citep{coffing2025cephalopod}.
-The conservation of \textit{Zmast} orthology between squid and octopus,
-lineages that diverged over 270 million years ago,
-indicates that lncRNA-mediated regulation of sex chromosome dosage
-has been maintained over extraordinarily long evolutionary timescales.
-This represents one of the most ancient known examples of sex-specific lncRNA conservation,
-comparable in age to the cephalopod Z chromosome itself.
-Future comparative genomic and functional analyses across the cephalopod phylogeny,
-including cuttlefish and the phylogenetically distant \textit{Nautilus}
-which possesses an independently derived XX/XY system \citep{torrado2025nautilus},
-will further illuminate the evolutionary dynamics of lncRNA-based dosage compensation.
+\subsection*{Species-specific implementation of conserved principles}
+
+While the Z chromosome, its gene content,
+and the fundamental mechanisms of compensation are conserved across coleoid cephalopods,
+the specific downstream circuitry varies between lineages.
+The sex-biased splicing of SMARCC2 and CHD5 is \textit{O. bimaculoides}-specific;
+MSL2 female bias is \textit{S. oualaniensis}-specific;
+and \textit{S. officinalis} achieves compensation without any female chromatin gene bias.
+This pattern mirrors the convergent but mechanistically diverse
+dosage compensation systems observed across animals.
+
+\subsection*{Future directions}
+
+Critical next steps include functional experiments:
+CRISPR disruption of \textit{Zmast} to test its role in dosage compensation,
+ATAC-seq to validate the chromatin accessibility predictions
+of the RTE-BovB and CTCF enrichment model,
+ChIP-seq for H3K4me3 at COMPASS target genes on Z,
+and CLIP-seq to identify the specific RBPs sequestered by \textit{Zmast}.
+Comparative genomics across the coleoid phylogeny---including the phylogenetically distant \textit{Nautilus},
+which possesses an independently derived XX/XY system---will further illuminate
+the evolutionary dynamics of sex chromosome regulation.
 
 \section*{Materials and Methods}
 
-\subsection*{RNA-binding protein motif analysis}
-To identify potential protein binding sites within conserved lncRNA domains,
-we used RBPmap \citep{paz2014rbpmap} (\url{http://rbpmap.technion.ac.il/}) with the following parameters:
-genome set to ``Other,'' motif database set to ``All \textit{Drosophila melanogaster} motifs''
-(as the closest available reference organism),
-and stringency level set to ``Default.''
-Conservation filtering was disabled.
-For \illex, the $\sim$440 bp conserved structured region of the male-biased lncRNA was submitted as the query sequence.
-To assess conservation of RBP binding sites across cephalopods,
-we performed identical RBPmap analysis on the orthologous \textit{Zmast} sequence
-from \textit{Octopus vulgaris} (411 nt; RNAcentral accession URS0002786B1A).
-Significant binding site predictions (Z-score $>$ 2.0, $p <$ 0.05)
-were extracted and analyzed for enrichment of specific RBP families.
-Binding site counts and positional clustering were compared between species
-to assess conservation of the predicted regulatory architecture.
+\subsection*{Genome assembly and annotation}
 
-\subsection*{lncRNA orthology search}
-To identify orthologs of the \illex male-biased lncRNA,
-we performed sequence similarity searches using RNAcentral's sequence search tool
-(\url{https://rnacentral.org/sequence-search}),
-which queries the Rfam database and other non-coding RNA resources.
-The conserved structured region ($\sim$440 bp) of the lncRNA was submitted as the query sequence.
-Hits were ranked by E-value, and orthology was assessed based on
-E-value significance, percent identity, and query coverage.
+A chromosome-scale genome assembly was generated for a female \illex individual
+using PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data.
+Hi-C scaffolding was performed with YaHS, resolving 46 chromosomes.
+Gene annotation combined RNA-seq from multiple tissues
+with PacBio Iso-Seq long-read transcriptomics
+and \textit{ab initio} gene prediction,
+identifying 23,192 protein-coding genes.
+Repeat annotation was performed with RepeatModeler2 and RepeatMasker.
 
-\subsection*{Identification of ELAV/SXL family orthologs}
-Candidate ELAV and SXL orthologs were identified by DIAMOND BLASTX searches \citep{buchfink2015diamond}
-of the \illex transcriptome against the \textit{Drosophila melanogaster} proteome
-(UniProt reference proteome, E-value threshold $<$ 1$\times$10$^{-10}$).
-Ortholog identity was confirmed by reciprocal BLAST \citep{altschul1990blast}
-against the \textit{Octopus bimaculoides} genome assembly (ASM119413v2),
-which provides superior gene annotation for cephalopods.
-Chromosomal locations were determined by mapping transcripts to the \illex genome assembly.
+\subsection*{Z chromosome identification}
 
-\subsection*{Analysis of sex-specific transcript isoforms}
-Sex-specific expression of SXL ortholog isoforms was quantified from RNA-seq data
-(n = 2 biological replicates per sex) from mantle tissue.
-Read counts were extracted at the transcript level using Salmon \citep{patro2017salmon}.
-Isoforms with expression exclusively in one sex (raw counts = 0 in the other sex)
-were classified as sex-specific.
+The Z chromosome was identified via whole-genome synteny analysis
+with \textit{O. bimaculoides}, \textit{O. sinensis}, \textit{E. scolopes},
+\textit{S. esculenta}, \textit{D. pealeii}, and \textit{S. oualaniensis}
+using minimap2 whole-genome alignments.
+Chromosome 42 in \illex exhibited strong synteny
+with previously identified Z chromosomes in octopus species.
+Female-to-male coverage ratios confirmed hemizygosity.
 
-\subsection*{Protein domain annotation}
-Predicted protein sequences for sex-specific isoforms were analyzed
-using InterProScan 5.76-107.0 (\url{https://www.ebi.ac.uk/interpro/})
-with all available member databases enabled,
-including Pfam, SMART, CDD, and PANTHER.
-RNA Recognition Motif (RRM) domains were identified based on matches to
-Pfam family PF00076 (RRM\_1), SMART domain SM00360 (RRM),
-and CDD domain cd12649 (RRM1\_SXL).
-Domain boundaries and E-values were extracted from JSON output files.
+\subsection*{Transcript quantification}
 
-\subsection*{Gene structure analysis}
-Exon-intron structure of SXL ortholog isoforms was determined
-from the \illex genome annotation (GFF3 format).
-Splice junctions were compared between mRNA-2 (male-specific) and mRNA-4 (female-specific)
-to identify the mechanism of alternative splicing.
-Genomic coordinates are reported relative to chromosome 29 of the \illex genome assembly.
-
-\subsection*{Cross-species RNA-seq analysis}
-
-To assess conservation of sex-biased ELAV isoform expression,
-we analyzed publicly available RNA-seq data from four additional cephalopod species.
-Data sources and sample information are summarized in Table~\ref{tab:rnaseq_samples}.
-
-\paragraph*{Transcript quantification}
-All species were processed with a uniform pipeline using Salmon v1.10.0 \citep{patro2017salmon}.
-Selective alignment indices were constructed for each species using the reference transcriptome
-with the full genome provided as decoy sequences.
-Quantification was performed with the flags \texttt{--validateMappings --gcBias --seqBias --posBias}
-to correct for sequence-specific and positional biases.
+All species were processed with a uniform Salmon v1.10.0 pipeline \citep{patro2017salmon}.
+Selective alignment indices were built using reference transcriptomes
+extracted from genome annotations via gffread,
+with full genomes provided as decoy sequences.
+Quantification used the flags \texttt{--validateMappings --gcBias --seqBias --posBias}.
+For \textit{S. oualaniensis}, a v4 annotation was generated by merging
+cross-species Iso-Seq (from \illex collapsed transcripts),
+RNA-seq StringTie assemblies, and LiftOn-guided gene models
+using StringTie --merge, producing 53,703 transcripts.
 Expression values are reported as Transcripts Per Million (TPM).
 
-\paragraph*{Statistical analysis}
-Statistical methods were selected based on sample size and experimental design for each species:
+\subsection*{Dosage compensation analysis}
 
-\begin{itemize}
-\item \textbf{PyDESeq2}: For \textit{O. bimaculoides} (n=21 somatic samples; 13 female, 8 male),
-differential expression was performed using PyDESeq2 v0.4.8 \citep{muzellec2023pydeseq2}
-with the model \texttt{$\sim$ sex + tissue\_type} to control for germline versus somatic tissue effects.
-Multiple testing correction used the Benjamini-Hochberg procedure with significance threshold FDR $<$ 0.05.
+Z:A ratios were calculated for each sample as:
+$\text{Z:A} = \bar{x}_Z / \bar{x}_A$,
+where $\bar{x}_Z$ and $\bar{x}_A$ are the mean TPM values
+for Z-linked and autosomal genes, respectively,
+after filtering to genes with TPM $> 1$
+and excluding the top 5\% of expressed genes per chromosome class,
+following the method of \textcite{papanicolaou2024z}.
+Z-linked genes were identified in each species
+via synteny with the \illex Z chromosome.
+M:F expression ratios were calculated per gene
+and compared between Z and autosomal genes
+using the Wilcoxon rank-sum test.
 
-\item \textbf{Wilcoxon rank-sum test}: For \textit{E. scolopes} (n=11 samples; 6 female, 5 male),
-non-parametric comparison of expression between sexes was performed using
-the Mann-Whitney U test (scipy.stats.mannwhitneyu).
-Samples were validated for sex assignment using the \textit{Zmast}:\textit{Zfest} expression ratio;
-two mislabeled samples were excluded from analysis.
+\subsection*{Differential expression analysis}
 
-\item \textbf{Spearman correlation}: For \textit{D. pealeii} (n=30 developmental samples)
-and \textit{E. berryi} (n=20 developmental samples),
-where individual sex was unknown,
-sex bias was inferred from correlation between isoform expression and \textit{Zmast} expression.
-Positive correlation indicates male bias; negative correlation indicates female bias.
-Significance was assessed using scipy.stats.spearmanr.
+Differential expression was performed using PyDESeq2 v0.4.8 \citep{muzellec2023pydeseq2}
+for each species.
+For cross-species comparisons,
+a uniform model ($\sim$sex) was applied to somatic samples
+with tissue covariates excluded (\texttt{--no-tissue})
+to ensure comparability.
+Temperature-stressed samples from \textit{O. bimaculoides}
+(PRJNA948369 warm/cold conditions; PRJNA1199547 warm/cold)
+were excluded prior to analysis.
+Multiple testing correction used the Benjamini-Hochberg procedure (FDR $<$ 0.05).
 
-\item \textbf{Fold-change}: For species with limited replication (n=1 per sex),
-only fold-change comparisons are reported without statistical testing.
-\end{itemize}
+\subsection*{Cross-species orthology mapping}
 
-\paragraph*{RRM domain classification}
-ELAV family isoforms were classified by RNA Recognition Motif (RRM) content.
-Proteins were designated as 3-RRM (full-length) based on presence of the conserved GFVTM motif,
-which is diagnostic for the third RRM domain in ELAV family proteins.
-Proteins lacking this motif were classified as 2-RRM (truncated).
-Protein sequences were extracted from genome annotations using gffread v0.12.7.
+Reciprocal best-hit (RBH) orthology was established between \illex (16,656 genes)
+and each target species using DIAMOND BLASTP \citep{buchfink2015diamond}
+(v2.1.9; \texttt{--very-sensitive},
+E-value $< 10^{-10}$, $>30\%$ identity, $>50\%$ query coverage).
+Z-linked gene content was compared across four species
+(\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, \textit{O. vulgaris}).
+Gene functional categories were assigned using a keyword-based classifier
+encompassing COMPASS/MLL, HAT, HDAC, CHD, EZH, KDM, Reader, H2Bub,
+Chaperone, THO, and PAF families.
 
-\begin{table}[H]
-\centering
-\caption{RNA-seq datasets used for cross-species ELAV analysis}
-\label{tab:rnaseq_samples}
-\begin{tabular}{llllr}
-\toprule
-\textbf{Species} & \textbf{BioProject} & \textbf{Sample type} & \textbf{Sex (F/M)} & \textbf{n} \\
-\midrule
-\textit{O. bimaculoides} & PRJNA270931, PRJNA484556 & Adult multi-tissue & 17/9 & 26 \\
-\textit{D. pealeii} & PRJNA303269 & Developmental & Unknown & 30 \\
-\textit{E. scolopes} & PRJNA1156170 & Adult gonad, brain & 6/5 & 11 \\
-\textit{E. berryi} & PRJNA1091285, PRJNA836847 & Adult brain, developmental & 1/2, unknown & 23 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsection*{RepeatMasker and LINE density analysis}
+
+Repeat annotations for \textit{O. bimaculoides}
+were obtained from RepeatMasker output for assembly GCA\_046866305.1.
+LINE density was calculated per chromosome as total LINE bp per Mb of chromosome length.
+Per-gene LINE density was calculated in 10~kb flanking windows
+centered on each expressed Z gene.
+RTE-BovB and Dong-R4 densities were computed separately
+and compared across 500~kb sliding windows along the Z chromosome.
+
+\subsection*{CTCF motif scanning}
+
+The Z chromosome and all autosomes were scanned for CTCF binding motifs
+using FIMO (MEME Suite v5.5.9) with the JASPAR MA0139.2 position weight matrix
+at $p < 10^{-4}$.
+Motifs were classified as genic (overlapping merged gene intervals)
+or intergenic.
+Chromosome-level CTCF density was modeled as a function of GC content
+and chromosome size (linear regression, $R^2 = 0.794$),
+and Z chromosome residuals were compared to the autosomal distribution.
+
+\subsection*{Hi-C compartment analysis}
+
+Hi-C data from a female \illex individual were processed
+at 50~kb resolution from a .mcool file.
+A/B compartments were identified by eigenvector decomposition of the observed/expected
+contact matrix, with the PC1 sign oriented so that positive values
+correspond to the A (gene-dense, euchromatic) compartment.
+Compartment strength was measured as PC1 standard deviation per chromosome,
+and TE family associations with compartment identity were assessed
+by Spearman correlation of TE density with PC1 scores across 50~kb bins.
+
+\subsection*{Discriminative motif discovery}
+
+STREME (MEME Suite v5.5.9) was used for discriminative motif discovery
+with the following comparisons:
+compensated vs.\ male-biased Z gene flanks (10~kb) and promoters (5~kb upstream),
+and compensated vs.\ female-biased Z gene flanks and promoters.
+Parameters: motif width 6--18~bp, $p < 0.05$, both strands, maximum 5 motifs per comparison.
+Discovered motifs were compared to the JASPAR 2024 CORE non-redundant database
+using TOMTOM ($E < 0.1$).
+RepeatMasker overlap was computed for each motif site.
+
+\subsection*{Gene-body motif scanning}
+
+The 10 Z-exclusive motifs from STREME analysis
+were scanned across gene bodies (gene start to gene end + 2~kb downstream)
+of 290 expressed Z genes and 1,180 expression-matched autosomal controls
+using FIMO ($p < 10^{-6}$ for presence/absence classification,
+$p < 10^{-4}$ for density analysis).
+Five tandem-duplicated genes at the Z terminus were excluded.
+Gene-size confounding was assessed by restricting analysis
+to genes below the Z median size (42~kb)
+and by partial correlation of motif density with log$_2$FC controlling for gene size.
+
+\subsection*{Alternative splicing analysis}
+
+Sex-biased alternative splicing was assessed using SUPPA2.
+Transcript-level TPM values from Salmon were used to calculate
+percent spliced-in (PSI) values for local alternative splicing events
+(skipped exon, alternative first/last exon, alternative 5$'$/3$'$ splice site,
+mutually exclusive exon, retained intron).
+Differential splicing between sexes was tested using SUPPA2 diffSplice
+with 1,000 bootstrap iterations ($p_\text{adj} < 0.05$, $|\Delta\text{PSI}| > 0.1$).
+
+\subsection*{DNA methylation analysis}
+
+CpG methylation levels were assessed from PacBio HiFi kinetic signatures
+from male and female \illex individuals.
+Differential methylation was calculated per chromosome as the mean
+male minus female methylation difference across gene bodies.
+The Z chromosome was compared to autosomal chromosomes
+using the Wilcoxon rank-sum test.
 
 \section*{Acknowledgements}
 
@@ -957,13 +1064,103 @@ Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
 \end{tabular}
 \end{table}
 
+\begin{table}[H]
+\centering
+\caption{Z-linked chromatin and transcription factor genes conserved across four cephalopod species
+(\textit{O.~bimaculoides}, \textit{I.~illecebrosus}, \textit{S.~oualaniensis}, \textit{O.~vulgaris}).
+These 19 genes represent a subset of the 188 conserved Z-linked genes identified across all four species.
+Chromatin genes are enriched 2.8-fold on Z ($p < 0.001$); transcription factors 33-fold ($p < 10^{-6}$).}
+\label{tab:conserved_z_genes}
+\begin{tabular}{llll}
+\toprule
+\textbf{Gene} & \textbf{\textit{O. bimac} ID} & \textbf{Category} & \textbf{\textit{Illex} LOC} \\
+\midrule
+\multicolumn{4}{l}{\textit{Chromatin/epigenetic}} \\
+\addlinespace[2pt]
+ING4/ING5    & obimac\_0008617 & COMPASS reader       & LOC\_00003818 \\
+UBN2/UBN1    & obimac\_0008620 & Histone chaperone    & LOC\_00003702 \\
+SET1B        & obimac\_0008636 & COMPASS catalytic    & LOC\_00003880 \\
+CRAMP1       & obimac\_0008683 & Chromatin remodeler  & LOC\_00003786 \\
+TDRD3        & obimac\_0008806 & COMPASS reader       & LOC\_00003695 \\
+CREBBP/CBP   & obimac\_0008915 & Histone acetyltransferase & LOC\_00003925 \\
+MEN1         & obimac\_0008998 & COMPASS scaffold     & LOC\_00003829 \\
+BAHD1        & obimac\_0009029 & H3K27 reader         & LOC\_00003878 \\
+PAN3         & obimac\_0009030 & mRNA deadenylase     & LOC\_00003838 \\
+THOC6        & obimac\_0009064 & THO/TREX export      & LOC\_00003826 \\
+Domino/SRCAP & obimac\_0009065 & SWR1 H2A.Z remodeler & LOC\_00003883 \\
+BRE1/RNF40   & obimac\_0009144 & H2B ubiquitin ligase & LOC\_00003828 \\
+\addlinespace[4pt]
+\multicolumn{4}{l}{\textit{Transcription factor}} \\
+\addlinespace[2pt]
+FOS/AP-1     & obimac\_0008668 & bZIP TF              & LOC\_00003775 \\
+TBX3         & obimac\_0008756 & T-box TF             & LOC\_00003751 \\
+ZNF226       & obimac\_0008819 & Zinc finger TF       & LOC\_00003931 \\
+ARID4B       & obimac\_0009001 & ARID domain TF       & LOC\_00003831 \\
+FoxA2        & obimac\_0009054 & Forkhead pioneer TF  & LOC\_00003746 \\
+MEIS2        & obimac\_0009102 & Homeobox TF          & LOC\_00003687 \\
+OTX2         & obimac\_0009208 & Homeobox TF          & LOC\_00003911 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Chromatin modifier genes with concordant sex bias across cephalopod species.
+Bias: F = significant female ($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$);
+Trend\_F = female-trending ($|\text{log}_2\text{FC}| > 0.5$, not significant);
+M = significant male; Trend\_M = male-trending;
+N = neutral ($|\text{log}_2\text{FC}| \leq 0.5$);
+--- = not detected.
+\textit{I. illecebrosus} ($n = 2$) reports trends only.
+38 concordant-F and 3 concordant-M genes from 162 total chromatin genes classified.
+Representative concordant-F genes shown (21 of 38); full table available as Supplementary Data.}
+\label{tab:chromatin_comparison}
+{\footnotesize
+\begin{tabular}{lllcccccc}
+\toprule
+\textbf{Gene} & \textbf{Family} & \textbf{Dir.} & \textbf{\textit{S.off}} & \textbf{\textit{E.sco}} & \textbf{\textit{I.ill}} & \textbf{\textit{S.oua}} & \textbf{\textit{O.bim}} & \textbf{\textit{D.pea}} \\
+\midrule
+\multicolumn{9}{l}{\textit{Concordant female}} \\
+\addlinespace[2pt]
+Suz12    & EZH  & F & N  & N  & Tr\_F & F     & N     & N \\
+EZH2     & EZH  & F & ---& N  & Tr\_F & F     & N     & N \\
+CHD1     & CHD  & F & N  & N  & Tr\_F & F     & N     & --- \\
+Smarca5  & CHD  & F & ---& N  & Tr\_F & Tr\_F & N     & N \\
+PBRM1    & CHD  & F & N  & N  & Tr\_F & N     & Tr\_F & N \\
+Hdac6    & HDAC & F & N  & Tr\_F & Tr\_F & N  & N     & --- \\
+SIRT7    & HDAC & F & Tr\_F & N  & Tr\_F & N  & N     & N \\
+Bin1     & HDAC & F & N  & N  & Tr\_F & F     & N     & N \\
+EPC1     & EZH  & F & N  & N  & Tr\_F & F     & N     & --- \\
+Brd7     & Reader & F & N & N  & Tr\_F & F   & F     & --- \\
+Rbbp5    & MLL  & F & N  & N  & Tr\_F & F     & N     & N \\
+Ash2l    & MLL  & F & N  & N  & Tr\_F & Tr\_F & N     & --- \\
+chchd4   & CHD  & F & N  & Tr\_F & Tr\_F & Tr\_F & Tr\_F & --- \\
+ATRX     & Chap.& F & ---& N  & Tr\_F & N     & Tr\_F & --- \\
+Ssrp1    & Chap.& F & N  & N  & Tr\_F & F     & N     & N \\
+Hat1     & HAT  & F & N  & N  & Tr\_F & F     & N     & --- \\
+ING4     & Reader & F & N & N & Tr\_F & Tr\_F & N     & --- \\
+Ing1     & Reader & F & N & N & Tr\_F & F     & N     & --- \\
+BRD10    & Reader & F & N & N & Tr\_F & F     & N     & N \\
+thoc5-b  & THO  & F & N  & N  & Tr\_F & F     & N     & --- \\
+ctr9     & PAF  & F & N  & N  & Tr\_F & N     & Tr\_F & N \\
+\addlinespace[4pt]
+\multicolumn{9}{l}{\textit{Concordant male}} \\
+\addlinespace[2pt]
+Sirt1    & HDAC & M & N  & Tr\_M & N  & M     & N     & N \\
+KAT6B    & HAT  & M & Tr\_M & --- & N & N     & M     & --- \\
+KANSL1   & HAT  & M & ---& Tr\_M & N  & N     & Tr\_M & N \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figures/soual_dosage_compensation_3panel.png}
     \caption{Dosage compensation of the Z chromosome in \textit{Sthenoteuthis oualaniensis}.
     Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
     Z:A ratios are 0.95 in females and 0.99 in males.
-    Right panel: M:F expression ratios for autosomal genes (n = 26,351) and Z-linked genes (n = 2,880).
+    Right panel: M:F expression ratios for autosomal genes (n = 26,351) and Z-linked genes (n = 419).
     The Z chromosome shows significant male bias (median M:F = 1.13 vs.\ 1.04 for autosomes; p = 0.010).}
     \label{fig:soual_dosage}
 \end{figure}
@@ -973,11 +1170,11 @@ Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
     \includegraphics[width=\linewidth]{figures/dpe_dosage_compensation_3panel.pdf}
     \caption{Dosage compensation of the Z chromosome in \textit{Doryteuthis pealeii}.
     Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
-    Z:A ratios are 0.62 in females and 0.65 in males.
-    Right panel: M:F expression ratios for autosomal genes (n = 6,863) and Z-linked genes (n = 128).
-    The Z chromosome shows a median M:F ratio of 0.97 vs.\ 1.01 for autosomes (p = 0.62),
+    Z:A ratios are 0.81 in females and 0.84 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 6,899) and Z-linked genes (n = 135).
+    The Z chromosome shows a median M:F ratio of 1.10 vs.\ 1.12 for autosomes (p = 0.29),
     consistent with effective dosage compensation.
-    2F + 2M somatic samples; DESeq2 normalization.}
+    10F + 9M somatic samples (PRJNA255916 + PRJNA906054); DESeq2 normalization.}
     \label{fig:dpe_dosage}
 \end{figure}
 
@@ -1012,10 +1209,10 @@ Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
     \includegraphics[width=\linewidth]{figures/soff_dosage_compensation_3panel.png}
     \caption{Dosage compensation of the Z chromosome in \textit{Sepia officinalis}.
     Left panels: gene expression levels across all chromosomes in females (ZO, top) and males (ZZ, bottom).
-    Z:A ratios are 1.36 in females and 1.29 in males.
-    Right panel: M:F expression ratios for autosomal genes (n = 12,396) and Z-linked genes (n = 531).
-    The Z chromosome shows significant male bias (median M:F = 1.13 vs.\ 0.99 for autosomes; p = 0.021),
-    indicating partial dosage compensation.
+    Z:A ratios are 1.42 in females and 1.39 in males.
+    Right panel: M:F expression ratios for autosomal genes (n = 17,647) and Z-linked genes (n = 213).
+    The Z chromosome shows a slight but significant male bias (median M:F = 1.03 vs.\ 0.99 for autosomes; p = 0.021),
+    indicating near-complete dosage compensation.
     4F + 4M somatic samples; DESeq2 normalization.}
     \label{fig:soff_dosage}
 \end{figure}
@@ -1030,6 +1227,44 @@ Unclassified & 1,009,867,061 & 3,351,152 & 0.291 & 1,889 \\
     The Z chromosome shows a median M:F ratio of 1.08 vs.\ 1.03 for autosomes (p = 0.20),
     consistent with near-complete dosage compensation.}
     \label{fig:obimac_dosage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/cross_species_lfc_correlation.pdf}
+    \caption{Cross-species correlation of sex-biased gene expression (log$_2$FC).
+    Pairwise Spearman correlation of sex-effect log$_2$FC values
+    for orthologous genes across cephalopod species.
+    Species with more similar dosage compensation mechanisms
+    show higher expression correlation.}
+    \label{fig:cross_species_lfc}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/za_isoform_regression_scatter.png}
+    \caption{Isoform proportions of chromatin modifiers predict Z:A dosage compensation ratio
+    in \textit{O. bimaculoides}.
+    Scatter plots of female isoform proportion versus expression-matched Z:A ratio
+    for four chromatin modifier genes (PBRM1, SMARCC2, KDM3A, Domino).
+    The primary model (no covariates) explains 56.8\% of Z:A variance
+    ($R^2 = 0.568$, $F = 8.20$, $p = 2.27 \times 10^{-4}$),
+    with KDM3A as the sole significant predictor
+    (coefficient = +17.96, $p = 0.008$, Bonferroni $p = 0.032$).
+    30 somatic samples (15F:15M).}
+    \label{fig:za_regression}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/kdm3a_za_scatter_by_sex.pdf}
+    \caption{KDM3A female isoform proportion versus Z:A ratio stratified by sex
+    in \textit{O. bimaculoides}.
+    The positive association between KDM3A demethylase isoform switching
+    and Z chromosome compensation is evident in both sexes,
+    with females (ZO) clustering at higher KDM3A female isoform proportions
+    and higher Z:A ratios.}
+    \label{fig:kdm3a_za}
 \end{figure}
 
 \printbibliography
