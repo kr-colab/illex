@@ -579,15 +579,22 @@ Lyon (1998) proposed that LINE-1 elements on the mammalian X chromosome
 serve as ``way stations'' for the spreading of X-inactivation from the \textit{Xist} locus,
 an idea supported by the observation that the human X has twice the LINE density of autosomes
 and that LINE-poor regions preferentially escape inactivation.
-The same logic extends to any sex chromosome requiring coordinated epigenetic regulation:
-repetitive elements could provide a substrate for chromatin-modifying machinery
-to recognize and spread along the chromosome.
+More generally, repeat-rich landscapes may facilitate
+chromosome-scale chromatin states
+by providing a homogeneous substrate
+for epigenetic machinery to recognize and propagate along a chromosome---a
+conceptual framework that need not invoke the specific \textit{Xist}-driven
+mechanism of mammals.
+We note that LINE accumulation on sex chromosomes
+can also arise from reduced recombination and relaxed purifying selection
+rather than positive selection for a regulatory function;
+the two explanations are not mutually exclusive.
 
 \textcite{coffing2025cephalopod} we discovered that LINE enrichment
 is a conserved feature of cephalopod Z chromosomes:
 in \textit{O. bimaculoides}, the Z harbors LINEs
 at approximately twice the density of the genome-wide background
-(Mann-Whitney $p < 10^{-4}$),
+(Mann-Whitney $U$ test on 1~Mb windows, $p < 10^{-4}$),
 and the same pattern holds in \textit{O. sinensis},
 \textit{E. scolopes}, and \textit{S. esculenta}
 (all $p < 10^{-3}$),
@@ -595,14 +602,13 @@ while the outgroup \textit{Nautilus pompilius} shows no such enrichment.
 This led us to propose LINE density
 as a diagnostic signature of Z chromosomes across cephalopods.
 
-We examined this pattern further in the \textit{O. bimaculoides} genome,
-characterizing the specific LINE families involved
-and their relationship to sex-biased expression.
-Comparing Z to the 30 assembled autosomes specifically,
-the Z has the highest LINE density of any chromosome:
-212,484 bp/Mb versus an autosomal mean of 136,429 bp/Mb,
-a 1.56-fold enrichment ($z = 4.92$).
-SINEs are correspondingly depleted (0.82-fold),
+We confirmed this enrichment in \textit{O. bimaculoides}
+(Z ranks 1st of 30 chromosomes at 212,484 bp/Mb
+versus an autosomal mean of 136,429 bp/Mb;
+1.56-fold, $z = 4.92$ relative to the autosomal standard deviation)
+and additionally found that SINEs are correspondingly depleted on Z
+(42,370 bp/Mb versus an autosomal mean of 51,737 bp/Mb;
+0.82-fold, $z = -1.68$),
 producing a LINE-high/SINE-low signature
 that parallels the mammalian X chromosome.
 The dominant LINE family on Z is RTE-BovB (5.66~Mb, 45\% of Z LINE content),
@@ -610,16 +616,18 @@ followed by L1-Tx1 (2.06-fold enriched) and Dong-R4 (1.69-fold enriched).
 
 Among significantly sex-biased Z genes,
 male-biased genes reside in regions with higher LINE density
-(174.2 bp/kb in 10~kb flanking)
 than female-biased genes
-(122.0 bp/kb; Mann-Whitney $p = 0.029$; Figure~\ref{fig:line_density}).
+(mean 174.2 vs.\ 122.0 bp/kb in 10~kb flanking windows centered on each gene;
+Mann-Whitney $U$ test on per-gene densities, $p = 0.029$;
+Figure~\ref{fig:line_density}).
 The strongest effect occurs in the highest RTE-BovB density quartile,
 where 89\% of sex-biased genes are male-biased (8M:1F),
 while lower quartiles show no consistent trend.
 
-RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z.
+RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z
+(Spearman correlations across 500~kb sliding windows).
 RTE-BovB is strongly correlated with gene density
-(Spearman $\rho$ = +0.68, $p = 7.4 \times 10^{-17}$),
+($\rho$ = +0.68, $p = 7.4 \times 10^{-17}$),
 marking the euchromatic compartment,
 while Dong-R4 anticorrelates with gene density
 ($\rho$ = $-$0.60, $p = 1.3 \times 10^{-12}$)
@@ -629,7 +637,8 @@ defining the heterochromatic compartment.
 FIMO scanning for CTCF binding motifs (JASPAR MA0139.2, $p < 10^{-4}$)
 revealed that the Z chromosome also carries the highest CTCF density
 of any chromosome after correcting for GC content and chromosome size
-(+6.49 motifs/Mb above expectation, $z = 3.85$, $p < 0.001$).
+(+6.49 motifs/Mb above expectation;
+rank 1/30 chromosomes, $z = 3.85$ relative to autosomal distribution).
 The excess is predominantly intergenic (88\% of $\sim$460 excess sites),
 consistent with insulator function.
 CTCF and RTE-BovB are positively correlated along the Z
