@@ -960,22 +960,68 @@ between the sexes are concentrated in LINE-sparse regions.
 LINEs and dosage compensation are thus negatively associated on the cephalopod Z,
 the precise inverse of the mammalian pattern.
 
-We propose that this inversion reflects the local chromatin consequences
-of TE silencing.
-Host genomes repress TEs via repressive chromatin marks (e.g.\ H3K9me2/3),
-and these marks spread into flanking genic sequence---an
-effect that is prevalent and varies substantially across species
-\citep{huang2022species}.
-On the cephalopod Z, LINE-dense regions would thus be
-locally heterochromatinized regardless of whether
-the dosage compensation machinery reaches them.
-On a single-copy Z in ZO females this local silencing
-has a proportionally larger impact on transcriptional output
-than in ZZ males, where a second copy buffers the effect,
-producing the observed male-biased expression in LINE-rich regions.
-The male bias need not reflect a failure of compensation per se,
-but rather a chromatin environment that is refractory to
-full transcriptional output from a single copy.
+We propose that this inversion reveals a fundamental property
+of the female compensation program:
+it is LINE-sensitive.
+Dosage compensation of the hemizygous female Z requires
+an active chromatin-opening program---the cascade
+from pioneer factor access through chromatin modifier activity
+to transcriptional upregulation described above.
+This program must operate against a background
+of TE-associated heterochromatin,
+because host genomes constitutively repress TEs
+via H3K9me2/3, and these repressive marks spread
+into flanking genic sequence \citep{huang2022species}.
+In ZZ males, both Z copies experience this TE-mediated silencing equally,
+and the resulting expression level is simply the default
+for that chromatin environment---no compensation program is required.
+In ZO females, however, the compensation machinery must actively
+clear LINE-associated heterochromatin to upregulate the single Z copy.
+The male bias of genes in LINE-dense regions thus reflects
+not a passive consequence of hemizygosity,
+but a failure of the female chromatin program
+to penetrate TE-dense heterochromatin.
+
+This interpretation gains mechanistic specificity
+from the isoform regression results.
+KDM3A, the sole significant predictor of Z:A compensation ratios
+($p = 0.008$), is an H3K9 demethylase---it removes
+the exact repressive mark deposited by TE silencing.
+Under this model, KDM3A is the enzymatic bottleneck
+that determines how far the compensation program can reach
+into LINE-dense chromatin:
+its female isoform proportion sets the demethylation rate,
+while LINE density sets the H3K9me deposition rate.
+In LINE-sparse regions, KDM3A clears repressive marks
+faster than they accumulate,
+and compensation succeeds.
+In LINE-dense regions---specifically the highest RTE-BovB quartile---the
+H3K9me load exceeds KDM3A's capacity,
+the chromatin remains closed,
+and the gene escapes compensation.
+The categorical nature of the quartile effect
+(no consistent sex bias in Q1--Q3, 89\% male-biased in Q4)
+is consistent with a saturation threshold:
+KDM3A handles background H3K9me adequately up to a density threshold,
+beyond which the system is overwhelmed.
+CTCF insulators, which we found enriched on Z
+and positioned in gaps between LINE elements,
+may serve as firebreaks that prevent LINE-associated heterochromatin
+from spreading into adjacent compensated domains,
+thereby sharpening the boundary between compensated and escapee regions.
+
+This reframing also connects the LINE landscape
+to the gene-body cis-element results.
+Compensated Z genes carry Motif A + Motif B composite elements
+while escapees lack them (Fisher $p = 0.007$).
+If LINE-dense heterochromatin renders these motifs
+inaccessible to the trans-acting factors
+that recognize them---whether FoxA2 or another pioneer---then
+motif absence and LINE density are not independent predictors
+of escapee status but two faces of the same chromatin barrier.
+The motifs may be present in the underlying sequence
+but functionally invisible when embedded
+in H3K9me-marked heterochromatin.
 
 This interpretation reframes the relationship between
 repeats and dosage compensation across systems.
@@ -984,7 +1030,7 @@ initiated by \textit{Xist}---repeats and compensation
 work in the same direction \citep{lyon1998x}.
 On the cephalopod Z, TE-mediated local silencing
 instead opposes compensation,
-which must upregulate the single female copy
+which must actively upregulate the single female copy
 to match ZZ male expression---a
 task more akin to the \textit{Drosophila} MSL system,
 which acetylates the male X to double its output.
