@@ -582,25 +582,24 @@ and that LINE-poor regions preferentially escape inactivation.
 More generally, repeat-rich landscapes may facilitate
 chromosome-scale chromatin states
 by providing a homogeneous substrate
-for epigenetic machinery to recognize and propagate along a chromosome---a
-conceptual framework that need not invoke the specific \textit{Xist}-driven
-mechanism of mammals.
-We note that LINE accumulation on sex chromosomes
-can also arise from reduced recombination and relaxed purifying selection
+for epigenetic machinery to recognize and propagate along a chromosome
+\citep[e.g.,][]{huang2022species}.
+We note, however, that TE accumulation on sex chromosomes
+can also arise from reduced effective population size
+and recombination rates
 rather than positive selection for a regulatory function;
 the two explanations are not mutually exclusive.
 
-\textcite{coffing2025cephalopod} we discovered that LINE enrichment
+In \textcite{coffing2025cephalopod} we discovered that LINE enrichment
 is a conserved feature of cephalopod Z chromosomes:
 in \textit{O. bimaculoides}, the Z harbors LINEs
 at approximately twice the density of the genome-wide background
 (Mann-Whitney $U$ test on 1~Mb windows, $p < 10^{-4}$),
 and the same pattern holds in \textit{O. sinensis},
 \textit{E. scolopes}, and \textit{S. esculenta}
-(all $p < 10^{-3}$),
-while the outgroup \textit{Nautilus pompilius} shows no such enrichment.
+(all $p < 10^{-3}$).
 This led us to propose LINE density
-as a diagnostic signature of Z chromosomes across cephalopods.
+as a signature of Z chromosomes across cephalopods.
 
 We confirmed this enrichment in \textit{O. bimaculoides}
 (Z ranks 1st of 30 chromosomes at 212,484 bp/Mb
@@ -614,14 +613,16 @@ that parallels the mammalian X chromosome.
 The dominant LINE family on Z is RTE-BovB (5.66~Mb, 45\% of Z LINE content),
 followed by L1-Tx1 (2.06-fold enriched) and Dong-R4 (1.69-fold enriched).
 
-Among significantly sex-biased Z genes,
-male-biased genes reside in regions with higher LINE density
-than female-biased genes
+Crucially, LINE density on the Z predicts which genes escape dosage compensation.
+Male-biased Z genes---those retaining the default twofold excess
+expected from ZZ dosage---reside in regions with significantly
+higher LINE density than female-biased genes
 (mean 174.2 vs.\ 122.0 bp/kb in 10~kb flanking windows centered on each gene;
-Mann-Whitney $U$ test on per-gene densities, $p = 0.029$;
+Mann-Whitney $U$ test, $p = 0.029$;
 Figure~\ref{fig:line_density}).
-The strongest effect occurs in the highest RTE-BovB density quartile,
-where 89\% of sex-biased genes are male-biased (8M:1F),
+The effect is strikingly categorical:
+in the highest RTE-BovB density quartile,
+89\% of sex-biased genes are male-biased (8M:1F),
 while lower quartiles show no consistent trend.
 
 RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z
@@ -662,6 +663,12 @@ while Satellite elements mark the A compartment ($\rho$ = +0.168).
 Different TE families define compartments in different species---RTE-BovB in
 \textit{O. bimaculoides} versus Penelope in \illex---but
 the structural principle of TE-defined chromatin domains on Z is conserved.
+Thus, while LINEs on the mammalian X are thought to facilitate the
+\textit{spreading} of dosage compensation \citep{lyon1998x},
+LINEs on the cephalopod Z instead demarcate regions that
+\textit{escape} it---an inverse relationship that may reflect
+fundamentally different compensation mechanisms acting on a shared
+repeat architecture.
 
 \begin{figure}[H]
     \centering
@@ -934,31 +941,76 @@ but the upstream architecture:
 Z-linked chromatin modifier genes and \textit{Zmast}/\textit{Zfest} lncRNAs
 are present in every species examined.
 
-\subsection*{Lyon's repeat hypothesis extends to cephalopod Z chromosomes}
+\subsection*{Lyon's repeat hypothesis, inverted}
 
 \textcite{lyon1998x} proposed that LINE elements serve as ``way stations''
 for the spreading of X-inactivation in mammals,
 an idea supported by the 2-fold LINE enrichment on the human X
 and the tendency of LINE-poor regions to escape inactivation.
-The cephalopod Z chromosome shows a strikingly parallel pattern:
-in \textit{O. bimaculoides}, the Z has the highest LINE density
-of any chromosome (1.56-fold, $z = 4.92$),
-with the dominant family RTE-BovB marking the euchromatic compartment
-where most compensated genes reside.
-Male-biased genes on Z occupy LINE-dense regions,
-while female-biased genes are concentrated in LINE-sparse regions,
-consistent with LINE elements facilitating the chromatin modifications
-that produce male-pattern expression.
+On the mammalian X, LINEs and dosage compensation are thus positively associated:
+LINE-rich regions are where silencing propagates most effectively.
+The cephalopod Z chromosome presents the mirror image of this relationship.
+The Z is enriched for LINEs---ranking first among all chromosomes
+in \textit{O. bimaculoides} (1.56-fold, $z = 4.92$)---yet
+it is the LINE-dense regions where genes \textit{escape} compensation,
+retaining the default twofold male excess from ZZ dosage.
+In the highest RTE-BovB density quartile, 89\% of sex-biased Z genes
+are male-biased, while genes that achieve equal expression
+between the sexes are concentrated in LINE-sparse regions.
+LINEs and dosage compensation are thus negatively associated on the cephalopod Z,
+the precise inverse of the mammalian pattern.
 
-The observation that different TE families play this structural role
-in different species---RTE-BovB in \textit{O. bimaculoides}
-versus Penelope in \illex---while preserving
-the same two-compartment chromatin organization
-suggests that the structural principle is under selection
-even as the specific repeat elements turn over.
-Hi-C data from female \illex confirms that the Z chromosome
-has the strongest A/B compartmentalization of any chromosome ($z = 3.36$),
-with chromatin modifier genes uniformly in the A (euchromatic) compartment.
+We propose that this inversion reflects the local chromatin consequences
+of TE silencing.
+Host genomes repress TEs via repressive chromatin marks (e.g.\ H3K9me2/3),
+and these marks spread into flanking genic sequence---an
+effect that is prevalent and varies substantially across species
+\citep{huang2022species}.
+On the cephalopod Z, LINE-dense regions would thus be
+locally heterochromatinized regardless of whether
+the dosage compensation machinery reaches them.
+On a single-copy Z in ZO females this local silencing
+has a proportionally larger impact on transcriptional output
+than in ZZ males, where a second copy buffers the effect,
+producing the observed male-biased expression in LINE-rich regions.
+The male bias need not reflect a failure of compensation per se,
+but rather a chromatin environment that is refractory to
+full transcriptional output from a single copy.
+
+This interpretation reframes the relationship between
+repeats and dosage compensation across systems.
+On the mammalian X, LINEs propagate chromosome-wide silencing
+initiated by \textit{Xist}---repeats and compensation
+work in the same direction \citep{lyon1998x}.
+On the cephalopod Z, TE-mediated local silencing
+instead opposes compensation,
+which must upregulate the single female copy
+to match ZZ male expression---a
+task more akin to the \textit{Drosophila} MSL system,
+which acetylates the male X to double its output.
+In \textit{Drosophila}, individual co-opted TEs can nucleate
+compensation by carrying MSL recognition elements
+to new genomic locations \citep{ellison2013dosage},
+but the bulk TE landscape may simultaneously
+close local chromatin and resist upregulation.
+Whether this negative association between
+bulk TE density and compensation holds on
+the \textit{Drosophila} X remains to be tested.
+
+Despite this mechanistic inversion,
+the structural organization of repeat elements on the sex chromosome
+is conserved across cephalopods.
+Different TE families partition the Z in different species---RTE-BovB
+in \textit{O. bimaculoides}, Penelope in \illex---yet
+in each case the Z exhibits the strongest A/B compartmentalization
+of any chromosome (Hi-C $z = 3.36$ in \illex),
+with chromatin modifier genes uniformly in the euchromatic A compartment.
+That the specific repeat elements turn over while the two-compartment
+architecture and its functional consequences persist
+suggests that TE-mediated chromatin domain organization on the Z
+is under long-term selection,
+even if the relationship between repeats and compensation
+runs opposite to the mammalian paradigm.
 
 \subsection*{Gene-body cis-elements as MRE analogs}
 
