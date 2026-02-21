@@ -971,7 +971,7 @@ This program must operate against a background
 of TE-associated heterochromatin,
 because host genomes constitutively repress TEs
 via H3K9me2/3, and these repressive marks spread
-into flanking genic sequence \citep{huang2022species}.
+into flanking genic sequence \citep{lee2017pervasive, huang2022species}.
 In ZZ males, both Z copies experience this TE-mediated silencing equally,
 and the resulting expression level is simply the default
 for that chromatin environment---no compensation program is required.
@@ -982,46 +982,50 @@ not a passive consequence of hemizygosity,
 but a failure of the female chromatin program
 to penetrate TE-dense heterochromatin.
 
-This interpretation gains mechanistic specificity
-from the isoform regression results.
-KDM3A, the sole significant predictor of Z:A compensation ratios
-($p = 0.008$), is an H3K9 demethylase---it removes
-the exact repressive mark deposited by TE silencing.
-Under this model, KDM3A is the enzymatic bottleneck
-that determines how far the compensation program can reach
-into LINE-dense chromatin:
-its female isoform proportion sets the demethylation rate,
-while LINE density sets the H3K9me deposition rate.
+A multiple regression model quantifies this mechanism.
+We modeled sex-bias ($\log_2\text{FC}$) of 298 expressed Z genes
+as a function of 10~kb flanking RTE-BovB density,
+gene-body motif presence (Motif~A and Motif~B separately),
+and their interactions.
+The full model is significant ($R^2 = 0.055$, $F = 3.37$, $p = 0.006$)
+and reveals a specific interaction between LINE density and cis-element function:
+RTE-BovB density drives male bias
+(coefficient $= +0.039$~per~bp/kb, $p = 0.004$),
+Motif~B presence promotes compensation
+(coefficient $= +2.39$, $p = 0.043$),
+but the RTE-BovB $\times$ Motif~B interaction is significantly negative
+(coefficient $= -0.037$, $p = 0.007$),
+meaning that Motif~B's compensating effect is abolished
+in RTE-BovB-dense flanking chromatin.
+The motifs may be present in the underlying sequence
+but are functionally invisible when the surrounding chromatin
+is marked by TE-associated H3K9me.
+In the highest RTE-BovB quartile, 100\% of significantly
+sex-biased genes are male-biased (5M, 0F),
+consistent with complete failure of motif-mediated compensation
+above a density threshold.
+
+KDM3A provides the enzymatic link between these observations.
+As an H3K9 demethylase, KDM3A removes
+the exact repressive mark deposited by TE silencing---and
+it is the sole significant predictor of Z:A compensation ratios
+in the isoform regression ($p = 0.008$).
+Under this model, KDM3A clears LINE-associated heterochromatin
+to expose gene-body motifs for recognition
+by the compensation machinery.
+Its female isoform proportion sets the demethylation rate,
+while flanking LINE density sets the H3K9me deposition rate.
 In LINE-sparse regions, KDM3A clears repressive marks
 faster than they accumulate,
-and compensation succeeds.
-In LINE-dense regions---specifically the highest RTE-BovB quartile---the
-H3K9me load exceeds KDM3A's capacity,
-the chromatin remains closed,
+motifs remain accessible, and compensation succeeds.
+In LINE-dense regions, the H3K9me load overwhelms KDM3A's capacity,
+the motifs are buried in closed chromatin,
 and the gene escapes compensation.
-The categorical nature of the quartile effect
-(no consistent sex bias in Q1--Q3, 89\% male-biased in Q4)
-is consistent with a saturation threshold:
-KDM3A handles background H3K9me adequately up to a density threshold,
-beyond which the system is overwhelmed.
-CTCF insulators, which we found enriched on Z
-and positioned in gaps between LINE elements,
-may serve as firebreaks that prevent LINE-associated heterochromatin
-from spreading into adjacent compensated domains,
-thereby sharpening the boundary between compensated and escapee regions.
-
-This reframing also connects the LINE landscape
-to the gene-body cis-element results.
-Compensated Z genes carry Motif A + Motif B composite elements
-while escapees lack them (Fisher $p = 0.007$).
-If LINE-dense heterochromatin renders these motifs
-inaccessible to the trans-acting factors
-that recognize them---whether FoxA2 or another pioneer---then
-motif absence and LINE density are not independent predictors
-of escapee status but two faces of the same chromatin barrier.
-The motifs may be present in the underlying sequence
-but functionally invisible when embedded
-in H3K9me-marked heterochromatin.
+CTCF insulators, enriched on Z
+and positioned in gaps between LINE clusters,
+may sharpen the boundary between compensated and escapee domains
+by preventing heterochromatin from spreading
+into adjacent motif-bearing genes.
 
 This interpretation reframes the relationship between
 repeats and dosage compensation across systems.
@@ -1288,6 +1292,26 @@ Five tandem-duplicated genes at the Z terminus were excluded.
 Gene-size confounding was assessed by restricting analysis
 to genes below the Z median size (42~kb)
 and by partial correlation of motif density with log$_2$FC controlling for gene size.
+
+\subsection*{LINE density and motif interaction model}
+
+To test whether flanking LINE density modulates gene-body motif efficacy,
+we modeled sex bias ($\log_2\text{FC}$ from DESeq2)
+of 298 expressed Z-linked genes as a multiple linear regression.
+Per-gene RTE-BovB density was calculated in 10~kb flanking windows
+(5~kb upstream + 5~kb downstream of gene boundaries)
+from RepeatMasker annotations, expressed as bp/kb.
+Gene-body motif presence was determined from FIMO scans
+($p < 10^{-6}$) for Motif~A (STREME-15) and Motif~B (STREME-20) separately.
+The full model was $\text{lfc} \sim \beta_0 + \beta_1 \cdot \text{BovB}
++ \beta_2 \cdot \text{MotifA} + \beta_3 \cdot \text{MotifB}
++ \beta_4 \cdot \text{BovB} \times \text{MotifA}
++ \beta_5 \cdot \text{BovB} \times \text{MotifB}$,
+fitted by ordinary least squares using statsmodels v0.14.
+For genes with multiple transcripts in the DESeq2 output,
+the transcript with the highest baseMean was retained.
+Significance of individual coefficients was assessed by $t$-test;
+overall model significance was assessed by $F$-test.
 
 \subsection*{Alternative splicing analysis}
 
