@@ -64,6 +64,8 @@
     \renewcommand{\thetable}{S\arabic{table}}%
     \setcounter{figure}{0}
     \renewcommand{\thefigure}{S\arabic{figure}}%
+    \renewcommand{\theHtable}{supp.\arabic{table}}%
+    \renewcommand{\theHfigure}{supp.\arabic{figure}}%
 }
 
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
@@ -195,36 +197,37 @@ in one of the oldest known sex chromosome systems in animals.
 
 \section*{Results}
 \subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
-We generated a high-quality chromosome-scale genome assembly for a female \illex individual
-using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data (Fig. \ref{fig:phylo}A).
-The final assembly spanned 4.14 Gb with a contig N50 of 34.71 Mb and scaffold N50 of 75.92 Mb (Table S1).
-BUSCO analysis indicated 95.6\% completeness against the metazoan gene set,
-demonstrating high assembly quality.
-Hi-C scaffolding resolved 46 chromosomes, consistent with the decapodiform karyotype of 2n = 92 \citep{gao1990karyological}. 
+We generated a chromosome-scale genome assembly for a female \illex individual
+using PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data.
+Hi-C scaffolding resolved 46 chromosomes,
+consistent with the decapodiform karyotype of 2n = 92 \citep{gao1990karyological},
+and the final assembly spans 4.14 Gb with 95.6\% BUSCO completeness
+(Table~\ref{tab:assembly_stats}).
+Gene annotation combining short-read RNA-seq, PacBio Iso-Seq,
+and \textit{ab initio} prediction identified 23,192 protein-coding genes.
+We also generated deep PacBio HiFi sequencing from a male individual,
+enabling direct comparison of read depth between sexes across all chromosomes.
+Full assembly statistics and repeat composition are provided in the
+\hyperref[sec:supp_assembly]{Supplemental Results}
+(Tables~\ref{tab:assembly_stats} and \ref{tab:repeat_stats}).
 
-To create a comprehensive gene annotation, we generated RNA-seq data from multiple tissues
-using both Illumina short-read and PacBio Iso-Seq long-read technologies.
-Annotation using RNA-seq data from multiple tissues identified 23,192 protein-coding genes,
-with a mean intron length of 38 kb.
-BUSCO analysis of the protein set indicated 93.1\% completeness (83.2\% single-copy, 6.7\% duplicated),
-confirming the high quality of the gene annotation.
-
-Repeat annotation revealed that 58.2\% of the \illex genome consists of repetitive elements (Table S2).
-The repeat landscape is dominated by unclassified repeats (29.1\% of the genome),
-followed by LINE elements (12.6\%), DNA transposons (6.3\%), and low-complexity regions (5.1\%).
-Penelope elements, a clade of retrotransposons common in invertebrates, comprised 3.3\% of the genome.
-LTR retrotransposons (2.5\%), SINE elements (1.7\%), and rolling-circle transposons (0.6\%)
-were also identified.
-In total, we annotated 1,889 distinct classifications of unclassified repeats and
-over 7.8 million individual repeat instances across all categories,
-reflecting the complex repetitive architecture typical of cephalopod genomes.
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig1_new.pdf}
+    \caption{Synteny of seven coleoid cephalopod genomes.
+    An uncalibrated ultrametric phylogeny (left) relates the seven species used in this study.
+    Ribbons connect syntenic blocks between adjacent species, colored by \illex\ chromosome identity.
+    The Z chromosome (red, rightmost) is conserved as a single syntenic unit across all species,
+    although its name varies (Z in \illex, \textit{O.\ bimaculoides}, and \textit{S.\ esculenta};
+    chromosome 46 in \textit{S.\ oualaniensis}; 43 in \textit{D.\ pealeii}; 42 in \textit{E.\ scolopes};
+    NC16 in \textit{O.\ sinensis}).}
+    \label{fig:phylo}
+\end{figure}
 
 \subsection*{Identification and Synteny of the Z chromosome in \illex}
-In additional to a high quality female assembly, 
-we also generated deep PacBio HiFi sequencing data (19,667,460 reads) from a male individual.
-This allowed for direct comparison of read depth across assembled chromosomes,
-which indicate decisively that a single chromosome is at hemizygous coverage
-in the female in comparison to the male---the Z chromosome (Figure~\ref{fig:seq_depth}).
+Comparison of male and female read depth across assembled chromosomes
+revealed that a single chromosome is at hemizygous coverage
+in the female relative to the male---the Z chromosome (Figure~\ref{fig:seq_depth}).
 
 We next performed comparative genomic analyses with other cephalopod species for which sex chromosomes have been characterized.
 Whole-genome synteny analysis revealed a striking pattern of chromosomal conservation across coleoid cephalopods (\ref{fig:phylo}).
@@ -237,17 +240,21 @@ the Z chromosome has maintained its integrity as a distinct chromosomal unit for
 %These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on chromosome 42,
 %confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
-\begin{figure}[th]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{figures/fig1_new.pdf}
-    \caption{Synteny of seven coleoid cephalopod genomes.
-    An uncalibrated ultrametric phylogeny (left) relates the seven species used in this study.
-    Ribbons connect syntenic blocks between adjacent species, colored by \illex\ chromosome identity.
-    The Z chromosome (red, rightmost) is conserved as a single syntenic unit across all species,
-    although its name varies (Z in \illex, \textit{O.\ bimaculoides}, and \textit{S.\ esculenta};
-    chromosome 46 in \textit{S.\ oualaniensis}; 43 in \textit{D.\ pealeii}; 42 in \textit{E.\ scolopes};
-    NC16 in \textit{O.\ sinensis}).}
-    \label{fig:phylo}
+    \includegraphics[width=\linewidth]{figures/illex_dosage_compensation_3panel.pdf}
+    \caption{Dosage compensation of the Z chromosome in \illex.
+    Left panels: gene expression levels [log2(normalized count + 1)] across all chromosomes
+    in females (ZO, top) and males (ZZ, bottom).
+    The Z chromosome (orange) shows expression comparable to autosomes (blue) in both sexes,
+    with Z:A ratios of 1.59 in females and 1.44 in males.
+    Right panel: male-to-female expression ratios for autosomal genes (n = 11,459)
+    and Z-linked genes (n = 188).
+    The Z chromosome shows a modest but significant male bias
+    (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
+    indicating partial dosage compensation.
+    Dosage compensation results for six additional cephalopod species are shown in Figures S1--S6.}
+    \label{fig:cross_species_dc}
 \end{figure}
 
 \subsection*{Partial dosage compensation of the Z chromosome in \illex}
@@ -338,22 +345,7 @@ A ratio of 1.0 indicates complete compensation; 2.0 indicates no compensation.}
 \end{tabular}
 \end{table}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{figures/illex_dosage_compensation_3panel.pdf}
-    \caption{Dosage compensation of the Z chromosome in \illex.
-    Left panels: gene expression levels [log2(normalized count + 1)] across all chromosomes
-    in females (ZO, top) and males (ZZ, bottom).
-    The Z chromosome (orange) shows expression comparable to autosomes (blue) in both sexes,
-    with Z:A ratios of 1.59 in females and 1.44 in males.
-    Right panel: male-to-female expression ratios for autosomal genes (n = 11,459)
-    and Z-linked genes (n = 188).
-    The Z chromosome shows a modest but significant male bias
-    (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
-    indicating partial dosage compensation.
-    Dosage compensation results for six additional cephalopod species are shown in Figures S1--S6.}
-    \label{fig:cross_species_dc}
-\end{figure}
+
 
 \subsection*{DNA methylation patterns on the Z chromosome}
 
@@ -513,34 +505,14 @@ these genes encode the epigenetic machinery
 that maintains permissive chromatin on the Z chromosome,
 which in turn sustains their own expression from a single copy in females.
 
-Beyond the conserved Z-linked genes,
-PyDESeq2 identified 2,470 genes with significant sex-biased expression genome-wide
+Genome-wide, PyDESeq2 identified 2,470 significantly sex-biased genes
 in \textit{O. bimaculoides}
-($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$):
-1,454 male-biased and 1,016 female-biased.
-On the Z chromosome, 63 genes were significantly sex-biased (35 male, 28 female),
-with a median log$_2$FC of +0.002,
-confirming effective compensation at the chromosome level.
-Among chromatin modifier genes specifically,
-27 isoforms showed significant sex-biased expression,
-15 female-biased and 12 male-biased
-(Tables~\ref{tab:chromatin-female} and \ref{tab:chromatin-male}).
-These encompass multiple chromatin-modifying families:
-SWI/SNF remodeling complex subunits (PBRM1, SMARCC2, SMARCD1, ARID2),
-lysine demethylases (KDM5A, KDM3A),
-chromodomain helicases (CHD5, CHD1L),
-histone acetyltransferases (KAT7, KAT6B),
-heterochromatin readers (CBX5/HP1$\alpha$, CDYL, SMCHD1),
-WRAD scaffold members (RBBP5, KMT2E),
-and bromodomain readers (BAZ2B, BRD7).
-Three Z-linked genes show sex bias:
-the SWR1 remodeler Domino/SRCAP exhibits isoform switching
-(isoform .3 female-biased, isoform .1 male-biased),
-and THOC6 is male-biased.
-
-\input{tables/chromatin_sex_biased_tables}
-
-Notably, four genes---PBRM1, SMARCC2, KDM3A, and Domino---show
+($p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$),
+including 27 chromatin modifier isoforms (15 female-biased, 12 male-biased)
+spanning SWI/SNF, KDM, CHD, HAT, and heterochromatin reader families
+(\hyperref[sec:supp_chromatin]{Supplemental Results};
+Tables~\ref{tab:chromatin-female} and \ref{tab:chromatin-male}).
+Among these, four genes---PBRM1, SMARCC2, KDM3A, and Domino---show
 significant isoforms in \emph{both} directions,
 producing sex-biased isoform switching rather than simple up- or down-regulation.
 In PBRM1 (Polybromo-1, PBAF complex),
@@ -1337,6 +1309,67 @@ using the Wilcoxon rank-sum test.
 
 \clearpage
 \beginsupplement
+
+\section*{Supplemental Results}
+
+\phantomsection
+\subsection*{Genome assembly and annotation of \illex}
+\label{sec:supp_assembly}
+
+We generated a high-quality chromosome-scale genome assembly for a female \illex individual
+using a combination of PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data (Fig.~\ref{fig:phylo}A).
+The final assembly spanned 4.14 Gb with a contig N50 of 34.71 Mb and scaffold N50 of 75.92 Mb (Table~\ref{tab:assembly_stats}).
+BUSCO analysis indicated 95.6\% completeness against the metazoan gene set,
+demonstrating high assembly quality.
+Hi-C scaffolding resolved 46 chromosomes, consistent with the decapodiform karyotype of 2n = 92 \citep{gao1990karyological}.
+
+To create a comprehensive gene annotation, we generated RNA-seq data from multiple tissues
+using both Illumina short-read and PacBio Iso-Seq long-read technologies.
+Annotation using RNA-seq data from multiple tissues identified 23,192 protein-coding genes,
+with a mean intron length of 38 kb.
+BUSCO analysis of the protein set indicated 93.1\% completeness (83.2\% single-copy, 6.7\% duplicated),
+confirming the high quality of the gene annotation.
+
+Repeat annotation revealed that 58.2\% of the \illex genome consists of repetitive elements (Table~\ref{tab:repeat_stats}).
+The repeat landscape is dominated by unclassified repeats (29.1\% of the genome),
+followed by LINE elements (12.6\%), DNA transposons (6.3\%), and low-complexity regions (5.1\%).
+Penelope elements, a clade of retrotransposons common in invertebrates, comprised 3.3\% of the genome.
+LTR retrotransposons (2.5\%), SINE elements (1.7\%), and rolling-circle transposons (0.6\%)
+were also identified.
+In total, we annotated 1,889 distinct classifications of unclassified repeats and
+over 7.8 million individual repeat instances across all categories,
+reflecting the complex repetitive architecture typical of cephalopod genomes.
+
+\phantomsection
+\subsection*{Sex-biased chromatin modifier expression in \textit{O. bimaculoides}}
+\label{sec:supp_chromatin}
+
+Genome-wide differential expression analysis in \textit{O. bimaculoides}
+(30 somatic samples, 15F:15M; PyDESeq2, $p_\text{adj} < 0.05$, $|\text{log}_2\text{FC}| > 1$)
+identified 2,470 genes with significant sex-biased expression:
+1,454 male-biased and 1,016 female-biased.
+On the Z chromosome, 63 genes were significantly sex-biased (35 male, 28 female),
+with a median log$_2$FC of +0.002,
+confirming effective compensation at the chromosome level.
+
+Among chromatin modifier genes specifically,
+27 isoforms showed significant sex-biased expression,
+15 female-biased and 12 male-biased
+(Tables~\ref{tab:chromatin-female} and \ref{tab:chromatin-male}).
+These encompass multiple chromatin-modifying families:
+SWI/SNF remodeling complex subunits (PBRM1, SMARCC2, SMARCD1, ARID2),
+lysine demethylases (KDM5A, KDM3A),
+chromodomain helicases (CHD5, CHD1L),
+histone acetyltransferases (KAT7, KAT6B),
+heterochromatin readers (CBX5/HP1$\alpha$, CDYL, SMCHD1),
+WRAD scaffold members (RBBP5, KMT2E),
+and bromodomain readers (BAZ2B, BRD7).
+Three Z-linked genes show sex bias:
+the SWR1 remodeler Domino/SRCAP exhibits isoform switching
+(isoform .3 female-biased, isoform .1 male-biased),
+and THOC6 is male-biased.
+
+\input{tables/chromatin_sex_biased_tables}
 
 \begin{figure}[H]
     \centering
