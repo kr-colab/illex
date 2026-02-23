@@ -759,28 +759,151 @@ shows extraordinary expression asymmetry in \textit{O. bimaculoides}:
 the core exon (4,685~bp) has a male-to-female ratio of 5,063:1
 (Figure~\ref{fig:zmast_zfest}),
 far exceeding the 2-fold difference expected from gene dosage alone.
-This extreme male bias is conserved across all cephalopod species examined,
-with BLASTN searches confirming orthology between the \illex conserved core region
-and \textit{O. vulgaris} \textit{Zmast}
-(E-value = $2.9 \times 10^{-18}$, 65--70\% identity, 93\% query coverage).
+This extreme male bias is conserved across all eight cephalopod species examined.
 
-In \textit{O. bimaculoides}, \textit{Zmast} comprises six exons
-spanning 169~kb of the Z chromosome,
-with the core exon containing a conserved structured region
-and 27 poly(U) tracts of $\geq$5~nt (4.7 per kb).
-RBP motif analysis across 258 position weight matrices revealed that \textit{Zmast} binds
-U2AF (24 sites/kb), TIAR (22/kb), CPEB (19/kb),
-and ELAV/SXL (17/kb) at comparable densities,
-indicating a multi-valent RNA-binding protein sponge rather than
-a specific interaction with any single RBP family.
-Stoichiometric analysis indicates that \textit{Zmast} binding sites
-are in 73--1,563-fold molar excess over RBP mRNAs in males at the RNA level,
-though this excess captures only 2--18\% of total RBP protein---sufficient
+\paragraph{Eight-species annotation and alignment.}
+We annotated \textit{Zmast} in all eight species
+using a unified pipeline (see Methods).
+Spliced transcript lengths range from 5,709~bp (\textit{O. bimaculoides})
+to 9,576~bp (\textit{D. pealeii}),
+with six of eight species in the 7--10~kb range
+(Table~\ref{tab:zmast_annotation}).
+\textit{O. bimaculoides} is the shortest because its 4,685~bp core exon
+is highly repetitive and cannot be fully assembled from short reads alone;
+\textit{S. officinalis} is limited by sequencing depth.
+MAFFT L-INS-i alignment of all eight sequences
+produced 14,726 alignment columns,
+of which 8.6\% are gapless---consistent with the rapid sequence turnover
+expected of lncRNA over $\sim$300~MY.
+
+\begin{table}[H]
+\centering
+\small
+\caption{\textit{Zmast} annotation across eight cephalopod species.}
+\label{tab:zmast_annotation}
+\begin{tabular}{llrrl}
+\hline
+Species & Spliced (bp) & Exons & Genomic span & Z chromosome \\
+\hline
+\textit{D. pealeii} & 9,576 & 2 & 9.6~kb & Dpe43 \\
+\textit{O. vulgaris} & 9,067 & 2 & 18.0~kb & OX597829.1 \\
+\textit{E. berryi} & 8,110 & 3 & 21.9~kb & Eber\_ch44 \\
+\textit{S. oualaniensis} & 7,722 & 3 & 18.1~kb & HiC\_scaffold\_46 \\
+\textit{E. scolopes} & 7,316 & 5 & 22.1~kb & CM044496.1 \\
+\textit{I. illecebrosus} & 7,168 & 2 & 15.3~kb & Z \\
+\textit{S. officinalis} & 5,802 & 3 & 5.9~kb & OZ199189.1 \\
+\textit{O. bimaculoides} & 5,709 & 6 & 169.1~kb & Z \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Conserved architecture.}
+Sliding-window conservation analysis (see Methods)
+identified 19 conserved blocks spanning 20--1,570 alignment columns.
+Nine blocks are present in all eight species,
+seven in seven species, and three in six.
+The alignment defines six structural domains
+(Figure~\ref{fig:zmast_arch}):
+a 5$^\prime$ Head (blocks B1--B2, 6/8 species),
+Core A (B3--B9, all 8 species),
+Core B (B10--B12, 6--8 species),
+a Variable region (B13--B14),
+a Poly(U) Sponge (B15, 7/8 species, absent from \textit{O. bimaculoides}),
+and a 3$^\prime$ Tail (B16--B19).
+Core A has the highest species occupancy
+but, as described below, the lowest sequence-level conservation;
+Core B comprises three small islands of 20--30~columns each,
+separated from Core A by a $\sim$1,000-column gap
+with 35--68\% occupancy.
+
+\paragraph{Cross-species validation of RBP binding sites.}
+FIMO scanning of each species' \textit{Zmast} against 258 metazoan RBP
+position weight matrices (ATtRACT database, $p < 10^{-4}$; see Methods)
+identified hundreds of binding sites per species
+and suggested dense, multi-valent RBP binding across \textit{Zmast}.
+However, systematic cross-species validation---mapping
+all eight species' FIMO hits to alignment coordinates
+and testing whether the same motif occurs at homologous positions---dramatically
+revised this picture.
+Of 132 motifs appearing in $\geq$4 species within the same block,
+only 8 (6\%) are truly conserved
+(non-low-complexity, at homologous alignment positions);
+57 (43\%) are positionally conserved but driven
+by species-specific homopolymers or dinucleotide repeats;
+and 67 (51\%) occur at non-homologous positions
+within the same block (independent hits).
+In total, only $\sim$99~bp of specifically conserved sequence exists
+across the entire 7,168~bp lncRNA (1.4\%).
+
+The eight validated cross-species RBP binding sites
+are concentrated in two domains.
+Six reside in the 5$^\prime$ Head (blocks B1--B2):
+RBM24 (6 species, identical \texttt{AGTGTGA}),
+ROX8 (4 species, identical \texttt{CCATTTT}),
+SNF (4 species), UAF-2 (4 species, identical \texttt{TTTTCAGG}),
+MEX-5 (4 species, identical \texttt{TTAATAAT}),
+and SRSF7 (5 species).
+The remaining two are in the Poly(U) Sponge (block B15):
+FBF-1 (5 species, identical \texttt{TGTGTATTTA})
+and SYP (3 species).
+Block~1 of the 5$^\prime$ Head is the deepest conservation hotspot in \textit{Zmast},
+with 40\% perfectly conserved columns
+and six non-homopolymer conserved sequence runs
+including a 16~bp element (\texttt{TCTCTCACCCCATCCC})
+shared across six species.
+Notably, ROX8 is the \textit{Drosophila} protein
+that binds the dosage compensation lncRNAs \textit{roX1} and \textit{roX2},
+and FBF-1 is a Pumilio-family translational repressor
+with a central role in germline sex determination
+in \textit{C. elegans}.
+
+By contrast, Core A---despite containing all eight species---is
+mostly AT-rich positional scaffolding.
+Only block~B4 has genuinely conserved sequence runs;
+blocks B5--B9 are spacers in which each species has evolved
+its own low-complexity insertions
+(poly-C in \illex, poly-T in \textit{D. pealeii},
+(AT)$_n$ microsatellite in \textit{S. officinalis}, poly-A in \textit{O. vulgaris}).
+Block~B14 (Variable region, 730~columns, all 8 species)
+is the largest false positive:
+all 18 ``shared'' FIMO motifs are at non-homologous positions.
+
+\paragraph{Two sponge strategies.}
+The dominant conserved feature of \textit{Zmast} is not specific RBP binding sites
+but AT-richness (66--78\% across all blocks in all species)
+and distributed poly(U) tracts.
+However, poly(U) density differs markedly between lineages:
+decapods average 57~bp/kb (range 52--79~bp/kb),
+while octopods average 32~bp/kb
+(\textit{O. bimaculoides}: 26.4~bp/kb, maximum tract only 8~nt;
+every other species has tracts $\geq$14~nt).
+ELAV/SXL binding to \textit{Zmast} is entirely poly(U)-mediated:
+no ELAV-family position weight matrix produces
+a sequence-specific hit on any \textit{Zmast} in any species.
+Thus poly(U) tract density is the sole determinant of SXL sponge capacity.
+
+Octopod \textit{Zmast} has compensated for poly(U) erosion
+by enriching sequence-specific binding sites
+for the RBM family (2.8$\times$ enrichment over decapods),
+PCBP (1.9$\times$), and PUF (1.6$\times$).
+This suggests a shift from a quantity-based sponge
+(dense poly(U) tracts that bind all U-recognizing RBPs simultaneously)
+to a quality-based sponge
+(fewer but more diverse sequence-specific motifs).
+Both lineages share CELF, PUF/FBF-1, and MEX-5 binding---the
+irreducible regulatory core maintained for $\sim$300~MY
+regardless of poly(U) content.
+
+Stoichiometric analysis indicates that \textit{Zmast} poly(U) binding sites
+are in 73--1,563-fold molar excess over RBP mRNAs in males,
+though this captures only 2--18\% of total RBP protein---sufficient
 to shift sensitive splice-site decisions past their inclusion thresholds
 but not to globally deplete any single factor.
 Importantly, MSL2 mRNA contains zero poly(U) tracts,
-ruling out the \textit{Drosophila} SXL$\rightarrow$MSL2 translational regulation mechanism.
+ruling out the \textit{Drosophila} SXL$\rightarrow$MSL2
+translational regulation mechanism.
 
+\paragraph{Zfest.}
 The female-biased counterpart, \textit{Zfest} (Z-female-specific transcript),
 is transcribed antisense to the \textit{Amnionless} gene on the Z chromosome.
 \textit{Amnionless} itself is consistently male-biased across all species examined,
@@ -789,7 +912,7 @@ a pattern conserved over $\sim$300~MY.
 
 The specific molecular targets of \textit{Zmast} and \textit{Zfest}
 remain uncertain.
-The poly(U) tracts and multi-valent RBP binding architecture of \textit{Zmast}
+The poly(U) tracts and conserved RBP binding architecture of \textit{Zmast}
 are consistent with a sponge model
 in which male-produced \textit{Zmast} sequesters RNA-binding proteins
 that would otherwise promote female-pattern gene regulation.
@@ -807,6 +930,31 @@ will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
     The mutually exclusive expression pattern is consistent with
     opposing regulatory roles in Z chromosome dosage compensation.}
     \label{fig:zmast_zfest}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/zmast_architecture_figure.pdf}
+    \caption{Conserved architecture of \textit{Zmast} across eight cephalopod species.
+    \textbf{(A)} Alignment overview. Horizontal bars show per-species occupancy
+    across 14,726 alignment columns (MAFFT L-INS-i).
+    Conserved blocks (B1--B19) are colored by the number of species present
+    (red = 8, orange = 7, yellow = 6).
+    \textbf{(B)} Conservation score (weighted pairwise identity $\times$ occupancy,
+    Gaussian-smoothed $\sigma$ = 100~columns) with conserved poly(U) hotspots
+    (orange triangles; $\geq$5 consecutive columns with $\geq$4 species having U/T).
+    \textbf{(C)} RBP motif density from FIMO scanning of the \illex sequence
+    (ATtRACT metazoan database, $p < 10^{-4}$).
+    Grey: poly(A/U)-driven hits; green: sequence-specific hits.
+    Note that these densities are species-specific
+    and do not represent cross-species conservation.
+    \textbf{(D)} Six-domain architecture in \illex coordinates.
+    Domain borders indicate conservation level:
+    thick solid = genuinely conserved across species (5$^\prime$ Head, Poly(U) Sponge),
+    dashed = positional scaffold (Core A, Core B, Variable),
+    thin solid = mixed (3$^\prime$ Tail).
+    Validated cross-species RBP binding sites are listed below each domain.}
+    \label{fig:zmast_arch}
 \end{figure}
 
 \section*{Discussion}
@@ -1060,7 +1208,7 @@ is among the conserved Z-linked genes,
 but the trans-acting factor(s) that recognize these elements
 remain to be identified experimentally.
 
-\subsection*{Zmast and Zfest: deeply conserved lncRNAs of unknown function}
+\subsection*{Zmast: a deeply conserved lncRNA with sparse but informative sequence conservation}
 
 \textit{Zmast} and \textit{Zfest} were first described
 by \textcite{papanicolaou2024z} in two closely related octopus species
@@ -1068,7 +1216,7 @@ separated by $\sim$2.5~MY,
 who noted their resemblance to \textit{Xist} and \textit{roX}
 but offered no mechanistic evidence for their function.
 Our principal advance is to show that both lncRNAs are conserved
-across all seven cephalopod species examined,
+across all eight cephalopod species examined,
 spanning over 300~MY of divergence.
 This degree of conservation is exceptional for non-coding RNA:
 the vast majority of lncRNAs turn over rapidly,
@@ -1077,46 +1225,64 @@ beyond $\sim$90~MY \citep{hezroni2015principles}.
 \textit{Xist} itself, perhaps the best-known regulatory lncRNA,
 is a eutherian innovation absent from marsupials and monotremes ($\sim$160~MY).
 The persistence of \textit{Zmast} across 300~MY thus implies
-strong purifying selection on its sequence or structure,
-a constraint that demands a function---though we cannot yet say what it is.
+strong purifying selection,
+a constraint that demands a function---though
+the nature of that constraint is more nuanced than initial analyses suggested.
 
-What we can say is limited to three observations.
-First, \textit{Zmast} shows a 5,000-fold male-to-female expression ratio
-for its core exon in \textit{O. bimaculoides},
-making it the most extreme sex-biased transcript on the Z chromosome
-in every species examined.
-Second, the conserved core region of \textit{Zmast}
-contains a structured element with 27 poly(U) tracts ($\geq$5~nt; 4.7 per kb),
-and RBP motif scanning across 258 position weight matrices
-reveals binding sites for U2AF, TIAR, CPEB, and ELAV/SXL
-at comparable densities---consistent with a multi-valent RNA-binding protein sponge,
-though stoichiometric analysis indicates that any protein sequestration would be modest
-(2--18\% of total RBP protein).
-Third, MSL2 mRNA contains zero poly(U) tracts,
-ruling out the \textit{Drosophila} SXL$\rightarrow$MSL2
-translational repression mechanism.
+Cross-species validation of \textit{Zmast}'s RBP binding landscape
+reveals that the conservation is overwhelmingly at the level
+of AT-richness and overall domain architecture,
+not specific binding sites.
+Of 132 FIMO motifs appearing in $\geq$4 species within conserved blocks,
+87\% are artifacts---low-complexity matches to species-specific homopolymers
+or hits at non-homologous positions within the same block.
+Only eight RBP binding sites are genuinely conserved
+(same motif at the same alignment position in $\geq$3 species),
+and together these comprise only $\sim$99~bp of specifically conserved sequence
+out of 7,168~bp (1.4\%).
+The dominant conserved feature is distributed poly(U) content
+(AT-richness of 66--78\% across all blocks in all species),
+with individual poly(U) tracts turning over rapidly
+while overall density is maintained---analogous to
+the binding-site turnover observed in promoter evolution.
 
-Beyond these observations, the molecular function of \textit{Zmast} and \textit{Zfest}
-remains open.
-One speculative possibility is suggested by the parallel with \textit{Drosophila}:
+The eight validated sites are nonetheless functionally suggestive.
+Six are concentrated in the 5$^\prime$ Head domain,
+which---despite being present in only 6 of 8 species---has
+the deepest sequence conservation (40\% perfectly conserved columns in block~B1).
+These include binding sites for ROX8
+(the \textit{Drosophila} protein that binds the
+dosage compensation lncRNAs \textit{roX1/roX2}),
+SNF (a U1/U2 snRNP component with a role
+in \textit{Drosophila} sex determination),
+and MEX-5 (a germline P-granule regulator).
+The two sites in the Poly(U) Sponge domain include
+FBF-1, a Pumilio-family translational repressor
+that controls germline sex determination in \textit{C. elegans}
+by repressing \textit{fem-3}.
+That the conserved binding sites in a sex-linked lncRNA
+converge on proteins involved in dosage compensation and sex determination
+in distantly related species is striking,
+though whether these represent functional homology
+or convergent co-option of a common regulatory toolkit remains open.
+
+One speculative model is suggested by the parallel with \textit{Drosophila}:
 in that system, the X-linked \textit{roX} lncRNAs
-do not themselves recognize target genes
-but instead recruit the MSL protein complex,
+recruit the MSL protein complex,
 which then spreads along the X chromosome
 and is targeted to specific genes by MRE cis-elements in gene bodies.
 By analogy, \textit{Zmast} or \textit{Zfest}
 could act as scaffolds for a protein complex
 that recognizes the gene-body cis-elements we identified
 (Motifs A and B, $\sim$41~bp composite spacing).
-In this model, the lncRNAs would provide chromosomal address
+The lncRNAs would provide chromosomal address
 (\textit{cis}-linkage to Z), the motifs would provide gene-level specificity,
-and the protein partners would provide catalytic activity---chromatin
-modification, histone acetylation, or demethylation.
+and the protein partners would provide catalytic activity.
 This framework would explain why the motifs are present genome-wide
 but produce sex-biased effects only on Z:
 the lncRNA-protein complex would be tethered to the Z chromosome
 by its site of transcription, restricting its activity to \textit{cis}.
-We emphasize that this model is entirely speculative
+We emphasize that this model is speculative
 and that identifying the protein partners of \textit{Zmast} and \textit{Zfest}---through
 CLIP-seq, RNA pulldown, or proximity labeling---is
 the single most important experiment for advancing
@@ -1295,6 +1461,86 @@ percent spliced-in (PSI) values for local alternative splicing events
 mutually exclusive exon, retained intron).
 Differential splicing between sexes was tested using SUPPA2 diffSplice
 with 1,000 bootstrap iterations ($p_\text{adj} < 0.05$, $|\Delta\text{PSI}| > 0.1$).
+
+\subsection*{Zmast annotation and alignment}
+
+\textit{Zmast} was annotated in all eight species using a three-step pipeline.
+First, the syntenic region containing \textit{Zmast} was extracted
+from each genome assembly by identifying the conserved flanking genes
+UBL3 and CG31559 via the cross-species orthology table,
+retrieving their genomic coordinates from the species annotation,
+and extracting the intervening region with 10~kb padding
+using \texttt{samtools faidx}.
+Second, for species with available male RNA-seq data
+(\textit{O. bimaculoides}, \textit{S. officinalis}, \textit{S. oualaniensis}),
+reads were extracted from existing BAM files for the syntenic region,
+male samples were merged, and StringTie v2.2.1 was run
+in de novo mode (\texttt{-m 100 -f 0.01})
+to assemble transcripts.
+Female BAMs were extracted in parallel for coverage comparison.
+Third, candidate exons were identified by BLAT alignment
+of both the species' existing \textit{Zmast} reference
+and the \illex \textit{Zmast} as a universal query.
+Candidates were scored by BLAT hit quality,
+male:female coverage ratio, and poly(U) tract density
+($\geq$5~nt tracts per kb).
+For species without BAMs (\illex, \textit{D. pealeii},
+\textit{E. scolopes}, \textit{E. berryi}, \textit{O. vulgaris}),
+the pipeline performed syntenic region extraction
+and BLAT scoring against existing reference sequences.
+Each species' canonical \textit{Zmast} sequence was frozen
+at \texttt{\{species\}/reference/Zmast\_current.fa}.
+
+Multiple sequence alignment was performed with MAFFT v7.520
+using the L-INS-i algorithm
+(\texttt{--localpair --maxiterate 1000}),
+producing a 14,726-column alignment.
+Conserved blocks were identified by sliding-window analysis
+(window = 50 alignment columns, step = 10 columns)
+scoring each window by a combined metric of
+occupancy (fraction of species with non-gap sequence)
+and pairwise identity (fraction of identical nucleotides
+among non-gap species, weighted by $n_\text{species}/8$).
+Windows with combined score $\geq$3.0 were retained
+and merged into 19 conserved blocks.
+
+\subsection*{RBP motif scanning and cross-species validation}
+
+RNA-binding protein motif scanning was performed with FIMO
+(MEME Suite v5.5.9, \texttt{--thresh 1e-4 --text --norc})
+using 258 metazoan RBP position weight matrices
+from the ATtRACT database \citep{giudice2016attract}.
+Each species' \textit{Zmast} sequence was scanned independently.
+FIMO hits were classified as poly(A/U)-driven
+(matched sequence $\geq$80\% A or T/U)
+or sequence-specific.
+
+Cross-species validation of RBP binding sites
+used the eight-species alignment to test positional conservation.
+For each species, a coordinate map was constructed
+relating ungapped sequence positions to alignment columns.
+FIMO hits were then projected onto alignment coordinates.
+A motif was classified as ``positionally conserved''
+if hits in $\geq$3 species fell within 50 alignment columns
+of one another,
+and as ``truly conserved'' if additionally
+the matched sequences were non-low-complexity
+(not homopolymer- or dinucleotide-repeat-driven).
+Motifs appearing in $\geq$4 species within the same conserved block
+but at non-overlapping alignment positions
+were classified as ``scattered'' (independent hits).
+
+Poly(U) tract conservation was assessed
+by identifying all poly(U/T) tracts $\geq$5~nt in each species,
+mapping them to alignment coordinates,
+and scoring positional overlap ($\pm$10 columns) across species.
+Conserved hotspots were defined as $\geq$5 consecutive alignment columns
+in which $\geq$4 species have a T/U residue.
+
+Conserved sequence runs were identified as stretches of $\geq$6
+consecutive alignment columns in which $\geq$6 species
+share identical nucleotides,
+excluding pure homopolymer runs (e.g., AAAAAA, TTTTTT).
 
 \subsection*{DNA methylation analysis}
 
