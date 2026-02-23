@@ -7,7 +7,7 @@
 %\usepackage{lineno}
 \usepackage{siunitx}
 \usepackage{hyperref}
-\usepackage{booktabs, array}
+\usepackage{booktabs, array, longtable}
 \usepackage{multirow}
 \pagestyle{fancy}
 \setlength{\headheight}{14.5pt} % Fix fancyhdr warning
@@ -1596,6 +1596,154 @@ MEIS2        & obimac\_0009102 & Homeobox TF                & LOC\_00003687 & 5 
     and higher Z:A ratios.}
     \label{fig:kdm3a_za}
 \end{figure}
+
+\begin{longtable}{lllll}
+\caption{RNA-seq samples used in the dosage compensation analysis.
+All samples are adult somatic tissues unless otherwise noted.
+Accession prefixes: SRR (NCBI SRA), CRR (CNGB Sequence Archive).}
+\label{tab:dc_samples} \\
+\toprule
+\textbf{Species} & \textbf{Study} & \textbf{Accession} & \textbf{Sex} & \textbf{Tissue} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Species} & \textbf{Study} & \textbf{Accession} & \textbf{Sex} & \textbf{Tissue} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+% Illex illecebrosus (1F/1M)
+\multicolumn{5}{l}{\textit{Illex illecebrosus} (1F, 1M)} \\
+\addlinespace[2pt]
+ & This study & F24\_full & F & Mantle \\
+ & This study & M71\_full & M & Mantle \\
+\addlinespace[4pt]
+% Sthenoteuthis oualaniensis (16F/16M)
+\multicolumn{5}{l}{\textit{Sthenoteuthis oualaniensis} (16F, 16M)} \\
+\addlinespace[2pt]
+ & CRA004867 & CRR317115 & M & Photophore \\
+ & CRA004867 & CRR317116 & M & Tentacle \\
+ & CRA004867 & CRR317117 & M & Suckers \\
+ & CRA004867 & CRR317118 & M & Heart \\
+ & CRA004867 & CRR317119 & M & Kidney \\
+ & CRA004867 & CRR317120 & M & Photophore \\
+ & CRA004867 & CRR317121 & M & Tentacle \\
+ & CRA004867 & CRR317122 & M & Suckers \\
+ & CRA004867 & CRR317123 & M & Heart \\
+ & CRA004867 & CRR317124 & M & Kidney \\
+ & CRA004867 & CRR317157 & M & Hepatopancreas \\
+ & CRA004867 & CRR317159 & M & Brain \\
+ & CRA004867 & CRR317160 & M & Eye \\
+ & CRA004867 & CRR317165 & M & Hepatopancreas \\
+ & CRA004867 & CRR317167 & M & Brain \\
+ & CRA004867 & CRR317168 & M & Eye \\
+ & CRA004867 & CRR317137 & F & Kidney \\
+ & CRA004867 & CRR317138 & F & Hepatopancreas \\
+ & CRA004867 & CRR317140 & F & Brain \\
+ & CRA004867 & CRR317141 & F & Kidney \\
+ & CRA004867 & CRR317142 & F & Hepatopancreas \\
+ & CRA004867 & CRR317144 & F & Brain \\
+ & CRA004867 & CRR317145 & F & Eye \\
+ & CRA004867 & CRR317151 & F & Eye \\
+ & CRA004867 & CRR317161 & F & Photophore \\
+ & CRA004867 & CRR317162 & F & Tentacle \\
+ & CRA004867 & CRR317163 & F & Suckers \\
+ & CRA004867 & CRR317164 & F & Heart \\
+ & CRA004867 & CRR317169 & F & Photophore \\
+ & CRA004867 & CRR317170 & F & Tentacle \\
+ & CRA004867 & CRR317171 & F & Suckers \\
+ & CRA004867 & CRR317172 & F & Heart \\
+\addlinespace[4pt]
+% Doryteuthis pealeii (10F/9M)
+\multicolumn{5}{l}{\textit{Doryteuthis pealeii} (10F, 9M)} \\
+\addlinespace[2pt]
+ & PRJNA255916 & SRR1522987 & M & Giant fiber lobe \\
+ & PRJNA255916 & SRR1522988 & M & Optic lobe \\
+ & PRJNA255916 & SRR1725163 & M & Gill \\
+ & PRJNA255916 & SRR1725164 & M & Branchial heart \\
+ & PRJNA255916 & SRR1725167 & F & Iridophore skin \\
+ & PRJNA255916 & SRR1725169 & M & Marginal pen epithelium \\
+ & PRJNA255916 & SRR1725171 & M & Ventral pen epithelium \\
+ & PRJNA255916 & SRR1725172 & F & Chromatophore skin \\
+ & PRJNA255916 & SRR1725213 & M & Buccal ganglia \\
+ & PRJNA255916 & SRR1725235 & M & Stellate ganglion \\
+ & PRJNA255916 & SRR1725236 & M & Vertical lobe \\
+ & PRJNA906054 & SRR23062180 & F & Tentacle rim \\
+ & PRJNA906054 & SRR23062181 & F & Skin \\
+ & PRJNA906054 & SRR23062182 & F & Olfactory organ \\
+ & PRJNA906054 & SRR23062183 & F & Brain \\
+ & PRJNA906054 & SRR23062189 & F & Arm sucker rims \\
+ & PRJNA906054 & SRR23062200 & F & Arm \\
+ & PRJNA906054 & SRR23062211 & F & Arm \\
+ & PRJNA906054 & SRR23062212 & F & Arm \\
+\addlinespace[4pt]
+% Euprymna scolopes (3F/3M)
+\multicolumn{5}{l}{\textit{Euprymna scolopes} (3F, 3M)} \\
+\addlinespace[2pt]
+ & SRP412216 & SRR22588893 & F & Central brain \\
+ & SRP412216 & SRR22588898 & F & Central brain \\
+ & SRP412216 & SRR22588901 & F & Left optic lobe \\
+ & SRP412216 & SRR22588910 & M & Central brain \\
+ & SRP412216 & SRR22588918 & M & Central brain \\
+ & SRP412216 & SRR22588927 & M & Left optic lobe \\
+\addlinespace[4pt]
+% Euprymna berryi (2F/2M)
+\multicolumn{5}{l}{\textit{Euprymna berryi} (2F, 2M)} \\
+\addlinespace[2pt]
+ & PRJNA1336213 & SRR35682649 & F & Skin \\
+ & PRJNA1336213 & SRR35682652 & F & Brain \\
+ & PRJNA1336213 & SRR35682659 & M & Brain \\
+ & PRJNA1336213 & SRR35682663 & M & Skin \\
+\addlinespace[4pt]
+% Sepia officinalis (4F/4M)
+\multicolumn{5}{l}{\textit{Sepia officinalis} (4F, 4M)} \\
+\addlinespace[2pt]
+ & PRJNA242869 & SRR5204441 & F & Stellar ganglion \\
+ & PRJNA242869 & SRR5204442 & M & Stellar ganglion \\
+ & PRJNA242869 & SRR5204443 & F & Optic lobe \\
+ & PRJNA242869 & SRR5204444 & M & Optic lobe \\
+ & PRJNA242869 & SRR5204445 & F & Subesophageal mass \\
+ & PRJNA242869 & SRR5204446 & M & Subesophageal mass \\
+ & PRJNA242869 & SRR5204447 & F & Supraesophageal mass \\
+ & PRJNA242869 & SRR5204448 & M & Supraesophageal mass \\
+\addlinespace[4pt]
+% Octopus bimaculoides (15F/15M)
+\multicolumn{5}{l}{\textit{Octopus bimaculoides} (15F, 15M)} \\
+\addlinespace[2pt]
+ & PRJNA285380 & SRR2047107 & M & Posterior salivary gland \\
+ & PRJNA285380 & SRR2047111 & M & Suckers \\
+ & PRJNA285380 & SRR2047116 & M & Retina \\
+ & PRJNA285380 & SRR2047118 & M & Optic lobe \\
+ & PRJNA285380 & SRR2047120 & F & Axial nerve cord \\
+ & PRJNA285380 & SRR2048495 & F & Subesophageal brain \\
+ & PRJNA285380 & SRR2048496 & F & Subesophageal brain \\
+ & PRJNA285380 & SRR2048497 & F & Subesophageal brain \\
+ & PRJNA285380 & SRR2048498 & F & Subesophageal brain \\
+ & PRJNA285380 & SRR2048521 & F & Supraesophageal brain \\
+ & PRJNA285380 & SRR2048522 & F & Supraesophageal brain \\
+ & PRJNA285380 & SRR2048523 & F & Supraesophageal brain \\
+ & PRJNA285380 & SRR2048524 & F & Supraesophageal brain \\
+ & PRJNA285380 & SRR2048525 & F & Supraesophageal brain \\
+ & PRJNA1199547 & SRR32191430 & M & Brain \\
+ & PRJNA1199547 & SRR32191431 & M & Brain \\
+ & PRJNA1199547 & SRR32191434 & M & Arm \\
+ & PRJNA1199547 & SRR32191435 & M & Arm \\
+ & PRJNA1336213 & SRR35682634 & F & Brain \\
+ & PRJNA1336213 & SRR35682635 & F & Brain \\
+ & PRJNA1336213 & SRR35682636 & M & Skin \\
+ & PRJNA1336213 & SRR35682646 & M & Sucker rim \\
+ & PRJNA1336213 & SRR35682657 & M & Olfactory organ \\
+ & PRJNA1336213 & SRR35682668 & M & Lip \\
+ & PRJNA1336213 & SRR35682679 & M & Hectocotylus \\
+ & PRJNA1336213 & SRR35682686 & F & Skin \\
+ & PRJNA1336213 & SRR35682687 & F & Oviduct \\
+ & PRJNA1336213 & SRR35682688 & F & Oviduct \\
+ & PRJNA1336213 & SRR35682690 & M & Eye \\
+ & PRJNA1336213 & SRR35682691 & M & Brain \\
+\end{longtable}
 
 \printbibliography
 \end{document}
