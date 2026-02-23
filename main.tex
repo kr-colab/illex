@@ -851,8 +851,9 @@ with 40\% perfectly conserved columns
 and six non-homopolymer conserved sequence runs
 including a 16~bp element (\texttt{TCTCTCACCCCATCCC})
 shared across six species.
-Notably, ROX8 is the \textit{Drosophila} protein
-that binds the dosage compensation lncRNAs \textit{roX1} and \textit{roX2},
+Notably, ROX8 is the \textit{Drosophila} ortholog of mammalian TIA-1,
+which promotes U1~snRNP recruitment at the \textit{msl-2} 5$^\prime$ splice site
+and is directly antagonized by Sex-lethal to repress dosage compensation in females,
 and FBF-1 is a Pumilio-family translational repressor
 with a central role in germline sex determination
 in \textit{C. elegans}.
@@ -1246,32 +1247,92 @@ with individual poly(U) tracts turning over rapidly
 while overall density is maintained---analogous to
 the binding-site turnover observed in promoter evolution.
 
-The eight validated sites are nonetheless functionally suggestive.
+The eight validated sites are nonetheless functionally suggestive,
+and their identity points to a specific mechanistic parallel.
 Six are concentrated in the 5$^\prime$ Head domain,
 which---despite being present in only 6 of 8 species---has
 the deepest sequence conservation (40\% perfectly conserved columns in block~B1).
-These include binding sites for ROX8
-(the \textit{Drosophila} protein that binds the
-dosage compensation lncRNAs \textit{roX1/roX2}),
-SNF (a U1/U2 snRNP component with a role
-in \textit{Drosophila} sex determination),
-and MEX-5 (a germline P-granule regulator).
-The two sites in the Poly(U) Sponge domain include
+These six sites fall into two functional groups
+organized in adjacent blocks.
+Block~1 contains RBM24 (identical \texttt{AGTGTGA} in 6 species;
+the \textit{C. elegans} ortholog SUP-12 recruits mRNAs
+to germ granules \citep{zhang2025rbm24a})
+and SRSF7 (an SR protein that promotes exon inclusion and mRNA export).
+Block~2 contains four sites whose identities are striking:
+ROX8 is the \textit{Drosophila} ortholog of mammalian TIA-1/TIAR,
+which promotes U1~snRNP recruitment at the \textit{msl-2} 5$^\prime$ splice site---the
+step that Sex-lethal must block to prevent dosage compensation
+in females \citep{forch2001modulation};
+SNF (\textit{sans fille}) is a U1/U2~snRNP component
+that cooperates with Sex-lethal in its own autoregulatory splicing
+\citep{cline1999snf};
+UAF-2 matches a compact 3$^\prime$ splice site element
+(\texttt{UUUUCAGG}) recognized by the U2AF heterodimer---the
+other target that SXL must displace at the \textit{msl-2} intron
+\citep{merendino1999inhibition};
+and MEX-5, a CCCH zinc-finger protein that partitions
+RNAs between germline granules and somatic degradation
+in \textit{C. elegans} \citep{schubert2000mex5}.
+The remaining two validated sites are in the Poly(U) Sponge:
 FBF-1, a Pumilio-family translational repressor
-that controls germline sex determination in \textit{C. elegans}
-by repressing \textit{fem-3}.
-That the conserved binding sites in a sex-linked lncRNA
-converge on proteins involved in dosage compensation and sex determination
-in distantly related species is striking,
-though whether these represent functional homology
-or convergent co-option of a common regulatory toolkit remains open.
+that controls germline sex determination
+by repressing \textit{fem-3} in \textit{C. elegans},
+and SYP, a synaptonemal complex protein.
 
-One speculative model is suggested by the parallel with \textit{Drosophila}:
-in that system, the X-linked \textit{roX} lncRNAs
-recruit the MSL protein complex,
-which then spreads along the X chromosome
-and is targeted to specific genes by MRE cis-elements in gene bodies.
-By analogy, \textit{Zmast} or \textit{Zfest}
+In \textit{Drosophila}, the SXL-mediated regulation of dosage compensation
+operates through the \textit{msl-2} 5$^\prime$ UTR intron:
+ROX8/TIA-1 and U2AF promote splicing of this intron
+(enabling MSL2 protein production in males),
+while SXL antagonizes both factors in females
+to enforce intron retention and block MSL2 translation.
+SNF cooperates with SXL in a separate but linked circuit---the
+autoregulatory splicing of SXL's own male-specific exon.
+That the \textit{Zmast} 5$^\prime$ Head contains conserved binding sites
+for all three of these proteins---ROX8, SNF, and UAF-2---on
+a single $\sim$850~bp domain is a notable convergence,
+though three caveats temper this parallel.
+First, the SNF FIMO motif (consensus \texttt{nUUGCACn})
+matches SNF's canonical U1~stem-loop~II binding mode,
+not the poly(U) binding activity
+through which \textit{Drosophila} SNF participates in sex determination;
+whether cephalopod SNF has acquired the latter activity is unknown.
+Second, the UAF-2 motif derives from
+\textit{C. elegans} U2AF35 (the small subunit),
+not U2AF65 directly---though the octameric motif
+\texttt{UUUUCAGG} represents the complete 3$^\prime$ splice site
+element recognized by the U2AF heterodimer.
+Third, all binding predictions are computational;
+no biochemical validation exists for any RBP--\textit{Zmast} interaction.
+The evolutionary conservation of these sites
+across 4--6 species spanning $\sim$300~MY
+is the strongest available evidence for functional significance.
+
+The octopus lineage provides a natural experiment.
+\textit{O. bimaculoides} and \textit{O. vulgaris} have massive
+AT/TA dinucleotide repeat expansions in Block~2
+that have obliterated the ROX8, SNF, and UAF-2 binding sites
+while preserving the MEX-5 site at its ancestral position.
+This suggests that the germline-partitioning function of the 5$^\prime$ Head
+(mediated by RBM24 and MEX-5) is under stronger selective constraint
+than the splicing-factor sites,
+and is consistent with the broader octopod shift
+from poly(U)-dense to sequence-specific sponge architecture
+described above.
+
+These findings suggest two non-exclusive functional models
+for the \textit{Zmast} 5$^\prime$ Head.
+In a titration model, the massive male-specific expression of \textit{Zmast}
+(5,000:1 M:F) sequesters ROX8, SNF, and U2AF
+away from endogenous targets---potentially
+shifting SXL autoregulatory splicing toward the truncated 2-RRM isoform,
+which is exactly what we observe
+(the full-length 3-RRM SXL is female-biased across cephalopods).
+In a platform model, the 5$^\prime$ Head serves as a nucleation domain
+for ribonucleoprotein complex assembly---analogous
+to the conserved roX boxes in \textit{Drosophila} \textit{roX1/roX2}
+that nucleate the MSL complex,
+or the A-repeat of \textit{Xist} that recruits SPEN.
+By extension, \textit{Zmast} or \textit{Zfest}
 could act as scaffolds for a protein complex
 that recognizes the gene-body cis-elements we identified
 (Motifs A and B, $\sim$41~bp composite spacing).
@@ -1282,7 +1343,8 @@ This framework would explain why the motifs are present genome-wide
 but produce sex-biased effects only on Z:
 the lncRNA-protein complex would be tethered to the Z chromosome
 by its site of transcription, restricting its activity to \textit{cis}.
-We emphasize that this model is speculative
+
+We emphasize that both models remain speculative
 and that identifying the protein partners of \textit{Zmast} and \textit{Zfest}---through
 CLIP-seq, RNA pulldown, or proximity labeling---is
 the single most important experiment for advancing
