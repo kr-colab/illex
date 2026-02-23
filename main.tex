@@ -211,7 +211,7 @@ Full assembly statistics and repeat composition are provided in the
 \hyperref[sec:supp_assembly]{Supplemental Results}
 (Tables~\ref{tab:assembly_stats} and \ref{tab:repeat_stats}).
 
-\begin{figure}[th!]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/fig1_new.pdf}
     \caption{Synteny of seven coleoid cephalopod genomes.
@@ -240,23 +240,6 @@ the Z chromosome has maintained its integrity as a distinct chromosomal unit for
 %These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on chromosome 42,
 %confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{figures/illex_dosage_compensation_3panel.pdf}
-    \caption{Dosage compensation of the Z chromosome in \illex.
-    Left panels: gene expression levels [log2(normalized count + 1)] across all chromosomes
-    in females (ZO, top) and males (ZZ, bottom).
-    The Z chromosome (orange) shows expression comparable to autosomes (blue) in both sexes,
-    with Z:A ratios of 1.59 in females and 1.44 in males.
-    Right panel: male-to-female expression ratios for autosomal genes (n = 11,459)
-    and Z-linked genes (n = 188).
-    The Z chromosome shows a modest but significant male bias
-    (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
-    indicating partial dosage compensation.
-    Dosage compensation results for six additional cephalopod species are shown in Figures S1--S6.}
-    \label{fig:cross_species_dc}
-\end{figure}
-
 \subsection*{Partial dosage compensation of the Z chromosome in \illex}
 
 To assess whether \illex exhibits dosage compensation for Z-linked genes,
@@ -273,6 +256,23 @@ with a median M:F ratio of 1.15 compared to 0.99 for autosomes
 (p = 0.037, Wilcoxon rank-sum test; Figure~\ref{fig:cross_species_dc}).
 These results demonstrate that \illex exhibits partial dosage compensation of the Z chromosome,
 with females achieving $\sim$87\% of male expression levels for Z-linked genes.
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/illex_dosage_compensation_3panel.pdf}
+    \caption{Dosage compensation of the Z chromosome in \illex.
+    Left panels: gene expression levels [log2(normalized count + 1)] across all chromosomes
+    in females (ZO, top) and males (ZZ, bottom).
+    The Z chromosome (orange) shows expression comparable to autosomes (blue) in both sexes,
+    with Z:A ratios of 1.59 in females and 1.44 in males.
+    Right panel: male-to-female expression ratios for autosomal genes (n = 11,459)
+    and Z-linked genes (n = 188).
+    The Z chromosome shows a modest but significant male bias
+    (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
+    indicating partial dosage compensation.
+    Dosage compensation results for six additional cephalopod species are shown in Figures S1--S6.}
+    \label{fig:cross_species_dc}
+\end{figure}
 
 \subsection*{Dosage compensation is ancestral and conserved across coleoid cephalopods}
 
@@ -324,7 +324,7 @@ among major animal lineages, distinct from the mechanisms observed in mammals, i
 and thus offers the opportunity to discover novel mechanisms of sex chromosome regulation.
 
 
-\begin{table}[H]
+\begin{table}[tbp]
 \centering
 \caption{Dosage compensation of the Z chromosome across coleoid cephalopod species.
 M:F ratio indicates median male-to-female expression ratio for Z-linked genes.
@@ -376,7 +376,7 @@ consistent with gene-body methylation facilitating active transcription.
 However, the relationship between methylation and dosage compensation remains complex,
 as methylation differences do not fully explain the residual male bias in Z-linked expression.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \includegraphics[height=1.1\textwidth, angle=90, trim=9cm 0 6cm 0, clip]{figures/fig3.pdf}
     \caption{Female-specific hypermethylation of the Z chromosome in \illex.
@@ -414,7 +414,7 @@ demonstrating that chromatin modifiers are among the most deeply conserved
 elements of the Z chromosome
 (Table~\ref{tab:z_enrichment}).
 
-\begin{table}[H]
+\begin{table}[tbp]
 \centering
 \caption{Chromatin gene enrichment on the Z chromosome at increasing phylogenetic stringency.
 As Z-linkage is required across more species, chromatin genes are preferentially retained.}
@@ -456,7 +456,7 @@ do not constitute a single complex
 but rather represent convergent enrichment
 of multiple independent chromatin pathways on the sex chromosome.
 
-\begin{table}[H]
+\begin{table}[tbp]
 \centering
 \caption{Expression of conserved Z-linked chromatin modifier genes
 in \textit{O. bimaculoides} (30 somatic samples, 15F:15M).
@@ -644,7 +644,7 @@ LINEs on the cephalopod Z instead demarcate regions that
 fundamentally different compensation mechanisms acting on a shared
 repeat architecture.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/line_density_sex_bias_boxplots.png}
     \caption{LINE enrichment on the \textit{O. bimaculoides} Z chromosome predicts sex-biased expression.
@@ -653,18 +653,6 @@ repeat architecture.
     while female-biased genes occupy LINE-sparse regions (122.0 bp/kb; Mann-Whitney $p = 0.029$).
     The Z chromosome has the highest LINE density of any chromosome (1.56-fold enrichment, $z = 4.92$).}
     \label{fig:line_density}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/rte_bovb_quartile_sex_bias.png}
-    \caption{RTE-BovB density quartile analysis on the Z chromosome.
-    Among significantly sex-biased Z genes,
-    the highest RTE-BovB density quartile (Q4) shows 89\% male-biased genes (8M:1F),
-    while lower quartiles show no consistent pattern.
-    The effect is categorical rather than graded:
-    female-biased genes are excluded from the highest-density RTE-BovB chromatin.}
-    \label{fig:rte_quartile}
 \end{figure}
 
 \subsection*{Gene-body cis-elements distinguish compensated Z genes from escapees}
@@ -704,7 +692,7 @@ than expected by chance (Fisher OR = 5.50, $p < 0.0001$)---suggesting
 they form a composite element with $\sim$41~bp spacing.
 Genes carrying both motifs had the strongest female shift
 (median log$_2$FC = $-$0.304 vs.\ $+$0.327 for genes with neither;
-Kruskal-Wallis $p = 0.036$).
+Kruskal-Wallis $p = 0.036$; Figure~\ref{fig:rte_quartile}).
 
 Critically, the sex-bias association is Z-specific.
 The same motifs occur abundantly on autosomes,
@@ -723,7 +711,7 @@ The Forkhead match for Motif B is notable given that FoxA2,
 a Z-linked Forkhead pioneer transcription factor capable of opening closed chromatin,
 is among the conserved Z-linked genes.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/genebody_motif_contingency_panels.png}
     \caption{Gene-body cis-elements predict compensation status on the Z chromosome.
@@ -736,7 +724,18 @@ is among the conserved Z-linked genes.
     \label{fig:motifs}
 \end{figure}
 
-\begin{figure}[H]
+\subsection*{Z-linked long non-coding RNAs: Zmast and Zfest}
+
+Among the most extreme sex-biased Z-linked transcripts in every species examined
+are two long non-coding RNAs with opposing sex specificities.
+The male-biased \textit{Zmast} (Z-male-specific transcript)
+shows extraordinary expression asymmetry in \textit{O. bimaculoides}:
+the core exon (4,685~bp) has a male-to-female ratio of 5,063:1
+(Figure~\ref{fig:zmast_zfest}),
+far exceeding the 2-fold difference expected from gene dosage alone.
+This extreme male bias is conserved across all eight cephalopod species examined.
+
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/motif_cooccurrence_lfc.png}
     \caption{Co-occurrence of Motifs A and B predicts female-shifted expression on Z.
@@ -750,17 +749,6 @@ is among the conserved Z-linked genes.
     autosomal genes carrying both motifs show no expression shift.}
     \label{fig:motif_cooccurrence}
 \end{figure}
-
-\subsection*{Z-linked long non-coding RNAs: Zmast and Zfest}
-
-Among the most extreme sex-biased Z-linked transcripts in every species examined
-are two long non-coding RNAs with opposing sex specificities.
-The male-biased \textit{Zmast} (Z-male-specific transcript)
-shows extraordinary expression asymmetry in \textit{O. bimaculoides}:
-the core exon (4,685~bp) has a male-to-female ratio of 5,063:1
-(Figure~\ref{fig:zmast_zfest}),
-far exceeding the 2-fold difference expected from gene dosage alone.
-This extreme male bias is conserved across all eight cephalopod species examined.
 
 \paragraph{Eight-species annotation and alignment.}
 We annotated \textit{Zmast} in all eight species
@@ -777,7 +765,7 @@ produced 14,726 alignment columns,
 of which 8.6\% are gapless---consistent with the rapid sequence turnover
 expected of lncRNA over $\sim$300~MY.
 
-\begin{table}[H]
+\begin{table}[tbp]
 \centering
 \small
 \caption{\textit{Zmast} annotation across eight cephalopod species.}
@@ -924,7 +912,7 @@ that would otherwise promote female-pattern gene regulation.
 However, definitive identification of the sequestered target(s)
 will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=0.8\linewidth]{figures/zmast_vs_zfest_scatter.png}
     \caption{\textit{Zmast} and \textit{Zfest} expression in \textit{O. bimaculoides}.
@@ -937,7 +925,7 @@ will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
     \label{fig:zmast_zfest}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/zmast_architecture_figure.pdf}
     \caption{Conserved architecture of \textit{Zmast} across eight cephalopod species.
@@ -1682,6 +1670,18 @@ the SWR1 remodeler Domino/SRCAP exhibits isoform switching
 and THOC6 is male-biased.
 
 \input{tables/chromatin_sex_biased_tables}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/rte_bovb_quartile_sex_bias.png}
+    \caption{RTE-BovB density quartile analysis on the Z chromosome.
+    Among significantly sex-biased Z genes,
+    the highest RTE-BovB density quartile (Q4) shows 89\% male-biased genes (8M:1F),
+    while lower quartiles show no consistent pattern.
+    The effect is categorical rather than graded:
+    female-biased genes are excluded from the highest-density RTE-BovB chromatin.}
+    \label{fig:rte_quartile}
+\end{figure}
 
 \begin{figure}[H]
     \centering
