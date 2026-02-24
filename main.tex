@@ -44,6 +44,7 @@
 % for highlighting text
 \usepackage{xcolor}
 \usepackage{soul}
+\usepackage{tikz}
 
 % Colors for chromatin modifier tables
 \definecolor{fcol}{HTML}{C0392B}
@@ -379,7 +380,10 @@ as methylation differences do not fully explain the residual male bias in Z-link
 
 \begin{figure}[tbp]
     \centering
-    \includegraphics[height=1.1\textwidth, angle=90, trim=9cm 0 6cm 0, clip]{figures/fig3.pdf}
+    \begin{tikzpicture}
+      \node[inner sep=0pt] (fig) {\includegraphics[height=\textwidth, angle=90, trim=9.5cm 4cm 4.3cm 2.1cm, clip]{figures/fig3.pdf}};
+      \fill[white] ([xshift=-0.2cm,yshift=0.2cm]fig.north west) rectangle ++(2cm,-0.9cm);
+    \end{tikzpicture}
     \caption{Female-specific hypermethylation of the Z chromosome in \illex.
     (A) Differential DNA methylation (Male $-$ Female) across all chromosomes.
     Autosomal chromosomes (blue) show values centered near zero, indicating equivalent methylation between sexes.
@@ -463,24 +467,24 @@ of multiple independent chromatin pathways on the sex chromosome.
 in \textit{O. bimaculoides} (30 somatic samples, 15F:15M).
 log$_2$FC indicates male-to-female fold change; positive values indicate male bias.}
 \label{tab:compass}
+\vspace{0.5em}
 \begin{tabular}{llrr}
 \toprule
 \textbf{Gene} & \textbf{Pathway} & \textbf{log$_2$FC} & \textbf{$p_\text{adj}$} \\
 \midrule
-SET1B & H3K4me & +0.18 & 0.474 \\
+THOC6 & THO/TREX & +0.52 & $9.6 \times 10^{-4}$ \\
+Domino/SRCAP & SWR1/H2A.Z & +0.59 & 0.027 \\
+PAN3 & Deadenylation & +0.94 & 0.076 \\
+CREBBP/CBP & HAT & +0.61 & 0.089 \\
+ELM2-domain & NuRD/HDAC & +1.02 & 0.095 \\
 MEN1 & MLL/H3K4me & +1.21 & 0.175 \\
-BRE1/RNF40 & H2Bub1 & +0.05 & 0.774 \\
-ING5 & HBO1/MOZ & +0.15 & 0.571 \\
 TDRD3 & Tudor reader & $-$0.32 & 0.386 \\
+SET1B & H3K4me & +0.18 & 0.474 \\
+ING5 & HBO1/MOZ & +0.15 & 0.571 \\
 UBN1 & HIRA/H3.3 & +0.13 & 0.606 \\
 BAHD1 & Heterochromatin & +0.23 & 0.628 \\
-\midrule
-CREBBP/CBP & HAT & +0.61 & 0.089 \\
-Domino/SRCAP & SWR1/H2A.Z & +0.59 & 0.027 \\
-THOC6 & THO/TREX & +0.52 & $9.6 \times 10^{-4}$ \\
-PAN3 & Deadenylation & +0.94 & 0.076 \\
+BRE1/RNF40 & H2Bub1 & +0.05 & 0.774 \\
 KIF4A & Condensation & +0.19 & 0.928 \\
-ELM2-domain & NuRD/HDAC & +1.02 & 0.095 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1051,19 +1055,6 @@ suggest a distinct role in regulating \textit{AMN} expression
 or nuclear RNA metabolism on the female Z chromosome.
 Definitive identification of the molecular functions
 will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
-
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/zmast_vs_zfest_scatter.png}
-    \caption{\textit{Zmast} and \textit{Zfest} expression in \textit{O. bimaculoides}.
-    Scatter plot of \textit{Zmast} (male-biased) versus \textit{Zfest} (female-biased) TPM
-    across somatic samples.
-    \textit{Zmast} shows a male-to-female ratio of 5,063:1 for the core exon,
-    while \textit{Zfest} is $\sim$18-fold female-biased.
-    The mutually exclusive expression pattern is consistent with
-    opposing regulatory roles in Z chromosome dosage compensation.}
-    \label{fig:zmast_zfest}
-\end{figure}
 
 \begin{figure}[tbp]
     \centering
@@ -2304,6 +2295,19 @@ MEIS2        & obimac\_0009102 & Homeobox TF                & LOC\_00003687 & 5 
     with females (ZO) clustering at higher KDM3A female isoform proportions
     and higher Z:A ratios.}
     \label{fig:kdm3a_za}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/zmast_vs_zfest_scatter.png}
+    \caption{\textit{Zmast} and \textit{Zfest} expression in \textit{O. bimaculoides}.
+    Scatter plot of \textit{Zmast} (male-biased) versus \textit{Zfest} (female-biased) TPM
+    across somatic samples.
+    \textit{Zmast} shows a male-to-female ratio of 5,063:1 for the core exon,
+    while \textit{Zfest} is $\sim$18-fold female-biased.
+    The mutually exclusive expression pattern is consistent with
+    opposing regulatory roles in Z chromosome dosage compensation.}
+    \label{fig:zmast_zfest}
 \end{figure}
 
 \begin{longtable}{lllll}
