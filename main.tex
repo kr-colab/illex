@@ -896,20 +896,159 @@ Importantly, MSL2 mRNA contains zero poly(U) tracts,
 ruling out the \textit{Drosophila} SXL$\rightarrow$MSL2
 translational regulation mechanism.
 
-\paragraph{Zfest.}
+\paragraph{Zfest: eight-species annotation and alignment.}
 The female-biased counterpart, \textit{Zfest} (Z-female-specific transcript),
-is transcribed antisense to the \textit{Amnionless} gene on the Z chromosome.
-\textit{Amnionless} itself is consistently male-biased across all species examined,
-a pattern conserved over $\sim$300~MY.
-\textit{Zfest} expression is $\sim$18-fold higher in females than males in octopus.
+is transcribed antisense to the \textit{Amnionless} (\textit{AMN}) gene
+on the Z chromosome.
+\textit{Zfest} expression is $\sim$18-fold higher in females than males in octopus,
+while \textit{AMN} is consistently male-biased across all species examined---a
+reciprocal sex-bias pair conserved over $\sim$300~MY.
+We annotated \textit{Zfest} in all eight species
+using a strandedness-aware scoring pipeline (see Methods).
+Spliced transcript lengths range from 2,950~bp (\textit{E. scolopes})
+to 19,114~bp (\illex)
+(Table~\ref{tab:zfest_annotation}),
+with far greater size variation than \textit{Zmast}
+(6.5-fold range vs 1.7-fold).
+\textit{O. vulgaris} is the only unspliced species (1 exon, 13.7~kb);
+all others have 3--6 exons.
+MAFFT L-INS-i alignment of all eight sequences
+produced 26,275 alignment columns.
+Critically, \textit{Zfest} remains Z-linked in all eight species,
+including \textit{E. scolopes} where \textit{Zmast}
+has translocated to an autosome (LG10)---making
+\textit{Zfest} the more stably Z-linked of the two lncRNAs.
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{\textit{Zfest} annotation across eight cephalopod species.}
+\label{tab:zfest_annotation}
+\begin{tabular}{llrrl}
+\hline
+Species & Spliced (bp) & Exons & Genomic span & Z chromosome \\
+\hline
+\textit{I. illecebrosus} & 19,114 & 6 & 21.7~kb & Z \\
+\textit{O. vulgaris} & 13,712 & 1 & 13.7~kb & OX597829.1 \\
+\textit{D. pealeii} & 12,109 & 5 & 17.6~kb & Dpe43 \\
+\textit{O. bimaculoides} & 10,960 & 5 & 13.5~kb & Z \\
+\textit{S. officinalis} & 8,499 & 6 & 21.9~kb & OZ199189.1 \\
+\textit{S. oualaniensis} & 6,048 & 3 & 6.3~kb & HiC\_scaffold\_46 \\
+\textit{E. berryi} & 3,749 & 5 & 10.8~kb & Eber\_ch44 \\
+\textit{E. scolopes} & 2,950 & 3 & 5.6~kb & CM044529.1 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Conserved architecture and AMN antisense overlap.}
+Conservation analysis identified three conserved blocks
+(Figure~\ref{fig:zfest_arch}),
+compared to 19 in \textit{Zmast}---far fewer blocks
+but each substantially larger.
+Block~2 is the only block present in all eight species
+(4,229 alignment columns);
+Block~1 spans 1,829 columns in 7 species;
+and Block~3 spans 175 columns in 5 species.
+Together these contain $\sim$6,200 conserved columns,
+comparable to \textit{Zmast} ($\sim$5,000)
+despite the much greater size variation.
+
+The defining structural feature of \textit{Zfest}
+is its antisense overlap with \textit{AMN},
+a single-pass transmembrane receptor required for
+vitamin B12/cubilin endocytosis.
+In all three species with genomic annotations
+(\illex, \textit{S. oualaniensis}, \textit{O. bimaculoides}),
+\textit{Zfest} overlaps the same five C-terminal \textit{AMN} coding exons
+(CDS9--13, spanning the cytoplasmic tail through the extracellular domain).
+The total exon-CDS overlap is remarkably consistent
+across species ($\sim$730~bp across five exon pairs),
+despite enormous variation in total \textit{Zfest} length.
+Two of the three conserved blocks overlap \textit{AMN} coding exons:
+Block~2 is antisense to CDS12--13
+(transmembrane and cytoplasmic domains)
+and Block~3 to CDS10--11 (extracellular stalk).
+Only Block~1 is entirely AMN-free,
+providing the clearest evidence
+for \textit{Zfest}-autonomous functional conservation
+independent of \textit{AMN} protein-coding constraint.
+
+\paragraph{Conserved RBP binding sites in Zfest.}
+Cross-species FIMO analysis with coordinate mapping
+and low-complexity filtering (see Methods)
+identified \textbf{26 truly conserved} RBP binding sites
+across 20 unique RBPs---three times more
+than \textit{Zmast}'s eight validated sites.
+No site is conserved in all eight species;
+the maximum is five (MATR3 and HOW),
+reflecting a strong phylogenetic gradient:
+decapods and sepiolids form a well-conserved core
+(\textit{S. officinalis}: 21/26 sites,
+\textit{E. scolopes}: 18,
+\textit{E. berryi}: 17),
+while octopods are much more divergent
+(\textit{O. vulgaris}: 4,
+\textit{O. bimaculoides}: 3,
+\textit{D. pealeii}: 1).
+
+The AMN-free Block~1 carries five conserved sites:
+MATR3 (5 species, identical \texttt{AATCTTG}),
+a nuclear matrix protein involved in RNA retention;
+PABPC3 and PABPC5 (4 species each);
+RBM41 (4 species); and ROX8/TIA-1 (3 species).
+Block~2 (AMN antisense) carries 19 sites,
+including the two most deeply conserved motifs:
+HOW (5 species, identical 12-mer \texttt{AAATACTACCAC}),
+a QKI/STAR-family muscle-specific splicing regulator;
+and ETR-1 and CELF4 (4 species each),
+CELF-family regulators of alternative splicing.
+Germline-associated RBPs---PAPI (poly(A) polymerase interactor),
+MEX-5 (P-granule partitioning),
+and YBX2 (oocyte mRNA masking)---are
+also concentrated in Block~2,
+suggesting dual somatic and germline function.
+
+\paragraph{Zfest is structurally distinct from Zmast.}
+\textit{Zfest}'s RBP landscape differs qualitatively from \textit{Zmast}'s.
+\textit{Zfest} is not poly(U)-enriched
+and no ELAV/SXL-family position weight matrix produces
+a sequence-specific hit on any \textit{Zfest} in any species---it
+is not a sponge for SXL-family proteins.
+MATR3 (nuclear matrix retention) is enriched 4.9-fold in \textit{Zfest}
+relative to \textit{Zmast},
+while ELAV/HuR, PTBP, and RBFOX are depleted ($<$0.5-fold).
+\textit{Zfest} has equal or higher sequence-specific
+RBP density than \textit{Zmast} (12.7/kb vs 11.9/kb in \illex),
+while \textit{Zmast} has $\sim$1.5-fold higher total density
+owing to its poly(U) tracts.
+Where \textit{Zmast} operates as a multi-valent poly(U) sponge,
+\textit{Zfest} appears to function through specific linear RBP recruitment---more
+comparable to a regulatory scaffold than a molecular decoy.
+
+Cephalopod MSL2 lacks the CXC domain
+that recognizes \textit{roX} stem-loops in \textit{Drosophila},
+ruling out a roX-like chromatin-targeting mechanism for either lncRNA.
+Infernal searches with roX1 and roX2 covariance models
+produced no significant hits on any \textit{Zfest} sequence,
+and full Rfam scanning (4,108 families) found zero structural matches,
+confirming that \textit{Zfest} is not a roX-like RNA.
+\textit{Zfest} has one conserved stem-loop in Block~2
+(R-scape covariation $E = 0.003$, 28 base pairs, 7-nt hairpin loop,
+with a compensatory C--G to G--U change between decapods and octopods),
+but this is a localized structural element
+within a predominantly unstructured lncRNA.
 
 The specific molecular targets of \textit{Zmast} and \textit{Zfest}
 remain uncertain.
 The poly(U) tracts and conserved RBP binding architecture of \textit{Zmast}
 are consistent with a sponge model
 in which male-produced \textit{Zmast} sequesters RNA-binding proteins
-that would otherwise promote female-pattern gene regulation.
-However, definitive identification of the sequestered target(s)
+that would otherwise promote female-pattern gene regulation,
+while \textit{Zfest}'s antisense overlap with \textit{AMN}
+and nuclear-retention RBP signature (MATR3, HOW/QKI)
+suggest a distinct role in regulating \textit{AMN} expression
+or nuclear RNA metabolism on the female Z chromosome.
+Definitive identification of the molecular functions
 will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
 
 \begin{figure}[tbp]
@@ -948,6 +1087,36 @@ will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
     thin solid = mixed (3$^\prime$ Tail).
     Validated cross-species RBP binding sites are listed below each domain.}
     \label{fig:zmast_arch}
+\end{figure}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/zfest_architecture_figure.pdf}
+    \caption{Conserved architecture of \textit{Zfest} across eight cephalopod species.
+    \textbf{(A)} Alignment overview. Horizontal bars show per-species occupancy
+    across 26,275 alignment columns (MAFFT L-INS-i).
+    Three conserved blocks (B1--B3) are highlighted;
+    color indicates the number of species present
+    (red = 8, orange = 7, gold = 5).
+    \textbf{(B)} Conservation score (weighted pairwise identity $\times$ occupancy,
+    Gaussian-smoothed $\sigma$ = 100~columns) with truly conserved RBP binding sites
+    marked as diamonds (colored by functional category).
+    \textbf{(C)} RBP motif density from FIMO scanning of the \illex sequence
+    (ATtRACt metazoan database, $p < 10^{-4}$),
+    weighted by species occupancy to dampen single-species regions.
+    Grey: poly(A/U)-driven hits; green: sequence-specific hits.
+    Overlapping hits per RBP gene were merged.
+    \textbf{(D)} Domain architecture in \illex coordinates.
+    Domains are colored by \textit{Amnionless} (\textit{AMN}) antisense overlap:
+    the 5$^\prime$ Head (blue) is AMN-free,
+    while subsequent domains correspond to AMN CDS12--13
+    (transmembrane/cytoplasmic),
+    CDS10--11 (extracellular stalk),
+    and CDS9 (extracellular domain).
+    Validated conserved RBP binding sites are annotated per domain.
+    \textbf{(E)} \textit{AMN} gene track showing coding exon positions
+    in antisense orientation.}
+    \label{fig:zfest_arch}
 \end{figure}
 
 \section*{Discussion}
@@ -1558,13 +1727,38 @@ among non-gap species, weighted by $n_\text{species}/8$).
 Windows with combined score $\geq$3.0 were retained
 and merged into 19 conserved blocks.
 
+\subsection*{Zfest annotation and alignment}
+
+\textit{Zfest} was annotated in all eight species
+using a strandedness-aware scoring pipeline.
+Candidate exons in the syntenic \textit{AMN} region
+were identified by BLAT alignment of
+the \illex \textit{Zfest} as a universal query
+and scored by alignment quality, antisense orientation
+relative to \textit{AMN},
+and female:male coverage ratio where RNA-seq data were available.
+Sense-strand contamination was excluded
+by requiring candidate exons to be transcribed antisense to \textit{AMN}.
+Each species' canonical \textit{Zfest} sequence was frozen
+at \texttt{results/zfest\_multispecies.fa}.
+Multiple sequence alignment was performed with MAFFT v7.520
+using the L-INS-i algorithm,
+producing a 26,275-column alignment.
+Conserved blocks were identified using the same sliding-window approach
+as for \textit{Zmast}
+(Gaussian smoothing $\sigma$ = 100~columns,
+combined occupancy-identity score $\geq$0.30,
+minimum 20 columns,
+minimum 4-species mean occupancy),
+yielding three conserved blocks.
+
 \subsection*{RBP motif scanning and cross-species validation}
 
 RNA-binding protein motif scanning was performed with FIMO
 (MEME Suite v5.5.9, \texttt{--thresh 1e-4 --text --norc})
 using 258 metazoan RBP position weight matrices
 from the ATtRACT database \citep{giudice2016attract}.
-Each species' \textit{Zmast} sequence was scanned independently.
+Each species' \textit{Zmast} and \textit{Zfest} sequences were scanned independently.
 FIMO hits were classified as poly(A/U)-driven
 (matched sequence $\geq$80\% A or T/U)
 or sequence-specific.
