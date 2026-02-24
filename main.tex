@@ -223,6 +223,20 @@ are conserved across all species examined.
 Together, these results reveal a multi-layered dosage compensation system
 in one of the oldest known sex chromosome systems in animals.
 
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig1_new.pdf}
+    \caption{Synteny of seven coleoid cephalopod genomes.
+    An uncalibrated ultrametric phylogeny (left) relates the seven species used in this study.
+    Ribbons connect syntenic blocks between adjacent species, colored by \illex\ chromosome identity.
+    The Z chromosome (red, rightmost) is conserved as a single syntenic unit across all species,
+    although its name varies (Z in \illex, \textit{O.\ bimaculoides}, and \textit{S.\ esculenta};
+    chromosome 46 in \textit{S.\ oualaniensis}; 43 in \textit{D.\ pealeii}; 43 in \textit{E.\ scolopes};
+    NC16 in \textit{O.\ sinensis}).}
+    \label{fig:phylo}
+\end{figure}
+
 \section*{Results}
 \subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
 We generated a chromosome-scale genome assembly for a female \illex individual
@@ -238,19 +252,6 @@ enabling direct comparison of read depth between sexes across all chromosomes.
 Full assembly statistics and repeat composition are provided in the
 \hyperref[sec:supp_assembly]{Supplemental Results}
 (Tables~\ref{tab:assembly_stats} and \ref{tab:repeat_stats}).
-
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=\linewidth]{figures/fig1_new.pdf}
-    \caption{Synteny of seven coleoid cephalopod genomes.
-    An uncalibrated ultrametric phylogeny (left) relates the seven species used in this study.
-    Ribbons connect syntenic blocks between adjacent species, colored by \illex\ chromosome identity.
-    The Z chromosome (red, rightmost) is conserved as a single syntenic unit across all species,
-    although its name varies (Z in \illex, \textit{O.\ bimaculoides}, and \textit{S.\ esculenta};
-    chromosome 46 in \textit{S.\ oualaniensis}; 43 in \textit{D.\ pealeii}; 43 in \textit{E.\ scolopes};
-    NC16 in \textit{O.\ sinensis}).}
-    \label{fig:phylo}
-\end{figure}
 
 \subsection*{Identification and Synteny of the Z chromosome in \illex}
 Comparison of male and female read depth across assembled chromosomes
@@ -297,7 +298,7 @@ limits the precision of this estimate.
 
 \begin{figure}[tbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/illex_dosage_compensation_3panel.pdf}
+    \includegraphics[width=\textwidth]{figures/illex_dosage_compensation_3panel.pdf}
     \caption{Dosage compensation of the Z chromosome in \illex.
     Left panels: gene expression levels [log2(normalized count + 1)] across all chromosomes
     in females (ZO, top) and males (ZZ, bottom).
@@ -390,7 +391,21 @@ among major animal lineages, distinct from the mechanisms observed in mammals, i
 and thus offers the opportunity to discover novel mechanisms of sex chromosome regulation.
 
 
-
+\begin{figure}[tbp]
+    \centering
+    \begin{tikzpicture}
+      \node[inner sep=0pt] (fig) {\includegraphics[height=\textwidth, angle=90, trim=9.5cm 4cm 4.3cm 2.1cm, clip]{figures/fig3.pdf}};
+      \fill[white] ([xshift=-0.2cm,yshift=0.2cm]fig.north west) rectangle ++(2cm,-0.9cm);
+    \end{tikzpicture}
+    \caption{Female-specific hypermethylation of the Z chromosome in \illex.
+    (A) Differential DNA methylation (Male $-$ Female) across all chromosomes.
+    Autosomal chromosomes (blue) show values centered near zero, indicating equivalent methylation between sexes.
+    The Z chromosome (red) shows strongly negative values, indicating higher methylation in females.
+    (B) Summary comparison of differential methylation between autosomes and the Z chromosome.
+    The Z chromosome is significantly hypermethylated in females relative to males
+    (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test).}
+    \label{fig:methylation}
+\end{figure}
 \subsection*{DNA methylation patterns on the Z chromosome}
 
 The conservation of dosage compensation across coleoid cephalopods
@@ -420,21 +435,6 @@ consistent with gene-body methylation facilitating active transcription.
 However, the relationship between methylation and dosage compensation remains complex,
 as methylation differences do not fully explain the residual male bias in Z-linked expression.
 
-\begin{figure}[tbp]
-    \centering
-    \begin{tikzpicture}
-      \node[inner sep=0pt] (fig) {\includegraphics[height=\textwidth, angle=90, trim=9.5cm 4cm 4.3cm 2.1cm, clip]{figures/fig3.pdf}};
-      \fill[white] ([xshift=-0.2cm,yshift=0.2cm]fig.north west) rectangle ++(2cm,-0.9cm);
-    \end{tikzpicture}
-    \caption{Female-specific hypermethylation of the Z chromosome in \illex.
-    (A) Differential DNA methylation (Male $-$ Female) across all chromosomes.
-    Autosomal chromosomes (blue) show values centered near zero, indicating equivalent methylation between sexes.
-    The Z chromosome (red) shows strongly negative values, indicating higher methylation in females.
-    (B) Summary comparison of differential methylation between autosomes and the Z chromosome.
-    The Z chromosome is significantly hypermethylated in females relative to males
-    (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test).}
-    \label{fig:methylation}
-\end{figure}
 
 \subsection*{The Z chromosome is enriched for chromatin-modifying genes}
 Strong conservation of the Z chromosome across coleoid cephalopods implies
@@ -451,17 +451,6 @@ Requiring Z-linkage across four species
 identified 188 conserved genes (i.e. genes found on Z in all four species);
 extending the requirement to all eight species reduced this to 132
 (Table~\ref{tab:conserved_z_genes}).
-
-At every stringency level, the conserved Z-linked gene set
-was strongly enriched for chromatin-modifying and epigenetic regulatory functions.
-Of the 188 genes conserved across four species,
-16 are chromatin-associated (8.5\%)---a $\sim$10-fold enrichment
-over the 4 chromatin genes among 451 non-conserved Z genes
-(Fisher exact $p < 10^{-6}$).
-Remarkably, 13 of these 16 chromatin genes remain Z-linked in all eight species,
-demonstrating that chromatin modifiers are among the most deeply conserved
-elements of the Z chromosome
-(Table~\ref{tab:z_enrichment}).
 
 \begin{table}[tbp]
 \centering
@@ -483,6 +472,17 @@ conserved versus non-conserved Z genes (chromatin versus non-chromatin;
 \bottomrule
 \end{tabular}
 \end{table}
+
+At every stringency level, the conserved Z-linked gene set
+was strongly enriched for chromatin-modifying and epigenetic regulatory functions.
+Of the 188 genes conserved across four species,
+16 are chromatin-associated (8.5\%)---a $\sim$10-fold enrichment
+over the 4 chromatin genes among 451 non-conserved Z genes
+(Fisher exact $p < 10^{-6}$).
+Remarkably, 13 of these 16 chromatin genes remain Z-linked in all eight species,
+demonstrating that chromatin modifiers are among the most deeply conserved
+elements of the Z chromosome
+(Table~\ref{tab:z_enrichment}).
 
 Among the Z-linked chromatin genes conserved across all eight species,
 the most striking feature is the co-localization of regulators
@@ -542,7 +542,7 @@ To determine whether these Z-linked chromatin genes escape dosage compensation
 or are themselves compensated,
 we examined their expression in \textit{O. bimaculoides},
 which provides the greatest statistical power
-(30 somatic samples, 15F:15M, after excluding 18 temperature-stressed samples).
+(30 somatic samples, 15F:15M).
 Most conserved Z-linked chromatin genes show balanced expression
 between sexes (Table~\ref{tab:compass}):
 \textit{SET1B}, \textit{BRE1}, \textit{ING5}, \textit{TDRD3}, \textit{UBN1}, \textit{BAHD1}, \textit{CREBBP}, and \textit{KIF4A}
@@ -646,7 +646,11 @@ higher LINE density than female-biased genes
 (mean 174.2 vs.\ 122.0 bp/kb in 10~kb flanking windows centered on each gene;
 Mann-Whitney $U$ test, $p = 0.029$;
 Figure~\ref{fig:line_density}).
-The effect is strikingly categorical:
+This signal is driven by the aggregate LINE landscape rather than any single family:
+RTE-BovB density alone does not differ significantly between sex-bias categories
+(Mann-Whitney $p = 0.251$; Figure~\ref{fig:line_density}),
+consistent with multiple LINE families contributing to the heterochromatic barrier.
+The effect is nonetheless strikingly categorical:
 in the highest RTE-BovB density quartile,
 89\% of sex-biased genes are male-biased (8M:1F),
 while lower quartiles show no consistent trend.
@@ -700,10 +704,11 @@ repeat architecture.
     \centering
     \includegraphics[width=0.9\linewidth]{figures/line_density_sex_bias_boxplots.png}
     \caption{LINE enrichment on the \textit{O. bimaculoides} Z chromosome predicts sex-biased expression.
-    LINE density in 10~kb flanking regions of Z-linked genes stratified by sex-bias category.
+    Left: total LINE density in 10~kb flanking regions of Z-linked genes stratified by sex-bias category.
     Male-biased genes reside in LINE-dense regions (174.2 bp/kb)
     while female-biased genes occupy LINE-sparse regions (122.0 bp/kb; Mann-Whitney $p = 0.029$).
-    The Z chromosome has the highest LINE density of any chromosome (1.56-fold enrichment, $z = 4.92$).}
+    Right: RTE-BovB density alone does not differ significantly among categories ($p = 0.251$),
+    indicating that the signal reflects the aggregate LINE landscape rather than a single family.}
     \label{fig:line_density}
 \end{figure}
 
