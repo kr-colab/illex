@@ -636,8 +636,10 @@ and additionally found that SINEs are correspondingly depleted on Z
 0.82-fold, $z = -1.68$),
 producing a LINE-high/SINE-low signature
 that parallels the mammalian X chromosome.
-The dominant LINE family on Z is RTE-BovB (5.66~Mb, 45\% of Z LINE content),
-followed by L1-Tx1 (2.06-fold enriched) and Dong-R4 (1.69-fold enriched).
+The dominant LINE family on Z by total content is RTE-BovB
+(5.66~Mb, 45\% of Z LINE content; 1.53-fold enriched),
+but the most enriched family is L1-Tx1 (2.06-fold, 2.38~Mb),
+followed by Dong-R4 (1.69-fold, 0.71~Mb).
 
 Crucially, LINE density on the Z predicts which genes escape dosage compensation.
 Male-biased Z genes---those retaining the default twofold excess
@@ -653,7 +655,8 @@ consistent with multiple LINE families contributing to the heterochromatic barri
 The effect is nonetheless strikingly categorical:
 in the highest RTE-BovB density quartile,
 89\% of sex-biased genes are male-biased (8M:1F),
-while lower quartiles show no consistent trend.
+while lower quartiles show no consistent trend
+(Figure~\ref{fig:rte_quartile}).
 
 RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z
 (Spearman correlations across 500~kb sliding windows).
@@ -672,6 +675,11 @@ of any chromosome after correcting for GC content and chromosome size
 rank 1/30 chromosomes, $z = 3.85$ relative to autosomal distribution).
 The excess is predominantly intergenic (88\% of $\sim$460 excess sites),
 consistent with insulator function.
+One exceptional locus contains 35 CTCF motifs within a 44~kb intergenic region
+separating the female-biased transcription factor \textit{MEIS2}
+(log$_2$FC = $-$1.90, $p_\text{adj}$ = 0.043) from an adjacent male-biased gene
+(log$_2$FC = $+$2.12, $p_\text{adj}$ = 0.036),
+consistent with a strong insulator boundary between oppositely regulated domains.
 CTCF and RTE-BovB are positively correlated along the Z
 ($\rho$ = +0.534, $p = 2.6 \times 10^{-18}$),
 but at the local scale, CTCF motifs occupy gaps between LINE elements
@@ -1997,6 +2005,43 @@ and \textit{THOC6} is male-biased.
     female-biased genes are excluded from the highest-density RTE-BovB chromatin.}
     \label{fig:rte_quartile}
 \end{figure}
+
+\phantomsection
+\subsection*{CTCF insulation and spatial clustering on the Z chromosome}
+\label{sec:supp_ctcf}
+
+Although the Z chromosome carries the highest CTCF density of any chromosome
+(main text),
+this enrichment is diffuse rather than boundary-specific.
+If CTCF insulators specifically demarcated compensation domains,
+intergenic regions at transitions between compensated and sex-biased genes
+should have higher CTCF density than regions between genes of the same status.
+This is not observed:
+median CTCF density is 27.6/Mb between pairs of compensated genes,
+23.2/Mb at compensated--biased boundaries,
+and 38.8/Mb between pairs of sex-biased genes
+(Mann-Whitney $p = 0.128$ for compensated--biased vs.\ compensated--compensated boundaries).
+
+Nevertheless, CTCF density modulates co-regulation of adjacent gene pairs.
+Adjacent expressed Z genes with no intervening CTCF sites
+show significantly correlated sex-bias
+($r = +0.250$, $p = 0.015$, $n = 94$ pairs),
+while pairs separated by $\geq$3 CTCF sites show no correlation
+($r = -0.066$, NS; Fisher $z = 2.25$, $p = 0.025$).
+However, this effect is confounded with intergenic distance
+(partial correlation controlling for gap size: $r = -0.019$, $p = 0.77$),
+suggesting that closely spaced genes share regulatory environments
+and CTCF density co-varies with physical separation.
+
+Consistent with this compartment-level organization,
+sex-biased and compensated genes are non-randomly distributed along Z.
+A Wald-Wolfowitz runs test shows significant spatial clustering
+of genes with the same compensation status
+(observed 75 runs vs.\ 91.2 expected; $z = -2.92$, $p = 0.004$).
+Lag-1 spatial autocorrelation of log$_2$FC is significant
+($r = +0.132$, $p = 0.034$)
+but decays by lag-2 ($r = +0.042$, NS),
+indicating that co-regulation extends only to immediate neighbors.
 
 \begin{figure}[H]
     \centering
