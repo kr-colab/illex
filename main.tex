@@ -95,7 +95,7 @@ Chromosome-wide dosage compensation has evolved repeatedly in animals, but its m
 known from only a handful of model systems. Coleoid cephalopods share a conserved Z chromosome,
 allowing a decisive test of whether Z dosage compensation is a lineage-wide feature and how it
 is implemented. Using a new chromosome-level genome assembly for the squid \textit{Illex illecebrosus}
-and comparative transcriptomics spanning seven cephalopod species across >300 million years,
+and comparative transcriptomics spanning seven cephalopod species across $>$300 million years,
 we show that Z-linked expression is near-equalized between sexes across coleoids, indicating that
 dosage compensation originated early in coleoid evolution.
 We find that the Z is unusually enriched for chromatin-modifying genes and that sex-biased isoform
@@ -432,6 +432,9 @@ between methylation and expression observed genome-wide.
 The pattern suggests that elevated methylation on the hemizygous female Z
 may contribute to its transcriptional upregulation toward diploid levels,
 consistent with gene-body methylation facilitating active transcription.
+Direct comparison of Z versus autosomal methylation within each sex
+confirms that the effect is larger in females than males
+(\hyperref[sec:supp_methylation]{Supplemental Results}; Figure~\ref{fig:meth_auto_vs_z}).
 However, the relationship between methylation and dosage compensation remains complex,
 as methylation differences do not fully explain the residual male bias in Z-linked expression.
 
@@ -1954,6 +1957,23 @@ The final assembly spanned 4.14 Gb with a contig N50 of 34.71 Mb and scaffold N5
 BUSCO analysis indicated 95.6\% completeness against the metazoan gene set,
 demonstrating high assembly quality.
 Hi-C scaffolding resolved 46 chromosomes, consistent with the decapodiform karyotype of 2n = 92 \citep{gao1990karyological}.
+GenomeScope2 analysis of the female HiFi k-mer spectrum (k = 21)
+estimated a haploid genome size of 2.45~Gb (79.8\% unique sequence),
+heterozygosity of 1.06\%, and a duplication rate of 67.3\%
+(Figure~\ref{fig:genomescope}).
+The bimodal k-mer distribution is consistent with high heterozygosity
+and extensive repetitive content typical of cephalopod genomes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/genomescope.png}
+    \caption{GenomeScope2 k-mer profile of the female \illex{} HiFi reads (k = 21).
+    The first peak ($\sim$17$\times$) corresponds to heterozygous k-mers
+    and the second peak ($\sim$33$\times$) to homozygous k-mers.
+    Estimated haploid genome size: 2.45~Gb; heterozygosity: 1.06\%;
+    unique sequence: 79.8\%.}
+    \label{fig:genomescope}
+\end{figure}
 
 To create a comprehensive gene annotation, we generated RNA-seq data from multiple tissues
 using both Illumina short-read and PacBio Iso-Seq long-read technologies.
@@ -1971,6 +1991,36 @@ were also identified.
 In total, we annotated 1,889 distinct classifications of unclassified repeats and
 over 7.8 million individual repeat instances across all categories,
 reflecting the complex repetitive architecture typical of cephalopod genomes.
+
+\phantomsection
+\subsection*{Z chromosome hypermethylation in females}
+\label{sec:supp_methylation}
+
+The main text reports that the Z chromosome is hypermethylated in females
+relative to males, based on differential methylation across chromosomes
+(Figure~\ref{fig:methylation}).
+An alternative view directly comparing CpG methylation fractions
+between autosomes and the Z within each sex confirms this pattern
+(Figure~\ref{fig:meth_auto_vs_z}).
+In both sexes, Z-linked genes are significantly more methylated than autosomal genes
+(male: $p = 4.23 \times 10^{-10}$; female: $p = 1.48 \times 10^{-20}$,
+Wilcoxon rank-sum tests),
+but the effect is substantially larger in females (median Z methylation 0.41 vs.\ 0.19 for autosomes)
+than in males (0.31 vs.\ 0.18),
+consistent with the female-specific upregulation of the hemizygous Z
+being accompanied by elevated gene-body methylation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/methylation_auto_vs_z.png}
+    \caption{CpG methylation of autosomal versus Z-linked genes in male and female \illex.
+    Z-linked genes (red) are significantly more methylated than autosomal genes (blue) in both sexes,
+    but the difference is more pronounced in females ($p = 1.48 \times 10^{-20}$)
+    than in males ($p = 4.23 \times 10^{-10}$),
+    consistent with gene-body methylation accompanying transcriptional upregulation
+    of the hemizygous female Z.}
+    \label{fig:meth_auto_vs_z}
+\end{figure}
 
 \phantomsection
 \subsection*{Sex-biased chromatin modifier expression in \textit{O. bimaculoides}}
