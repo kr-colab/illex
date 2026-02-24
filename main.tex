@@ -91,41 +91,23 @@
 \maketitle
 
 \begin{abstract}
-Chromosome-wide dosage compensation has evolved independently in multiple animal lineages,
-but the underlying mechanisms have been characterized in only a few.
-The recent discovery of a conserved Z chromosome across coleoid cephalopods
-raises the question of whether and how these animals have evolved dosage compensation.
-Here, using a new chromosome-level genome assembly for the northern shortfin squid
-\textit{Illex illecebrosus}
-and comparative transcriptomics across eight cephalopod species spanning four orders
-and over 300~million years of divergence,
-we show that coleoid cephalopods have independently evolved
-near-complete Z chromosome dosage compensation (87--103\% equalization).
-Evolution of this system predates the divergence of octopuses and decapods,
-indicating that compensation is ancestral to all coleoids.
-The cephalopod Z chromosome carries a $\sim$10-fold enrichment of chromatin-modifying genes
-(16 of 188 conserved Z genes),
-nearly all of which are themselves compensated---creating
-a self-reinforcing feedback loop
-in which epigenetic machinery maintains the permissive chromatin state
-that sustains its own single-copy expression.
-Sex-biased isoform usage of just four of these chromatin remodelers
-explains 57\% of Z:A expression variance,
-with the H3K9 demethylase \textit{KDM3A} as the sole significant predictor.
-Contrary to Lyon's repeat hypothesis for the mammalian X,
-LINE-dense regions on the Z are where genes \textit{escape} compensation,
-consistent with TE-associated heterochromatin acting as a barrier to upregulation.
-We identify gene-body cis-element motifs
-that discriminate compensated from escaped Z genes,
-functionally analogous to \textit{Drosophila} MSL Recognition Elements,
-and two deeply conserved sex-specific long non-coding RNAs---\textit{Zmast}
-(male-biased, 5,000:1) and \textit{Zfest} (female-biased)---whose
-conserved RNA-binding protein sites suggest a parallel
-splicing regulatory axis.
-These results establish cephalopods as a new model
-for the evolution of chromosome-wide dosage compensation,
-with a mechanism that assembles familiar components---chromatin modifiers,
-cis-elements, and regulatory lncRNAs---in a configuration seen nowhere else.
+Chromosome-wide dosage compensation has evolved repeatedly in animals, but its mechanisms are
+known from only a handful of model systems. Coleoid cephalopods share a conserved Z chromosome,
+allowing a decisive test of whether Z dosage compensation is a lineage-wide feature and how it
+is implemented. Using a new chromosome-level genome assembly for the squid \textit{Illex illecebrosus}
+and comparative transcriptomics spanning seven cephalopod species across >300 million years,
+we show that Z-linked expression is near-equalized between sexes across coleoids, indicating that
+dosage compensation originated early in coleoid evolution.
+We find that the Z is unusually enriched for chromatin-modifying genes and that sex-biased isoform
+usage of a small set of Z-linked chromatin regulators tracks variation in Z-linked expression,
+implicating chromatin-state control in chromosome-wide equalization. Strikingly, LINE-rich regions
+on the Z are enriched for genes that escape compensation, consistent with TE-associated heterochromatin
+forming barriers to upregulation. We further identify gene-body cis-element motifs associated with
+compensated Z genes and discover two deeply conserved sex-biased Z-linked long non-coding RNAs whose
+conserved protein-binding sites suggest an additional RNA-mediated regulatory axis.
+These results establish cephalopods as a new model for dosage compensation and reveal a mechanism that
+reuses familiar components---chromatin regulators, cis-elements, repeats, and lncRNAs---in an
+unexpected configuration.
 \end{abstract}
 
 \section*{Introduction}
@@ -197,7 +179,7 @@ leaving the prevalence and molecular basis of compensation across cephalopods un
 Here we present a chromosome-scale genome assembly of the northern shortfin squid,
 \illex, and identify its Z chromosome via synteny and coverage analyses.
 We then test for dosage compensation across seven cephalopod species
-spanning four orders and over 300 million years of divergence,
+spanning five orders and over 300 million years of divergence,
 establishing that compensation of the Z chromosome is ancestral to coleoid cephalopods.
 To investigate the molecular underpinnings of this compensation,
 we characterize DNA methylation patterns,
@@ -265,15 +247,25 @@ we analyzed sex-stratified RNA-seq data from somatic mantle tissue of adults.
 We quantified gene expression levels across all chromosomes in a single male (ZZ) and female (ZO),
 the same individuals used for genome assembly and coverage analysis,
 using DESeq2 normalization (Figure~\ref{fig:cross_species_dc}).
+We use two complementary metrics throughout:
+Z:A is the ratio of mean Z-linked to mean autosomal expression (TPM, filtered to genes with TPM~$> 1$;
+a value of 1.0 indicates Z expression equal to the autosomal baseline),
+and M:F is the per-gene median ratio of male to female expression
+(1.0 = complete compensation; 2.0 = no compensation;
+percent equalization = $1/\text{M:F} \times 100$).
 Expression levels on autosomes were comparable between sexes,
 and Z-linked gene expression in females was comparable to autosomal levels
-despite females carrying only a single Z chromosome (Z:A = 1.59),
+despite females carrying only a single Z chromosome (Z:A = 1.59;
+values above 1.0 in both sexes reflect the generally higher expression
+of Z-linked genes relative to the genomic average),
 indicating that the hemizygous Z undergoes transcriptional upregulation.
 However, Z-linked genes showed modest but significant male bias,
 with a median M:F ratio of 1.15 compared to 0.99 for autosomes
 (p = 0.037, Wilcoxon rank-sum test; Figure~\ref{fig:cross_species_dc}).
-These results demonstrate that \illex exhibits partial dosage compensation of the Z chromosome,
-with females achieving $\sim$87\% of male expression levels for Z-linked genes.
+These results are consistent with dosage compensation of the Z chromosome in \illex,
+with females achieving $\sim$87\% of male expression levels for Z-linked genes,
+though the absence of biological replicates for this species
+limits the precision of this estimate.
 
 \begin{figure}[tbp]
     \centering
@@ -287,8 +279,8 @@ with females achieving $\sim$87\% of male expression levels for Z-linked genes.
     and Z-linked genes (n = 188).
     The Z chromosome shows a modest but significant male bias
     (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
-    indicating partial dosage compensation.
-    Dosage compensation results for six additional cephalopod species are shown in Figures S1--S6.}
+    consistent with partial dosage compensation (n = 1 per sex).
+    Dosage compensation results for six additional cephalopod species, most with biological replication, are shown in Figures S1--S6.}
     \label{fig:cross_species_dc}
 \end{figure}
 
@@ -325,16 +317,17 @@ M:F ratios were indistinguishable from autosomal ratios
 indicating complete dosage compensation.
 \textit{E. scolopes} and \textit{S. officinalis} showed statistically significant but minimal male bias
 (M:F = 1.03--1.08; p $<$ 0.02), indicating near-complete compensation.
-In \illex{} and \textit{S. oualaniensis},
+In \illex{} (n = 1/1) and \textit{S. oualaniensis},
 Z-linked genes showed modest but significant residual male bias
 (M:F = 1.13--1.15; p $<$ 0.05),
-indicating partial compensation.
-Even in these species, however, the degree of male bias is far less
+consistent with partial compensation---though the \illex{} estimate
+should be interpreted cautiously given the lack of biological replication.
+Even in these species, the degree of male bias is far less
 than that observed in birds, where Z-linked M:F ratios typically range from 1.4 to 1.6
 \citep{mank2009w}.
 
 The presence of dosage compensation across all seven species,
-spanning four orders and over 300 million years of divergence,
+spanning five orders and over 300 million years of divergence,
 demonstrates that compensation of the Z chromosome is ancestral to coleoid cephalopods
 and has been conserved throughout their evolutionary history.
 Importantly, cephalopod dosage compensation is an independent evolutionary origin of dosage compensation 
@@ -418,6 +411,9 @@ likely include the maintenance of dosage compensation.
 To investigate this, we used reciprocal best-hit (RBH) orthology mapping
 to identify genes with conserved Z-linkage
 at increasing levels of phylogenetic stringency.
+For these analyses, we included an eighth species,
+\textit{Octopus vulgaris}, whose genome is available
+but which lacks the sex-stratified RNA-seq data required for dosage compensation testing.
 Requiring Z-linkage across four species
 (\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris})
 identified 188 conserved genes;
@@ -521,11 +517,11 @@ Three genes deviate from this pattern:
 \textit{THOC6} is significantly male-biased
 (+0.52, $p_\text{adj}$ = $9.6 \times 10^{-4}$),
 and \textit{ELM2-domain} trends male (+1.02, $p_\text{adj}$ = 0.095).
-The compensation of most Z-linked chromatin genes implies
+The compensation of most Z-linked chromatin genes is consistent with
 a self-reinforcing regulatory loop:
-these genes encode the epigenetic machinery
+if these genes encode the epigenetic machinery
 that maintains permissive chromatin on the Z chromosome,
-which in turn sustains their own expression from a single copy in females.
+their own compensation would sustain expression from a single copy in females.
 
 Genome-wide, PyDESeq2 identified 2,470 significantly sex-biased genes
 in \textit{O. bimaculoides}
@@ -1158,12 +1154,12 @@ even in birds, the best-studied ZZ/ZW system,
 the full extent of compensation has only recently been appreciated
 \citep{papanicolaou2025multilayered, fallahshahroudi2025mirna}.
 Here we show that cephalopods have independently evolved
-near-complete dosage compensation (87--103\% equalization)
+dosage compensation approaching complete equalization
 that has been conserved across 300~MY of coleoid divergence.
 The underlying mechanism assembles
 familiar components in a configuration seen nowhere else:
-Z-enriched chromatin modifiers that maintain their own compensation
-through a self-reinforcing loop,
+Z-enriched chromatin modifiers whose own compensation suggests
+a self-reinforcing loop,
 repetitive element architecture that opposes rather than assists upregulation,
 gene-body cis-elements functionally analogous to \textit{Drosophila} MREs,
 and deeply conserved sex-specific lncRNAs.
@@ -1186,8 +1182,8 @@ and deeply conserved sex-specific lncRNAs.
 
 \textcite{papanicolaou2024z} provided the first evidence of dosage compensation
 in any cephalopod, in two closely related octopus species separated by $\sim$2.5~MY.
-Our results generalize this finding across eight species,
-four orders, and over 300~MY of divergence
+Our results generalize this finding across seven species,
+five orders, and over 300~MY of divergence
 (Table~\ref{tab:cross_species_dc}).
 That compensation is present in every species examined---and
 at the mRNA level, more complete than in birds---demonstrates
@@ -1202,11 +1198,11 @@ among its conserved syntenic core (Table~\ref{tab:z_enrichment}).
 These 16 genes span multiple independent pathways---histone methylation,
 acetylation, ubiquitination, variant deposition, and heterochromatin regulation---yet
 nearly all are themselves compensated (Table~\ref{tab:compass}).
-This creates a self-reinforcing feedback loop:
-the genes encode the epigenetic machinery
+This arrangement is consistent with a self-reinforcing feedback loop:
+if these genes encode the epigenetic machinery
 that maintains permissive chromatin on the Z,
-which in turn sustains their own single-copy expression in females.
-Any erosion of compensation would diminish chromatin modifier output,
+their own compensation would sustain single-copy expression in females.
+In this model, any erosion of compensation would diminish chromatin modifier output,
 further eroding compensation---a destabilizing dynamic
 that the compensated state must actively resist.
 The architecture is reminiscent of autoregulatory chromatin loops
@@ -1216,14 +1212,14 @@ but here it operates at the scale of an entire chromosome.
 \subsection*{Chromatin remodelers as effectors of compensation}
 
 The isoform-level regulation of chromatin modifiers
-provides a direct quantitative link between epigenetic machinery
+provides a quantitative association between epigenetic machinery
 and chromosome-wide compensation output.
 In \textit{O. bimaculoides}, sex-biased isoform proportions
-of just four chromatin remodelers explain 57\% of Z:A variance
+of just four chromatin remodelers account for 57\% of Z:A variance
 across 30 somatic samples---four-fold more than sex alone
 (Figure~\ref{fig:za_regression}).
 \textit{KDM3A}, an H3K9 demethylase, is the sole individually significant predictor,
-connecting the removal of repressive chromatin marks
+suggesting a link between the removal of repressive chromatin marks
 to the degree of Z chromosome upregulation in females.
 
 Importantly, the specific downstream circuitry differs between species:
@@ -1275,11 +1271,11 @@ in our regression model ($p = 0.007$),
 which shows that cis-element function is abolished
 in LINE-dense flanking chromatin.
 
-\textit{KDM3A} provides the enzymatic link.
+\textit{KDM3A} provides a candidate enzymatic link.
 As an H3K9 demethylase, it removes the exact mark deposited by TE silencing---and
 is the sole significant predictor of Z:A compensation
 in the isoform regression.
-The model is simple:
+The resulting model is simple:
 \textit{KDM3A}'s female isoform sets the demethylation rate;
 flanking LINE density sets the H3K9me deposition rate.
 Where demethylation wins, motifs are accessible and compensation succeeds.
