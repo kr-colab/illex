@@ -757,7 +757,7 @@ than expected by chance (Fisher OR = 5.50, $p < 0.0001$)---suggesting
 they form a composite element with $\sim$41~bp spacing.
 Genes carrying both motifs had the strongest female shift
 (median log$_2$FC = $-$0.304 vs.\ $+$0.327 for genes with neither;
-Kruskal-Wallis $p = 0.036$; Figure~\ref{fig:rte_quartile}).
+Kruskal-Wallis $p = 0.036$; Figure~\ref{fig:motif_cooccurrence}).
 
 Critically, the sex-bias association is Z-specific.
 The same motifs occur abundantly on autosomes,
@@ -1268,7 +1268,7 @@ across 30 somatic samples---four-fold more than sex alone
 (Figure~\ref{fig:za_regression}).
 \textit{KDM3A}, an H3K9 demethylase, is the sole individually significant predictor,
 suggesting a link between the removal of repressive chromatin marks
-to the degree of Z chromosome upregulation in females.
+and the degree of Z chromosome upregulation in females.
 
 Importantly, the specific downstream circuitry differs between species:
 the \textit{SMARCC2}/\textit{CHD5} splicing circuit in \textit{O. bimaculoides}
@@ -1437,19 +1437,28 @@ despite being present genome-wide.
 Identifying the protein partners of \textit{Zmast} and \textit{Zfest}---through
 CLIP-seq, RNA pulldown, or proximity labeling---is
 the single most important experiment for testing these models.
+Complementary approaches---CRISPR disruption of \textit{Zfest},
+ATAC-seq to map sex-specific chromatin accessibility across the Z,
+and ChIP-seq for H3K4me3 at Z-linked chromatin modifier loci---would
+directly test the causal predictions of the feedback loop
+and are now feasible in genetically tractable species such as \textit{E. berryi}.
 
-\subsection*{Future directions}
+\subsection*{Conclusions}
 
-Critical next steps include functional experiments:
-CRISPR disruption of \textit{Zmast} to test its role in dosage compensation,
-ATAC-seq to map chromatin accessibility across the Z chromosome in both sexes,
-ChIP-seq for H3K4me3 at Z-linked chromatin modifier genes,
-and CLIP-seq to identify the specific RBPs sequestered by \textit{Zmast}.
-Comparative genomics across the coleoid phylogeny---including
-the phylogenetically distant \textit{Nautilus},
-which possesses an independently derived XX/XY system
-\citep{torrado2025nautilus}---will further illuminate
-the evolutionary dynamics of sex chromosome regulation in cephalopods.
+Dosage compensation in cephalopods represents an independent evolutionary solution
+to a universal problem---balancing gene expression from an asymmetric sex chromosome.
+That this solution converges on the same functional toolkit
+used by mammals and \textit{Drosophila}---lncRNAs, chromatin modifiers,
+and gene-body cis-elements---while assembling them
+in a fundamentally different architecture
+suggests that the design space for chromosome-wide expression regulation
+is surprisingly constrained.
+At the same time, the rapid turnover of downstream wiring
+between cephalopod species, set against 300~MY of conserved upstream architecture,
+illustrates how evolutionary stability can coexist with mechanistic flexibility.
+Cephalopods thus offer not only a new model for sex chromosome biology
+but a window into the general principles
+by which genomes evolve chromosome-scale regulatory programs.
 
 \section*{Materials and Methods}
 
