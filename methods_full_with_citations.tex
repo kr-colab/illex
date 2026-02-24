@@ -1,0 +1,223 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{longtable}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{newunicodechar}
+\newunicodechar{−}{\textminus}
+\begin{document}
+
+\section{Methods}
+
+\subsection{Sample acquisition, ethics, and tissue collection}
+
+Specimens of Illex were obtained TODO THomas... Tissue was flash-frozen in liquid nitrogen and stored at −80 °C during transport to University of Oregon. Mantle tissue (1 cm²) was excised from one female individual (F24) and one male individual (M71) and delivered to the Genomics Core at the University of Oregon (GC3F) for sequencing.
+
+\subsection{Ethics TODO?}
+
+The use of cephalopods in laboratory research is not currently regulated in the United States. However, Columbia University has established strict policies for the ethical use of cephalopods, including oversight by the Institutional Animal Care and Use Committee (IACUC). All animals used in this study were handled under an approved IACUC protocol (AC-AABT8673), including the use of deep anesthesia and procedures designed to minimize suffering.
+
+\subsection{Sequencing}
+
+\subsubsection{DNA isolation}
+
+High–molecular-weight genomic DNA was extracted from 1 cm² mantle tissue from two adult \textit{Illex illecebrosus}, a female – (F24) and a male – (M71) using the Nanobind DNA© disks and following the protocol linked for animal tissues. DNA quantity and integrity were assessed prior to library preparation using Agilent Bioanalyzer© and only DNA meeting minimum input and integrity requirements for long-read sequencing was used for sequencing.
+
+\subsubsection{PacBio HiFi sequencing}
+
+HiFi (CCS) libraries were prepared and sequenced at the University of Oregon Genomics Core (GC3F). Circular consensus (CCS) reads were generated using PacBio ccs and retained as HiFi reads at Q20 or higher. The female sample (F24) was sequenced across five Sequel II lanes and one Revio lane, and the male sample (M71) was sequenced across two Revio lanes. Post sequencing processing was completed via PacBio recommended pipeline and performed by GC3F.
+
+\subsubsection{Hi-C sequencing}
+
+Hi-C libraries were prepared from the F24 adult female using the brain tissue by Phase Genomics© using a multi-enzyme protocol incorporating DpnII (GATC), DdeI (CTNAG), HinfI (GANTC), and MseI (TTAA). The resulting library was sequenced on one lane of an Illumina NovaSeq 6000 set in SP mode at 150bp paired end.
+
+\subsubsection{Stranded total RNA sequencing }
+ 
+RNA was isolated using from the same Female (F24) and Male (M71) adult specimens using Zymo Research Stranded Direct-zol RNA Miniprep Kit© (R2050). Total RNA libraries were prepared using the Watchmaker RNA library preparation kit, generating RF-oriented paired-end reads. Resulting libraries were sequenced on an Illumina NovaSeq 6000 at 150bp paired end.
+
+\subsubsection{Iso-Seq}
+
+Full-length cDNA libraries were prepared for the sample F24 using the PacBio Kinnex protocol and sequenced on the Revio platform. Raw reads were processed using the IsoSeq3 workflow as described below in the Genome annotation section.
+
+\subsection{Genome assembly and scaffolding}
+
+\subsubsection{Genome characterization}
+
+Genome size, heterozygosity, and repetitive content were estimated using GenomeScope v2.0.1 (\cite{Vurture2017}) (https://github.com/tbenavi1/genomescope2.0). A subset of HiFi reads were used in KMC tools (\cite{Kokot2017}) to generate a 21-mer frequency spectrum histogram. GenomeScope was run on the 21-mer histogram with the ploidy set to 2 (-p 2).
+
+\subsubsection{Primary assembly and Hi-C phasing}
+
+De novo genome assembly was performed using hifiasm v0.25.0 \cite{Cheng2021} with Hi-C–assisted phasing (-h1 -h2). Dual-haplotype self-scaffolding was enabled, and the haploid genome size (--hg-size 3400m) prior was provided based on the results of GenomeScope. Purging of haplotigs was left to default values.
+
+\subsubsection{Assembly completeness and duplication purging}
+
+Assembly completeness was evaluated using compleasm v0.2.7 (\cite{Huang2023Compleasm}) with the mollusca\_odb12 lineage. Haplotypic duplications were identified and removed using purge\_dups v1.2.6 (\cite{Guan2020}). Read and assemblies were mapped using minimap2 v2.28 (\cite{Li2018}) and purge\_dups was run allowing for auto-selection of peak cutoffs. Completeness was re-assessed after one round of purging using the same compleasm method and lineage.
+
+\subsubsection{Adapter and contamination screening}
+
+Potential synthetic contamination was assessed using NCBI FCS-adaptor (https://github.com/ncbi/fcs), and biological contamination (non-lineage sequences) was assessed using FCS-GX v0.5.5 (https://github.com/ncbi/fcs) which classifies sequences by comparing assembly sequences against a large reference database to identify non-target taxonomic assignments. Adaptor were removed by trimming and then concatenating sequence ends. Contigs that were not within the Mollusca lineage were removed from the assembly.
+
+\subsubsection{Hi-C scaffolding and manual curation}
+
+Hi-C reads were aligned to the draft assembly using bwa-mem2 v2.3 (https://github.com/bwa-mem2/bwa-mem2), which is a performance-optimized implementation of the BWA-MEM algorithm and uses the same command-line interface and alignment model as BWA-MEM. Hi-C scaffolding then followed the method available at (https://dovetail-analysis.readthedocs.io/en/latest/) which uses pairtools v1.1.2 (\cite{Open2C2024Pairtools}) to generate cis and trans pairs of linked reads. 
+
+Scaffolding was performed using yahs v1.2.2 (\cite{Zhou2023YaHS}), which scaffolds and corrects contigs in multiple rounds by constructing contact matrices at progressively coarser resolutions. Contact maps were generated following the YaHS Juicer/JBAT workflow (e.g., juicer pre and downstream .hic generation, see https://github.com/c-zhou/yahs), and assemblies were inspected and manually curated in Juicebox/JBAT (\cite{Durand2016Juicebox}). Manual interventions (e.g., breaking chimeras, reordering/orienting scaffolds, removal of low-support joins) were exported as a reviewed assembly and applied to the scaffolds produced by YaHS.
+
+\subsubsection{BUSCO-based karyotyping}
+
+To simplify comparisons among other squid species, scaffolds were named in reference to Doryteuthis pealeii (ncbi ref \#). Scaffold naming used a similar method to https://github.com/Ivypillar/BUSCO\_karyotyping, but utilized the full\_table.txt generated from running compleasm on both the scaffolded assembly of \textit{I. illecebrosus} and \textit{Doryteuthis pealeaii}. BUSCO loci were mapped to scaffolds by matching, and the assignment of scaffold with the highest number of BUSCO loci (min >100) was used to name the \textit{I. illecebrosus} scaffolds. 
+
+\subsection{Genome annotation}
+
+\subsubsection{Read preprocessing}
+
+Adapter sequences and low-quality bases were trimmed from RNA-seq read pairs using fastp v0.24.3 \cite{Chenfastp}. Automatic adapter detection was enabled for paired-end reads, and quality-control reports were written in both HTML and JSON formats. The filtered read pairs were used for rRNA removal and transcriptome alignment.
+
+\subsubsection{rRNA locus identification and rRNA read filtering}
+
+Ribosomal RNA loci were identified on the genome assembly using barrnap v0.9 (https://github.com/tseemann/barrnap) with kingdom set to eukaryotic. A reference database of rRNA was compiled from the silva\_euk SSU and LSU (www.arb-silva.de) and the barrnap results. Residual rRNA-derived reads were removed by aligning filtered read pairs to the rRNA reference database using bowtie2 v2.5.4 (\cite{Langmeadbt2}) in local high-sensitivity mode.
+
+\subsubsection{RNA-seq alignment}
+
+Non-rRNA read sets were split into 20 equal files using seqkit command split2 (\cite{Shen2016SeqKit}). The read files were aligned to the genome using HISAT2 v2.2.1 \cite{Kim2019HISAT2} using options ‘–dta -q –max-intronlen 250000 –min-intronlen 20 –rna-strandness RF’ and GNU parallel \cite{Tange2018Parallel}. Resulting BAM files were merged and coordinate-sorted using samtools v1.21 \cite{Danecek2021SAMtools}.
+
+Iso-Seq reads were processed using the IsoSeq3 pipeline following the standard refine, cluster, and collapse workflow. Collapsed isoforms were aligned to the genome using minimap2 v2.29 \cite{Li2018} in splice-aware with high-quality mode. The following non-default options were used ‘-uf -MD -ax splice:hq -t 16 -G 1000000 --secondary=no’.
+
+\subsubsection{Evidence-driven gene modeling and isoform evaluation}
+
+Gene models were generated using EviANN v2.0.5 \cite{Petersen2025EviAnn} using short and long aligned reads in BAM format and protein homology evidence from OrthoDB v12.0 (https://www.orthodb.org/). The script selectClade.py was used to extract proteins from odb12v0 for clade Lophotrochozoa. This was combined with BUSCO from available Cephalopod genomes (see list) to create a unique FASTA of proteins. EviANN was run with options ‘-f -p protein\_evidence -r bam\_files.txt’. The resulting GFF3 was standardized using agat v1.5.1 \cite{DainatAGATZenodo} and UTR were added using PASA v2.5.3 \cite{Haas2003PASA}. 
+
+Further isoform structures were evaluated using SQANTI3 v5.5.4 \cite{Tardaguila2018SQANTI} using the default set Rules. Rescued isoforms were added to the GFF3 only if they matched a currently identified gene model. 
+
+\subsubsection{Long non-coding RNAs}
+Long non-coding RNAs were identified in both the EviANN default pipeline and downstream using FEELnc v0.2.1 \cite{Wucher2017FEELnc}. For this step and a quality comparison, transcript models were assembled using StringTie v3.0.0 \cite{Pertea2015StringTie} from both long-read Iso-Seq alignments and short-read RNA-seq alignments. For the Iso-Seq BAM, conservative long-read assembly settings were used, and the following non-default options were provided ‘-conservative -L’. For RNA-seq BAM, the following non-default options were used: -p 32 and --rf, producing an RNA-seq-derived GTF. Transcript sets were merged using StringTie --merge with the Iso-Seq GTF serving as guide annotation provided via option -G.
+
+\subsubsection{Functional annotation and RNA feature annotation}
+
+Protein completeness of the final annotation was assessed using compleasm on predicted proteins using the mollusca\_odb12 lineage. Functional annotation was performed using EnTAP v2.3.0 \cite{Hart2019EnTAP} against curated databases: eggNOG (July 2025), NCBI nr (October 2025), RefSeq Protein (August 2025), Swiss-Prot (August 2025), and InterProScan (July 2025). Contaminations were considered any protein with high similarity to bacteria, fungi, viridiplantae, or archaea. Protein sequences sorted as contaminants by EnTAP were removed from the Illex GFF. 
+
+\subsection{Repeat, telomere, and centromere annotation}
+
+\subsubsection{Transposable element annotation}
+
+Repetitive and transposable elements were annotated using EarlGrey v7.0.2 \cite{Barber2025EarlGrey}. EarlGrey is an automated pipeline for de novo TE discovery and genome-wide TE annotation. EarlGrey was executed using a Mollusca-focused repeat library available with RepeatMasker \cite{Smit2013RepeatMasker} and run with options to generate summary outputs and masked genomes. EarlGrey output summary tables and plots were used for TE composition reporting and chromosome-level TE distribution analyses.
+
+\subsubsection{Telomere identification}
+
+Telomeric repeat arrays were identified from the chromosome-scale assembly using tidk v0.2.7 \cite{Brown2025tidk}. tidk is a telomere identification toolkit that scans assemblies for known telomeric repeat motifs and reports candidate telomeric arrays and their genomic coordinates. tidk was first run in explore mode with options set to ‘--minimum 5 --maximum 12’. Results from explore mode were used in mode ‘search’ with option ‘--string TTAGGG’.  Telomeric coordinates, and array lengths were used to summarize telomere completeness and to flag internal telomere-like arrays that could reflect assembly joins or subtelomeric repeat structure.
+
+\subsubsection{Centromere inference}
+
+Candidate centromere regions were inferred using RepeatObserver v1 \cite{Schultz2025RepeatOBserver}. RepeatObserver uses Shannon entropy to identify and reconstruct higher-order repeat (HOR) structures. Summary and visual inspection identified focal intervals containing centromere-type HOR. This was paired with Hi-C alignment depth analysis. An intersect between the lowest 2.5\% read coverage across the chromosome with the focal intervals was used to tag putative centromere regions. 
+
+\subsubsection{tRNAs}
+
+Genome-wide tRNAs were annotated using tRNAscan-SE v2.0.12 \cite{Chan2021tRNAscanSE} with default eukaryotic parameters. Predictions were filtered to remove tRNAs tagged as pseudo and retain high confidence tRNA with an Infernal score $>$ 40.
+
+\subsection{Identification of the Z chromosome}
+
+\subsubsection{Coverage-based inference of sex linkage }
+Coverage was summarized across each chromosome (and/or fixed windows within each chromosome) and compared between sexes. PacBio HiFi reads were aligned using minimap2 with the ‘-map-hifi’ option. Aligned reads were sorted and indexed using samtools. Sex-specific sequencing coverage was summarized using mosdepth v0.3.3 \cite{Pedersen2018Mosdepth} from alignment BAM files with option ‘-n --fast-mode --by 500000’. Chromosomes were classified as candidate sex-linked if they exhibited an approximately two-fold male-to-female depth ratio across most of their length after excluding low-mappability or anomalously repetitive intervals Candidate Z linkage was further supported by consistency across datasets and by concordance with synteny analyses described below.
+
+\subsubsection{Synteny-based confirmation}
+
+To confirm the identity of the candidate Z chromosome and to contextualize chromosomal homology across cephalopods, protein-based synteny analyses were performed using two complementary approaches. First, conserved gene order and orthology were assessed using GENESPACE v1.2.3 \cite{Lovell2022GENESPACE}, which integrates orthology inference (via OrthoFinder \cite{Emms2019OrthoFinder}) and collinearity detection (via MCScanX \cite{Wang2012MCScanX}) to infer syntenic relationships among chromosome-scale genomes. Protein sets were prepared from the final annotation using gffread v0.12.7 with option ‘-y’. The script primary\_transcripts.py was used to reduce each protein to a single representative isoform (available from https://github.com/OrthoFinder/OrthoFinder). OrthoFinder v2.5.5 \cite{Emms2019OrthoFinder} was used to infer orthogroups for (Octopus bimaculoides (NCBI), O. sinensis (NCBI), Euprymna scolopes (NCBI), Sepia esculenta (NCBI), Doryteuthis pealeii (NCBI), Sthenoteuthis oualaniensis \cite{Li2022FlyingSquid}. Synteny was then estimated following an R workflow (e.g., run\_genespace.R), generating pairwise and multi-species synteny plots used to confirm the homologous chromosome corresponding to the candidate Z in Illex.
+
+Second, chromosome-level synteny was independently visualized using ODP v0.3.3 \cite{Schultz2024ODPv033}, a protein-based synteny suite designed to compare chromosome evolution across two or more species. ODP analyses were run using the same comparative species set. Ribbon plots were generated using a modified version of the script odp\_ribbon\_plot (available at https://github.com/conchoecia/odp). Concordance between coverage-based Z assignment and synteny-supported chromosome homology was interpreted as evidence that the candidate chromosome represented the Z chromosome in Illex.
+
+The phylogenetic tree was generated as part of the OrthoFinder pipeline using STAG \cite{EmmsStag2018} with outgroup Nautilus pompilius (NCBI) Silhouette images were found by searching PhyloPic (https://www.phylopic.org/) for specific species names. 
+
+
+\subsection{Search for a W chromosome and pseudo-autosomal regions}
+
+\subsubsection{Hi-C–assisted phasing and identification of female-specific sequence}
+
+To evaluate whether a W chromosome (or W-linked sequence) was present, the Hi-C–integrated assembly outputs were examined for female-specific contigs and for haplotype structure consistent with sex-limited inheritance. Phased assembly graphs and haplotype-resolved contigs produced by hifiasm using paired-end Hi-C reads were used as the primary input for this screen. Because Hi-C phasing partitions contigs by parental haplotype within chromosomes but does not phase across chromosomes, contigs were interpreted as haplotigs rather than chromosome-scale scaffolds, and candidate sex-limited contigs were expected to appear as female-specific or female-enriched sequences rather than as an entire separately assembled chromosome. (Hi-C integrated phasing behavior and limitations are described in the hifiasm documentation.) All unplaced contigs were aligned to male specific contigs using minimap2 and contigs not aligning over 80\% of length were considered candidates. 
+
+Candidate W-linked contigs were screened using coverage differences between sexes (described below), and by inspecting whether any contigs showed consistent female-only presence across datasets. Contigs flagged as putatively sex-limited were retained for targeted gene searches and for manual inspection in the Hi-C contact map environment
+
+\subsubsection{Candidate W-linked gene searches }
+
+To test whether candidate sex-linked loci described in other cephalopods could be detected, protein and nucleotide sequences of sex-linked genes reported in Nautilus were used as queries \cite{Torrado2025NautilusSex}. Similarity searches were performed against the assembled genome and predicted gene models using diamond v2.1.12 \cite{Buchfink2021DIAMOND}. Hits were evaluated for (i) female-specific or female-enriched read depth, (ii) placement on unscaffolded contigs, and (iii) local gene neighborhood consistency with expected syntenic context.
+
+\subsubsection{Incorporation of unplaced transcribed loci}
+
+To minimize the possibility that W-linked genes were missed due to incomplete genomic scaffolding, unplaced or low-confidence loci were additionally evaluated using transcript evidence. RNA-seq and Iso-Seq alignments were assembled into transcript models using the same transcriptome assembly and merging workflow described in the Annotation section and were screened for female-specific expression and/or female-only genomic alignments indicative of W linkage.
+
+\subsubsection{Pseudo-autosomal region inference}
+
+Putative pseudo-autosomal regions (PARs) were investigated by combining sex-specific coverage and SNP density patterns along the inferred Z chromosome and other candidate chromosomes. Regions were considered PAR candidates if they showed (i) near-equal male and female coverage (consistent with shared homology) rather than the 2× male:female coverage expected for Z-linked non-PAR sequence, and (ii) elevated heterozygosity/SNP density consistent with ongoing recombination. Coverage was computed using mosdepth as described above. SNPs were called from long-read alignments using Clair3 v1.2.0 \cite{Chang2024Clair3}. The Clair3 pipeline script (run\_clair3.sh) was executed with the PacBio HiFi platform specified and with the Revio HiFi model provided. The --include\_all\_ctgs option was used to ensure variant calling was performed across all contigs, including unplaced scaffolds, which was required for detecting sex-limited or PAR-associated sequence on non-chromosome contigs. Variant density and sex-specific coverage were summarized in sliding windows and visualized in Jupyter notebooks.
+
+\subsection{Gene expression }
+
+Transcript sequence extraction
+Transcript sequences were extracted using gffread option -w from the final annotations and the corresponding genome FASTA. This step produced a transcriptome FASTA suitable for quantification. 
+
+\subsubsection{Decoy-aware Salmon index construction}
+Transcript abundance was quantified using salmon v1.10.3 \cite{Patro2017Salmon} with a decoy-aware “gentrome” index to reduce spurious assignment of reads to transcripts arising from genomic sequence similarity. A decoy list was generated from the genome sequence identifiers, and a combined reference (“gentrome”) was created by concatenating the transcriptome FASTA with the genome FASTA. A salmon index was then built using the decoy list. This decoy-aware indexing strategy is described in the salmon documentation and is widely used in selective-alignment workflows.
+
+\subsubsection{Transcript quantification}
+Transcript quantification was performed using salmon in selective-alignment mode. Library type autodetection was used. Sequence-specific and GC bias correction were enabled, and selective alignment validation was performed. The following non-default options were used ‘--validateMappings, --seqBias, --gcBias’. Quantification outputs were produced for each sample as transcript-level abundance estimates.
+
+\subsubsection{Differential expression and normalization}
+Differential expression testing was performed in DESeq2 v1.50.2 \cite{Love2014DESeq2}, which models RNA-seq counts using the negative binomial distribution and provides shrinkage-based dispersion and fold-change estimation. Counts were normalized, and sex-biased expression was assessed by comparing male and female expression profiles. A curated list of housekeeping genes was used to anchor and sanity-check normalization behavior in downstream summaries (gene IDs: LOC\_00007521, LOC\_00004639, LOC\_00001667, LOC\_00006802, LOC\_00017576, LOC\_00002754, LOC\_00019187, LOC\_00013343, LOC\_00018950, LOC\_00019427, LOC\_00018591, LOC\_00011252, LOC\_00012199, LOC\_00002337, LOC\_00003179). Effect sizes were summarized as log2(M/F) using pseudocount stabilization, and an auxiliary heuristic “pseudoP” score was computed to prioritize large, well-expressed differences.
+
+\subsubsection{Comparative re-analysis in Octopus bimaculoides}
+To assess whether observed sex-chromosome expression patterns were consistent across cephalopods, publicly available O. bimaculoides RNA-seq datasets were reanalyzed using the same salmon-based quantification strategy (SRA number). The O. bimaculoides genome and gene annotation were obtained from Coffing et al. 2025 /cite. Quantification and downstream summaries were performed as described above.
+
+\subsection{DNA methylation }
+
+\subsubsection{Alignment of methylation-tagged HiFi reads}
+
+HiFi reads containing base-modification tags were aligned to the final genome assembly using pbmm2 v1.17.0 (https://github.com/PacificBiosciences/pbmm2), a PacBio-native wrapper around minimap2 that preserves PacBio BAM conventions and supports recommended parameter presets for HiFi data. The input consisted of methylation-tagged PacBio HiFi reads. Alignments were written as BAM for downstream CpG aggregation.
+
+\subsubsection{CpG methylation calling and track generation}
+
+CpG methylation probabilities were computed from the aligned HiFi BAM using pb-CpG-tools (github.com/PacificBiosciences/pb-CpG-tools), which derives site-level 5mC probabilities from the MM and ML auxiliary tags in the alignment file and reports per-site probabilities in BED and BigWig formats. The site-probability workflow was run using the aligned\_bam\_to\_cpg\_scores program. 
+
+\paragraph{Site-level methylation outputs were generated for whole-genome visualization and for annotation-aware summaries. Where relevant, methylation probabilities were summarized (i) across fixed genomic windows and (ii) across annotated genomic features (genes, promoters, and other intervals) by intersecting CpG-site calls with annotation coordinates. Downstream analysis and figure generation were performed in Jupyter notebooks.}
+
+\subsubsection{Feature-level summaries and high-methylation classification}
+
+For gene- and region-level summaries, CpG-site probabilities were aggregated within each feature to generate a mean methylation probability per feature. Features were classified as “highly methylated” if the aggregated methylation probability exceeded 0.80 (i.e., >80\% methylated). Gene-level methylation summaries were integrated with the final gene annotation to enable joint visualization with expression.
+
+\subsection{Zfest and Zmast}
+
+\subsubsection{Identification of Zfest- and Zmast-related loci}
+
+Candidate loci corresponding to Zfest and Zmast were identified by sequence homology searches using reference sequences from the Zfest/Zmast \cite{Papanicolaou2024.12.09.627507}. Protein query sequences were compiled from the \textit{O. vulgaris} reference (TODO ovulgaris : chrom:s-e) and used as inputs for similarity searches against the Illex genome assembly, predicted proteins, and curated transcript models. 
+
+Homology searches were performed using diamond and conducted in sensitive mode. Hits were retained based on thresholds (e-value 1e-2, max-targets 10), and top-ranked matches were inspected for consistency across databases and across query types (protein vs transcript).
+
+To evaluate whether candidate Zfest-like sequences corresponded to full-length antisense lncRNAs, candidate hits were cross-referenced with Iso-Seq–derived transcript models and SQANTI3 classifications. SQANTI3 outputs were used to confirm transcript completeness and splice-junction support and to determine strand orientation relative to nearby annotated Amnionless gene.
+
+\subsubsection{Genomic localization and neighborhood context}
+
+Candidate Zfest- and Zmast-related loci were mapped to chromosome coordinates in the final assembly. For each locus, the genomic neighborhood was characterized by identifying the flanking genes upstream and downstream within a fixed window (window size ±5 Mb) and by assessing whether conserved neighboring genes matched the expected syntenic context in \cite{Papanicolaou2024.12.09.627507}. Neighborhood context was cross-validated using synteny results generated by ODP (described above) by extracting orthologous segments and local gene order around the candidate loci.
+
+\subsubsection{Confirmation against RNA databases}
+
+To reduce the chance of spurious matches, candidate Zfest/Zmast hits were additionally screened against an RNA database (specify database used, version/date—) to confirm that the best matches were consistent with known Zfest/Zmast-related sequence classes and not dominated by ubiquitous repeats, rRNA fragments, or low-complexity elements. Candidate sequences were retained if they showed consistent support across at least two independent evidence sources (e.g., DIAMOND protein homology + transcript evidence; or transcript evidence + neighborhood synteny).
+
+\subsection{Data and code availability}
+
+All software versions used in this study are reported in the Methods, unless otherwise stated, tools were executed with default parameters, and only non-default parameters were reported explicitly. Workflow scripts, command histories, and custom notebooks used for figure generation were deposited in (FIGSHARE/GITHUB). The genome assembly (primary and associated haplotype-resolved outputs), genome annotation (GFF3/GTF), transcriptome FASTA, predicted proteins, and auxiliary tracks (rRNA loci, TE annotation, telomere calls, centromere intervals, methylation tracks) were deposited at (e.g., NCBI/ENA/Figshare/Zenodo) under accession(s).
+
+Raw sequencing data (PacBio HiFi, Hi-C, stranded total RNA-seq, and Iso-Seq) were deposited in NCBI under BioProject/SRA, with sample metadata is provided in TABLE:Table S. Public datasets used for comparative analyses (e.g., Octopus bimaculoides RNA-seq) are listed with accessions in TABLE:Table S. Where applicable, intermediate files required to reproduce key figures (e.g., depth windows, differential expression tables, methylation summaries, repeat composition tables, synteny inputs/outputs) were deposited at FIGSHARE.
+
+\subsection{Visualization, statistical summaries, and figure generation}
+
+All summary statistics, filtering summaries, and figure panels were generated in Jupyter notebooks using Python 3.8 and R (version) where explicitly noted (e.g., DESeq2). Intermediate tables (e.g., contig/scaffold statistics, BUSCO/compleasm summaries, repeat-class proportions, telomere/centromere coordinate tables, coverage window summaries, methylation feature tables, differential-expression results) were written as tab-delimited text files and imported into plotting notebooks to ensure that all plotted values could be traced back to a static file generated by the corresponding pipeline step.
+
+For chromosome-scale visualizations (coverage, methylation, repeat density), values were summarized either in fixed-width genomic windows or over annotation-defined features (e.g., genes, repeat intervals). Unless otherwise specified, summaries were computed as means or medians per window/feature and were visualized using line plots, heatmaps, and density plots. For all plots, axis scales, transformations, and exclusion rules (e.g., masking low-mappability or extreme-repeat intervals) were applied consistently across sexes and chromosomes.
+
+For dot plots and synteny figures, GENESPACE and ODP outputs were used directly for rendering, and any post-processing (e.g., subsetting to focal chromosomes, relabeling scaffold IDs to chromosome IDs, or reordering) was performed using deterministic scripts to preserve reproducibility. For contact-map figures, Hi-C matrices were visualized in Juicebox/JBAT and exported at fixed resolutions after manual curation steps described in the Assembly section.
+
+\bibliographystyle{plain}
+\bibliography{methods_refs_fixed}
+
+\end{document}
