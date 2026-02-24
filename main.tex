@@ -312,6 +312,33 @@ limits the precision of this estimate.
     \label{fig:cross_species_dc}
 \end{figure}
 
+\begin{table}[tbp]
+\centering
+\caption{Dosage compensation of the Z chromosome across coleoid cephalopod species.
+Z~M:F and Auto~M:F are the median per-gene male-to-female expression ratios
+for Z-linked and autosomal genes, respectively
+(1.0 = complete compensation; 2.0 = no compensation).
+The p-value is from a Wilcoxon rank-sum test comparing Z and autosomal M:F distributions.
+n~(F/M) indicates the number of female and male RNA-seq libraries.}
+\label{tab:cross_species_dc}
+\begin{tabular}{llrrrr}
+\toprule
+\textbf{Species} & \textbf{Order} & \textbf{Z M:F} & \textbf{Auto M:F} & \textbf{p-value} & \textbf{n (F/M)} \\
+\midrule
+\textit{Illex illecebrosus} & Oegopsida & 1.15 & 0.99 & 0.037 & 1/1 \\
+\textit{Sthenoteuthis oualaniensis}$^*$ & Oegopsida & 1.13 & 1.04 & 0.010 & 16/16 \\
+\textit{Doryteuthis pealeii} & Myopsida & 1.10 & 1.12 & 0.29 & 10/9 \\
+\textit{Euprymna scolopes} & Sepiolida & 1.08 & 1.00 & 0.003 & 3/3 \\
+\textit{Euprymna berryi} & Sepiolida & 0.97 & 0.97 & 0.48 & 2/2 \\
+\textit{Sepia officinalis} & Sepiida & 1.03 & 0.99 & 0.021 & 4/4 \\
+\textit{Octopus bimaculoides} & Octopoda & 1.08 & 1.03 & 0.20 & 15/15 \\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+
+{\small $^*$Technical replicates from a single individual per sex; lacks biological replication.}
+\end{table}
+
 \subsection*{Dosage compensation is ancestral and conserved across coleoid cephalopods}
 
 To determine whether dosage compensation of the Z chromosome is a shared feature of coleoid cephalopods
@@ -363,28 +390,6 @@ among major animal lineages, distinct from the mechanisms observed in mammals, i
 and thus offers the opportunity to discover novel mechanisms of sex chromosome regulation.
 
 
-\begin{table}[tbp]
-\centering
-\caption{Dosage compensation of the Z chromosome across coleoid cephalopod species.
-M:F ratio indicates median male-to-female expression ratio for Z-linked genes.
-A ratio of 1.0 indicates complete compensation; 2.0 indicates no compensation.}
-\label{tab:cross_species_dc}
-\begin{tabular}{llrrrr}
-\toprule
-\textbf{Species} & \textbf{Order} & \textbf{Z M:F} & \textbf{Auto M:F} & \textbf{p-value} & \textbf{n (F/M)} \\
-\midrule
-\textit{Illex illecebrosus} & Oegopsida & 1.15 & 0.99 & 0.037 & 1/1 \\
-\textit{Sthenoteuthis oualaniensis} & Oegopsida & 1.13 & 1.04 & 0.010 & 16/16 \\
-\textit{Doryteuthis pealeii} & Myopsida & 1.10 & 1.12 & 0.29 & 10/9 \\
-\textit{Euprymna scolopes} & Sepiolida & 1.08 & 1.00 & 0.003 & 3/3 \\
-\textit{Euprymna berryi} & Sepiolida & 0.97 & 0.97 & 0.48 & 2/2 \\
-\textit{Sepia officinalis} & Sepiida & 1.03 & 0.99 & 0.021 & 4/4 \\
-\textit{Octopus bimaculoides} & Octopoda & 1.08 & 1.03 & 0.20 & 15/15 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
 
 \subsection*{DNA methylation patterns on the Z chromosome}
 
@@ -405,7 +410,7 @@ revealing that autosomal chromosomes show values centered near zero,
 indicating equivalent methylation between sexes (Figure~\ref{fig:methylation}A).
 In contrast, the Z chromosome exhibited strongly negative differential methylation,
 demonstrating that females have substantially higher methylation on the Z than males
-(p = 4.13$\times$10$^{-4}$, Wilcoxon rank-sum test; Figure~\ref{fig:methylation}B).
+(p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test; Figure~\ref{fig:methylation}B).
 
 This female-specific hypermethylation of the Z chromosome is notable given the positive correlation
 between methylation and expression observed genome-wide.
@@ -427,8 +432,7 @@ as methylation differences do not fully explain the residual male bias in Z-link
     The Z chromosome (red) shows strongly negative values, indicating higher methylation in females.
     (B) Summary comparison of differential methylation between autosomes and the Z chromosome.
     The Z chromosome is significantly hypermethylated in females relative to males
-    (p = 4.13$\times$10$^{-4}$, Wilcoxon rank-sum test).
-    Boxplots show median, interquartile range, and 1.5$\times$IQR whiskers.}
+    (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test).}
     \label{fig:methylation}
 \end{figure}
 
@@ -441,10 +445,10 @@ to identify genes with conserved Z-linkage
 at increasing levels of phylogenetic stringency.
 For these analyses, we included an eighth species,
 \textit{Octopus vulgaris}, whose genome is available
-but which lacks the sex-stratified RNA-seq data required for dosage compensation testing.
+and in which dosage compensation has been recently reported \citep{papanicolaou2024z}.
 Requiring Z-linkage across four species
 (\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris})
-identified 188 conserved genes;
+identified 188 conserved genes (i.e. genes found on Z in all four species);
 extending the requirement to all eight species reduced this to 132
 (Table~\ref{tab:conserved_z_genes}).
 
@@ -464,15 +468,15 @@ elements of the Z chromosome
 \caption{Chromatin gene enrichment on the Z chromosome at increasing phylogenetic stringency.
 As Z-linkage is required across more species, chromatin genes are preferentially retained.}
 \label{tab:z_enrichment}
-\begin{tabular}{lrrrr}
+\begin{tabular}{lrrr}
 \toprule
-\textbf{Stringency} & \textbf{Total genes} & \textbf{Chromatin} & \textbf{\% Chromatin} & \textbf{TF} \\
+\textbf{Stringency} & \textbf{Total genes} & \textbf{Chromatin} & \textbf{\% Chromatin} \\
 \midrule
-4 species & 188 & 16 & 8.5\% & 6 \\
-5 species & 169 & 16 & 9.5\% & 6 \\
-6 species & 160 & 14 & 8.8\% & 5 \\
-7 species & 148 & 13 & 8.8\% & 4 \\
-8 species & 132 & 13 & 9.8\% & 4 \\
+4 species & 188 & 16 & 8.5\% \\
+5 species & 169 & 16 & 9.5\% \\
+6 species & 160 & 14 & 8.8\% \\
+7 species & 148 & 13 & 8.8\% \\
+8 species & 132 & 13 & 9.8\% \\
 \bottomrule
 \end{tabular}
 \end{table}
