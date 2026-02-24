@@ -130,15 +130,11 @@ cis-elements, and regulatory lncRNAs---in a configuration seen nowhere else.
 
 \section*{Introduction}
 Dosage compensation is the regulatory mechanism by which gene expression between
-individuals with differing numbers of sex chromosomes is equalized. 
-In organisms with heteromorphic sex chromosomes, such as XX/XY or ZZ/ZW systems,
-gene content asymmetries can disrupt dosage-sensitive processes unless expression
-levels are balanced. 
-Multiple lineages have independently evolved mechanisms to address this imbalance. 
-For example, in mammals, one X chromosome is transcriptionally silenced in females via the \textit{Xist} long non-coding RNA \citep{lyon1961gene, brockdorff2015dosage}; 
-in Drosophila, males upregulate their single X chromosome via the Male-Specific Lethal (MSL) complex \citep{lucchesi2015dosage}; 
-and in Caenorhabditis elegans, hermaphrodites downregulate both X chromosomes by half \citep{meyer2005x}. 
-These strategies ensure dosage parity with the heterogametic sex and preserve essential gene balance during development.
+individuals with differing numbers of sex chromosomes is equalized.
+Multiple lineages have independently evolved mechanisms to address this imbalance:
+in mammals, one X chromosome is transcriptionally silenced in females via the \textit{Xist} long non-coding RNA \citep{lyon1961gene, brockdorff2015dosage};
+in \textit{Drosophila}, males upregulate their single X chromosome via the Male-Specific Lethal (MSL) complex \citep{lucchesi2015dosage, conrad2012dosage};
+and in \textit{Caenorhabditis elegans}, hermaphrodites downregulate both X chromosomes by half \citep{meyer2005x}.
 
 The diversity of these mechanisms reflects the fact that dosage compensation
 has evolved independently in many lineages,
@@ -151,70 +147,52 @@ Studies of neo-sex chromosomes in \textit{Drosophila} have shown
 that this process can occur rapidly and through diverse molecular paths,
 with different species independently co-opting the MSL dosage compensation machinery
 via distinct mutational mechanisms \citep{ellison2019convergent}.
-These findings demonstrate that while the selective pressure driving dosage compensation
-is predictable, the molecular solutions are not.
 
 Despite its evolutionary utility, dosage compensation is not ubiquitous or mechanistically uniform.
-In birds (ZZ/ZW), females often exhibit lower expression of Z-linked genes
-compared to males, indicating incomplete compensation \citep{mank2009w, itoh2007dosage}.
-Similar patterns are seen in Lepidoptera and some reptiles,
-where partial or gene-specific compensation suggests that selection for dosage balance
-is variable across lineages \citep{julien2012mechanisms, gu2017evolution}.
-The degree of compensation often correlates with the age and extent of degeneration
-of the sex-limited chromosome.
-These observations imply that dosage compensation may evolve progressively
-and that partial regulation may suffice in lineages with relatively homomorphic or
-recently evolved sex chromosomes.
+In birds (ZZ/ZW), bulk RNA-seq studies long suggested only incomplete,
+gene-by-gene compensation \citep{mank2009w, itoh2007dosage},
+but recent work has revealed multi-layered mechanisms---including
+increased transcriptional burst frequency and elevated translational rates in females
+\citep{papanicolaou2025multilayered}
+and male-specific miRNA-mediated transcript degradation
+\citep{fallahshahroudi2025mirna}---that
+achieve near-complete protein-level balance.
+In Lepidoptera, \textit{Bombyx mori} achieves compensation
+through partial repression of both Z chromosomes in males \citep{rosin2022dosage},
+and in livebearing fish, complete X chromosome compensation
+has evolved de novo in some lineages but not others \citep{darolti2019extreme}.
+The diversity of solutions---even among ZW systems---underscores
+that the molecular paths to dosage balance are highly contingent.
 
-Cephalopods, long thought to lack genetic sex chromosomes, have recently emerged as a 
-compelling group for studying the evolution of sex chromosomes. 
-Classical karyotype analyses failed to reveal heteromorphic sex chromosomes in octopuses, squids, or cuttlefish (CITE), 
-leading to hypotheses of environmental or polygenic sex determination. 
-However, recent genomic work has overturned this view. 
-\citep{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides}, 
-females are hemizygous for a large chromosome (the chromosome formerly known as chr17), 
-establishing a ZZ/ZO system shared across all coleoid lineages surveyed. 
-This Z chromosome appears to be conserved across squids, cuttlefish, and octopuses, 
-originating over 300 million years ago in a common ancestor. 
-Complementary findings by \citep{torrado2025nautilus} in \textit{Nautilus pompilius}
-demonstrated that the syntenic region corresponding to the coleoid Z chromosome 
-is currently used as an X chromosome in nautiloids, suggesting an 
-interesting evolutionary trajectory where the ancestral sex chromosome was repurposed 
-across lineages. 
-These discoveries position coleoid cephalopods as one of the few known invertebrate 
-groups with deeply conserved sex chromosomes, comparable in age to the insect X chromosome \citep{toups2023x}.
+Cephalopods were long thought to lack genetic sex chromosomes:
+classical karyotype analyses failed to reveal heteromorphic chromosomes
+in octopuses, squids, or cuttlefish (CITE),
+leading to hypotheses of environmental or polygenic sex determination.
+Recent genomic work has overturned this view.
+\citep{coffing2025cephalopod} demonstrated that in octopuses, including \textit{Octopus bimaculoides},
+females are hemizygous for a large chromosome,
+establishing a ZZ/ZO system shared across all coleoid lineages surveyed.
+This Z chromosome is conserved across squids, cuttlefish, and octopuses,
+originating over 300 million years ago in a common ancestor.
+In \textit{Nautilus pompilius}, the syntenic region
+is used as an X chromosome \citep{torrado2025nautilus},
+indicating that the ancestral sex chromosome has been independently repurposed
+in the two surviving cephalopod lineages.
+These discoveries position coleoid cephalopods among the few known invertebrate
+groups with deeply conserved sex chromosomes,
+comparable in age to the insect X chromosome \citep{toups2023x}.
 
-The presence of a ZO/ZZ system in coleoids raises the important
-question of if and how these animals achieve dosage compensation between sexes.
-If a dosage compensation mechanism is present, 
-it would represent an independent evolutionary origin of this regulatory strategy in a major animal lineage.
-\citep{papanicolaou2024z} recently reported evidence of dosage compensation in octopuses
-by analyzing transcriptomes from \textit{Octopus vulgaris} and \textit{O. sinensis},
-finding extensive but incomplete compensation of Z-linked gene expression in females,
-with male-to-female expression ratios of 1.04--1.15 across somatic tissues.
-Moreover, they identified a male-specific long non-coding RNA (\textit{Zmast}) 
-expressed from the Z chromosome, 
-suggesting a potential regulatory mechanism for dosage modulation. 
-Notably, Papanicolaou et al. identified not one but two Z-linked long non-coding RNAs
-with strikingly sex-specific expression patterns:
-\textit{Zmast} (Z-male-specific transcript), which shows 256-fold higher expression in males,
-and \textit{Zfest} (Z-female-specific transcript),
-an antisense lncRNA at the \textit{Amnionless} locus with 18-fold female-biased expression.
-Both lncRNAs are evolutionarily conserved between \textit{O. vulgaris} and \textit{O. sinensis},
-species that diverged approximately 2.5 million years ago.
-The authors speculate that these lncRNAs may play regulatory roles
-analogous to \textit{Xist} in mammals or \textit{roX} genes in \textit{Drosophila},
-though their molecular functions remain uncharacterized.
-The presence of paired male- and female-specific lncRNAs raises the possibility
-of a dual regulatory system governing Z chromosome expression in cephalopods.
-The degree of compensation observed in octopus (M:F ratios of approximately 1.04–1.15 across somatic tissues)
-is notably more complete than that reported in birds,
-where Z-linked genes typically show M:F ratios of 1.4–1.6 \citep{mank2009w}.
+\citep{papanicolaou2024z} provided the first evidence of dosage compensation
+in any cephalopod, reporting M:F expression ratios of 1.04--1.15
+across somatic tissues in two octopus species---notably
+more complete than the 1.4--1.6 typical of birds \citep{mank2009w}.
+They also identified two Z-linked lncRNAs with opposing sex specificities:
+\textit{Zmast} (256-fold male-biased) and \textit{Zfest} (18-fold female-biased),
+conserved between species separated by $\sim$2.5~MY,
+whose molecular functions remain uncharacterized.
 
-While these results reveal the first evidence of dosage compensation in cephalopods,
-no comparable studies have been conducted outside of octopus,
-leaving open fundamental questions about the prevalence, extent,
-and molecular basis of compensation across the group.
+No comparable studies have been conducted outside of octopus,
+leaving the prevalence and molecular basis of compensation across cephalopods unknown.
 
 Here we present a chromosome-scale genome assembly of the northern shortfin squid,
 \illex, and identify its Z chromosome via synteny and coverage analyses.
@@ -1174,11 +1152,11 @@ will require CLIP-seq or RNA pulldown experiments in cephalopod tissues.
 Chromosome-wide dosage compensation has evolved repeatedly,
 but the detailed mechanisms are known from only a handful of lineages---mammals
 \citep{lyon1961gene},
-\textit{Drosophila} \citep{lucchesi2015dosage},
+\textit{Drosophila} \citep{lucchesi2015dosage, conrad2012dosage},
 \textit{C. elegans} \citep{meyer2005x}---and
-birds, the best-studied ZZ/ZW system,
-achieve only incomplete, gene-by-gene equalization
-\citep{mank2009w}.
+even in birds, the best-studied ZZ/ZW system,
+the full extent of compensation has only recently been appreciated
+\citep{papanicolaou2025multilayered, fallahshahroudi2025mirna}.
 Here we show that cephalopods have independently evolved
 near-complete dosage compensation (87--103\% equalization)
 that has been conserved across 300~MY of coleoid divergence.
@@ -1212,7 +1190,7 @@ Our results generalize this finding across eight species,
 four orders, and over 300~MY of divergence
 (Table~\ref{tab:cross_species_dc}).
 That compensation is present in every species examined---and
-more complete than in birds---demonstrates
+at the mRNA level, more complete than in birds---demonstrates
 that it is ancestral to the coleoid cephalopods,
 not a lineage-specific innovation.
 
@@ -1261,8 +1239,12 @@ in every species examined.
 
 \textcite{lyon1998x} proposed that LINEs on the mammalian X serve as
 ``way stations'' for the spreading of \textit{Xist}-mediated silencing---an
-idea supported by the 2-fold LINE enrichment on the human X
-and the tendency of LINE-poor regions to escape inactivation.
+idea supported by the 2-fold LINE enrichment on the human X,
+the tendency of LINE-poor regions to escape inactivation
+\citep{bailey2000molecular},
+and the active role of LINE-1 transcripts in nucleating
+facultative heterochromatin during X-inactivation
+\citep{chow2010line}.
 On the mammalian X, LINEs and compensation are positively associated.
 The cephalopod Z presents the mirror image:
 the Z is LINE-enriched, yet LINE-dense regions are where genes
@@ -1277,7 +1259,10 @@ active chromatin-opening program that must overcome
 TE-associated heterochromatin.
 Host genomes constitutively repress TEs via H3K9me2/3,
 and these repressive marks spread into flanking sequence
-\citep{lee2017pervasive, huang2022species}.
+\citep{lee2017pervasive, huang2022species};
+on the \textit{Drosophila} neo-X, TE-rich regions acquire
+H3K9me2/3 heterochromatin that the MSL complex must overcome
+\citep{zhou2013epigenome}.
 In ZZ males, both copies experience this silencing equally---no
 compensation is needed.
 In ZO females, the compensation machinery must clear
@@ -1306,9 +1291,18 @@ This framework applies beyond cephalopods.
 In \textit{Drosophila}, individual co-opted TEs nucleate compensation
 by carrying MSL recognition elements to new locations
 \citep{ellison2013dosage},
-but the bulk TE landscape may simultaneously resist upregulation.
+and in the guppy \textit{Poecilia picta},
+a recent wave of piggyBac-like transposons carrying YY1 motifs
+remodeled the X chromosome epigenome,
+enabling male-specific hypomethylation and de novo dosage compensation
+\citep{metzger2023transposon}.
+In both cases, TEs serve as vehicles for cis-regulatory element dispersal
+\citep{britten1971repetitive, lee2024causes}---but
+the bulk TE landscape may simultaneously resist upregulation
+through heterochromatin spreading.
 Whether this negative association between bulk TE density and
-compensation holds on the \textit{Drosophila} X remains to be tested.
+compensation holds on the \textit{Drosophila} or \textit{Poecilia} X
+remains to be tested.
 Across cephalopods, the specific TE families turn over---RTE-BovB
 in \textit{O. bimaculoides}, Penelope in \illex---but
 the two-compartment architecture persists,
