@@ -205,7 +205,7 @@ No comparable studies have been conducted outside of octopus,
 leaving the prevalence and molecular basis of compensation across cephalopods unknown.
 
 Here we present a chromosome-scale genome assembly of the northern shortfin squid,
-\illex \comment{why not full species name?}, and identify its Z chromosome via synteny and coverage analyses.
+\illex, and identify its Z chromosome via synteny and coverage analyses.
 We then test for dosage compensation across seven cephalopod species
 spanning five orders and over 300 million years of divergence,
 establishing that compensation of the Z chromosome is ancestral to coleoid cephalopods.
@@ -256,16 +256,15 @@ Full assembly statistics and repeat composition are provided in the
 \subsection*{Identification and Synteny of the Z chromosome in \illex}
 Comparison of male and female read depth across assembled chromosomes
 revealed that a single chromosome is at hemizygous coverage
-in the female relative to the male---the Z chromosome (Figure~\ref{fig:seq_depth}).
+in the female relative to the male--- further confirmation of the previously identified Z chromosome (Figure~\ref{fig:seq_depth}).
 
 We next performed comparative genomic analyses with other cephalopod species for which sex chromosomes have been characterized.
-Whole-genome synteny analysis revealed a striking pattern of chromosomal conservation across coleoid cephalopods (\ref{fig:phylo}).
-We compared the \illex assembly to published genomes of 
+Namely, we compared the \illex assembly to published genomes of 
 \textit{Octopus bimaculoides}, \textit{O. sinensis}, \textit{Euprymna scolopes}, \textit{Sepia esculenta}, \textit{Doryteuthis pealeii}, and \textit{Sthenoteuthis oualaniensis}.
 Chromosome-scale alignments showed that within decapods, sytenty across all chromosome arms 
 is largely maintained, although with the expected degree of rearrangements, fusions, and fissions.
 However when comparing out to octopus, synteny breaks down on every chromosome, except for the Z chromosome.
-the Z chromosome has maintained its integrity as a distinct chromosomal unit for over 300 million years of evolution.
+the Z chromosome has maintained its integrity as a distinct chromosomal unit for over 300 million years of evolution (Figure~\ref{fig:phylo}).
 %These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on chromosome 42,
 %confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
@@ -286,8 +285,11 @@ Expression levels on autosomes were comparable between sexes,
 and Z-linked gene expression in females was comparable to autosomal levels
 despite females carrying only a single Z chromosome (Z:A = 1.59;
 values above 1.0 in both sexes reflect the generally higher expression
-of Z-linked genes relative to the genomic average),
-indicating that the hemizygous Z undergoes transcriptional upregulation.
+of Z-linked genes relative to the genomic average). 
+The most parsimonious explanation for this pattern
+is that the hemizygous Z undergoes transcriptional upregulation.
+\comment{This is the part where I  still struggle to fully understand the argument. The pattern is the same for mammals right? The ratio of X:AA and XX:AA are both near 1 https://www.nature.com/articles/ng.991. There we know that there's a two step process -- inactivation of one X in females and upregulation of the X in *both* sexes. Can we rule out the same thing here??
+We don't really discuss the possibilty of Z inactivation in males, just upregulation in females.}
 However, Z-linked genes showed modest but significant male bias,
 with a median M:F ratio of 1.15 compared to 0.99 for autosomes
 (p = 0.037, Wilcoxon rank-sum test; Figure~\ref{fig:cross_species_dc}).
@@ -355,9 +357,8 @@ and \textit{Octopus bimaculoides} (Octopoda).
 For each species, we identified Z-linked genes via synteny with the \illex Z chromosome
 and compared expression levels between males (ZZ) and females (ZO).
 
-In every species examined, Z-linked gene expression in females was upregulated
-to match or approach the level observed in males,
-indicating active dosage compensation of the hemizygous Z chromosome
+In every species examined, the same pattern was found, where Z-linked gene expression in females apprixamtely matches the level observed in males,
+consistent with active dosage compensation of the hemizygous Z chromosome
 (Figure~\ref{fig:cross_species_dc}; Figures S1--S6).
 Median male-to-female expression ratios for Z-linked genes ranged from 0.97 to 1.15 across species
 (Table~\ref{tab:cross_species_dc}),
@@ -661,7 +662,7 @@ while lower quartiles show no consistent trend
 (Figure~\ref{fig:rte_quartile}).
 
 RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z
-(Spearman correlations across 500~kb sliding windows). \comment{are the stats in the next sentence related to this? A bit confusing as written}
+(Spearman correlations across 500~kb sliding windows).
 RTE-BovB is strongly correlated with gene density
 ($\rho$ = +0.68, $p = 7.4 \times 10^{-17}$),
 marking the euchromatic compartment,
@@ -1211,6 +1212,7 @@ familiar components in a configuration seen nowhere else:
 Z-enriched chromatin modifiers whose own compensation suggests
 a self-reinforcing loop,
 repetitive element architecture that opposes rather than assists upregulation,
+\comment{point to the parts of the results/figure that support this statement. Does this in anyway help with the Z incativation versus only female upregulation problem I mention above?}
 gene-body cis-elements functionally analogous to \textit{Drosophila} MREs,
 and deeply conserved sex-specific lncRNAs.
 
