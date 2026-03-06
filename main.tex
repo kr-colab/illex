@@ -106,8 +106,8 @@ forming barriers to upregulation. We further identify gene-body cis-element moti
 compensated Z genes and discover two deeply conserved sex-biased Z-linked long non-coding RNAs whose
 conserved protein-binding sites suggest an additional RNA-mediated regulatory axis.
 These results establish cephalopods as a new model for dosage compensation and reveal a mechanism that
-reuses familiar components---chromatin regulators, cis-elements, repeats, and lncRNAs---in an
-unexpected configuration.
+reuses familiar components---chromatin regulators, cis-elements, repeats, and lncRNAs---
+but in a configuration that appears distinct from previously studied organisms.
 \end{abstract}
 
 %% Abstract option B
@@ -205,7 +205,7 @@ No comparable studies have been conducted outside of octopus,
 leaving the prevalence and molecular basis of compensation across cephalopods unknown.
 
 Here we present a chromosome-scale genome assembly of the northern shortfin squid,
-\illex, and identify its Z chromosome via synteny and coverage analyses.
+\illex \comment{why not full species name?}, and identify its Z chromosome via synteny and coverage analyses.
 We then test for dosage compensation across seven cephalopod species
 spanning five orders and over 300 million years of divergence,
 establishing that compensation of the Z chromosome is ancestral to coleoid cephalopods.
@@ -413,8 +413,7 @@ raises the question of what molecular mechanisms underlie this regulation.
 Given the role of epigenetic modifications in gene regulation and dosage compensation in other systems,
 we investigated DNA methylation patterns across the \illex genome.
 We leveraged PacBio HiFi kinetic signatures from male and female individuals to assess CpG methylation levels.
-Genome-wide, we observed a positive correlation between gene expression and methylation levels in both sexes,
-with more highly expressed genes showing elevated methylation (females: r=0.396, p=2.16$\times$10$^{-9}$; males: r=0.318, p=5.10$\times$10$^{-6}$).
+Genome-wide, we observed a positive correlation between gene expression and methylation levels in both sexes (females: r=0.396, p=2.16$\times$10$^{-9}$; males: r=0.318, p=5.10$\times$10$^{-6}$).
 This pattern is consistent with gene-body methylation associated with active transcription,
 as has been observed in other invertebrates including cephalopods.
 
@@ -644,7 +643,7 @@ The dominant LINE family on Z by total content is RTE-BovB
 but the most enriched family is L1-Tx1 (2.06-fold, 2.38~Mb),
 followed by Dong-R4 (1.69-fold, 0.71~Mb).
 
-Crucially, LINE density on the Z predicts which genes escape dosage compensation.
+Crucially, LINE density on the Z predicts which genes escape dosage compensation. \comment{so cool!}
 Male-biased Z genes---those retaining the default twofold excess
 expected from ZZ dosage---reside in regions with significantly
 higher LINE density than female-biased genes
@@ -657,12 +656,12 @@ RTE-BovB density alone does not differ significantly between sex-bias categories
 consistent with multiple LINE families contributing to the heterochromatic barrier.
 The effect is nonetheless strikingly categorical:
 in the highest RTE-BovB density quartile,
-89\% of sex-biased genes are male-biased (8M:1F),
+89\% of sex-biased genes are male expression biased (8M:1F),
 while lower quartiles show no consistent trend
 (Figure~\ref{fig:rte_quartile}).
 
 RTE-BovB and Dong-R4 occupy distinct spatial compartments on Z
-(Spearman correlations across 500~kb sliding windows).
+(Spearman correlations across 500~kb sliding windows). \comment{are the stats in the next sentence related to this? A bit confusing as written}
 RTE-BovB is strongly correlated with gene density
 ($\rho$ = +0.68, $p = 7.4 \times 10^{-17}$),
 marking the euchromatic compartment,
@@ -671,7 +670,7 @@ while Dong-R4 anticorrelates with gene density
 and with RTE-BovB ($\rho$ = $-$0.61, $p = 4.6 \times 10^{-13}$),
 defining the heterochromatic compartment.
 
-FIMO scanning for CTCF binding motifs (JASPAR MA0139.2, $p < 10^{-4}$)
+We used Find Individual Motif Occurrences (FIMO) scanning to search for CTCF binding motifs
 revealed that the Z chromosome also carries the highest CTCF density
 of any chromosome after correcting for GC content and chromosome size
 (+6.49 motifs/Mb above expectation;
@@ -2102,16 +2101,17 @@ Lag-1 spatial autocorrelation of log$_2$FC is significant
 but decays by lag-2 ($r = +0.042$, NS),
 indicating that co-regulation extends only to immediate neighbors.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{figures/illex_chrom_seq_depth.png}
-    \caption{PacBio HiFi read depth across \illex chromosomes in female and male individuals.
-    Normalized read depth is shown for each chromosome.
-    Autosomes show comparable depth between sexes,
-    while the Z chromosome (chr42) shows reduced coverage in the female
-    relative to the male, consistent with hemizygosity in the ZO female.}
-    \label{fig:seq_depth}
-\end{figure}
+%Figure is missing so can't compile
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\linewidth]{figures/illex_chrom_seq_depth}
+%    \caption{PacBio HiFi read depth across \illex chromosomes in female and male individuals.
+%    Normalized read depth is shown for each chromosome.
+%    Autosomes show comparable depth between sexes,
+%    while the Z chromosome (chr42) shows reduced coverage in the female
+%    relative to the male, consistent with hemizygosity in the ZO female.}
+%    \label{fig:seq_depth}
+%\end{figure}
 
 \begin{table}[H]
 \centering
