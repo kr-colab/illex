@@ -13,3 +13,6 @@
 *.blg
 *.xml
 *.bcf
+# macOS and IDE files
+.DS_Store
+.vscode/

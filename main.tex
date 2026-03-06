@@ -226,7 +226,7 @@ in one of the oldest known sex chromosome systems in animals.
 
 \begin{figure}[tbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/fig1_new.pdf}
+    \includegraphics[width=\linewidth]{figures/Figure1_update.pdf}
     \caption{Synteny of seven coleoid cephalopod genomes.
     An uncalibrated ultrametric phylogeny (left) relates the seven species used in this study.
     Ribbons connect syntenic blocks between adjacent species, colored by \illex\ chromosome identity.
@@ -1400,9 +1400,19 @@ or positionally non-homologous.
 The conservation is at the level of biophysical properties
 (multi-valent sponge capacity) rather than specific protein contacts,
 analogous to binding-site turnover in promoter evolution.
+The two cephalopod lineages illustrate this clearly:
+decapods maintain dense poly(U) tracts (57~bp/kb)
+that bind all U-recognizing RBPs simultaneously,
+while octopods, having eroded poly(U) content to 32~bp/kb,
+have compensated with 2--3-fold enrichment of sequence-specific sites
+for RBM, PCBP, and PUF-family proteins.
+Both strategies maintain the same irreducible core---CELF,
+PUF/FBF-1, and MEX-5 binding---suggesting
+that sponge capacity per se, not the specific mechanism,
+is the target of selection.
 
 The eight genuinely conserved RBP sites nonetheless point
-to a striking mechanistic parallel with \textit{Drosophila}.
+to a suggestive mechanistic parallel with \textit{Drosophila}.
 The \textit{Zmast} 5$^\prime$ Head contains conserved binding sites
 for ROX8 (TIA-1), SNF (\textit{sans fille}), and UAF-2---the
 three factors that in \textit{Drosophila} promote \textit{msl-2} intron splicing
@@ -1419,12 +1429,17 @@ while preserving MEX-5, suggesting that germline-partitioning function
 is under stronger constraint than the splicing-factor sites.
 
 These observations motivate two non-exclusive functional models.
-In a \textbf{titration model}, the massive male-specific expression
-of \textit{Zmast} (5,000:1 M:F) sequesters ROX8, SNF, and U2AF
-away from endogenous targets, shifting \textit{Sxl} autoregulatory splicing
-toward the truncated 2-RRM isoform---which is what we observe
-(full-length 3-RRM SXL is female-biased across cephalopods).
-In a \textbf{platform model}, the 5$^\prime$ Head nucleates
+In a titration model, the massive male-specific expression
+of \textit{Zmast} (5,000:1 M:F) creates a stoichiometric excess
+of poly(U) binding sites (73--1,563-fold over cognate RBP mRNAs),
+sequestering RNA-binding proteins away from endogenous targets in males.
+Our stoichiometric analysis indicates that this excess
+is sufficient to shift sensitive splice-site decisions
+past their inclusion thresholds
+without globally depleting any single factor---consistent
+with the sex-biased isoform switching we observe
+at Z-linked chromatin modifiers.
+In a platform model, the 5$^\prime$ Head nucleates
 a ribonucleoprotein complex---analogous to the \textit{roX} boxes
 in \textit{Drosophila} or the A-repeat of \textit{Xist}---that
 recognizes the gene-body cis-elements (Motifs A and B)
@@ -1435,6 +1450,18 @@ the motifs provide gene-level specificity,
 and the protein partners provide catalytic activity---explaining
 why the motifs produce sex-biased effects only on Z
 despite being present genome-wide.
+
+\textit{Zfest} likely operates through a distinct mechanism.
+Unlike \textit{Zmast}, it is not poly(U)-enriched
+and carries no ELAV/SXL-family binding sites,
+ruling out a sponge function.
+Its enrichment for MATR3 (nuclear matrix retention)
+and conserved antisense overlap with \textit{AMN}
+instead suggest a role in nuclear RNA metabolism
+or direct regulation of \textit{AMN} expression on the female Z---a
+possibility underscored by the reciprocal sex-bias
+of \textit{Zfest} (female) and \textit{AMN} (male)
+conserved across $\sim$300~MY.
 
 Identifying the protein partners of \textit{Zmast} and \textit{Zfest}---through
 CLIP-seq, RNA pulldown, or proximity labeling---is
