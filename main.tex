@@ -92,9 +92,10 @@
 
 \begin{abstract}
 Chromosome-wide dosage compensation has evolved repeatedly in animals, but its mechanisms are
-known from only a handful of model systems. Coleoid cephalopods share a conserved Z chromosome,
-allowing a decisive test of whether Z dosage compensation is a lineage-wide feature and how it
-is implemented. Using a new chromosome-level genome assembly for the squid \textit{Illex illecebrosus}
+known from only a handful of model systems. Coleoid cephalopods (squids, cuttlefish, and octopuses)
+share a ZZ/ZO sex determination system in which females carry a single copy of a large Z chromosome,
+making dosage compensation a potential necessity and allowing a decisive test of whether compensation
+is a lineage-wide feature and how it is implemented. Using a new chromosome-level genome assembly for the squid \textit{Illex illecebrosus}
 and comparative transcriptomics spanning seven cephalopod species across $>$300 million years,
 we show that Z-linked expression is near-equalized between sexes across coleoids, indicating that
 dosage compensation originated early in coleoid evolution.
@@ -102,10 +103,11 @@ We find that the Z is unusually enriched for chromatin-modifying genes and that 
 usage of a small set of Z-linked chromatin regulators tracks variation in Z-linked expression,
 implicating chromatin-state control in chromosome-wide equalization. Strikingly, LINE-rich regions
 on the Z are enriched for genes that escape compensation, consistent with TE-associated heterochromatin
-forming barriers to upregulation. We further identify gene-body cis-element motifs associated with
-compensated Z genes and discover two deeply conserved sex-biased Z-linked long non-coding RNAs whose
-conserved protein-binding sites suggest an additional RNA-mediated regulatory axis.
-These results establish cephalopods as a new model for dosage compensation and reveal a mechanism that
+forming barriers to upregulation. We further identify cis-element motifs within gene bodies associated with
+compensated Z genes and discover two sex-biased Z-linked long non-coding RNAs,
+conserved across $>$300~MY of cephalopod divergence,
+containing conserved RNA-binding protein motifs that suggest an additional RNA-mediated regulatory axis.
+These results establish cephalopods as an independently evolved model for dosage compensation and reveal a mechanism that
 reuses familiar components---chromatin regulators, cis-elements, repeats, and lncRNAs---in an
 unexpected configuration.
 \end{abstract}
@@ -159,7 +161,7 @@ with different species independently co-opting the MSL dosage compensation machi
 via distinct mutational mechanisms \citep{ellison2019convergent}.
 
 Despite its evolutionary utility, dosage compensation is not ubiquitous or mechanistically uniform.
-In birds (ZZ/ZW), bulk RNA-seq studies long suggested only incomplete,
+In birds (males ZZ, females ZW), bulk RNA-seq studies long suggested only incomplete,
 gene-by-gene compensation \citep{itoh2007dosage, mank2009w},
 but recent work has revealed multi-layered mechanisms---including
 increased transcriptional burst frequency and elevated translational rates in females
@@ -172,7 +174,8 @@ through partial repression of both Z chromosomes in males \citep{rosin2022dosage
 and in livebearing fish, complete X chromosome compensation
 has evolved de novo in some lineages but not others \citep{darolti2019extreme}.
 The diversity of solutions---even among ZW systems---underscores
-that the molecular paths to dosage balance are highly contingent.
+that the molecular paths to dosage balance are highly contingent
+on the preexisting genetic architecture of each lineage.
 
 Cephalopods were long thought to lack genetic sex chromosomes:
 classical karyotype analyses failed to reveal heteromorphic chromosomes
@@ -181,21 +184,22 @@ leading to hypotheses of environmental or polygenic sex determination.
 Recent genomic work has overturned this view.
 In \textcite{coffing2025cephalopod}, we demonstrated that across cephalopods,
 females are hemizygous for a large chromosome,
-establishing a ZZ/ZO system shared across all coleoid lineages surveyed.
-This Z chromosome is conserved across squids, cuttlefish, and octopuses,
+establishing a ZZ/ZO system shared across all coleoid (squids, cuttlefish, and octopuses) lineages surveyed.
+This Z chromosome is conserved across coleoids,
 originating over 300 million years ago in a common ancestor.
-In \textit{Nautilus pompilius}, the syntenic region
-is used as an X chromosome \citep{torrado2025nautilus},
+In \textit{Nautilus pompilius}, a representative of the only surviving non-coleoid cephalopod lineage,
+the syntenic region is used as an X chromosome \citep{torrado2025nautilus},
 indicating that the ancestral sex chromosome has been independently repurposed
 in the two surviving cephalopod lineages.
 These discoveries position coleoid cephalopods among the few known invertebrate
 groups with deeply conserved sex chromosomes,
-comparable in age to the insect X chromosome \citep{toups2023x}.
+comparable in age to the insect X chromosome \citep{toups2023x}
+and substantially older than mammalian ($\sim$170~MY) or avian ($\sim$100~MY) sex chromosomes.
 
 The open question is then if and how cephalopods achieve dosage compensation. 
 In a recent report, \textcite{papanicolaou2024z} provided the first evidence of dosage compensation
 in any cephalopod, reporting M:F expression ratios of 1.04--1.15
-across somatic tissues in two octopus species---notably
+across adult somatic tissues (brain sub-regions and arm) in two octopus species---notably
 more complete than the 1.4--1.6 typical of birds \citep{mank2009w}.
 They also identified two Z-linked lncRNAs with opposing sex specificities:
 \textit{Zmast} (256-fold male-biased) and \textit{Zfest} (18-fold female-biased),
@@ -215,7 +219,7 @@ identify an enrichment of chromatin-modifying genes on the conserved Z chromosom
 and show that sex-biased isoform switching of chromatin remodelers
 predicts chromosome-wide compensation levels.
 We find that LINE elements and CTCF insulators define structural domains on the Z,
-paralleling Lyon's repeat hypothesis for the mammalian X,
+paralleling Lyon's repeat hypothesis for the mammalian X \citep{lyon1998x},
 and discover gene-body cis-elements that distinguish compensated Z genes from escapees,
 analogous to the MSL Recognition Elements in \textit{Drosophila}.
 Finally, we show that the sex-specific lncRNAs \textit{Zmast} and \textit{Zfest}
@@ -227,45 +231,49 @@ in one of the oldest known sex chromosome systems in animals.
 \begin{figure}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/Figure1_update.pdf}
-    \caption{Synteny of seven coleoid cephalopod genomes.
+    \caption{Conserved synteny of seven coleoid cephalopod genomes.
     An uncalibrated ultrametric phylogeny (left) relates the seven species used in this study.
     Ribbons connect syntenic blocks between adjacent species, colored by \illex\ chromosome identity.
     The Z chromosome (red, rightmost) is conserved as a single syntenic unit across all species,
-    although its name varies (Z in \illex, \textit{O.\ bimaculoides}, and \textit{S.\ esculenta};
-    chromosome 46 in \textit{S.\ oualaniensis}; 43 in \textit{D.\ pealeii}; 43 in \textit{E.\ scolopes};
+    although its name varies (Z in \illex, \textit{O.\ bimaculoides}, and \textit{Sepia esculenta};
+    chromosome 46 in \textit{Sthenoteuthis oualaniensis}; 43 in \textit{D.\ pealeii}; 43 in \textit{E.\ scolopes};
     NC16 in \textit{O.\ sinensis}).}
     \label{fig:phylo}
 \end{figure}
 
 \section*{Results}
 \subsection*{A chromosome-scale genome assembly for \textit{Illex illecebrosus}}
-We generated a chromosome-scale genome assembly for a female \illex individual
+We generated a chromosome-scale genome assembly for an adult female \illex
 using PacBio HiFi long reads, Illumina short reads, and Hi-C chromatin conformation capture data.
 Hi-C scaffolding resolved 46 chromosomes,
 consistent with the decapodiform karyotype of 2n = 92 \citep{gao1990karyological},
 and the final assembly spans 4.14 Gb with 95.6\% BUSCO completeness
-(Table~\ref{tab:assembly_stats}).
-Gene annotation combining short-read RNA-seq, PacBio Iso-Seq,
-and \textit{ab initio} prediction identified 23,192 protein-coding genes.
-We also generated deep PacBio HiFi sequencing from a male individual,
+(mollusca\_odb12; Table~\ref{tab:assembly_stats}).
+Gene annotation combining stranded total RNA-seq from both individuals
+and PacBio Iso-Seq from the female (mantle tissue; see Methods),
+together with \textit{ab initio} prediction, identified 23,192 protein-coding genes.
+Because the RNA-seq libraries were prepared with a total RNA protocol (not poly-A selected),
+non-polyadenylated transcripts including many lncRNAs are represented.
+We also generated deep PacBio HiFi sequencing from a second adult male individual,
 enabling direct comparison of read depth between sexes across all chromosomes.
 Full assembly statistics and repeat composition are provided in the
 \hyperref[sec:supp_assembly]{Supplemental Results}
 (Tables~\ref{tab:assembly_stats} and \ref{tab:repeat_stats}).
 
-\subsection*{Identification and Synteny of the Z chromosome in \illex}
+\subsection*{Identification and conserved synteny of the Z chromosome in \illex}
 Comparison of male and female read depth across assembled chromosomes
 revealed that a single chromosome is at hemizygous coverage
-in the female relative to the male---the Z chromosome (Figure~\ref{fig:seq_depth}).
+in the female relative to the male, which we inferred to be the Z chromosome (Figure~\ref{fig:seq_depth}).
 
 We next performed comparative genomic analyses with other cephalopod species for which sex chromosomes have been characterized.
-Whole-genome synteny analysis revealed a striking pattern of chromosomal conservation across coleoid cephalopods (\ref{fig:phylo}).
-We compared the \illex assembly to published genomes of 
+Whole-genome conserved synteny analysis revealed a striking pattern of chromosomal conservation across coleoid cephalopods (Figure~\ref{fig:phylo}).
+We compared the \illex assembly to published genomes of
 \textit{Octopus bimaculoides}, \textit{O. sinensis}, \textit{Euprymna scolopes}, \textit{Sepia esculenta}, \textit{Doryteuthis pealeii}, and \textit{Sthenoteuthis oualaniensis}.
-Chromosome-scale alignments showed that within decapods, sytenty across all chromosome arms 
-is largely maintained, although with the expected degree of rearrangements, fusions, and fissions.
-However when comparing out to octopus, synteny breaks down on every chromosome, except for the Z chromosome.
-the Z chromosome has maintained its integrity as a distinct chromosomal unit for over 300 million years of evolution.
+Chromosome-scale alignments showed that within decapods, synteny across all chromosome arms
+is largely maintained, with a number of rearrangements, fusions, and fissions.
+However, when comparing out to octopus, synteny breaks down on every chromosome except the Z.
+The Z chromosome has maintained its integrity as a distinct chromosomal unit for over 300 million years of evolution,
+making it one of the oldest known sex chromosome systems in animals.
 %These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on chromosome 42,
 %confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
@@ -277,11 +285,12 @@ We quantified gene expression levels across all chromosomes in a single male (ZZ
 the same individuals used for genome assembly and coverage analysis,
 using DESeq2 normalization (Figure~\ref{fig:cross_species_dc}).
 We use two complementary metrics throughout:
-Z:A is the ratio of mean Z-linked to mean autosomal expression (TPM, filtered to genes with TPM~$> 1$;
+Z:A is the ratio of mean Z-linked to mean autosomal expression level (TPM, filtered to genes with TPM~$> 1$;
 a value of 1.0 indicates Z expression equal to the autosomal baseline),
 and M:F is the per-gene median ratio of male to female expression
 (1.0 = complete compensation; 2.0 = no compensation;
-percent equalization = $1/\text{M:F} \times 100$).
+percent equalization = $(1/\text{M:F}) \times 100$,
+e.g.\ M:F of 1.15 gives $(1/1.15) \times 100 = 87\%$).
 Expression levels on autosomes were comparable between sexes,
 and Z-linked gene expression in females was comparable to autosomal levels
 despite females carrying only a single Z chromosome (Z:A = 1.59;
@@ -344,14 +353,20 @@ n~(F/M) indicates the number of female and male RNA-seq libraries.}
 
 To determine whether dosage compensation of the Z chromosome is a shared feature of coleoid cephalopods
 or a lineage-specific adaptation in \illex,
-we analyzed sex-stratified, publicly available RNA-seq data from 
-six additional species representing five coleoid orders 
-across both major coleoid lineages (Decapodiformes and Octopodiformes): 
+we analyzed sex-stratified, publicly available RNA-seq data from
+six additional species representing five coleoid orders
+across both major coleoid lineages (Decapodiformes and Octopodiformes):
 \textit{Sthenoteuthis oualaniensis} (Oegopsida),
 \textit{Doryteuthis pealeii} (Myopsida),
 \textit{Euprymna scolopes} and \textit{Euprymna berryi} (Sepiolida),
 \textit{Sepia officinalis} (Sepiida),
 and \textit{Octopus bimaculoides} (Octopoda).
+Sample sizes per species range from one to 15 libraries per sex
+(Table~\ref{tab:cross_species_dc}).
+For \textit{S. oualaniensis}, the 16 libraries per sex are technical replicates
+from a single individual; for \textit{O. bimaculoides}, the 15 libraries per sex
+represent multiple tissues from several individuals.
+All other species have independent biological replicates.
 For each species, we identified Z-linked genes via synteny with the \illex Z chromosome
 and compared expression levels between males (ZZ) and females (ZO).
 
@@ -361,7 +376,7 @@ indicating active dosage compensation of the hemizygous Z chromosome
 (Figure~\ref{fig:cross_species_dc}; Figures S1--S6).
 Median male-to-female expression ratios for Z-linked genes ranged from 0.97 to 1.15 across species
 (Table~\ref{tab:cross_species_dc}),
-all well below the 2.0 ratio expected in the absence of compensation.
+all within 15\% of 1.0 and far below the 2.0 expected in the absence of compensation.
 Autosomal genes showed M:F ratios centered at 1.0 in all species,
 confirming that the observed Z chromosome patterns reflect sex-linked regulation
 rather than systematic biases in library preparation or normalization.
@@ -412,11 +427,12 @@ The conservation of dosage compensation across coleoid cephalopods
 raises the question of what molecular mechanisms underlie this regulation.
 Given the role of epigenetic modifications in gene regulation and dosage compensation in other systems,
 we investigated DNA methylation patterns across the \illex genome.
-We leveraged PacBio HiFi kinetic signatures from male and female individuals to assess CpG methylation levels.
+We leveraged PacBio HiFi kinetic signatures from the male and female individual to assess CpG methylation levels.
 Genome-wide, we observed a positive correlation between gene expression and methylation levels in both sexes,
 with more highly expressed genes showing elevated methylation (females: r=0.396, p=2.16$\times$10$^{-9}$; males: r=0.318, p=5.10$\times$10$^{-6}$).
 This pattern is consistent with gene-body methylation associated with active transcription,
-as has been observed in other invertebrates including cephalopods.
+as has been observed across invertebrates \citep{zemach2010genome, glastad2011dna}
+including molluscs \citep{manner2021inference}.
 
 Strikingly, when comparing methylation levels between sexes across chromosomes,
 we found that the Z chromosome is significantly hypermethylated in females relative to males (Figure~\ref{fig:methylation}).
@@ -428,32 +444,58 @@ demonstrating that females have substantially higher methylation on the Z than m
 (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test; Figure~\ref{fig:methylation}B).
 
 This female-specific hypermethylation of the Z chromosome is notable given the positive correlation
-between methylation and expression observed genome-wide.
-The pattern suggests that elevated methylation on the hemizygous female Z
+between gene-body methylation and expression observed genome-wide.
+The pattern suggests that elevated gene-body methylation on the hemizygous female Z
 may contribute to its transcriptional upregulation toward diploid levels,
 consistent with gene-body methylation facilitating active transcription.
+If this association reflects a conserved feature of coleoid dosage compensation,
+it would represent the longest-maintained epigenetic sex-chromosome signature described
+in any animal---exceeding the $\sim$170~MY mammalian and $\sim$100~MY avian systems
+by more than 100~MY.
 Direct comparison of Z versus autosomal methylation within each sex
 confirms that the effect is larger in females than males
 (\hyperref[sec:supp_methylation]{Supplemental Results}; Figure~\ref{fig:meth_auto_vs_z}).
-However, the relationship between methylation and dosage compensation remains complex,
-as methylation differences do not fully explain the residual male bias in Z-linked expression.
+We report differential methylation as Male~$-$~Female rather than as a ratio
+because the subtraction is symmetric around zero and directly interpretable
+when comparing chromosomes with different baseline methylation levels.
+However, the relationship between methylation and dosage compensation remains complex:
+gene-body methylation correlates with accumulated transcript levels,
+which reflect both transcription rate and mRNA stability,
+and methylation differences alone do not fully explain the residual male bias in Z-linked expression.
 
 
 \subsection*{The Z chromosome is enriched for chromatin-modifying genes}
 Strong conservation of the Z chromosome across coleoid cephalopods implies
 that its gene content has been subject to long-term selective pressures that
 likely include the maintenance of dosage compensation.
-To investigate this, we used reciprocal best-hit (RBH) orthology mapping
+If dosage compensation depends on chromosome-wide epigenetic regulation,
+then genes encoding proteins that modify chromatin structure---histone
+methyltransferases, acetyltransferases, remodelers, and related
+factors (hereafter ``chromatin-modifying genes'')---might be selectively
+retained on the Z to maintain \textit{cis}-regulatory control.
+To test this prediction, we used reciprocal best-hit (RBH) orthology mapping
 to identify genes with conserved Z-linkage
 at increasing levels of phylogenetic stringency.
+This gene-level orthology analysis complements the whole-chromosome
+synteny shown in Figure~\ref{fig:phylo}: whereas synteny analysis reveals
+that the Z chromosome is preserved as a macro-syntenic block,
+the orthology approach asks which individual genes have remained on the Z
+versus translocated to autosomes.
 For these analyses, we included an eighth species,
 \textit{Octopus vulgaris}, whose genome is available
 and in which dosage compensation has been recently reported \citep{papanicolaou2024z}.
-Requiring Z-linkage across four species
-(\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris})
-identified 188 conserved genes (i.e. genes found on Z in all four species);
+We anchored the analysis on \textit{O. bimaculoides}, for which we have the
+deepest expression data (30 somatic samples; see below).
+Of 639 genes annotated on the \textit{O. bimaculoides} Z chromosome,
+20 are chromatin-modifying genes.
+Requiring that a gene be Z-linked in all four of
+\illex, \textit{O. bimaculoides}, \textit{S. oualaniensis}, and \textit{O. vulgaris}
+retained 188 genes (29\% of the 639);
 extending the requirement to all eight species reduced this to 132
 (Table~\ref{tab:conserved_z_genes}).
+The drop from 188 to 132 conserved genes when extending from four
+to eight species represents 70\% retention---modest given the
+$>$300~MY evolutionary distances involved.
 
 \begin{table}[tbp]
 \centering
@@ -503,13 +545,23 @@ Additional deeply conserved Z-linked chromatin modifiers include
 \textit{ELM2-domain} (NuRD/HDAC remodeler),
 \textit{THOC6} (THO/TREX mRNA export), and \textit{PAN3} (mRNA deadenylase).
 \textit{TDRD3} (Tudor-domain methyl reader), present in the 4-species core,
-drops out at 6 species, suggesting lineage-specific loss.
+drops out at 6 species, suggesting lineage-specific loss from the Z.
+More generally, translocation of a Z-linked gene to an autosome
+would remove it from the compensation machinery that upregulates
+Z-linked loci in females, potentially producing a dosage imbalance
+that selects against such rearrangements.
+Outright gene loss, by contrast, escapes this constraint.
 Notably, the WRAD scaffold subunits shared by all COMPASS-family complexes
 (\textit{WDR5}, \textit{RBBP5}, \textit{ASH2L}) are autosomal,
 indicating that the Z-linked chromatin regulators
 do not constitute a single complex
 but rather represent convergent enrichment
 of multiple independent chromatin pathways on the sex chromosome.
+The involvement of multiple pathways---histone methylation, acetylation,
+variant-histone deposition, and chromatin remodeling---is consistent
+with the multi-layered nature of dosage compensation itself,
+which likely requires coordinated regulation across several chromatin marks
+rather than a single switch.
 
 \begin{table}[tbp]
 \centering
@@ -1969,6 +2021,7 @@ will be deposited at [TBD].
 
 \section*{Acknowledgements}
 
+\printbibliography
 \clearpage
 \beginsupplement
 
@@ -2516,5 +2569,4 @@ Accession prefixes: SRR (NCBI SRA), CRR (CNGB Sequence Archive).}
  & PRJNA1336213 & SRR35682691 & M & Brain \\
 \end{longtable}
 
-\printbibliography
 \end{document}
