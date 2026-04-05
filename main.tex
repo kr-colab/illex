@@ -210,7 +210,7 @@ leaving the prevalence and molecular basis of compensation across cephalopods un
 
 Here we present a chromosome-scale genome assembly of the northern shortfin squid,
 \illex, and identify its Z chromosome via synteny and coverage analyses.
-We then test for dosage compensation across seven cephalopod species
+We then use transcriptomic data to test for dosage compensation across seven cephalopod species
 spanning five orders and over 300 million years of divergence,
 establishing that compensation of the Z chromosome is ancestral to coleoid cephalopods.
 To investigate the molecular underpinnings of this compensation,
@@ -318,6 +318,7 @@ limits the precision of this estimate.
     The Z chromosome shows a modest but significant male bias
     (median M:F = 1.15 vs.\ 0.99 for autosomes; p = 0.037, Wilcoxon rank-sum test),
     consistent with partial dosage compensation (n = 1 per sex).
+    Variation in median expression among autosomes (e.g.\ the relatively low values for chr15) reflects differences in gene number and composition across chromosomes.
     Dosage compensation results for six additional cephalopod species, most with biological replication, are shown in Figures S1--S6.}
     \label{fig:cross_species_dc}
 \end{figure}
@@ -418,7 +419,10 @@ and thus offers the opportunity to discover novel mechanisms of sex chromosome r
     The Z chromosome (red) shows strongly negative values, indicating higher methylation in females.
     (B) Summary comparison of differential methylation between autosomes and the Z chromosome.
     The Z chromosome is significantly hypermethylated in females relative to males
-    (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test).}
+    (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test).
+    The extreme statistical significance reflects the large number of individual genes
+    in the rank-sum test (188 Z-linked vs.\ 11,459 autosomal), which provides
+    high power to detect distributional shifts even when box-plot whiskers overlap.}
     \label{fig:methylation}
 \end{figure}
 \subsection*{DNA methylation patterns on the Z chromosome}
@@ -442,6 +446,9 @@ indicating equivalent methylation between sexes (Figure~\ref{fig:methylation}A).
 In contrast, the Z chromosome exhibited strongly negative differential methylation,
 demonstrating that females have substantially higher methylation on the Z than males
 (p = 5.37$\times$10$^{-44}$, Wilcoxon rank-sum test; Figure~\ref{fig:methylation}B).
+The Z chromosome also shows greater variance in differential methylation than individual autosomes,
+likely reflecting the smaller number of Z-linked genes and the hemizygous state in females,
+which eliminates allelic averaging.
 
 This female-specific hypermethylation of the Z chromosome is notable given the positive correlation
 between gene-body methylation and expression observed genome-wide.
@@ -1519,6 +1526,12 @@ conserved across $\sim$300~MY.
 Identifying the protein partners of \textit{Zmast} and \textit{Zfest}---through
 CLIP-seq, RNA pulldown, or proximity labeling---is
 the single most important experiment for testing these models.
+Equally important is determining which cell types express these lncRNAs
+and when during development their expression initiates;
+our bulk adult somatic RNA-seq cannot resolve these questions,
+but single-cell and developmental time-course data
+would clarify whether \textit{Zmast} and \textit{Zfest}
+act globally or in specific tissue contexts.
 Complementary approaches---CRISPR disruption of \textit{Zfest},
 ATAC-seq to map sex-specific chromatin accessibility across the Z,
 and ChIP-seq for H3K4me3 at Z-linked chromatin modifier loci---would
