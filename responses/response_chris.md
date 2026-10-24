@@ -34,8 +34,18 @@ Analysis scripts and the data-source list are not in the repo; they are on the c
 | SRR32732124 (MPI Brain Research, somatic tissue) | not recorded | 0.85 | 6th lowest (z = −1.6; autosomes 0.79–1.1) | **male** (ZZ) |
 | ERR16728563 (Darwin Tree of Life, tentacle) | not collected | – | – | unusable: ~1% of reads map to *S. officinalis* |
 
-So the library labelled "male" in ENA is in fact female, and *Sepia* has one usable library of each sex. That makes a male-vs-female comparison of *Zmast*/*Zfest* contacts possible: *Zmast* is expressed in the male library's sex. The two libraries come from different labs, tissues and depths, so any contrast would need to be read conservatively.
-**Proposed action:** report the *Illex* result as a negative result (one sentence or a supplementary panel) with both caveats. Optionally run the same virtual-4C on the *Sepia* pair to test whether *Zmast* contacts differ in the sex that expresses it.
+So the library labelled "male" in ENA is in fact female. That female library is also of low Hi-C quality: ~93% of same-chromosome pairs are unligated fragments < 1 kb apart, so only ~9% of pairs are informative (vs ~43% in the male library). At equal depth it would give ~10× fewer Z contacts, so we did not analyse it.
+
+**Male *Sepia* (SRR32732124; *Zmast* expressed).** We repeated the virtual 4C on 60 M read pairs of the male library: each mate mapped to xcSepOffi3.1, MAPQ ≥ 30, deduplicated; 353,715 Z-involving pairs, 43,054 long-range Z–Z contacts; Z matrix ICE-balanced within the Z, 50 kb. Viewpoints: *Zmast* OZ199189.1:5.759–5.765 Mb, *Zfest* 54.476–54.498 Mb (`responses/sepia_zmast_zfest_hic_summary.tsv`, `responses/figs/sepia_zmast_zfest_virtual4C.png`).
+
+| viewpoint (male *Sepia*) | long-range obs/exp | pctile | top-1% partner bins | pctile | cis (Z) fraction | pctile |
+|---|---|---|---|---|---|---|
+| *Zmast* | 1.04 | 61st | 6 | 12th | 0.46 | 54th |
+| *Zfest* | 1.15 | 86th | 5 | 8th | 0.57 | 99th |
+| all Z bins (5–95%) | 0.76–1.23 | | 4–27 | | 0.38–0.54 | |
+
+**Result: in the sex that expresses it, the *Zmast* locus also shows no specific long-range contacts with the Z.** It is an ordinary Z bin on every metric, as in female *Illex*. *Zfest* has an unusually high cis fraction in male *Sepia* (99th percentile), but it is silent in males and was unremarkable in *Illex* (43rd percentile), so we don't read anything into it.
+**Proposed action:** report as a negative result across two species and both sexes (one sentence + supplementary panel), keeping the caveat that Hi-C reports where the locus sits, not where the RNA goes.
 
 ### Is there really no W? [DONE + OPEN]
 **Response.** We did not karyotype or FISH; the ZO inference rests on read depth. Evidence against a W:
