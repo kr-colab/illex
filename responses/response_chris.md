@@ -4,7 +4,7 @@ DRAFT, 2026-10-19. New analyses are **not** in `main.tex`; each point ends with 
 Tags: **[DONE]** analysis run · **[TEXT]** wording only · **[OPEN]** needs a decision or data we don't have.
 Analysis scripts and the data-source list are not in the repo; they are on the cluster at `/sietch_colab/data_share/illex/genome_paper/responses/` (`scripts/`, `missing_data.md`). Most cross-species inputs are Andy's canonical outputs in `/sietch_colab/adkern/illex/`, which we used read-only.
 
-> **Note for authors before revising.** Several manuscript numbers do not match Andy's *current* canonical result files. Before anything goes into the text we should decide which version is authoritative (see the end of this document).
+> **Note for authors before revising.** The canonical DESeq2 run is `obimaculoides/results/deseq2_sex_effect.csv` (30 somatic samples, 15F:15M, `--no-tissue`), and the manuscript numbers come from it. Where they differ from the numbers below, the cause is a later step (transcript-to-gene collapse, LINE window, fold-change filter). The decisions are listed at the end of this document.
 
 ---
 
@@ -128,11 +128,11 @@ Agreed. The Z is more methylated than autosomes in **both** sexes (gene-body med
 ## Figure 4: male-biased genes vs escapees [DONE: supports Chris]
 **Analysis** (Andy's canonical table `obimaculoides/results/z_gene_line_motif_data.tsv`, 298 expressed Z genes, 30 somatic samples of mixed tissue).
 - **Every** significantly male-biased Z gene (n = 24) has log₂FC > 1: median 2.18, IQR 1.64–3.89, max 9.75; 79% exceed 1.5. Failure to compensate can give at most a 2× male excess (log₂FC = 1). **These genes are actively upregulated in males**, not merely escaping compensation. Chris's alternative is supported.
-- In the current canonical table, LINE density does not differ significantly between male- and female-biased Z genes (198 vs 139 bp/kb, MWU p = 0.14; 24M:6F). The manuscript's 174.2 vs 122.0, p = 0.029 (29M:18F) comes from an earlier gene set; see the note at the end.
+- The male- vs female-biased LINE comparison depends on two choices that are inconsistent across the Results, the figure, the Methods and the script. (1) Transcript-to-gene collapse: the manuscript's 29M:18F (47 genes) uses the lowest-padj transcript per gene; Methods and the script use the highest-baseMean transcript, which gives 24M:6F. (2) LINE window: a window that includes the gene body gives p = 0.01; flanks only gives p = 0.14–0.27. So the simple M vs F contrast is sensitive to the window; see the note at the end.
 - The RTE-BovB × Motif B interaction is robust (p = 0.007; 0.004 with an expression covariate).
 - Heterochromatin as a refuge for male-beneficial genes (cf. ex-Y genes in *Drosophila*) is a good alternative reading of the LINE-dense, male-biased pattern.
 
-**Proposed action:** reframe Fig. 4 as "male-biased Z genes", not "escapees"; state that the effect sizes exceed dosage expectations; discuss the sexual-antagonism/heterochromatin-refuge alternative; update the LINE statistics to the canonical version (or explain the difference). Tissue: *O. bimaculoides*, 30 somatic samples of mixed tissue (Table S#), stated in the legend.
+**Proposed action:** reframe Fig. 4 as "male-biased Z genes", not "escapees"; state that the effect sizes exceed dosage expectations; discuss the sexual-antagonism/heterochromatin-refuge alternative; use the highest-baseMean transcript per gene (24M:6F) throughout, choose one LINE window, state it in the Methods and regenerate the figure from the script. Tissue: *O. bimaculoides*, 30 somatic samples of mixed tissue (Table S#), stated in the legend.
 
 ---
 
@@ -179,12 +179,14 @@ Both lncRNAs are expressed in every somatic tissue of the expressing sex (the ot
 ---
 
 ## Note for authors: manuscript numbers that differ from Andy's current outputs
-| Manuscript | Current canonical output | Where |
-|---|---|---|
-| LINE density M vs F-biased Z genes 174.2 vs 122.0, p = 0.029 (29M:18F) | 198 vs 139, p = 0.14 (24M:6F) | `obimaculoides/results/z_gene_line_motif_data.tsv` |
-| 47 sex-biased Z genes (18 F) in the motif analysis | 30 at padj < 0.05, \|lfc\| > 1 (6 F) | same |
-| Four genes with bidirectional isoform switching incl. Z-linked *Domino* | 3 chromatin genes switch, none Z-linked | `obimaculoides/results/deseq2_sex_effect.csv` |
-| "Genome-wide" methylation–expression r = 0.396 | ~200-gene table; genome-wide r ≈ 0.19 | `scripts/combine_exp_meth.ipynb` |
-| "Synteny breaks down on every chromosome except the Z" | Z ranks 11/46; chr3, chr11 more conserved | this response |
+Canonical DESeq2 run: `obimaculoides/results/deseq2_sex_effect.csv` (30 somatic, 15F:15M, `--no-tissue`). The manuscript numbers come from this run; the differences arise in later steps.
 
-Andy should confirm which DESeq2 version is canonical before any numbers are changed.
+| Manuscript | Cause of difference | Decision |
+|---|---|---|
+| 47 sex-biased Z genes (29M:18F) in the motif/LINE analysis | Lowest-padj transcript per gene; Methods and script use highest baseMean (24M:6F, 30 genes) | Use highest baseMean; update the text |
+| LINE density M vs F-biased Z genes 174.2 vs 122.0, p = 0.029 | LINE window differs between Results, figure, Methods and script: gene body included p = 0.01; flanks only p = 0.14–0.27 | Choose one window, state it in Methods, regenerate the figure from the script |
+| Four genes with bidirectional isoform switching incl. *Domino* | padj < 0.05 with no fold-change filter; with \|lfc\| > 1 it is 3 genes (*PBRM1*, *SMARCC2*, *KDM3A*) | State the threshold |
+| "Genome-wide" methylation–expression r = 0.396 | ~200-gene table; genome-wide r ≈ 0.19 (`scripts/combine_exp_meth.ipynb`) | Open |
+| "Synteny breaks down on every chromosome except the Z" | Z ranks 11/46; chr3, chr11 more conserved (this response) | Open |
+
+Still to decide: which LINE window to use.

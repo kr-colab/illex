@@ -1,7 +1,7 @@
 # Response to Mia's comments
 
 DRAFT, 2026-10-19. New analyses are **not** in `main.tex`; each point ends with a proposed action.
-Tags: **[DONE]** · **[TEXT]** · **[OPEN]**. Analysis scripts and the data-source list are not in the repo; they are on the cluster at `/sietch_colab/data_share/illex/genome_paper/responses/` (`scripts/`, `missing_data.md`). Cross-species inputs are Andy's canonical outputs (`/sietch_colab/adkern/illex/`), used read-only. See also the note on version mismatches at the end of `response_chris.md`.
+Tags: **[DONE]** · **[TEXT]** · **[OPEN]**. Analysis scripts and the data-source list are not in the repo; they are on the cluster at `/sietch_colab/data_share/illex/genome_paper/responses/` (`scripts/`, `missing_data.md`). Cross-species inputs are Andy's canonical outputs (`/sietch_colab/adkern/illex/`), used read-only. See also the note on manuscript numbers at the end of `response_chris.md`.
 
 ---
 
@@ -37,7 +37,7 @@ So the pattern is a **chromosome-wide female-biased state**, not a gene-by-gene 
 **Genome-wide controls** (Andy's classifier: `results/chromatin_genes_ille.csv`, 156 chromatin genes across the *Illex* genome):
 - **The Z is the most chromatin-gene-dense chromosome in the genome**: 3.9 per 100 genes vs an autosomal median of 0.68 and maximum of 1.94 (rank 1/46; Fisher OR = 5.9, p = 7×10⁻⁶).
 - **The conservation effect is Z-specific.** On autosomes, genes whose linkage is conserved across six species are *not* enriched for chromatin genes (OR = 0.85, p = 0.47); on the Z the same comparison trends positive (OR = 3.3, small n). Chromatin genes are not generally more conserved in linkage, so the Z result is not a generic property of chromatin genes.
-- **Isoform switching is *not* special on the Z.** Using Andy's canonical *O. bimaculoides* DESeq2 (transcript level), bidirectional sex-biased isoform switching occurs in 0.73% of multi-isoform Z genes vs 0.88% on autosomes (Fisher p = 1). Chromatin genes switch somewhat more often than other genes (2.6% vs 0.8%, OR = 3.2, p = 0.08), but **none of the switching chromatin genes is Z-linked** in the current results (0/12 on Z; *PBRM1*, *SMARCC2*, *KDM3A* are autosomal).
+- **Isoform switching is *not* special on the Z.** Using Andy's canonical *O. bimaculoides* DESeq2 (transcript level), bidirectional sex-biased isoform switching occurs in 0.73% of multi-isoform Z genes vs 0.88% on autosomes (Fisher p = 1). Chromatin genes switch somewhat more often than other genes (2.6% vs 0.8%, OR = 3.2, p = 0.08), but **none of the switching chromatin genes is Z-linked** in the current results (0/12 on Z; *PBRM1*, *SMARCC2*, *KDM3A* are autosomal). The manuscript's four switching genes (incl. *Domino*) use padj < 0.05 with no fold-change filter; with |lfc| > 1 there are three. The text should state the threshold.
 
 **Proposed action.** Separate two claims the manuscript currently merges: (a) the Z is unusually enriched for chromatin genes (robust and Z-specific: keep, with the genome-wide comparison); (b) sex-biased isoform switching of chromatin regulators tracks compensation (involves autosomal genes, so not a Z-linked mechanism; frame accordingly). Present dosage sensitivity and sex determination as candidate explanations for (a) (see Chris's Table 3 point), not "retained to maintain cis-regulatory control".
 
@@ -52,10 +52,10 @@ So the pattern is a **chromosome-wide female-biased state**, not a gene-by-gene 
 - So the LINE-associated pattern is **not** explained by lower expression or dynamic range.
 
 **Two caveats we should state.**
-- In the current canonical table the simple male- vs female-biased LINE comparison is not significant (198 vs 139 bp/kb, p = 0.14). The manuscript's p = 0.029 comes from an earlier gene set. The interaction model is the robust result.
+- The simple male- vs female-biased LINE comparison depends on the LINE window: including the gene body gives p = 0.01; flanks only gives p = 0.14–0.27 (highest-baseMean transcript per gene, 24M:6F). The interaction model is the robust result.
 - All significantly male-biased Z genes have log₂FC > 1 (median 2.2), i.e., more than the 2× expected from simple failure to compensate. They are actively male-upregulated, so calling them "escapees" is not accurate (see Chris, Fig. 4).
 
-**Proposed action:** add the expression-matched control (one sentence + supplementary table), update the LINE statistics to the canonical version, and rename the category "male-biased" rather than "escape".
+**Proposed action:** add the expression-matched control (one sentence + supplementary table), use one LINE window throughout (stated in Methods, figure regenerated from the script), and rename the category "male-biased" rather than "escape".
 
 ---
 
