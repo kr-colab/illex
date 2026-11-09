@@ -274,7 +274,7 @@ is largely maintained, with a number of rearrangements, fusions, and fissions.
 However, when comparing out to octopus, synteny breaks down on every chromosome except the Z.
 The Z chromosome has maintained its integrity as a distinct chromosomal unit for over 300 million years of evolution,
 making it one of the oldest known sex chromosome systems in animals.
-%These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on chromosome 42,
+%These syntenic relationships, combined with coverage analysis showing reduced female-to-male mapping ratios on the Z (the 46th scaffold),
 %confirm that this chromosome represents the Z chromosome in \illex, consistent with the ZZ/ZO sex determination system described in other coleoid cephalopods.
 
 \subsection*{Partial dosage compensation of the Z chromosome in \illex}
@@ -2199,10 +2199,11 @@ indicating that co-regulation extends only to immediate neighbors.
     \centering
     \includegraphics[width=\linewidth]{figures/illex_chrom_seq_depth.png}
     \caption{PacBio HiFi read depth across \illex chromosomes in female and male individuals.
-    Normalized read depth is shown for each chromosome.
-    Autosomes show comparable depth between sexes,
-    while the Z chromosome (chr42) shows reduced coverage in the female
-    relative to the male, consistent with hemizygosity in the ZO female.}
+    Depth in 50~kb windows is shown relative to each individual's median autosomal window depth
+    (1.0 = diploid; dotted line at 0.5 = hemizygous).
+    Autosomes show comparable depth between sexes (median female/male ratio 1.00),
+    while the Z chromosome is at half depth in the female (0.49) but not the male (0.95),
+    consistent with hemizygosity in the ZO female.}
     \label{fig:seq_depth}
 \end{figure}
 
